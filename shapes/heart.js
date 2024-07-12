@@ -1,18 +1,21 @@
-// https://mathcurve.com/courbes2d.gb/croixdemalte/croixdemalte.shtml
+// 
 
-class MalteseCross {
+class Heart {
   constructor(x, y, r) {
     this.x = x;
     this.y = y;
-    this.r = r;
-    this.a = 3;
+    this.r = r / 4;
     this.points = [];
   }
 
   addPoints() {
-    for (let theta = 0; theta < TWO_PI; theta += 0.1) {
-      let x = this.r * +cos(theta) * (pow(cos(theta), 2) - this.a);
-      let y = this.r * +sin(theta) * pow(cos(theta), 2);
+    for (let theta = 0; theta < 2 * PI; theta += 0.1) {
+      let x = this.r * 16 * pow(sin(theta), 3);
+      let y =
+        this.r * 13 * cos(theta) -
+        5 * cos(2 * theta) -
+        2 * cos(3 * theta) -
+        cos(4 * theta);
       this.points.push(createVector(x, y));
     }
   }

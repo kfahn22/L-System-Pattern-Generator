@@ -6,59 +6,57 @@ let sentence;
 let rules = {};
 let lsystem;
 let lf;
-let level = 3;
+let level = 4;
 let s; // shape
 let c; // color palette
 n = -0.5;
-let length = 11; // 18
+let length = 10; // 18
 r = length;
 a = 0.5;
 dir = -1;
-let fl = false;
-
-// let wSlider, hSlider, lSlider;
-// let patternArray = { none: "1", board: "1", bush: "2" };
+let fl = true;
 
 let patterns = [
   "none", //0
   "algae",
   "board",
-  "bush",
-  "circular", // 4
+  "board2",
+  "bush", //4
+  "circular", // 5
   "cross1",
   "cross2",
   "cross3",
   "cross4",
   "crystal",
-  "dragon1", //10
+  "dragon1", //11
   "dragon2",
-  "fern",
+  "fern", //13
   "hexagonal gosper",
   "hilbert",
-  "kolam", // 15
+  "kolam", // 16
   "koch curve",
-  "krishna_anklet", // 17
+  "krishna_anklet", // 18
   "koch_snowflake",
-  "leaf", //16
-  "mango_leaf",
-  "peano", // 18
-  "pentaplexity",
+  "leaf", //20
+  "mango_leaf", //21
+  "peano", // 22
+  "pentaplexity", //23
   "quadratic gosper",
-  "quadratic koch island", // 21
-  "rings",
-  "snake kolam", // 23
+  "quadratic koch island", // 24
+  "rings", //26
+  "snake kolam", // 
   "skierpinski", // 24
   "square skierpinski",
   "sticks",
-  "tree", //27
+  "tree", //31
   "tiles",
   "triangle",
-  "weed", // 30
+  "weed", // 34
 ];
-let currentPattern = patterns[18];
+let currentPattern = patterns[13];
 let alpha = 150;
-let wadj = 0.26;
-let hadj = 0.57;
+let wadj = 0.5;
+let hadj = 0.95;
 let sw = 2;
 
 let shapes = [
@@ -75,17 +73,16 @@ let shapes = [
   "kiss", //10
   "knot", //11
   "line", //12
-  // "nodal",
-  "ophiuroid",
-  "rose", // 13
-  "quadrifolium", // 14
-  "spiral", // 15
-  // "strophoid", //
-  "supershape", // 16
-  "tear", // 17
+  // "ophiuroid",
+  // "rose", // 13
+  "quadrifolium", // 13
+  "spiral", // 14
+  "supershape", // 15
+  "tear", // 16
+  "tetracuspid",
   "zigzag", // 18
 ];
-let sh = shapes[0];
+let sh = shapes[17];
 
 //bright
 let palette1 = [
@@ -116,10 +113,10 @@ let palette3 = [
 
 // blues
 let palette4 = [
-  [218, 227, 229, 100],
-  [187, 209, 234, 100],
-  [161, 198, 234, 100],
-  [80, 125, 188, 100],
+  [218, 227, 229, 150],
+  [187, 209, 234, alpha],
+  [161, 198, 234, alpha],
+  [80, 125, 188, alpha],
   [4, 8, 15, 255],
 ];
 
@@ -151,16 +148,84 @@ let palette7 = [
 ];
 
 let palette8 = [
-  [9, 82, 86, alpha],
+  [9, 82, 86, 100],
   [8, 127, 140, alpha],
   [90, 170, 149, alpha],
   [134, 168, 115, alpha],
   [255, 255, 255, 255],
 ];
 
+let palette9 = [
+  [239,118,122, alpha],
+  [125,122,188, alpha],
+  [100,87,166, alpha],
+  [255,227,71, alpha],
+  [4,42,53,255]
+]
+
+let palette10 = [
+  [203,255,140, alpha],
+  [185,216,194, alpha],
+  [100, 87, 166, alpha],
+  [238,132,52, alpha],
+  [2, 3, 0, 255],
+];
+
+let palette11 = [
+  [255, 221,73, alpha],
+  [104,182,132, alpha],
+  [254,144,0, alpha],
+  [60,105,151, alpha],
+  [0,21,20, 255],
+];
+let palette12 = [
+  [237, 173,199, 100],
+  [209,153,182, alpha],
+  [196,147,176, alpha],
+  [166,139,165, alpha],
+  [25,23,22,255],
+  // [92,93,103, 255],
+];
+
+let palette13 = [
+  [79,93,117, 100],
+  [191,192,192, alpha],
+  [255,255,255, alpha],
+  [239,131,84, alpha],
+  [45,49,66,255]
+]
+
+// purple/aqua
+let palette14 = [
+  [151,216,178, 255],
+  [160,172,173, alpha],
+  [83,18,83, alpha],
+  [51,3,47, alpha],
+  [23,3,18, 255],
+];
+
+// aqua/blue
+let palette15 = [
+  [202,240, 248, 255],
+  [144,224,239, alpha],
+  [0,180,216, alpha],
+  [0,119,182, alpha],
+  [3,4,94, 255],
+];
+
+// greens
+let palette16 = [
+  [80,75,58, 255],
+  [110,111,88, alpha],
+  [125,133,112, alpha],
+  [175,190,143, alpha],
+  [38,96,164, 255],
+];
+
+
 // let c1 = color(255, 149, 140);
 // let c2 = color(238, 133, 181);
-let currentPalette = palette6;
+let currentPalette = palette16;
 
 function preload() {
   loadJSON("rules.json", loadLSystem);
@@ -250,7 +315,6 @@ function turtle() {
         }
         s.show();
       }
-      // s.show(c);
       else {
         c = chooseColor(currentPalette);
         stroke(c);
@@ -273,9 +337,7 @@ function turtle() {
       push();
       scale(lf);
       pop();
-      //length = length * lf;
     } else if (current == "<") {
-      //length = length / lf;
       push();
       scale(1 / lf);
       pop();
@@ -287,27 +349,13 @@ function turtle() {
       beginShape();
     } else if (current == "}") {
       noStroke();
-      fill(currentPalette[1]);
+      fill(currentPalette[0]);
       endShape();
-    } else if (current == "#") {
-      t.show();
     }
   }
 }
-// let shapes = [
-//   "archimedes spiral",
-//   "ceva",
-//   "cross",
-//   "deltoid",
-//   "kiss",
-//   "knot",
-//   "quadrifolium",
-//   "spiral",
-//   "tear",
-// ];
 
 function addShape() {
-  //let r = lSlider.value();
   if (sh === "archimedes spiral") {
     s = new ArchimedesSpiral(0, 0, length * 0.4, -1, (PI * 10) / 8);
     s.addPoints();
@@ -332,13 +380,8 @@ function addShape() {
   } else if (sh === "eight") {
     s = new Eight(0, 0, length * 0.75);
     s.addPoints();
-  } else if (sh === "ellipse") {
-    ellipse(0, 0, length * 0.5, length * 0.5);
   } else if (sh === "gear") {
     s = new Gear(0, 0, length * 0.75, 8);
-    s.addPoints();
-  } else if (sh === "leaf") {
-    s = new Strophoid(0, 0, length * 0.5);
     s.addPoints();
   } else if (sh === "line") {
     s = null;
@@ -351,31 +394,35 @@ function addShape() {
   } else if (sh === "knot") {
     s = new Knot(0, 0, length / 4);
     s.addPoints();
-  } else if (sh === "ophiuroid") {
-    s = new Ophiuroid(0, 0, length / 4);
-    s.addPoints();
-    // } else if (sh === "nodal") {
-    // s = new Nodal(0, 0, length/2, 1);
-    // s.addPoints();
   } else if (sh === "quadrifolium") {
     s = new Quadrifolium(0, 0, length * 0.75);
     s.addPoints();
-  } else if (sh === "rose") {
-    s = new Rose(0, 0, length * 0.175, 2, 5, 8);
-    s.addPoints();
+    // } else if (sh === "rose") {
+    //   s = new Rose(0, 0, length * 0.175, 2, 5, 8);
+    //   s.addPoints();
+
+    // n = 1 Archimedian Spiral
+    // n = -1 Hyperbolic Spiral
+    // n = 1/2 Fermat spiral
+    // n = -1/2 Lituus spiral
+    // n = 2 Galilean spiral
   } else if (sh === "spiral") {
     s = new Spiral(0, 0, dir, length, a, n, (PI * 10) / 8);
+    //s = new Spiral(0, 0, dir, length, .5, -0.5, 0);
     s.addPoints();
     // square new Supershape(0, 0, length * 0.75, 4);
     // circle new Supershape(0, 0, length * 0.75, 0);
   } else if (sh === "supershape") {
-    s = new Supershape(0, 0, length * 0.75, 0);
+    s = new Supershape(0, 0, length * 0.5, 7);
+    s.addPoints();
+     } else if (sh === "tetracuspid") {
+    s = new Tetracuspid(0, 0, length * 0.5);
     s.addPoints();
   } else if (sh === "tear") {
-    s = new TearDrop(0, 0, length * 1);
+    s = new TearDrop(0, 0, length * 1, PI);
     s.addPoints();
   } else if (sh === "zigzag") {
-    s = new Zigzag(0, 0, length / 2);
+    s = new Zigzag(0, 0, length / 2, PI);
     s.addPoints();
   }
 }

@@ -1,18 +1,18 @@
-// https://mathcurve.com/courbes2d.gb/croixdemalte/croixdemalte.shtml
+// https://mathcurve.com/courbes2d.gb/bicorne/bicorne.shtml
 
-class MalteseCross {
+class Bicorn {
   constructor(x, y, r) {
     this.x = x;
     this.y = y;
     this.r = r;
-    this.a = 3;
+    this.a = 1;
     this.points = [];
   }
 
   addPoints() {
     for (let theta = 0; theta < TWO_PI; theta += 0.1) {
-      let x = this.r * +cos(theta) * (pow(cos(theta), 2) - this.a);
-      let y = this.r * +sin(theta) * pow(cos(theta), 2);
+      let x = this.r * this.a * sin(theta);
+      let y = (this.r * this.a * pow(cos(theta), 2)) / (2 + cos(theta));
       this.points.push(createVector(x, y));
     }
   }

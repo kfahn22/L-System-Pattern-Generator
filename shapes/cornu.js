@@ -48,20 +48,6 @@ class CornuSpiral {
     push();
     translate(this.x, this.y);
     rotate(this.angle);
-    let c;
-    let r = random(1);
-    if (r <= 0.25) {
-      c = color(209, 210, 249);
-    } else if (r > 0.25 && r <= 0.5) {
-      c = color(163, 168, 249);
-    } else if (r > 0.5 && r <= 0.75) {
-      c = color(119, 150, 203);
-    } else if (r > 0.75) {
-      c = color(87, 100, 144);
-    }
-    stroke(c);
-    strokeWeight(1.2);
-    noFill();
     beginShape();
     for (let p of this.points) {
       vertex(p.x, p.y);

@@ -111,7 +111,7 @@
   "crystal": {
     "axiom": "F+F+F+F",
     "rules": {
-      "F": "FF+F++F+F"
+      "F": "{FF}+F++F+F"
     },
     "angle": "90",
     "length_factor": "1"
