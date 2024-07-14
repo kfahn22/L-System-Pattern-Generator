@@ -22,7 +22,7 @@ I also experimented added different spirals to the rule sets. This design was cr
 
 `s = new ArchimedesSpiral(0, 0, length * 0.4, -1, 0);`
 
-<p align="center"><img src="assets" alt="Board rule-set with archimedian spiral" width="300px"></p>
+<p align="center"><img src="assets/board-spiral.jpg" alt="Board rule-set with archimedian spiral" width="300px"></p>
 
 And here is a design with the Cross rule-set filled with a lituus-spiral.
 
@@ -31,7 +31,7 @@ And here is a design with the Cross rule-set filled with a lituus-spiral.
 `let dir = -1;`  
 `s = new Spiral(0, 0, dir, length, a, n, (PI * 10) / 8);`
 
-<p align="center"><img src="assets" alt="Cross rule-set with lituus spiral" width="300px"></p>
+<p align="center"><img src="assets/cross-lituus-spiral.jpg" alt="Cross rule-set with lituus spiral" width="300px"></p>
 
 Using the [supershape](https://thecodingtrain.com/challenges/23-2d-supershapes) expands the creative possibilities.  I used it in the Crystal rule-set with an alpha of 150 and different shades of the same color since the shapes overlap.
 
