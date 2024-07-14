@@ -4,9 +4,11 @@ From Wikipedia: "An L-system or Lindenmayer system is a parallel rewriting syste
 
 - [Fractal Trees L-system Coding Challenge](https://thecodingtrain.com/challenges/16-l-system-fractal-trees)
 
-- [Formulas for L-system by Paul Bourke](https://paulbourke.net/fractals/lsys/)
+I have used the [L-system formulas by Paul Bourke](https://paulbourke.net/fractals/lsys/) to generate these designs. The rulesets can be found in the ruleset.json file.  The code for the shapes is pulled from a couple of different sources: [the Code Train](https://thecodingtrain.com), [Mathcurve.com](https://mathcurve.com), and [Wolfram Mathworld](https://mathworld.wolfram.com/topics/Curves.html)
 
-I have experimented with inserting different shapes into an L-system. It is hard to predict, in advance, whether a particular rule-set/shape combination is going to produce a nice design, but trial and error have resulted in some pretty cool ones. I started by experimenting with the Dragon rule-set after becoming interested in the dragon fractal because of Daniel Shiffman's latest Coding Challenge. (Add link!) One of my favorites is this image, which was created using the Dragon rule-set filled with the Astroid (level 10).
+I have experimented with inserting different shapes--including spirals, ovals, and even the supershape--into different L-system rule-sets. It is hard to predict, in advance, whether a particular rule-set/shape combination is going to produce a nice design, but trial and error have resulted in some pretty cool ones.
+
+I started by experimenting with the Dragon rule-set after becoming interested in the dragon fractal after Daniel Shiffman did a Coding Challenge on the dragon. (Add link!) One of my favorites is this image, which was created using the Dragon rule-set filled with the Astroid (level 10).
 
 <p align="center"><img src="assets/dragon-astroid-filled.jpg" alt="Dragon rule-set with astroid" width="300px"></p>
 
@@ -33,7 +35,7 @@ And here is a design with the Cross rule-set filled with a lituus-spiral.
 
 <p align="center"><img src="assets/cross-lituus-spiral.jpg" alt="Cross rule-set with lituus spiral" width="300px"></p>
 
-Using the [supershape](https://thecodingtrain.com/challenges/23-2d-supershapes) expands the creative possibilities.  I used it in the Crystal rule-set with an alpha of 150 and different shades of blue since the shapes overlap.
+Using the [supershape](https://thecodingtrain.com/challenges/23-2d-supershapes) expands the creative possibilities. I used it in the Crystal rule-set with an alpha of 150 and different shades of blue since the shapes overlap.
 
 <p align="center"><img src="assets/crystal-supershape.jpg" alt="Crystal pattern with supershape" width="300px"></p>
 
@@ -72,7 +74,7 @@ Another example would be this image with the Peano rule-set and eight-curve.
 
 ## Fractal Trees
 
-Of course, one of the original applications for L-systems is creating realistic looking trees. I think adding a shape to the rule-set can improve the look of the trees.  For example, here is a tree using a regular line.
+Of course, one of the original applications for L-systems is creating realistic looking trees. I think adding a shape to the rule-set can improve the look of the trees. For example, here is a tree using a regular line.
 
 <p align="center"><img src="assets/tree-line.jpg" alt="Tree rule-set with line" width="300px"></p>
 
@@ -81,8 +83,6 @@ Tree with the supershape
 `s = new Supershape(0, 0, length * 0.5,  2.5, 0.4, 1, 2, 1, 4);`
 
 <p align="center"><img src="assets/tree-supershape.jpg" alt="Tree rule-set with supershape" width="300px"></p>
-
-
 
 ## 🌄 Gallery
 
