@@ -8,11 +8,11 @@ I have used the [L-system formulas by Paul Bourke](https://paulbourke.net/fracta
 
 I have experimented with inserting different shapes--including spirals, ovals, and even the supershape--into different L-system rule-sets. It is hard to predict, in advance, whether a particular rule-set/shape combination is going to produce a nice design, but trial and error have resulted in some pretty cool ones.
 
-I started by experimenting with the Dragon rule-set after becoming interested in the dragon fractal after Daniel Shiffman did a Coding Challenge on the dragon. (Add link!) One of my favorites is this image, which was created using the Dragon rule-set filled with the Astroid (level 10).
-
-<p align="center"><img src="assets/dragon-astroid-filled.jpg" alt="Dragon rule-set with astroid" width="300px"></p>
+Daniel Shiffman recently did a Coding Challenge on the dragon fractal, and my experiments started with the Dragon rule-set.  (Add link!) One of my favorites is this image, which was created using the Dragon rule-set filled with the Astroid (level 10).
 
 `s = new Astroid(0, 0, length * 0.5, 2);`
+
+<p align="center"><img src="assets/dragon-astroid-filled.jpg" alt="Dragon rule-set with astroid" width="300px"></p>
 
 I also really like this version with the eight curve.
 
@@ -20,7 +20,7 @@ I also really like this version with the eight curve.
 
 <p align="center"><img src="assets/dragon-eight.jpg" alt="Dragon rule-set with eight curve" width="300px"></p>
 
-I also experimented added different spirals to the rule sets. This design was created by adding the archimedian spiral to the board rule set.
+I also experimented added different spirals to the rule sets. This design was created by adding the Archimedes spiral to the board rule-set.
 
 `s = new ArchimedesSpiral(0, 0, length * 0.4, -1, 0);`
 
