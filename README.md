@@ -33,15 +33,19 @@ And here is a design with the Cross rule-set filled with a lituus-spiral.
 
 <p align="center"><img src="assets/cross-lituus-spiral.jpg" alt="Cross rule-set with lituus spiral" width="300px"></p>
 
-Using the [supershape](https://thecodingtrain.com/challenges/23-2d-supershapes) expands the creative possibilities.  I used it in the Crystal rule-set with an alpha of 150 and different shades of the same color since the shapes overlap.
+Using the [supershape](https://thecodingtrain.com/challenges/23-2d-supershapes) expands the creative possibilities.  I used it in the Crystal rule-set with an alpha of 150 and different shades of blue since the shapes overlap.
 
 <p align="center"><img src="assets/crystal-supershape.jpg" alt="Crystal pattern with supershape" width="300px"></p>
 
 `s = new Supershape(0, 0, length * 0.5,  2, 1, 0.7, 1.4, 0.5, 4);`
 
+Here is another design using the Crystal rule-set, but now with the ceva shape.
+
+`s = new Ceva(0, 0, length / 4);`
+
 <p align="center"><img src="assets/crystal-ceva.jpg" alt="Crystal pattern with ceva shape" width="300px"></p>
 
-Here are two differeent designs using the kiss curve:
+Changing the parameters in a curve can yield very different shapes, which lend themselves to different rule-sets. Here are two differeent designs using the kiss curve:
 
 Snake Kolam rule-set with kiss curve
 
