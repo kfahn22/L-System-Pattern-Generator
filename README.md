@@ -11,12 +11,25 @@ Coding Train Logo interpreter
 
 https://github.com/kfahn22/Apollonian-Gasket/edit/main/README.md
 
+This image was created using the Dragon rule-set filled with the Astroid.  The level was 10;
+
+<p align="center"><img src="assets/dragon-astroid-filled.jpg" alt="Dragon rule-set with astroid" width="300px"></p>
+
+ `s = new Astroid(0, 0, length * 0.5, 2);`
 
 This image was created using the Crystal rule-set filled with the Supershape. I used an alpha of 150 and different shades of the same color since the shapes overlap.
 
 <p align="center"><img src="assets/crystal-supershape.jpg" alt="Crystal pattern with supershape" width="300px"></p>
 
 `s = new Supershape(0, 0, length * 0.5,  2, 1, 0.7, 1.4, 0.5, 4);`
+
+
+Evergreen Tree
+
+<p align="center"><img src="assets/tree-supershape.jpg" alt="Tree rule-set with supershape" width="300px"></p>
+
+
+ `s = new Supershape(0, 0, length * 0.5,  2.5, 0.4, 1, 2, 1, 4);`
 
 
 ## 🌄 Gallery

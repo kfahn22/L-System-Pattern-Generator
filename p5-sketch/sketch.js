@@ -2,7 +2,7 @@
 // https://paulbourke.net/fractals/lsys/
 
 let alpha = 150;
-let alpha2 = 150;
+let alpha2 = 100;
 //bright
 let palette1 = [
   [6, 214, 160, 100],
@@ -14,8 +14,8 @@ let palette1 = [
 
 // greens and blues
 let palette2 = [
+  [112, 238, 156, alpha2],
   [181, 244, 74, alpha],
-  [112, 238, 156, 100],
   [121, 174, 163, alpha],
   [67, 67, 113, alpha],
   [13, 10, 11, 255],
@@ -194,17 +194,37 @@ let palette22 = [
   [3,4,94, 255],
 ];
 
+// more greens
+let palette23 = [
+  [204, 255, 51, alpha2],
+  [158, 240, 26, alpha],
+  [112, 224, 0, alpha],
+  [56, 176, 0, alpha],
+  [0,75,35, 255],
+  // [0, 0, 0, 255],
+];
+
+
+// brown and green
+let palette24 = [
+  [179,138,88, alpha2],
+  [111,115,47, alpha],
+  [60,82,51, alpha],
+  [38,64,39, alpha],
+  [13,31,34, 255],
+];
+
 
 
 
 
 // let c1 = color(255, 149, 140);
 // let c2 = color(238, 133, 181);
-let currentPalette = palette22;
+let currentPalette = palette2;
 
 // L-system variables
-let level = 3; // fractal level
-let length =18; // step length
+let level = 10; // fractal level
+let length = 10; // step length
 let axiom;
 let sentence;
 let rules = {};
@@ -218,10 +238,10 @@ let c; // color palette
 // r = length;
 // a = 0.5;
 //dir = -1;
-let fl = true; // whether the shapes are filled or stroke
+let fl = false; // whether the shapes are filled or stroke
 
-let wadj = 0.09; // amount to to translate in x direction
-let hadj = 0.89; // amount to to translate in y direction
+let wadj = 0.27; // amount to to translate in x direction
+let hadj = 0.57; // amount to to translate in y direction
 let sw = 2; // strokeweight
 
 let patterns = [
@@ -262,7 +282,7 @@ let patterns = [
   "weed", // 34
 ];
 
-let currentPattern = patterns[10];
+let currentPattern = patterns[11];
 
 let shapes = [
   "archimedes spiral", // 0
@@ -293,7 +313,7 @@ let shapes = [
   "tetracuspid",
   "zigzag", // 18
 ];
-let sh = shapes[20];
+let sh = shapes[1];
 
 
 
@@ -505,7 +525,7 @@ function addShape() {
   } else if (sh === "supershape") {
     // square new Supershape(0, 0, length * 0.75, 1, 1,1, 1, 1,4);
     // circle new Supershape(0, 0, length * 0.75,1, 1, 1, 1, 1, 0);
-    s = new Supershape(0, 0, length * 0.5,  2, 1, 0.7, 1.4, 0.5, 4);
+    s = new Supershape(0, 0, length * 0.5,  2.5, 0.4, 1, 2, 1, 4);
     s.addPoints();
   } else if (sh === "tetracuspid") {
     s = new Tetracuspid(0, 0, length * 0.5);
