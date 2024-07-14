@@ -1,89 +1,8 @@
 // Formulas for L-system by Paul Bourke
 // https://paulbourke.net/fractals/lsys/
 
-let axiom;
-let sentence;
-let rules = {};
-let lsystem;
-let lf;
-let level = 4;
-let s; // shape
-let c; // color palette
-n = -0.5;
-let length = 10; // 18
-r = length;
-a = 0.5;
-dir = -1;
-let fl = true;
-
-let patterns = [
-  "none", //0
-  "algae",
-  "board",
-  "board2",
-  "bush", //4
-  "circular", // 5
-  "cross1",
-  "cross2",
-  "cross3",
-  "cross4",
-  "crystal",
-  "dragon1", //11
-  "dragon2",
-  "fern", //13
-  "hexagonal gosper",
-  "hilbert",
-  "kolam", // 16
-  "koch curve",
-  "krishna_anklet", // 18
-  "koch_snowflake",
-  "leaf", //20
-  "mango_leaf", //21
-  "peano", // 22
-  "pentaplexity", //23
-  "quadratic gosper",
-  "quadratic koch island", // 24
-  "rings", //26
-  "snake kolam", // 
-  "skierpinski", // 24
-  "square skierpinski",
-  "sticks",
-  "tree", //31
-  "tiles",
-  "triangle",
-  "weed", // 34
-];
-let currentPattern = patterns[13];
 let alpha = 150;
-let wadj = 0.5;
-let hadj = 0.95;
-let sw = 2;
-
-let shapes = [
-  "archimedes spiral", // 0
-  "astroid", // 1
-  "bicorn", //2
-  "ceva", //3
-  "cornu", //4
-  "cross", //5
-  "deltoid", //6
-  "eight", //7
-  "gear", // 8
-  "heart", //9
-  "kiss", //10
-  "knot", //11
-  "line", //12
-  // "ophiuroid",
-  // "rose", // 13
-  "quadrifolium", // 13
-  "spiral", // 14
-  "supershape", // 15
-  "tear", // 16
-  "tetracuspid",
-  "zigzag", // 18
-];
-let sh = shapes[17];
-
+let alpha2 = 150;
 //bright
 let palette1 = [
   [6, 214, 160, 100],
@@ -156,76 +75,227 @@ let palette8 = [
 ];
 
 let palette9 = [
-  [239,118,122, alpha],
-  [125,122,188, alpha],
-  [100,87,166, alpha],
-  [255,227,71, alpha],
-  [4,42,53,255]
-]
+  [239, 118, 122, alpha],
+  [125, 122, 188, alpha],
+  [100, 87, 166, alpha],
+  [255, 227, 71, alpha],
+  [4, 42, 53, 255],
+];
 
 let palette10 = [
-  [203,255,140, alpha],
-  [185,216,194, alpha],
+  [203, 255, 140, alpha],
+  [185, 216, 194, alpha],
   [100, 87, 166, alpha],
-  [238,132,52, alpha],
+  [238, 132, 52, alpha],
   [2, 3, 0, 255],
 ];
 
 let palette11 = [
-  [255, 221,73, alpha],
-  [104,182,132, alpha],
-  [254,144,0, alpha],
-  [60,105,151, alpha],
-  [0,21,20, 255],
+  [255, 221, 73, alpha],
+  [104, 182, 132, alpha],
+  [254, 144, 0, alpha],
+  [60, 105, 151, alpha],
+  [0, 21, 20, 255],
 ];
 let palette12 = [
-  [237, 173,199, 100],
-  [209,153,182, alpha],
-  [196,147,176, alpha],
-  [166,139,165, alpha],
-  [25,23,22,255],
+  [237, 173, 199, 100],
+  [209, 153, 182, alpha],
+  [196, 147, 176, alpha],
+  [166, 139, 165, alpha],
+  [25, 23, 22, 255],
   // [92,93,103, 255],
 ];
 
 let palette13 = [
-  [79,93,117, 100],
-  [191,192,192, alpha],
-  [255,255,255, alpha],
-  [239,131,84, alpha],
-  [45,49,66,255]
-]
+  [79, 93, 117, 100],
+  [191, 192, 192, alpha],
+  [255, 255, 255, alpha],
+  [239, 131, 84, alpha],
+  [45, 49, 66, 255],
+];
 
 // purple/aqua
 let palette14 = [
-  [151,216,178, 255],
-  [160,172,173, alpha],
-  [83,18,83, alpha],
-  [51,3,47, alpha],
-  [23,3,18, 255],
+  [151, 216, 178, 255],
+  [160, 172, 173, alpha],
+  [83, 18, 83, alpha],
+  [51, 3, 47, alpha],
+  [23, 3, 18, 255],
 ];
 
 // aqua/blue
 let palette15 = [
-  [202,240, 248, 255],
-  [144,224,239, alpha],
-  [0,180,216, alpha],
-  [0,119,182, alpha],
-  [3,4,94, 255],
+  [202, 240, 248, 100],
+  [144, 224, 239, alpha],
+  [0, 180, 216, alpha],
+  [0, 119, 182, alpha],
+  [3, 4, 94, 255],
+];
+
+// plant greens
+let palette16 = [
+  [80, 75, 58, 255],
+  [110, 111, 88, alpha],
+  [125, 133, 112, alpha],
+  [175, 190, 143, alpha],
+  [38, 96, 164, 255],
+];
+
+// bright green and red
+let palette17 = [
+  [47,181,113, alpha2],
+  [140,216,103, alpha],
+  [237,125,58, alpha],
+  [239,45,86, alpha],
+  [54,53,55, 255],
+];
+
+// muted orange, yellow, green, blue
+let palette18 = [
+  [112, 162, 136, alpha2],
+  [213, 137, 111, alpha],
+  [218, 183, 133, alpha],
+  [224, 141, 172, alpha],
+  [42, 43, 42, 255],
+];
+
+// orange, purple, yellow
+let palette19 = [
+  [105,143,63, alpha2],
+  [240,162,2, alpha],
+  [255,246,137, alpha],
+  [128,71,94, alpha],
+  [25,24,10, 255],
 ];
 
 // greens
-let palette16 = [
-  [80,75,58, 255],
-  [110,111,88, alpha],
-  [125,133,112, alpha],
-  [175,190,143, alpha],
-  [38,96,164, 255],
+let palette20 = [
+  [107,191,89, alpha2],
+  [8,160,69, alpha],
+  [11, 110, 79, alpha],
+  [7,59,58, alpha],
+  [221,213, 208, 255],
 ];
+
+let palette21 = [
+  [246, 186, 99, alpha2],
+  [153, 185, 158, alpha],
+  [183, 197, 109, alpha],
+  [106, 127, 110, alpha],
+  [255, 255, 255, 255],
+];
+
+// lt blues
+let palette22 = [
+  [202,240,248, alpha2],
+  [173,232,244, alpha],
+  [144,224,239, alpha],
+  [72,202,228, alpha],
+  [3,4,94, 255],
+];
+
+
+
 
 
 // let c1 = color(255, 149, 140);
 // let c2 = color(238, 133, 181);
-let currentPalette = palette16;
+let currentPalette = palette22;
+
+// L-system variables
+let level = 3; // fractal level
+let length =18; // step length
+let axiom;
+let sentence;
+let rules = {};
+let lsystem;
+let lf; // length adjustment factor
+
+// Shape and color variables
+let s; // shape
+let c; // color palette
+
+// r = length;
+// a = 0.5;
+//dir = -1;
+let fl = true; // whether the shapes are filled or stroke
+
+let wadj = 0.09; // amount to to translate in x direction
+let hadj = 0.89; // amount to to translate in y direction
+let sw = 2; // strokeweight
+
+let patterns = [
+  "none", //0
+  "algae",
+  "board",
+  "board2",
+  "bush", //4
+  "circular", // 5
+  "cross1",
+  "cross2",
+  "cross3",
+  "cross4",
+  "crystal",
+  "dragon1", //11
+  "dragon2",
+  "fern", //13
+  "hexagonal gosper",
+  "hilbert",
+  "kolam", // 16
+  "koch curve",
+  "krishna_anklet", // 18
+  "koch_snowflake",
+  "leaf", //20
+  "mango_leaf", //21
+  "peano", // 22
+  "pentaplexity", //23
+  "quadratic gosper",
+  "quadratic koch island", // 24
+  "rings", //26
+  "snake kolam", //
+  "skierpinski", // 24
+  "square skierpinski",
+  "sticks",
+  "tree", //31
+  "tiles",
+  "triangle",
+  "weed", // 34
+];
+
+let currentPattern = patterns[10];
+
+let shapes = [
+  "archimedes spiral", // 0
+  "astroid", // 1
+  // "bean", // 2
+  "bicorn", //2
+  "cassini",
+  "ceva", //4
+  "cornu", //5
+  "cross", //6
+  "deltoid", //7
+  // "dumbbell", // 8
+  "eight", //8
+  "gear", // 9
+  "hypocyclid", //10
+  "heart", //11
+  "kiss", //12
+  "knot", //13
+  "line", //14
+  "lissajous",
+  "ophiuride", // 16
+  // "rose", // 13
+  "quadrifolium", // 16
+  "spiral", // 17
+  "superellipse", // 18
+  "supershape", // 19
+  "tear", // 20
+  "tetracuspid",
+  "zigzag", // 18
+];
+let sh = shapes[20];
+
+
 
 function preload() {
   loadJSON("rules.json", loadLSystem);
@@ -236,7 +306,6 @@ function setup() {
   background(currentPalette[4]);
   addShape();
   for (let i = 0; i < level; i++) {
-    // Increase the number of iterations for more complexity
     generate();
   }
 }
@@ -314,8 +383,7 @@ function turtle() {
           noStroke();
         }
         s.show();
-      }
-      else {
+      } else {
         c = chooseColor(currentPalette);
         stroke(c);
         strokeWeight(sw);
@@ -360,10 +428,18 @@ function addShape() {
     s = new ArchimedesSpiral(0, 0, length * 0.4, -1, (PI * 10) / 8);
     s.addPoints();
   } else if (sh === "astroid") {
-    s = new Astroid(0, 0, length * 0.5);
+    s = new Astroid(0, 0, length * 0.5, 2);
+    s.addPoints();
+  } else if (sh === "bean") {
+    s = new Bean(0, 0, length * 0.5);
     s.addPoints();
   } else if (sh === "bicorn") {
     s = new Bicorn(0, 0, length * 0.5);
+    s.addPoints();
+     } else if (sh === "cassini") {
+      // 1, 1.25 peanut shaped/
+      // 1, 2 oval
+    s = new CassiniOval(0, 0, length / 2, 1, 1.25);
     s.addPoints();
   } else if (sh === "ceva") {
     s = new Ceva(0, 0, length / 4);
@@ -372,7 +448,9 @@ function addShape() {
     s = new CornuSpiral(0, 0, length / 3, PI / 2);
     s.addPoints();
   } else if (sh === "cross") {
-    s = new MalteseCross(0, 0, length * 0.5);
+    // 1 quadrifolium
+    // gets longer and more rounded as a increases
+    s = new MalteseCross(0, 0, length * 0.45, 4, 2);
     s.addPoints();
   } else if (sh === "deltoid") {
     s = new Deltoid(0, 0, length / 4);
@@ -383,8 +461,9 @@ function addShape() {
   } else if (sh === "gear") {
     s = new Gear(0, 0, length * 0.75, 8);
     s.addPoints();
-  } else if (sh === "line") {
-    s = null;
+  } else if (sh === "hypocyclid") {
+    s = new Hypocyclid(0, 0, length * 0.75, 6, 3);
+    s.addPoints();
   } else if (sh === "heart") {
     s = new Heart(0, 0, length / 8);
     s.addPoints();
@@ -394,28 +473,41 @@ function addShape() {
   } else if (sh === "knot") {
     s = new Knot(0, 0, length / 4);
     s.addPoints();
+  } else if (sh === "line") {
+    s = null;
+  } else if (sh === "lissajous") {
+    s = new Lissajous(0, 0, length*0.4, 1, 2, PI *.4);
+    s.addPoints();
+     } else if (sh === "ophiuride") {
+    s = new Ophiuride(0, 0, length * 0.5, 2, .2);
+    s.addPoints();
   } else if (sh === "quadrifolium") {
     s = new Quadrifolium(0, 0, length * 0.75);
     s.addPoints();
     // } else if (sh === "rose") {
     //   s = new Rose(0, 0, length * 0.175, 2, 5, 8);
     //   s.addPoints();
-
+  } else if (sh === "spiral") {
     // n = 1 Archimedian Spiral
     // n = -1 Hyperbolic Spiral
     // n = 1/2 Fermat spiral
     // n = -1/2 Lituus spiral
     // n = 2 Galilean spiral
-  } else if (sh === "spiral") {
+    let a = 0.5;
+    let n = -0.5;
+    let dir = -1;
     s = new Spiral(0, 0, dir, length, a, n, (PI * 10) / 8);
     //s = new Spiral(0, 0, dir, length, .5, -0.5, 0);
     s.addPoints();
-    // square new Supershape(0, 0, length * 0.75, 4);
-    // circle new Supershape(0, 0, length * 0.75, 0);
-  } else if (sh === "supershape") {
-    s = new Supershape(0, 0, length * 0.5, 7);
+  } else if (sh === "superellipse") {
+    s = new Superellipse(0, 0, length, 2, 1, 0.5);
     s.addPoints();
-     } else if (sh === "tetracuspid") {
+  } else if (sh === "supershape") {
+    // square new Supershape(0, 0, length * 0.75, 1, 1,1, 1, 1,4);
+    // circle new Supershape(0, 0, length * 0.75,1, 1, 1, 1, 1, 0);
+    s = new Supershape(0, 0, length * 0.5,  2, 1, 0.7, 1.4, 0.5, 4);
+    s.addPoints();
+  } else if (sh === "tetracuspid") {
     s = new Tetracuspid(0, 0, length * 0.5);
     s.addPoints();
   } else if (sh === "tear") {

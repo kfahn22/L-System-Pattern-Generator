@@ -42,7 +42,7 @@ class Gear {
     for (let v of this.points) {
       vertex(v.x, v.y);
     }
-    endShape();
+    endShape(CLOSE);
     pop();
   }
 }

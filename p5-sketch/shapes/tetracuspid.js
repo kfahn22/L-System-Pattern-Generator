@@ -5,20 +5,26 @@ class Tetracuspid {
     this.x = x;
     this.y = y;
     this.r = r;
-    this.a = 2;
-    this.u = 1;
-    this.v = 1;
+    this.a = 1;
+    this.u = 0.1;
+    this.v = 5;
     this.points = [];
   }
 
   addPoints() {
-    for (let theta = 0; theta < TWO_PI; theta += 0.1) {
+    for (let theta = -PI/2; theta < PI/2; theta += 0.1) {
       let x = this.r * this.a * cos(theta*(this.u + this.v))*(1-2*this.u*this.v*pow(sin(theta), 2));
       let y =
         this.r *
         this.a *
         sin(theta * (this.u + this.v)) *
         (1 - 2 * this.u * this.v * pow(close(theta), 2));
+        this.points.push(createVector(x, y));
+
+      // debug
+        // let x = this.r * this.a * sin(theta);
+        // let y = this.r * this.a * sin(theta) * cos(theta);
+        // this.points.push(createVector(x, y));
     }
   }
 

@@ -1,15 +1,15 @@
 // https://thecodingtrain.com/challenges/23-2d-supershapes
 
 class Supershape {
-  constructor(x, y, sc, m) {
+  constructor(x, y, sc, a, b, n1, n2, n3, m) {
     this.x = x;
     this.y = y;
     this.sc = sc;
-    this.a = 1;
-    this.b = 1;
-    this.n1 = 1;
-    this.n2 = 1;
-    this.n3 = 1;
+    this.a = a;
+    this.b = b;
+    this.n1 = n1;
+    this.n2 = n2;
+    this.n3 = n3;
     this.m = m;
     this.points = [];
   }

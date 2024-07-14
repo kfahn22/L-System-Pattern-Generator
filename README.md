@@ -11,6 +11,14 @@ Coding Train Logo interpreter
 
 https://github.com/kfahn22/Apollonian-Gasket/edit/main/README.md
 
+
+This image was created using the Crystal rule-set filled with the Supershape. I used an alpha of 150 and different shades of the same color since the shapes overlap.
+
+<p align="center"><img src="assets/crystal-supershape.jpg" alt="Crystal pattern with supershape" width="300px"></p>
+
+`s = new Supershape(0, 0, length * 0.5,  2, 1, 0.7, 1.4, 0.5, 4);`
+
+
 ## 🌄 Gallery
 
 <!-- IMAGE-LIST:START - Do not remove or modify this section -->

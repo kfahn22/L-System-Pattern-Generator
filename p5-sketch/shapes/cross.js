@@ -1,18 +1,19 @@
 // https://mathcurve.com/courbes2d.gb/croixdemalte/croixdemalte.shtml
 
 class MalteseCross {
-  constructor(x, y, r) {
+  constructor(x, y, r, a, b) {
     this.x = x;
     this.y = y;
     this.r = r;
-    this.a = 3;
+    this.a = a;
+    this.b = b;
     this.points = [];
   }
 
   addPoints() {
-    for (let theta = 0; theta < TWO_PI; theta += 0.1) {
-      let x = this.r * +cos(theta) * (pow(cos(theta), 2) - this.a);
-      let y = this.r * +sin(theta) * pow(cos(theta), 2);
+    for (let theta = 0.1; theta < TWO_PI; theta += 0.1) {
+      let x = this.r * + cos(theta) * (pow(cos(theta), 2) - this.a);
+      let y = this.r * + this.b * sin(theta) * pow(cos(theta), 2);
       this.points.push(createVector(x, y));
     }
   }
@@ -24,7 +25,7 @@ class MalteseCross {
     for (let p of this.points) {
       vertex(p.x, p.y);
     }
-    endShape();
+    endShape(CLOSE);
     pop();
   }
 }
