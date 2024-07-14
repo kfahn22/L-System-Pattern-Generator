@@ -47,17 +47,30 @@ Here is another design using the Crystal rule-set, but now with the ceva shape.
 
 Changing the parameters in a curve can yield very different shapes, which lend themselves to different rule-sets. Here are two different designs using the kiss curve:
 
-Snake Kolam rule-set with kiss curve
+Snake Kolam rule-set with overlapping kiss curves.
 
 `s = new KissCurve(0, 0, length * 0.75, 1, 1);`
 
 <p align="center"><img src="assets/snake-kolam-kiss.jpg" alt="Snake kolam rule-set with kiss curve" width="300px"></p>
 
-Hexgonal Gosper with kiss curve
+Hexgonal Gosper with flattened kiss curves.
 
 `s = new KissCurve(0, 0, length * 0.3, 0.5, 5);`
 
 <p align="center"><img src="assets/gosper-kiss.jpg" alt="Hexagonal gosper rule-set with kiss curve" width="300px"></p>
+
+Sometimes when you insert a shape into a rule-set, the result is quite different from the typical representation. One example is inserting the Cassini oval into the Hilbert rule-set. I doubt many people would look at this image and realize it was geneated using the Hilbert curve.
+
+`s = new CassiniOval(0, 0, length / 2, 1, 1.25);
+    s.addPoints();`
+
+<p align="center"><img src="assets/hillbert-cassini.jpg" alt="Hillbert rule-set with cassini oval" width="300px"></p>
+
+Another example would be this image with the Peano rule-set and eight-curve.
+
+<p align="center"><img src="assets/peano-eight.jpg" alt="Peano rule-set with cassini oval" width="300px"></p>
+
+## Fractal Trees
 
 Of course, one of the original applications for L-systems is creating realistic looking trees. I think adding a shape to the rule-set can improve the look of the trees.  For example, here is a tree using a regular line.
 
