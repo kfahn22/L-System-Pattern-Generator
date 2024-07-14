@@ -92,11 +92,11 @@ Tree with the supershape
 <table>
   <tbody>
     <tr>
-      <td align="center"><a href=""> <img class="img" src="assets/dragon-astroid-filled.jpg" alt="Dragon curve with astroid" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Dragon curve with astroid</b></sub></a></td>
+      <td align="center"><a href=""> <img class="img" src="assets/dragon-supershape.jpg" alt="Dragon curve with supershape" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Dragon curve with supershape</b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="assets/mango-astroid.jpg" alt="Mango leaf filled with astroid shape" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Mango leaf with astroid shape</b></sub></a></td>
-      <td align="center"><a href=""> <img class="img" src="assets/peano-eight.jpg" alt="Peano curve with the eight curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Peano curve filled with figure eight</b></sub></a></td>
+      <td align="center"><a href=""> <img class="img" src="assets/anklet-quadrifolium.jpg" alt="Krishna's anklet with the quadrifolium curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Krishna's Anklet with the quadrifolium</b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="assets/pentaplexity-quad.jpg" alt="Pentaplexity filled with quadrifolium" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Pentaplexity filled with quadrifolium</b></sub></a></td>

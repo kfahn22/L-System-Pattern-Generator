@@ -2,7 +2,7 @@
 // https://paulbourke.net/fractals/lsys/
 
 let alpha = 255;
-let alpha2 = 255;
+let alpha2 = 150;
 //bright
 let palette1 = [
   [6, 214, 160, 100],
@@ -121,7 +121,7 @@ let palette14 = [
   [160, 172, 173, alpha],
   [83, 18, 83, alpha],
   [51, 3, 47, alpha],
-  [23, 3, 18, 255],
+  [2255,255,255, 255],
 ];
 
 // aqua/blue
@@ -262,11 +262,11 @@ let palette29 = [
 
 // let c1 = color(255, 149, 140);
 // let c2 = color(238, 133, 181);
-let currentPalette = palette24;
+let currentPalette = palette22;
 
 // L-system variables
-let level = 10; // fractal level
-let length = 10; // step length
+let level =4; // fractal level
+let length = 23; // step length
 let axiom;
 let sentence;
 let rules = {};
@@ -282,8 +282,8 @@ let c; // color palette
 //dir = -1;
 let fl = false; // whether the shapes are filled or stroke
 
-let wadj = 0.5; // amount to to translate in x direction
-let hadj = 0.95; // amount to to translate in y direction
+let wadj = 0.9; // amount to to translate in x direction
+let hadj = 0.5; // amount to to translate in y direction
 let sw = 1; // strokeweight
 
 let patterns = [
@@ -324,7 +324,7 @@ let patterns = [
   "weed", // 34
 ];
 
-let currentPattern = patterns[31];
+let currentPattern = patterns[19];
 
 let shapes = [
   "archimedes spiral", // 0
@@ -355,7 +355,7 @@ let shapes = [
   "tetracuspid",
   "zigzag", // 18
 ];
-let sh = shapes[14];
+let sh = shapes[17];
 
 
 
@@ -545,7 +545,7 @@ function addShape() {
     s = new Ophiuride(0, 0, length * 0.5, 2, .2);
     s.addPoints();
   } else if (sh === "quadrifolium") {
-    s = new Quadrifolium(0, 0, length * 0.75);
+    s = new Quadrifolium(0, 0, length * 0.6);
     s.addPoints();
     // } else if (sh === "rose") {
     //   s = new Rose(0, 0, length * 0.175, 2, 5, 8);
