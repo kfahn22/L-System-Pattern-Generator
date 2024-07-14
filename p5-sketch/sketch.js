@@ -262,11 +262,11 @@ let palette29 = [
 
 // let c1 = color(255, 149, 140);
 // let c2 = color(238, 133, 181);
-let currentPalette = palette29;
+let currentPalette = palette24;
 
 // L-system variables
-let level = 4; // fractal level
-let length = 14; // step length
+let level = 10; // fractal level
+let length = 10; // step length
 let axiom;
 let sentence;
 let rules = {};
@@ -282,8 +282,8 @@ let c; // color palette
 //dir = -1;
 let fl = false; // whether the shapes are filled or stroke
 
-let wadj = 0.2; // amount to to translate in x direction
-let hadj = 0.8; // amount to to translate in y direction
+let wadj = 0.5; // amount to to translate in x direction
+let hadj = 0.95; // amount to to translate in y direction
 let sw = 1; // strokeweight
 
 let patterns = [
@@ -324,7 +324,7 @@ let patterns = [
   "weed", // 34
 ];
 
-let currentPattern = patterns[6];
+let currentPattern = patterns[31];
 
 let shapes = [
   "archimedes spiral", // 0
@@ -355,7 +355,7 @@ let shapes = [
   "tetracuspid",
   "zigzag", // 18
 ];
-let sh = shapes[18];
+let sh = shapes[14];
 
 
 

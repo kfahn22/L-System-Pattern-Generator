@@ -45,7 +45,7 @@ Here is another design using the Crystal rule-set, but now with the ceva shape.
 
 <p align="center"><img src="assets/crystal-ceva.jpg" alt="Crystal pattern with ceva shape" width="300px"></p>
 
-Changing the parameters in a curve can yield very different shapes, which lend themselves to different rule-sets. Here are two differeent designs using the kiss curve:
+Changing the parameters in a curve can yield very different shapes, which lend themselves to different rule-sets. Here are two different designs using the kiss curve:
 
 Snake Kolam rule-set with kiss curve
 
@@ -59,11 +59,17 @@ Hexgonal Gosper with kiss curve
 
 <p align="center"><img src="assets/gosper-kiss.jpg" alt="Hexagonal gosper rule-set with kiss curve" width="300px"></p>
 
-Evergreen Tree
+Of course, one of the original applications for L-systems is creating realistic looking trees. I think adding a shape to the rule-set can improve the look of the trees.  For example, here is a tree using a regular line.
+
+<p align="center"><img src="assets/tree-line.jpg" alt="Tree rule-set with line" width="300px"></p>
+
+Tree with the supershape
+
+`s = new Supershape(0, 0, length * 0.5,  2.5, 0.4, 1, 2, 1, 4);`
 
 <p align="center"><img src="assets/tree-supershape.jpg" alt="Tree rule-set with supershape" width="300px"></p>
 
-`s = new Supershape(0, 0, length * 0.5,  2.5, 0.4, 1, 2, 1, 4);`
+
 
 ## 🌄 Gallery
 
