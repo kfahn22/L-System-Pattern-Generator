@@ -1,8 +1,8 @@
 // Formulas for L-system by Paul Bourke
 // https://paulbourke.net/fractals/lsys/
 
-let alpha = 150;
-let alpha2 = 100;
+let alpha = 255;
+let alpha2 = 255;
 //bright
 let palette1 = [
   [6, 214, 160, 100],
@@ -215,17 +215,58 @@ let palette24 = [
   [13,31,34, 255],
 ];
 
+// red, orange, yellow
+let palette25 = [
+  [255,229,72, alpha2],
+  [255,178,15, alpha],
+  [255,75,62, alpha],
+  [151,45,7, alpha],
+  [88,39,7, 255],
+];
+
+let palette26 = [
+  [234,226,183, alpha2],
+  [252,191,73, alpha],
+  [247,127,0, alpha],
+  [214,40,40, alpha],
+  [0,48,73, 255],
+];
+
+let palette27 = [
+  [242,100,25, alpha2],
+  [246,174,45, alpha],
+  [47,72,88, alpha],
+  [191,49,0, alpha],
+  [255,255,255, 255],
+];
+
+let palette28 = [
+  [68,187,164, alpha2],
+  [63,136,197, alpha],
+  [246,247,235, alpha],
+  [233,79,55, alpha],
+  [57,62,65, 255],
+];
+
+let palette29 = [
+  [162, 173, 89, alpha2],
+  [142, 147, 109, alpha],
+  [89, 131, 129, alpha],
+  [23, 126, 137, alpha],
+  [35,35,26, 255],
+  // [8, 96, 95, 255],
+];
 
 
 
 
 // let c1 = color(255, 149, 140);
 // let c2 = color(238, 133, 181);
-let currentPalette = palette6;
+let currentPalette = palette29;
 
 // L-system variables
-let level = 3; // fractal level
-let length = 30; // step length
+let level = 4; // fractal level
+let length = 14; // step length
 let axiom;
 let sentence;
 let rules = {};
@@ -241,9 +282,9 @@ let c; // color palette
 //dir = -1;
 let fl = false; // whether the shapes are filled or stroke
 
-let wadj = 0.13; // amount to to translate in x direction
-let hadj = 0.86; // amount to to translate in y direction
-let sw = 3; // strokeweight
+let wadj = 0.2; // amount to to translate in x direction
+let hadj = 0.8; // amount to to translate in y direction
+let sw = 1; // strokeweight
 
 let patterns = [
   "none", //0
@@ -283,7 +324,7 @@ let patterns = [
   "weed", // 34
 ];
 
-let currentPattern = patterns[27];
+let currentPattern = patterns[6];
 
 let shapes = [
   "archimedes spiral", // 0
@@ -314,7 +355,7 @@ let shapes = [
   "tetracuspid",
   "zigzag", // 18
 ];
-let sh = shapes[12];
+let sh = shapes[18];
 
 
 
@@ -446,7 +487,8 @@ function turtle() {
 
 function addShape() {
   if (sh === "archimedes spiral") {
-    s = new ArchimedesSpiral(0, 0, length * 0.4, -1, (PI * 10) / 8);
+    // s = new ArchimedesSpiral(0, 0, length * 0.4, -1, (PI * 10) / 8);
+    s = new ArchimedesSpiral(0, 0, length * 0.4, -1, 0);
     s.addPoints();
   } else if (sh === "astroid") {
     s = new Astroid(0, 0, length * 0.5, 2);
