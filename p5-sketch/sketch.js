@@ -50,10 +50,11 @@ let palette5 = [
 
 // orange and blue
 let palette6 = [
-  [219, 228, 238, alpha],
-  [129, 164, 205, alpha],
   [62, 124, 177, alpha],
   [5, 74, 145, alpha],
+  [219, 228, 238, alpha],
+  [129, 164, 205, alpha],
+
   [241, 115, 0, 255],
 ];
 
@@ -220,11 +221,11 @@ let palette24 = [
 
 // let c1 = color(255, 149, 140);
 // let c2 = color(238, 133, 181);
-let currentPalette = palette2;
+let currentPalette = palette6;
 
 // L-system variables
-let level = 10; // fractal level
-let length = 10; // step length
+let level = 3; // fractal level
+let length = 30; // step length
 let axiom;
 let sentence;
 let rules = {};
@@ -240,9 +241,9 @@ let c; // color palette
 //dir = -1;
 let fl = false; // whether the shapes are filled or stroke
 
-let wadj = 0.27; // amount to to translate in x direction
-let hadj = 0.57; // amount to to translate in y direction
-let sw = 2; // strokeweight
+let wadj = 0.13; // amount to to translate in x direction
+let hadj = 0.86; // amount to to translate in y direction
+let sw = 3; // strokeweight
 
 let patterns = [
   "none", //0
@@ -282,7 +283,7 @@ let patterns = [
   "weed", // 34
 ];
 
-let currentPattern = patterns[11];
+let currentPattern = patterns[27];
 
 let shapes = [
   "archimedes spiral", // 0
@@ -313,7 +314,7 @@ let shapes = [
   "tetracuspid",
   "zigzag", // 18
 ];
-let sh = shapes[1];
+let sh = shapes[12];
 
 
 
@@ -488,7 +489,7 @@ function addShape() {
     s = new Heart(0, 0, length / 8);
     s.addPoints();
   } else if (sh === "kiss") {
-    s = new KissCurve(0, 0, length * 0.75);
+    s = new KissCurve(0, 0, length * 0.75, 1, 1);
     s.addPoints();
   } else if (sh === "knot") {
     s = new Knot(0, 0, length / 4);

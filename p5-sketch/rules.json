@@ -147,7 +147,7 @@
   "hexagonal gosper": {
     "axiom": "XF",
     "rules": {
-      "X": "X+YF++YF-FX--FXFX-YF+",
+      "X": "X+YF++YF-FX--F{XF}X-YF+",
       "Y": "-FX+YFYF++YF+FX--FX-Y"
     },
     "angle": "60",

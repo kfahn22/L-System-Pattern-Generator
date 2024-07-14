@@ -31,6 +31,19 @@ Evergreen Tree
 
  `s = new Supershape(0, 0, length * 0.5,  2.5, 0.4, 1, 2, 1, 4);`
 
+You can obtain very different designs by varying the rule-set and curve parameters.  Here are two using the kiss curve:
+
+Snake Kolam rule-set with kiss curve
+
+`s = new KissCurve(0, 0, length * 0.75, 1, 1);`
+
+<p align="center"><img src="assets/snake-kolam-kiss.jpg" alt="Snake kolam rule-set with kiss curve" width="300px"></p>
+
+Hexgonal Gosper with kiss curve
+
+`s = new KissCurve(0, 0, length * 0.3, 0.5, 5);`
+
+<p align="center"><img src="assets/gosper-kiss.jpg" alt="Hexagonal gosper rule-set with kiss curve" width="300px"></p>
 
 ## 🌄 Gallery
 
