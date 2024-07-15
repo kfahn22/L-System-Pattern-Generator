@@ -28,6 +28,7 @@ let orangeBluePalette;
 //let currentPalette = aquaBluePalette;
 let palettes = {};
 let dropdown;
+let shapeDropdown;
 
 let patterns = [
   "none", //0
@@ -119,8 +120,107 @@ function getColors(data) {
   dropdown.selected("aqua_blue");
 
   // Attach event listener
-
   dropdown.changed(pickColor);
+}
+
+function getShapes() {
+  shapeDropdown = createSelect();
+  shapeDropdown.position(300, 10);
+  shapeDropdown.option("astroid");
+  shapeDropdown.option("bicorn");
+  shapeDropdown.option("cassini");
+  shapeDropdown.option("ceva");
+  shapeDropdown.option("cornu");
+  shapeDropdown.option("cross");
+  shapeDropdown.option("eight");
+  shapeDropdown.option("kiss");
+  shapeDropdown.option("line");
+  shapeDropdown.option("quadrifolium");
+  shapeDropdown.option("superellipse");
+  shapeDropdown.option("supershape");
+  shapeDropdown.option("tear");
+  shapeDropdown.option("zigzag");
+
+  shapeDropdown.selected("line");
+  shapeDropdown.changed(pickShape);
+}
+
+function pickShape() {
+  let selected = shapeDropdown.value();
+  switch (selected) {
+    case "astroid":
+      s = new Astroid(0, 0, length * 0.5, 2);
+      s.addPoints();
+      break;
+    case "bicorn":
+      s = new Bicorn(0, 0, length * 0.5);
+      s.addPoints();
+      break;
+    case "cassini":
+      // 1, 1.25 peanut shaped/
+      // 1, 2 oval
+      s = new CassiniOval(0, 0, length / 2, 1, 1.25);
+      s.addPoints();
+      break;
+    case "ceva":
+      s = new Ceva(0, 0, length / 4);
+      s.addPoints();
+      break;
+    case "cornu":
+      s = new CornuSpiral(0, 0, length / 3, PI / 2);
+      s.addPoints();
+      break;
+    case "cross":
+      // 1 quadrifolium
+      // gets longer and more rounded as a increases
+      s = new MalteseCross(0, 0, length * 0.45, 4, 2);
+      s.addPoints();
+      break;
+    case "eight":
+      s = new Eight(0, 0, length * 0.75);
+      s.addPoints();
+      break;
+    case "kiss":
+      s = new KissCurve(0, 0, length * 0.75, 1, 1);
+      s.addPoints();
+      break;
+    case "line":
+      s = null;
+      break;
+    case "quadrifolium":
+      s = new Quadrifolium(0, 0, length * 1);
+      s.addPoints();
+      break;
+    case "spiral":
+      // n = 1 Archimedian Spiral
+      // n = -1 Hyperbolic Spiral
+      // n = 1/2 Fermat spiral
+      // n = -1/2 Lituus spiral
+      // n = 2 Galilean spiral
+      let a = 0.5;
+      let n = -0.5;
+      let dir = -1;
+      s = new Spiral(0, 0, dir, length, a, n, (PI * 10) / 8);
+      //s = new Spiral(0, 0, dir, length, .5, -0.5, 0);
+      s.addPoints();
+      break;
+    case "superellipse":
+      s = new Superellipse(0, 0, length, 2, 1, 0.5);
+      s.addPoints();
+      break;
+    case "supershape":
+      s = new Supershape(0, 0, length * 0.5, 2.5, 0.4, 1, 2, 1, 4);
+      s.addPoints();
+      break;
+    case "tear":
+      s = new TearDrop(0, 0, length * 1, PI);
+      s.addPoints();
+      break;
+    case "zigzag":
+      s = new Zigzag(0, 0, length / 2, PI);
+      s.addPoints();
+      break;
+  }
 }
 
 function pickColor() {
@@ -153,7 +253,7 @@ function pickColor() {
   background(currentPalette[4]);
   translate(width * wadj, height * hadj);
   rotate(-PI / 2);
-  addShape();
+  pickShape();
   // for (let i = 0; i < level; i++) {
   //   generate();
   // }
@@ -169,7 +269,8 @@ function setup() {
   createCanvas(600, 600);
   translate(width * wadj, height * hadj);
   rotate(-PI / 2);
-  addShape();
+  getShapes();
+  pickShape();
   for (let i = 0; i < level; i++) {
     generate();
   }
