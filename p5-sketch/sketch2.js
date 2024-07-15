@@ -1,22 +1,3 @@
-// Formulas for L-system by Paul Bourke
-// https://paulbourke.net/fractals/lsys/
-
-let alpha = 150;
-let alpha2 = 150;
-
-let blueGreenPalette;
-let lightBluePalette;
-let brownGreenPalette;
-let aquaBluePalette;
-let plantGreensPalette;
-let redPalette;
-let orangeBluePalette;
-
-// Set default palette
-let currentPalette = aquaBluePalette;
-let palettes = {};
-let dropdown;
-
 // L-system variables
 let level = 7; // fractal level
 let length = 22; // step length
@@ -29,15 +10,24 @@ let lf; // length adjustment factor
 // Shape and color variables
 let s; // shape
 let c; // color palette
-
-// r = length;
-// a = 0.5;
-//dir = -1;
 let fl = true; // whether the shapes are filled or stroke
 
 let wadj = 0.65; // amount to to translate in x direction
 let hadj = 0.7; // amount to to translate in y direction
 let sw = 1; // strokeweight
+
+let blueGreenPalette;
+let lightBluePalette;
+let brownGreenPalette;
+let aquaBluePalette;
+let plantGreensPalette;
+let redPalette;
+let orangeBluePalette;
+
+// Set default palette
+//let currentPalette = aquaBluePalette;
+let palettes = {};
+let dropdown;
 
 let patterns = [
   "none", //0
@@ -80,43 +70,24 @@ let patterns = [
 let currentPattern = patterns[11];
 
 let shapes = [
-  "archimedes spiral", // 0
   "astroid", // 1
-  // "bean", // 2
   "bicorn", //2
-  "cassini",
+  "cassini", //3
   "ceva", //4
   "cornu", //5
   "cross", //6
-  "deltoid", //7
-  // "dumbbell", // 8
-  "eight", //8
-  "gear", // 9
-  "hypocyclid", //10
-  "heart", //11
-  "kiss", //12
-  "knot", //13
-  "line", //14
-  "lissajous",
-  "ophiuride", // 16
-  // "rose", // 13
-  "quadrifolium", // 16
-  "spiral", // 17
-  "superellipse", // 18
+  "eight", //7
+  "kiss", //8
+  "line", //9
+  "quadrifolium", // 10
+  "spiral", // 11
+  "superellipse", // 12
   "supershape", // 19
-  "tear", // 20
-  "tetracuspid",
-  "zigzag", // 18
+  "tear", // 13
+  "zigzag", // 14
 ];
-let sh = shapes[19];
 
-colorName = "bluegreen";
-let data;
-
-function preload() {
-  loadJSON("rules.json", loadRules);
-  loadJSON("palettes.json", getColors);
-}
+let sh = shapes[7];
 
 function getColors(data) {
   palettes = data.colors;
@@ -129,6 +100,8 @@ function getColors(data) {
   orangeBluePalette = palettes.orange_blue;
 
   // Update background color with the default palette
+  // Set default palette
+  currentPalette = aquaBluePalette;
   //background(currentPalette[4]);
 
   // Create dropdown menu
@@ -146,6 +119,7 @@ function getColors(data) {
   dropdown.selected("aqua_blue");
 
   // Attach event listener
+
   dropdown.changed(pickColor);
 }
 
@@ -174,24 +148,39 @@ function pickColor() {
       currentPalette = orangeBluePalette;
       break;
   }
+
   // Update background color with the selected palette
   background(currentPalette[4]);
+  translate(width * wadj, height * hadj);
+  rotate(-PI / 2);
+  addShape();
+  // for (let i = 0; i < level; i++) {
+  //   generate();
+  // }
+  turtle();
+}
+
+function preload() {
+  loadJSON("rules.json", loadRules);
+  loadJSON("palettes.json", getColors);
 }
 
 function setup() {
   createCanvas(600, 600);
-  background(currentPalette[4]);
+  translate(width * wadj, height * hadj);
+  rotate(-PI / 2);
   addShape();
   for (let i = 0; i < level; i++) {
     generate();
   }
+  turtle();
 }
 
 function draw() {
-  translate(width * wadj, height * hadj);
-  rotate(-PI / 2);
-  turtle();
-  noLoop();
+  // translate(width * wadj, height * hadj);
+  // rotate(-PI / 2);
+  //turtle();
+  //noLoop();
 }
 
 function loadRules(data) {
@@ -199,10 +188,10 @@ function loadRules(data) {
   setRule(currentPattern);
 }
 
-function loadPalettes(data) {
-  colors = data;
-  // setPalette(colorName);
-}
+// function loadPalettes(data) {
+//   colors = data;
+//   // setPalette(colorName);
+// }
 
 function setRule(pattern) {
   axiom = lsystem[pattern].axiom;
@@ -210,10 +199,6 @@ function setRule(pattern) {
   angle = radians(lsystem[pattern].angle);
   lf = lsystem[pattern].length_factor;
   sentence = axiom;
-}
-
-function setPalette(name) {
-  currentPalette = colors[name].palette;
 }
 
 function generate() {
@@ -254,9 +239,13 @@ function turtle() {
   for (let i = 0; i < sentence.length; i++) {
     let rl = sentence.length % 2;
     let current = sentence.charAt(i);
+    //c = random(currentPalette);
+    c = chooseColor(currentPalette);
+    //console.log(c)
     if (current === "F") {
       if (s) {
-        c = chooseColor(currentPalette);
+        //c = chooseColor(currentPalette);
+
         if (!fl) {
           stroke(c);
           strokeWeight(sw);
@@ -267,7 +256,7 @@ function turtle() {
         }
         s.show();
       } else {
-        c = chooseColor(currentPalette);
+        // c = chooseColor(currentPalette);
         stroke(c);
         strokeWeight(sw);
         line(0, 0, length, 0);
@@ -314,9 +303,6 @@ function addShape() {
   } else if (sh === "astroid") {
     s = new Astroid(0, 0, length * 0.5, 2);
     s.addPoints();
-  } else if (sh === "bean") {
-    s = new Bean(0, 0, length * 0.5);
-    s.addPoints();
   } else if (sh === "bicorn") {
     s = new Bicorn(0, 0, length * 0.5);
     s.addPoints();
@@ -336,17 +322,8 @@ function addShape() {
     // gets longer and more rounded as a increases
     s = new MalteseCross(0, 0, length * 0.45, 4, 2);
     s.addPoints();
-  } else if (sh === "deltoid") {
-    s = new Deltoid(0, 0, length / 4);
-    s.addPoints();
   } else if (sh === "eight") {
     s = new Eight(0, 0, length * 0.75);
-    s.addPoints();
-  } else if (sh === "gear") {
-    s = new Gear(0, 0, length * 0.75, 8);
-    s.addPoints();
-  } else if (sh === "hypocyclid") {
-    s = new Hypocyclid(0, 0, length * 0.75, 6, 3);
     s.addPoints();
   } else if (sh === "heart") {
     s = new Heart(0, 0, length / 8);
@@ -354,17 +331,8 @@ function addShape() {
   } else if (sh === "kiss") {
     s = new KissCurve(0, 0, length * 0.75, 1, 1);
     s.addPoints();
-  } else if (sh === "knot") {
-    s = new Knot(0, 0, length / 4);
-    s.addPoints();
   } else if (sh === "line") {
     s = null;
-  } else if (sh === "lissajous") {
-    s = new Lissajous(0, 0, length * 0.4, 1, 2, PI * 0.4);
-    s.addPoints();
-  } else if (sh === "ophiuride") {
-    s = new Ophiuride(0, 0, length * 0.5, 2, 0.2);
-    s.addPoints();
   } else if (sh === "quadrifolium") {
     s = new Quadrifolium(0, 0, length * 1);
     s.addPoints();
@@ -387,12 +355,7 @@ function addShape() {
     s = new Superellipse(0, 0, length, 2, 1, 0.5);
     s.addPoints();
   } else if (sh === "supershape") {
-    // square new Supershape(0, 0, length * 0.75, 1, 1,1, 1, 1,4);
-    // circle new Supershape(0, 0, length * 0.75,1, 1, 1, 1, 1, 0);
     s = new Supershape(0, 0, length * 0.5, 2.5, 0.4, 1, 2, 1, 4);
-    s.addPoints();
-  } else if (sh === "tetracuspid") {
-    s = new Tetracuspid(0, 0, length * 0.5);
     s.addPoints();
   } else if (sh === "tear") {
     s = new TearDrop(0, 0, length * 1, PI);
@@ -405,21 +368,4 @@ function addShape() {
 
 // function mousePressed() {
 //   save("image.jpg");
-// }
-
-// function mousePressed() {
-//   generate();
-//   turtle();
-// }
-
-// function keyPressed() {
-//   if (key === "1") {
-//     currentPattern = "dragon";
-//     setPattern(currentPattern);
-//     turtle();
-//   } else if (key === "2") {
-//     currentPattern = "ring";
-//     setPattern(currentPattern);
-//     turtle();
-//   }
 // }
