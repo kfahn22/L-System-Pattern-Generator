@@ -29,6 +29,7 @@ let orangeBluePalette;
 let palettes = {};
 let dropdown;
 let shapeDropdown;
+let ruleDropdown;
 
 let patterns = [
   "none", //0
@@ -68,27 +69,65 @@ let patterns = [
   "weed", // 34
 ];
 
-let currentPattern = patterns[11];
+let currentPattern = patterns[1];
 
-let shapes = [
-  "astroid", // 1
-  "bicorn", //2
-  "cassini", //3
-  "ceva", //4
-  "cornu", //5
-  "cross", //6
-  "eight", //7
-  "kiss", //8
-  "line", //9
-  "quadrifolium", // 10
-  "spiral", // 11
-  "superellipse", // 12
-  "supershape", // 19
-  "tear", // 13
-  "zigzag", // 14
-];
+// let shapes = [
+//   "astroid", // 1
+//   "bicorn", //2
+//   "cassini", //3
+//   "ceva", //4
+//   "cornu", //5
+//   "cross", //6
+//   "eight", //7
+//   "kiss", //8
+//   "line", //9
+//   "quadrifolium", // 10
+//   "spiral", // 11
+//   "superellipse", // 12
+//   "supershape", // 19
+//   "tear", // 13
+//   "zigzag", // 14
+// ];
 
-let sh = shapes[7];
+// let sh = shapes[7];
+
+// function pickRule() {
+//   ruleDropdown = createSelect();
+//   ruleDropdown.option("none");
+//   ruleDropdown.option("board");
+//   ruleDropdown.option("board2");
+//   ruleDropdown.option("circular");
+//   ruleDropdown.option("cross1");
+//   ruleDropdown.option("crystal");
+//   ruleDropdown.option("dragon1");
+//   ruleDropdown.option("fern");
+//   ruleDropdown.option("hexagonal gosper");
+//   ruleDropdown.option("hilbert");
+//   ruleDropdown.option("kolam");
+//   ruleDropdown.option("koch curve");
+//   ruleDropdown.option("krishna_anklet");
+//   ruleDropdown.option("koch_snowflake");
+//   ruleDropdown.option("mango_leaf");
+//   ruleDropdown.option("peano");
+//   ruleDropdown.option("pentaplexity");
+//   ruleDropdown.option("quadratic gosper");
+//   ruleDropdown.option("quadratic koch island");
+//   ruleDropdown.option("rings");
+//   ruleDropdown.option("snake kolam");
+//   ruleDropdown.option("skierpinski");
+//   ruleDropdown.option("square skierpinski");
+//   ruleDropdown.option("sticks");
+//   ruleDropdown.option("tree");
+//   ruleDropdown.option("tiles");
+//   ruleDropdown.option("tree");
+//   ruleDropdown.option("triangle");
+
+//   // Set initial value of the dropdown
+//   ruleDropdown.selected("board");
+
+//   // Attach event listener
+//   ruleDropdown.changed(setRule);
+// }
 
 function getColors(data) {
   palettes = data.colors;
@@ -141,7 +180,10 @@ function getShapes() {
   shapeDropdown.option("tear");
   shapeDropdown.option("zigzag");
 
+  // Set initial value of the dropdown
   shapeDropdown.selected("line");
+
+  // Add event listener
   shapeDropdown.changed(pickShape);
 }
 
@@ -269,6 +311,7 @@ function setup() {
   createCanvas(600, 600);
   translate(width * wadj, height * hadj);
   rotate(-PI / 2);
+  //pickRule();
   getShapes();
   pickShape();
   for (let i = 0; i < level; i++) {
@@ -286,7 +329,10 @@ function draw() {
 
 function loadRules(data) {
   lsystem = data;
+  //currentPattern = ruleDropdown.value()
   setRule(currentPattern);
+
+//   ruleDropdown.changed(setRule(currentPattern));
 }
 
 // function loadPalettes(data) {
@@ -396,77 +442,77 @@ function turtle() {
   }
 }
 
-function addShape() {
-  if (sh === "archimedes spiral") {
-    // s = new ArchimedesSpiral(0, 0, length * 0.4, -1, (PI * 10) / 8);
-    s = new ArchimedesSpiral(0, 0, length * 0.4, -1, 0);
-    s.addPoints();
-  } else if (sh === "astroid") {
-    s = new Astroid(0, 0, length * 0.5, 2);
-    s.addPoints();
-  } else if (sh === "bicorn") {
-    s = new Bicorn(0, 0, length * 0.5);
-    s.addPoints();
-  } else if (sh === "cassini") {
-    // 1, 1.25 peanut shaped/
-    // 1, 2 oval
-    s = new CassiniOval(0, 0, length / 2, 1, 1.25);
-    s.addPoints();
-  } else if (sh === "ceva") {
-    s = new Ceva(0, 0, length / 4);
-    s.addPoints();
-  } else if (sh === "cornu") {
-    s = new CornuSpiral(0, 0, length / 3, PI / 2);
-    s.addPoints();
-  } else if (sh === "cross") {
-    // 1 quadrifolium
-    // gets longer and more rounded as a increases
-    s = new MalteseCross(0, 0, length * 0.45, 4, 2);
-    s.addPoints();
-  } else if (sh === "eight") {
-    s = new Eight(0, 0, length * 0.75);
-    s.addPoints();
-  } else if (sh === "heart") {
-    s = new Heart(0, 0, length / 8);
-    s.addPoints();
-  } else if (sh === "kiss") {
-    s = new KissCurve(0, 0, length * 0.75, 1, 1);
-    s.addPoints();
-  } else if (sh === "line") {
-    s = null;
-  } else if (sh === "quadrifolium") {
-    s = new Quadrifolium(0, 0, length * 1);
-    s.addPoints();
-    // } else if (sh === "rose") {
-    //   s = new Rose(0, 0, length * 0.175, 2, 5, 8);
-    //   s.addPoints();
-  } else if (sh === "spiral") {
-    // n = 1 Archimedian Spiral
-    // n = -1 Hyperbolic Spiral
-    // n = 1/2 Fermat spiral
-    // n = -1/2 Lituus spiral
-    // n = 2 Galilean spiral
-    let a = 0.5;
-    let n = -0.5;
-    let dir = -1;
-    s = new Spiral(0, 0, dir, length, a, n, (PI * 10) / 8);
-    //s = new Spiral(0, 0, dir, length, .5, -0.5, 0);
-    s.addPoints();
-  } else if (sh === "superellipse") {
-    s = new Superellipse(0, 0, length, 2, 1, 0.5);
-    s.addPoints();
-  } else if (sh === "supershape") {
-    s = new Supershape(0, 0, length * 0.5, 2.5, 0.4, 1, 2, 1, 4);
-    s.addPoints();
-  } else if (sh === "tear") {
-    s = new TearDrop(0, 0, length * 1, PI);
-    s.addPoints();
-  } else if (sh === "zigzag") {
-    s = new Zigzag(0, 0, length / 2, PI);
-    s.addPoints();
-  }
-}
-
-// function mousePressed() {
-//   save("image.jpg");
+// function addShape() {
+//   if (sh === "archimedes spiral") {
+//     // s = new ArchimedesSpiral(0, 0, length * 0.4, -1, (PI * 10) / 8);
+//     s = new ArchimedesSpiral(0, 0, length * 0.4, -1, 0);
+//     s.addPoints();
+//   } else if (sh === "astroid") {
+//     s = new Astroid(0, 0, length * 0.5, 2);
+//     s.addPoints();
+//   } else if (sh === "bicorn") {
+//     s = new Bicorn(0, 0, length * 0.5);
+//     s.addPoints();
+//   } else if (sh === "cassini") {
+//     // 1, 1.25 peanut shaped/
+//     // 1, 2 oval
+//     s = new CassiniOval(0, 0, length / 2, 1, 1.25);
+//     s.addPoints();
+//   } else if (sh === "ceva") {
+//     s = new Ceva(0, 0, length / 4);
+//     s.addPoints();
+//   } else if (sh === "cornu") {
+//     s = new CornuSpiral(0, 0, length / 3, PI / 2);
+//     s.addPoints();
+//   } else if (sh === "cross") {
+//     // 1 quadrifolium
+//     // gets longer and more rounded as a increases
+//     s = new MalteseCross(0, 0, length * 0.45, 4, 2);
+//     s.addPoints();
+//   } else if (sh === "eight") {
+//     s = new Eight(0, 0, length * 0.75);
+//     s.addPoints();
+//   } else if (sh === "heart") {
+//     s = new Heart(0, 0, length / 8);
+//     s.addPoints();
+//   } else if (sh === "kiss") {
+//     s = new KissCurve(0, 0, length * 0.75, 1, 1);
+//     s.addPoints();
+//   } else if (sh === "line") {
+//     s = null;
+//   } else if (sh === "quadrifolium") {
+//     s = new Quadrifolium(0, 0, length * 1);
+//     s.addPoints();
+//     // } else if (sh === "rose") {
+//     //   s = new Rose(0, 0, length * 0.175, 2, 5, 8);
+//     //   s.addPoints();
+//   } else if (sh === "spiral") {
+//     // n = 1 Archimedian Spiral
+//     // n = -1 Hyperbolic Spiral
+//     // n = 1/2 Fermat spiral
+//     // n = -1/2 Lituus spiral
+//     // n = 2 Galilean spiral
+//     let a = 0.5;
+//     let n = -0.5;
+//     let dir = -1;
+//     s = new Spiral(0, 0, dir, length, a, n, (PI * 10) / 8);
+//     //s = new Spiral(0, 0, dir, length, .5, -0.5, 0);
+//     s.addPoints();
+//   } else if (sh === "superellipse") {
+//     s = new Superellipse(0, 0, length, 2, 1, 0.5);
+//     s.addPoints();
+//   } else if (sh === "supershape") {
+//     s = new Supershape(0, 0, length * 0.5, 2.5, 0.4, 1, 2, 1, 4);
+//     s.addPoints();
+//   } else if (sh === "tear") {
+//     s = new TearDrop(0, 0, length * 1, PI);
+//     s.addPoints();
+//   } else if (sh === "zigzag") {
+//     s = new Zigzag(0, 0, length / 2, PI);
+//     s.addPoints();
+//   }
 // }
+
+// // function mousePressed() {
+// //   save("image.jpg");
+// // }
