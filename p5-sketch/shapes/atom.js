@@ -1,19 +1,18 @@
-// https://mathworld.wolfram.com/BeanCurve.html
+// https://mathworld.wolfram.com/Atom-Spiral.html
 
-class Bean {
-  constructor(x, y, sc) {
+class AtomSpiral {
+  constructor(x, y, sc, a, angle) {
     this.x = x;
     this.y = y;
     this.sc = sc;
-    this.a = 1;
+    this.a = 0.25; // 1/4
+    this.angle = angle;
     this.points = [];
   }
 
   addPoints() {
-    for (let theta = -PI/2; theta < PI/2; theta += 0.1) {
-      let r = this.a * (pow(sin(theta), 2.5) + pow(sin(theta), 2.5)); ;
-      // let x = this.r * this.a * cos(theta);
-      // let y = (this.r * this.a * pow(cos(theta), 3)) / (3 + cos(theta));
+    for (let theta = -3 * PI; theta < 3 * PI; theta += 0.05) {
+      let r = theta / (theta - this.a);
       let x = this.sc * r * cos(theta);
       let y = this.sc * r * sin(theta);
       this.points.push(createVector(x, y));
@@ -23,11 +22,12 @@ class Bean {
   show() {
     push();
     translate(this.x, this.y);
+    rotate(this.angle); // angle 27/64
     beginShape();
     for (let p of this.points) {
       vertex(p.x, p.y);
     }
-    endShape(CLOSE);
+    endShape();
     pop();
   }
 }

@@ -120,3 +120,6 @@ Tree with the supershape
 Resources
 
 - [L-system](https://en.wikipedia.org/wiki/L-system)
+
+[colorjs](https://colorjs.io/)
+[coloris.js](https://coloris.js.org)

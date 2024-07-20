@@ -1,4 +1,5 @@
 // https://mathworld.wolfram.com/Ophiuride.html
+
 class Ophiuride {
   constructor(x, y, sc, a, b) {
     this.x = x;

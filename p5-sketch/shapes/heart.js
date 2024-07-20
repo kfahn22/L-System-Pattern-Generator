@@ -1,4 +1,4 @@
-// 
+// https://thecodingtrain.com/challenges/134-heart-curve
 
 class Heart {
   constructor(x, y, r) {
@@ -27,7 +27,7 @@ class Heart {
     for (let p of this.points) {
       vertex(p.x, p.y);
     }
-    endShape();
+    endShape(CLOSE);
     pop();
   }
 }
