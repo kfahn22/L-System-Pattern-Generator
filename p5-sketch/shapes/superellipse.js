@@ -9,7 +9,7 @@ class Superellipse {
     this.a = a;
     this.b = b;
     this.n = n; // 0.5 astroid
-    // this.angle = angle;
+    //this.angle = angle;
     this.points = [];
   }
 
@@ -39,7 +39,7 @@ class Superellipse {
     for (let p of this.points) {
       vertex(p.x, p.y);
     }
-    endShape();
+    endShape(CLOSE);
     pop();
   }
 }

@@ -21,12 +21,12 @@ class TearDrop {
   show() {
     push();
     translate(this.x, this.y);
-    rotate(this.angle)
+    rotate(this.angle);
     beginShape();
     for (let p of this.points) {
       vertex(p.x, p.y);
     }
-    endShape();
+    endShape(CLOSE);
     pop();
   }
 }

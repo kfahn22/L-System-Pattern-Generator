@@ -19,7 +19,7 @@ let circular3;
 let cross;
 let crystal;
 let dragon;
-let fern;
+let fern, fern2, fern3;
 let hexagonal_gosper;
 let hilbert;
 let kolam;
@@ -230,6 +230,8 @@ function getRules(data) {
   dragon = lsystem.dragon;
   leaf = lsystem.leaf;
   fern = lsystem.fern;
+  fern2 = lsystem.fern2;
+  fern3 = lsystem.fern3;
   hexagonal_gosper = lsystem.hexagonal_gosper;
   hilbert = lsystem.hilbert;
   krishna_anklet = lsystem.krishna_anklet;
@@ -263,6 +265,8 @@ function getRules(data) {
   ruleDropdown.option("crystal");
   ruleDropdown.option("dragon");
   ruleDropdown.option("fern");
+  ruleDropdown.option("fern2");
+  ruleDropdown.option("fern3");
   ruleDropdown.option("hexagonal_gosper");
   ruleDropdown.option("hilbert");
   ruleDropdown.option("kolam");
@@ -317,6 +321,12 @@ function pickRule() {
       break;
     case "fern":
       currentFractal = fern;
+      break;
+    case "fern2":
+      currentFractal = fern2;
+      break;
+    case "fern3":
+      currentFractal = fern3;
       break;
     case "hexagonal_gosper":
       currentFractal = hexagonal_gosper;
@@ -793,6 +803,7 @@ function reset() {
   } else if (
     levelSlider.value() > 3 &&
     (ruleDropdown.value() === "board" ||
+      ruleDropdown.value() === "fern" ||
       ruleDropdown.value() === "hexagonal_gosper" ||
       ruleDropdown.value() === "skierpinski" ||
       ruleDropdown.value() === "peano" ||
@@ -813,7 +824,7 @@ function reset() {
     turtle();
   } else if (
     levelSlider.value() > 4 &&
-    (ruleDropdown.value() === "cross" || ruleDropdown.value() === "cross")
+    (ruleDropdown.value() === "cross" || ruleDropdown.value() === "crystal")
   ) {
     stroke(255);
     text(
@@ -942,6 +953,9 @@ function turtle() {
       }
       // console.log(shapeScale)
       pop();
+    } else if (current == "R") {
+      line(0, 0, 0, -length);
+      translate(0, -length);
     } else if (current == "(") {
       angle -= radians(0.1);
     } else if (current == ")") {
