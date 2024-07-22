@@ -4,10 +4,14 @@ From Wikipedia: "An L-system or Lindenmayer system is a parallel rewriting syste
 
 - [Fractal Trees L-system Coding Challenge](https://thecodingtrain.com/challenges/16-l-system-fractal-trees)
 - [LSystemCreator](https://anuraghazra.dev/LSystemCreator/)
+- [Principles of L-Systems](https://www.houdinikitchen.net/wp-content/uploads/2019/12/L-systems.pdf)
+- [](https://docs.juliahub.com/Lindenmayer/HusDP/0.3.0/)
 
 I have used the [L-system formulas by Paul Bourke](https://paulbourke.net/fractals/lsys/) to generate these designs. The rulesets can be found in the ruleset.json file. The code for the shapes is pulled from a couple of different sources: [the Code Train](https://thecodingtrain.com), [Mathcurve.com](https://mathcurve.com), and [Wolfram Mathworld](https://mathworld.wolfram.com/topics/Curves.html)
 
 I have experimented with inserting different shapes--including spirals, ovals, and even the supershape--into different L-system rule-sets. It is hard to predict, in advance, whether a particular rule-set/shape combination is going to produce a nice design, but trial and error have resulted in some pretty cool ones.
+
+[p5 sketch](https://editor.p5js.org/kfahn/sketches/B_P7q5oG_)
 
 Daniel Shiffman recently did a Coding Challenge on the dragon fractal, and my experiments started with the Dragon rule-set. (Add link!) One of my favorites is this image, which was created using the Dragon rule-set filled with the Astroid (level 10).
 
@@ -123,3 +127,4 @@ Resources
 
 [colorjs](https://colorjs.io/)
 [coloris.js](https://coloris.js.org)
+[keyIsPressed](https://p5js.org/reference/p5/keyIsPressed/)

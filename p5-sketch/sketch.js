@@ -10,6 +10,7 @@ let fractals = {};
 let currentFractal;
 let lsystem; // rules data
 let lf; // length adjustment factor
+let fractal; // rendered fractal
 
 // Add variables for the lsystems
 let none;
@@ -18,7 +19,8 @@ let circular;
 let circular3;
 let cross;
 let crystal;
-let dragon;
+let diamond;
+let dragon1, dragon2;
 let fern, fern2, fern3;
 let hexagonal_gosper;
 let hilbert;
@@ -31,6 +33,8 @@ let mango_leaf;
 let peano;
 let pentaplexity;
 let quadratic_gosper;
+let quadratic_snowflake1;
+let quadratic_snowflake2;
 let quadratic_koch_island;
 let rings;
 let snake_kolam;
@@ -50,6 +54,14 @@ let aquaBluePalette;
 let plantGreensPalette;
 let redPalette;
 let orangeBluePalette;
+let rygbPalette;
+let gyobPalette;
+let violetMintPalette;
+let purpleBluePalette;
+let yellowBluePalette;
+let blueYellowPalette;
+let modrianPalette;
+let pinkPalette;
 let currentPalette;
 let selectedColor; // current color within palette
 let palettes = {}; // array that holds all of the available palettes
@@ -62,6 +74,7 @@ let angle; // angle of rotation
 let checkbox; // boolean for whether shape is filed
 
 let resetButton; // Reset fractal
+let saveButton; // Save image
 let wadj; // amount to to translate in x direction
 let hadj; // amount to to translate in y direction
 let shapeScale; //variable to adjust size of shapes
@@ -111,13 +124,13 @@ let n1label, n2label, n3label;
 let rotate2label;
 
 function addSliders() {
-  wSlider = createSlider(0.1, 1, 0.5, 0.05);
+  wSlider = createSlider(0.05, 1, 0.5, 0.05);
   wSlider.position(width + 10, 35);
   // Create a label for the slider
   wlabel = createP("Translate x:");
   wlabel.position(wSlider.x, wSlider.y - 35);
 
-  hSlider = createSlider(0.1, 1, 0.5, 0.05);
+  hSlider = createSlider(0.05, 1, 0.5, 0.05);
   // hSlider = createSlider(5, height - 5, height*0.5, 5);
   hSlider.position(width + 10, 90);
   hlabel = createP("Translate y:");
@@ -128,7 +141,7 @@ function addSliders() {
   lengthlabel = createP("Step length:");
   lengthlabel.position(lengthSlider.x, lengthSlider.y - 35);
 
-  strokeWeightSlider = createSlider(1, 8, 1, 1);
+  strokeWeightSlider = createSlider(0.1, 8, 1, 1);
   strokeWeightSlider.position(width + 10, 270);
   swlabel = createP("StrokeWeight:");
   swlabel.position(strokeWeightSlider.x, strokeWeightSlider.y - 35);
@@ -139,7 +152,7 @@ function addSliders() {
   alphalabel = createP("Alpha:");
   alphalabel.position(alphaSlider.x, alphaSlider.y - 35);
 
-  scaleSlider = createSlider(0.25, 1, 0.5, 0.1);
+  scaleSlider = createSlider(0.15, 1.15, 0.5, 0.05);
   scaleSlider.position(width + 10, 370);
   scalelabel = createP("Scale:");
   scalelabel.position(scaleSlider.x, scaleSlider.y - 35);
@@ -155,7 +168,7 @@ function addSliders() {
   levellabel.position(levelSlider.x, levelSlider.y - 35);
 
   // Sliders for shape variables
-  rotateShapeSlider = createSlider(-180, 180, 0, 10);
+  rotateShapeSlider = createSlider(-180, 180, 0, 5);
   rotateShapeSlider.position(width + 10, 460);
   rotateShapelabel = createP("Rotate shape:");
   rotateShapelabel.position(rotateShapeSlider.x, rotateShapeSlider.y - 35);
@@ -172,7 +185,7 @@ function addSliders() {
   mSlider.position(width + 10, 580);
   mlabel = createP("m:");
   mlabel.position(mSlider.x, mSlider.y - 35);
-  nSlider = createSlider(-1, 1, 5, 0.5);
+  nSlider = createSlider(-1, 5, 1, 0.5);
   nSlider.position(width + 10, 620);
   nlabel = createP("n: ");
   nlabel.position(nSlider.x, nSlider.y - 35);
@@ -208,6 +221,7 @@ function addSliders() {
   n1Slider.input(reset);
   n2Slider.input(reset);
   n3Slider.input(reset);
+  updateLabels();
 }
 
 function setRule(pattern) {
@@ -227,7 +241,9 @@ function getRules(data) {
   circular3 = lsystem.circular3;
   cross = lsystem.cross;
   crystal = lsystem.crystal;
-  dragon = lsystem.dragon;
+  diamond = lsystem.diamond;
+  dragon1 = lsystem.dragon1; // some shapes have fill
+  dragon2 = lsystem.dragon2; // unfilled
   leaf = lsystem.leaf;
   fern = lsystem.fern;
   fern2 = lsystem.fern2;
@@ -245,6 +261,8 @@ function getRules(data) {
   pentaplexity = lsystem.pentaplexity;
   quadratic_gosper = lsystem.quadratic_gosper;
   quadratic_koch_island = lsystem.quadratic_koch_island;
+  quadratic_snowflake1 = lsystem.quadratic_snowflake1;
+  quadratic_snowflake2 = lsystem.quadratic_snowflake2;
   rings = lsystem.rings;
   snake_kolam = lsystem.snake_kolam;
   skierpinski = lsystem.skierpinski;
@@ -263,7 +281,9 @@ function getRules(data) {
   ruleDropdown.option("circular3");
   ruleDropdown.option("cross");
   ruleDropdown.option("crystal");
-  ruleDropdown.option("dragon");
+  ruleDropdown.option("diamond");
+  ruleDropdown.option("dragon1");
+  ruleDropdown.option("dragon2");
   ruleDropdown.option("fern");
   ruleDropdown.option("fern2");
   ruleDropdown.option("fern3");
@@ -279,6 +299,8 @@ function getRules(data) {
   ruleDropdown.option("pentaplexity");
   ruleDropdown.option("quadratic_gosper");
   ruleDropdown.option("quadratic_koch_island");
+  ruleDropdown.option("quadratic_snowflake1");
+  ruleDropdown.option("quadratic_snowflake2");
   ruleDropdown.option("rings");
   ruleDropdown.option("snake_kolam");
   ruleDropdown.option("skierpinski");
@@ -290,7 +312,7 @@ function getRules(data) {
   ruleDropdown.option("triangle_rule");
 
   // Set initial value of the dropdown
-  currentFractal = ruleDropdown.selected("dragon");
+  currentFractal = ruleDropdown.selected("dragon2");
   ruleDropdown.changed(pickRule);
 }
 function pickRule() {
@@ -316,8 +338,14 @@ function pickRule() {
     case "crystal":
       currentFractal = crystal;
       break;
-    case "dragon":
-      currentFractal = dragon;
+    case "diamond":
+      currentFractal = diamond;
+      break;
+    case "dragon1":
+      currentFractal = dragon1;
+      break;
+    case "dragon2":
+      currentFractal = dragon2;
       break;
     case "fern":
       currentFractal = fern;
@@ -364,6 +392,12 @@ function pickRule() {
     case "quadratic_koch_island":
       currentFractal = quadratic_koch_island;
       break;
+    case "quadratic_snowflake1":
+      currentFractal = quadratic_snowflake1;
+      break;
+    case "quadratic_snowflake2":
+      currentFractal = quadratic_snowflake2;
+      break;
     case "rings":
       currentFractal = rings;
       break;
@@ -404,6 +438,15 @@ function getColors(data) {
   plantGreensPalette = palettes.plant_greens;
   redPalette = palettes.reds;
   orangeBluePalette = palettes.orange_blue;
+  rygbPalette = palettes.rygb;
+  gyobPalette = palettes.gyob;
+  violetMintPalette = palettes.violet_mint;
+  maroonBluePalette = palettes.maroon_blue;
+  purpleBluePalette = palettes.purple_blue;
+  yellowBluePalette = palettes.yellow_blue;
+  modrianPalette = palettes.modrian;
+  blueYellowPalette = palettes.blue_yellow;
+  pinkPalette = palettes.pink;
 
   // Set default palette
   currentPalette = blueGreenPalette;
@@ -418,6 +461,15 @@ function getColors(data) {
   colorDropdown.option("plant_greens");
   colorDropdown.option("reds");
   colorDropdown.option("orange_blue");
+  colorDropdown.option("rygb");
+  colorDropdown.option("gyob");
+  colorDropdown.option("violet_mint");
+  colorDropdown.option("maroon_blue");
+  colorDropdown.option("purple_blue");
+  colorDropdown.option("yellow_blue");
+  colorDropdown.option("blue_yellow");
+  colorDropdown.option("modrian");
+  colorDropdown.option("pink");
 
   // Set initial value of the dropdown
   colorDropdown.selected("blue_green");
@@ -434,6 +486,8 @@ function addShapes() {
   shapeDropdown.option("astroid");
   shapeDropdown.option("atom");
   shapeDropdown.option("bicorn");
+  shapeDropdown.option("butterfly");
+  shapeDropdown.option("cannibus");
   shapeDropdown.option("cassini");
   shapeDropdown.option("ceva");
   shapeDropdown.option("deltoid");
@@ -448,6 +502,7 @@ function addShapes() {
   shapeDropdown.option("line");
   shapeDropdown.option("ophiuride");
   shapeDropdown.option("quadrifolium");
+  shapeDropdown.option("quadrilateral");
   shapeDropdown.option("rose");
   shapeDropdown.option("superellipse");
   shapeDropdown.option("supershape");
@@ -486,6 +541,14 @@ function pickShape() {
       selectedShape = new Bicorn(0, 0, length * shapeScale);
       selectedShape.addPoints();
       break;
+    case "butterfly":
+      selectedShape = new Butterfly(0, 0, length * shapeScale);
+      selectedShape.addPoints();
+      break;
+    case "cannibus":
+      selectedShape = new Cannibus(0, 0, length * shapeScale, shapeAngle);
+      selectedShape.addPoints();
+      break;
     case "cassini":
       // 1, 1.25 peanut shaped/
       // 1, 2 oval
@@ -509,7 +572,7 @@ function pickShape() {
       break;
     case "deltoid":
       // angle PI/6;
-      selectedShape = new Deltoid(0, 0, length * shapeScale, a, angle);
+      selectedShape = new Deltoid(0, 0, length * shapeScale, a, shapeAngle);
       selectedShape.addPoints();
       break;
     case "eight":
@@ -550,6 +613,16 @@ function pickShape() {
       break;
     case "quadrifolium":
       selectedShape = new Quadrifolium(0, 0, length * shapeScale, a);
+      selectedShape.addPoints();
+      break;
+    case "quadrilateral":
+      selectedShape = new Quadrilateral(
+        0,
+        0,
+        length * shapeScale,
+        m,
+        shapeAngle
+      );
       selectedShape.addPoints();
       break;
     case "rose":
@@ -647,17 +720,57 @@ function pickColor() {
     case "orange_blue":
       currentPalette = orangeBluePalette;
       break;
+    case "rygb":
+      currentPalette = rygbPalette;
+      break;
+    case "gyob":
+      currentPalette = rygbPalette;
+      break;
+    case "violet_mint":
+      currentPalette = violetMintPalette;
+      break;
+    case "maroon_blue":
+      currentPalette = maroonBluePalette;
+      break;
+    case "purple_blue":
+      currentPalette = purpleBluePalette;
+      break;
+    case "yellow_blue":
+      currentPalette = yellowBluePalette;
+      break;
+    case "modrian":
+      currentPalette = modrianPalette;
+      break;
+    case "blue_yellow":
+      currentPalette = blueYellowPalette;
+      break;
+    case "pink":
+      currentPalette = pinkPalette;
+      break;
   }
 
   colorDropdown.changed(pickColor);
   fillShape.changed(adjustFill);
 }
 
-// Parameters for the shapes
+// Add buttons
 function addButtons() {
-  saveButton = createButton("Save Image");
-  saveButton.position(width + 10, 500);
-  saveButton.mousePressed(saveImage);
+  // Add a reset button
+  resetButton = createButton("Reset");
+  resetButton.position(470, 5);
+  resetButton.mousePressed(reset);
+
+  // Add a button to save the design
+  // saveButton = createButton("Save Image");
+  // saveButton.position(520, 5);
+  // saveButton.mousePressed();
+}
+
+// Function to save the canvas as an image when 's' key is pressed
+function keyPressed() {
+  if (key === "s" || key === "S") {
+    save("img.jpg");
+  }
 }
 
 function preload() {
@@ -669,15 +782,12 @@ function setup() {
   let canvas = createCanvas(600, 600);
   canvas.position(0, 50);
   background(currentPalette[4]);
+
+  // Controls
+  addButtons();
   addSliders();
-  //addParameters();
-
   fillShape = createCheckbox("Fill");
-  fillShape.position(450, 5);
-
-  resetButton = createButton("Reset");
-  resetButton.position(500, 5);
-  resetButton.mousePressed(reset);
+  fillShape.position(420, 5);
 
   wadj = wSlider.value();
   hadj = hSlider.value();
@@ -743,172 +853,6 @@ function generate() {
   sentence = nextSentence;
 }
 
-function reset() {
-  background(currentPalette[4]);
-  wadj = wSlider.value();
-  hadj = hSlider.value();
-  level = levelSlider.value();
-  length = lengthSlider.value();
-  sw = strokeWeightSlider.value();
-  angle = radians(rotateSlider.value());
-  shapeScale = scaleSlider.value();
-  shapeAngle = rotateShapeSlider.value();
-  a = aSlider.value();
-  b = bSlider.value();
-  m = mSlider.value();
-  n = nSlider.value();
-  n1 = n1Slider.value();
-  n2 = n2Slider.value();
-  n3 = n3Slider.value();
-
-  // Update Color Variables
-  selectedColor = chooseColor(currentPalette);
-  adjustFill();
-
-  updateVariables();
-  updateLabels();
-  pickShape();
-  push();
-  translate(width * wadj, height * hadj);
-  rotate(angle);
-  pickRule();
-  if (levelSlider.value() > 1 && ruleDropdown.value() === "circular") {
-    stroke(255);
-    text(
-      "The level cannot be > 1 with the circular pattern",
-      -width / 2 + 20,
-      -height / 2 + 20
-    );
-    level = 1;
-    for (let i = 0; i < 1; i++) {
-      generate();
-    }
-    turtle();
-  } else if (
-    levelSlider.value() > 2 &&
-    (ruleDropdown.value() === "quadratic_gosper" ||
-      ruleDropdown.value() === "quadratic_koch_island")
-  ) {
-    stroke(255);
-    text(
-      "The level cannot be > 2 with the current fractal pattern",
-      -width / 2 + 20,
-      -height / 2 + 20
-    );
-    level = 2;
-    for (let i = 0; i < level; i++) {
-      generate();
-    }
-    turtle();
-  } else if (
-    levelSlider.value() > 3 &&
-    (ruleDropdown.value() === "board" ||
-      ruleDropdown.value() === "fern" ||
-      ruleDropdown.value() === "hexagonal_gosper" ||
-      ruleDropdown.value() === "skierpinski" ||
-      ruleDropdown.value() === "peano" ||
-      ruleDropdown.value() === "skierpinski" ||
-      ruleDropdown.value() === "square_skierpinski" ||
-      ruleDropdown.value() === "tiles")
-  ) {
-    stroke(255);
-    text(
-      "The level cannot be > 3 with the current fractal pattern",
-      -width / 2 + 20,
-      -height / 2 + 20
-    );
-    level = 3;
-    for (let i = 0; i < level; i++) {
-      generate();
-    }
-    turtle();
-  } else if (
-    levelSlider.value() > 4 &&
-    (ruleDropdown.value() === "cross" || ruleDropdown.value() === "crystal")
-  ) {
-    stroke(255);
-    text(
-      "The level cannot be > 4 with the current fractal pattern",
-      -width / 2 + 20,
-      -height / 2 + 20
-    );
-    level = 4;
-    for (let i = 0; i < level; i++) {
-      generate();
-    }
-    turtle();
-  } else if (
-    levelSlider.value() > 5 &&
-    (ruleDropdown.value() === "hilbert" ||
-      ruleDropdown.value() === "pentaplexity" ||
-      ruleDropdown.value() === "triangle_rule")
-  ) {
-    stroke(255);
-    text(
-      "The level cannot be > 5 with the current fractal pattern",
-      -width / 2 + 20,
-      -height / 2 + 20
-    );
-    level = 5;
-    for (let i = 0; i < level; i++) {
-      generate();
-    }
-    turtle();
-  } else {
-    for (let i = 0; i < level; i++) {
-      generate();
-    }
-    turtle();
-  }
-  pop();
-}
-
-function updateLabels() {
-  wlabel.html("Translate w: " + wSlider.value());
-  hlabel.html("Translate h: " + hSlider.value());
-  levellabel.html("Level: " + levelSlider.value());
-  lengthlabel.html("Length: " + lengthSlider.value());
-  rotatelabel.html("Rotate fractal: " + rotateSlider.value());
-  scalelabel.html("Scale: " + scaleSlider.value());
-  alphalabel.html("Alpha: " + alphaSlider.value());
-  rotateShapelabel.html("Rotate shape: " + rotateShapeSlider.value());
-  alabel.html("a: " + aSlider.value());
-  blabel.html("b: " + bSlider.value());
-  mlabel.html("m: " + mSlider.value());
-  nlabel.html("n: " + nSlider.value());
-  swlabel.html("StrokeWeight: " + strokeWeightSlider.value());
-}
-
-function adjustFill() {
-  selectedColor = chooseColor(currentPalette);
-  let c = color(selectedColor[0], selectedColor[1], selectedColor[2]);
-  let a = alphaSlider.value();
-  c.setAlpha(a);
-  if (fillShape.checked() === true) {
-    noStroke();
-    fill(c);
-  } else {
-    noFill();
-    strokeWeight(sw);
-    stroke(c);
-  }
-}
-
-function chooseColor(palette) {
-  let c;
-  let r = random(1);
-  if (r <= 0.25) {
-    c = palette[0];
-  } else if (r > 0.25 && r <= 0.5) {
-    c = palette[1];
-  } else if (r > 0.5 && r <= 0.75) {
-    c = palette[2];
-  } else if (r > 0.75) {
-    c = palette[3];
-  }
-  return c;
-}
-
 function turtle() {
   for (let i = 0; i < sentence.length; i++) {
     let sl = sentence.length;
@@ -951,11 +895,7 @@ function turtle() {
         length = length / lf;
         pickShape();
       }
-      // console.log(shapeScale)
       pop();
-    } else if (current == "R") {
-      line(0, 0, 0, -length);
-      translate(0, -length);
     } else if (current == "(") {
       angle -= radians(0.1);
     } else if (current == ")") {
@@ -970,17 +910,180 @@ function turtle() {
   }
 }
 
-// function updateLevel() {
-//   if (levelSlider.value() > 1 && currentFractal === "circular") {
-//     level = 1;
-//     levellabel.html("Level: 1");
-//   // break;
-//   } else {
-//     level = levelSlider.value();
-//   }
-//   console.log(level);
-// }
+function reset() {
+  background(currentPalette[4]);
+  wadj = wSlider.value();
+  hadj = hSlider.value();
+  level = levelSlider.value();
+  length = lengthSlider.value();
+  sw = strokeWeightSlider.value();
+  angle = radians(rotateSlider.value());
+  shapeScale = scaleSlider.value();
+  shapeAngle = rotateShapeSlider.value();
+  a = aSlider.value();
+  b = bSlider.value();
+  m = mSlider.value();
+  n = nSlider.value();
+  n1 = n1Slider.value();
+  n2 = n2Slider.value();
+  n3 = n3Slider.value();
 
-// // function mousePressed() {
-// //   save("image.jpg");
-// // }
+  // Update Color Variables
+  selectedColor = chooseColor(currentPalette);
+  adjustFill();
+  updateLabels();
+  updateVariables();
+
+  pickShape();
+  push();
+  translate(width * wadj, height * hadj);
+  rotate(angle);
+  pickRule();
+  if (levelSlider.value() > 1 && ruleDropdown.value() === "circular") {
+    stroke(255);
+    text(
+      "The level cannot be > 1 with the circular pattern",
+      -width / 2 + 20,
+      -height / 2 + 20
+    );
+    level = 1;
+    for (let i = 0; i < 1; i++) {
+      generate();
+    }
+    levellabel.html("Level: " + "1");
+    turtle();
+  } else if (
+    levelSlider.value() > 2 &&
+    (ruleDropdown.value() === "quadratic_gosper" ||
+      ruleDropdown.value() === "quadratic_koch_island")
+  ) {
+    stroke(255);
+    text(
+      "The level cannot be > 2 with the current fractal pattern",
+      -width / 2 + 20,
+      -height / 2 + 20
+    );
+    level = 2;
+    for (let i = 0; i < level; i++) {
+      generate();
+    }
+    levellabel.html("Level: " + "2");
+    turtle();
+  } else if (
+    levelSlider.value() > 3 &&
+    (ruleDropdown.value() === "board" ||
+      ruleDropdown.value() === "fern" ||
+      ruleDropdown.value() === "hexagonal_gosper" ||
+      ruleDropdown.value() === "skierpinski" ||
+      ruleDropdown.value() === "peano" ||
+      ruleDropdown.value() === "quadratic_snowflake1" ||
+      ruleDropdown.value() === "quadratic_snowflake2" ||
+      ruleDropdown.value() === "skierpinski" ||
+      ruleDropdown.value() === "square_skierpinski" ||
+      ruleDropdown.value() === "tiles")
+  ) {
+    stroke(255);
+    text(
+      "The level cannot be > 3 with the current fractal pattern",
+      -width / 2 + 20,
+      -height / 2 + 20
+    );
+    level = 3;
+    for (let i = 0; i < level; i++) {
+      generate();
+    }
+    levellabel.html("Level: " + "3");
+    turtle();
+  } else if (
+    levelSlider.value() > 4 &&
+    (ruleDropdown.value() === "cross" || ruleDropdown.value() === "crystal")
+  ) {
+    stroke(255);
+    text(
+      "The level cannot be > 4 with the current fractal pattern",
+      -width / 2 + 20,
+      -height / 2 + 20
+    );
+    level = 4;
+    for (let i = 0; i < level; i++) {
+      generate();
+    }
+    levellabel.html("Level: " + "4");
+    turtle();
+  } else if (
+    levelSlider.value() > 5 &&
+    (ruleDropdown.value() === "hilbert" ||
+      ruleDropdown.value() === "pentaplexity" ||
+      ruleDropdown.value() === "triangle_rule" ||
+      ruleDropdown.value() === "fern3")
+  ) {
+    stroke(255);
+    text(
+      "The level cannot be > 5 with the current fractal pattern",
+      -width / 2 + 20,
+      -height / 2 + 20
+    );
+    level = 5;
+    for (let i = 0; i < level; i++) {
+      generate();
+    }
+    levellabel.html("Level: " + "5");
+    turtle();
+  } else {
+    for (let i = 0; i < level; i++) {
+      generate();
+    }
+    turtle();
+    levellabel.html("Level: " + levelSlider.value());
+  }
+  pop();
+}
+
+function updateLabels() {
+  wlabel.html("Translate w: " + wSlider.value());
+  hlabel.html("Translate h: " + hSlider.value());
+  levellabel.html("Level: " + levelSlider.value());
+  lengthlabel.html("Length: " + lengthSlider.value());
+  rotatelabel.html("Rotate fractal: " + rotateSlider.value());
+  scalelabel.html("Scale: " + scaleSlider.value());
+  alphalabel.html("Alpha: " + alphaSlider.value());
+  rotateShapelabel.html("Rotate shape: " + rotateShapeSlider.value());
+  alabel.html("a: " + aSlider.value());
+  blabel.html("b: " + bSlider.value());
+  mlabel.html("m: " + mSlider.value());
+  nlabel.html("n: " + nSlider.value());
+  n1label.html("n1: " + n1Slider.value());
+  n2label.html("n2: " + n2Slider.value());
+  n3label.html("n3: " + n3Slider.value());
+  swlabel.html("StrokeWeight: " + strokeWeightSlider.value());
+}
+
+function adjustFill() {
+  selectedColor = chooseColor(currentPalette);
+  let c = color(selectedColor[0], selectedColor[1], selectedColor[2]);
+  let a = alphaSlider.value();
+  c.setAlpha(a);
+  if (fillShape.checked() === true) {
+    noStroke();
+    fill(c);
+  } else {
+    noFill();
+    strokeWeight(sw);
+    stroke(c);
+  }
+}
+
+function chooseColor(palette) {
+  let c;
+  let r = random(1);
+  if (r <= 0.25) {
+    c = palette[0];
+  } else if (r > 0.25 && r <= 0.5) {
+    c = palette[1];
+  } else if (r > 0.5 && r <= 0.75) {
+    c = palette[2];
+  } else if (r > 0.75) {
+    c = palette[3];
+  }
+  return c;
+}

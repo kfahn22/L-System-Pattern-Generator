@@ -279,7 +279,15 @@
     "angle": "90",
     "length_factor": "1"
   },
-  "quadratic snowflake": {
+  "quadratic_snowflake1": {
+    "axiom": "F",
+    "rules": {
+      "F": "F-F+F+F-F"
+    },
+    "angle": "90",
+    "length_factor": "1"
+  },
+  "quadratic_snowflake2": {
     "axiom": "FF+FF+FF+FF",
     "rules": {
       "F": "F+F-F-F+F"
