@@ -40,6 +40,10 @@ Of course, one of the original applications for L-systems is creating realistic 
 
 <p align="center"><img src="assets/tree-zig-zag.jpg" alt="Tree rule-set with zig-zag curve" width="500px"></p>
 
+## Palettes
+
+I also want to give a shout-out to [supercolorpalette.com](https://supercolorpalette.com)!! I started out by creating a json file with palettes, but eventually found the supercolorpalette website. I was able to get the HEX codes from the url, and then create palette arrays very easily with some helper functions from chatGPT -- so much easier and faster than manually creating the palette arrays.
+
 Here is a gallery with some examples of what you can create inserting shapes into L-system rule-sets. I also have additional images in the assets folder.
 
 ## 🌄 Gallery
