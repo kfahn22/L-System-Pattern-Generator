@@ -16,67 +16,34 @@ I have experimented with inserting different shapes--including spirals, ovals, a
 
 Daniel Shiffman recently did a Coding Challenge on the dragon fractal, and my experiments started with the Dragon rule-set. (Add link!) One of my favorites is this image, which was created using the Dragon rule-set filled with the Astroid (level 10).
 
-`s = new Astroid(0, 0, length * 0.5, 2);`
-
 <p align="center"><img src="assets/dragon-astroid-filled.jpg" alt="Dragon rule-set with astroid" width="300px"></p>
 
-I also really like this version with the eight curve.
+I also really like this version with the Archimedes Spiral.
 
-`s = new Eight(0, 0, length * 0.75);`
-
-<p align="center"><img src="assets/dragon-eight.jpg" alt="Dragon rule-set with eight curve" width="300px"></p>
-
-I also experimented added different spirals to the rule sets. This design was created by adding the Archimedes spiral to the board rule-set.
-
-`s = new ArchimedesSpiral(0, 0, length * 0.4, -1, 0);`
-
-<p align="center"><img src="assets/board-spiral.jpg" alt="Board rule-set with archimedian spiral" width="300px"></p>
-
-And here is a design with the Cross rule-set filled with a lituus-spiral.
-
-`let a = 0.5;`  
-`let n = -0.5;`  
-`let dir = -1;`  
-`s = new Spiral(0, 0, dir, length, a, n, (PI * 10) / 8);`
-
-<p align="center"><img src="assets/cross-lituus-spiral.jpg" alt="Cross rule-set with lituus spiral" width="300px"></p>
+<p align="center"><img src="assets/dragon-archimedes-spiral.jpg" alt="Dragon rule-set with eight curve" width="300px"></p>
 
 Using the [supershape](https://thecodingtrain.com/challenges/23-2d-supershapes) expands the creative possibilities. I used it in the Crystal rule-set with an alpha of 150 and different shades of blue since the shapes overlap.
 
 <p align="center"><img src="assets/crystal-supershape.jpg" alt="Crystal pattern with supershape" width="300px"></p>
 
-`s = new Supershape(0, 0, length * 0.5,  2, 1, 0.7, 1.4, 0.5, 4);`
+I also added it to the Krishna's Anklet pattern.
 
-Here is another design using the Crystal rule-set, but now with the ceva shape.
+<p align="center"><img src="assets/krisha-anklet-supershape.jpg" alt="Crystal pattern with supershape" width="300px"></p>
 
-`s = new Ceva(0, 0, length / 4);`
-
-<p align="center"><img src="assets/crystal-ceva.jpg" alt="Crystal pattern with ceva shape" width="300px"></p>
 
 Changing the parameters in a curve can yield very different shapes, which lend themselves to different rule-sets. Here are two different designs using the kiss curve:
 
 Snake Kolam rule-set with overlapping kiss curves.
 
-`s = new KissCurve(0, 0, length * 0.75, 1, 1);`
-
 <p align="center"><img src="assets/snake-kolam-kiss.jpg" alt="Snake kolam rule-set with kiss curve" width="300px"></p>
 
-Hexgonal Gosper with flattened kiss curves.
+Sometimes when you insert a shape into a rule-set, the result is quite different from the typical representation. One example is inserting the Cassini oval into the Hilbert rule-set. I am not sure that many people would look at this image and realize how it was generated.
 
-`s = new KissCurve(0, 0, length * 0.3, 0.5, 5);`
+<p align="center"><img src="assets/hillbert-cassini.jpg" alt="Hillbert rule-set with cassini oval" width="500px"></p>
 
-<p align="center"><img src="assets/gosper-kiss.jpg" alt="Hexagonal gosper rule-set with kiss curve" width="300px"></p>
+Or this one generated with the pentaplexity ruleset and the cannibus curve.
 
-Sometimes when you insert a shape into a rule-set, the result is quite different from the typical representation. One example is inserting the Cassini oval into the Hilbert rule-set. I doubt many people would look at this image and realize it was geneated using the Hilbert curve.
-
-`s = new CassiniOval(0, 0, length / 2, 1, 1.25);
-    s.addPoints();`
-
-<p align="center"><img src="assets/hillbert-cassini.jpg" alt="Hillbert rule-set with cassini oval" width="300px"></p>
-
-Another example would be this image with the Peano rule-set and eight-curve.
-
-<p align="center"><img src="assets/peano-eight.jpg" alt="Peano rule-set with cassini oval" width="300px"></p>
+<p align="center"><img src="assets/pentaplexity-cannibus.jpg" alt="Hillbert rule-set with cassini oval" width="500px"></p>
 
 ## Fractal Trees
 
@@ -84,11 +51,6 @@ Of course, one of the original applications for L-systems is creating realistic 
 
 <p align="center"><img src="assets/tree-line.jpg" alt="Tree rule-set with line" width="300px"></p>
 
-Tree with the supershape
-
-`s = new Supershape(0, 0, length * 0.5,  2.5, 0.4, 1, 2, 1, 4);`
-
-<p align="center"><img src="assets/tree-supershape.jpg" alt="Tree rule-set with supershape" width="300px"></p>
 
 ## 🌄 Gallery
 
