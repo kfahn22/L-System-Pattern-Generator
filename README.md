@@ -56,15 +56,16 @@ Of course, one of the original applications for L-systems is creating realistic 
      <td align="center"><a href=""> <img class="img" src="assets/mango-astroid.jpg" alt="Mango leaf filled with astroid shape" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Mango leaf with astroid shape</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="assets/snake-kolam-kiss.jpg" alt="Snake kolam rule set with kiss curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Snake kolam rule set with kiss curve</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/anklet-quadrifolium.jpg" alt="Krishna's anklet with quadrifolium curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Krishna's anklet with quadrifolium curve</b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="assets/square-skierpinkski-lissajous.jpg" alt="Square skierpinski with lissajous curve" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Square skierpinski with lissajous curve</b></sub></a></td>
 </tr>
 <tr>
       <td align="center"><a href=""> <img class="img" src="assets/crystal-rose.jpg" alt="" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Crystal rule-set with rose curve</b></sub></a></td>
-      <td align="center"><a href=""> <img class="img" src="" alt="" style="vertical-align:top;" width="500" /><br /><sub><b><br/>title</b></sub></a></td>
-    <td align="center"><a href=""> <img class="img" src="" alt="" style="vertical-align:top;" width="500" /><br /><sub><b><br/>title</b></sub></a></td>
+      <td align="center"><a href=""> <img class="img" src="assets/crystal-ceva.jpg" alt="" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Crystal rule-set with ceva curve</b></sub></a></td>
+       <td align="center"><a href=""> <img class="img" src="assets/snake-kolam-kiss.jpg" alt="Snake kolam rule set with kiss curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Snake kolam rule set with kiss curve</b></sub></a></td>
+    <td align="center"><a href=""> <img class="img" src="assets/pentaplexity-spiral.jpg" alt="Pentaplexity rule-set with Lituus spiral" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Pentaplexity rule-set with Lituus spiral</b></sub></a></td>
   </tr>
   
     
@@ -77,7 +78,6 @@ Of course, one of the original applications for L-systems is creating realistic 
 <!-- IMAGE-LIST:END -->
 
 [Animated dragon curve](https://editor.p5js.org/kfahn/sketches/ePtGuXHE-)
-Resources
 
 ## References
 
