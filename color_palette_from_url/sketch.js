@@ -205,7 +205,7 @@ function addPalettes() {
   paletteDropdown.option("purple_aqua");
   paletteDropdown.option("green");
   paletteDropdown.option("rose");
-  paletteDropdown.option("rose_blue");
+  paletteDropdown.option("fushia_blue");
   paletteDropdown.option("pink_ltblue");
   paletteDropdown.option("blue_green");
   paletteDropdown.option("blue_aqua");
@@ -242,7 +242,7 @@ function selectPalette() {
       url =
         "https://supercolorpalette.com/?scp=G0-hsl-C99CC4-CFA5CD-D2AFD4-D5B9DA-D9C3DF-DDCDE4-E3D7EA-E9E1EF";
       break;
-    case "rose_blue":
+    case "fushia_blue":
       url =
         "https://supercolorpalette.com/?scp=G0-hsl-9E0A4A-AD0B79-BB0CAF-A70DC9-800ED8-530FE6-2314F0-2248F1";
       break;
