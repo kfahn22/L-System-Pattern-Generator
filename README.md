@@ -60,9 +60,15 @@ Of course, one of the original applications for L-systems is creating realistic 
     margin-right: auto;" width="500" /><br /><sub><b><br/>Square skierpinski with lissajous curve</b></sub></a></td>
 </tr>
 <tr>
-      <td align="center"><a href=""> <img class="img" src="assets/crystal-rose.jpg" alt="" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Crystal rule-set with rose curve</b></sub></a></td>
-      <td align="center"><a href=""> <img class="img" src="assets/crystal-ceva.jpg" alt="" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Crystal rule-set with ceva curve</b></sub></a></td>
+      <td align="center"><a href=""> <img class="img" src="assets/crystal-rose.jpg" alt="Crystal rule-set with rose curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Crystal rule-set with rose curve</b></sub></a></td>
+      <td align="center"><a href=""> <img class="img" src="assets/crystal-ceva.jpg" alt="Crystal rule-set with ceva curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Crystal rule-set with ceva curve</b></sub></a></td>
        <td align="center"><a href=""> <img class="img" src="assets/snake-kolam-kiss.jpg" alt="Snake kolam rule set with kiss curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Snake kolam rule set with kiss curve</b></sub></a></td>
+       <td align="center"><a href=""> <img class="img" src="assets/board-cross.jpg" alt="Board rule-set with cross curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Board rule-set with cross curve</b></sub></a></td>
+  </tr>
+  <tr>
+      <td align="center"><a href=""> <img class="img" src="assets/koch_snowflake-tear.jpg" alt="Koch snowflake rule-set with tear curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Koch snowflake rule-set with tear curve</b></sub></a></td>
+      <td align="center"><a href=""> <img class="img" src="assets/koch-ceva.jpg" alt="Koch rule-set with ceva curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Koch rule-set with ceva curve</b></sub></a></td>
+       <td align="center"><a href=""> <img class="img" src="assets/koch-snowflake-kiss.jpg" alt="Koch snowflake rule set with kiss curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Koch snowflake rule set with kiss curve</b></sub></a></td>
     <td align="center"><a href=""> <img class="img" src="assets/pentaplexity-spiral.jpg" alt="Pentaplexity rule-set with Lituus spiral" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Pentaplexity rule-set with Lituus spiral</b></sub></a></td>
   </tr>
   
