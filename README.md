@@ -16,21 +16,21 @@ I have experimented with inserting different shapes--including spirals, ovals, a
 
 Daniel Shiffman recently did a Coding Challenge on the dragon fractal, and my experiments started with the Dragon rule-set. (Add link!) One of my favorites is this image, which was created using the Dragon rule-set filled with the Astroid (level 10).
 
-<p align="center"><img src="assets/dragon-astroid-filled.jpg" alt="Dragon rule-set with astroid" width="300px"></p>
+<p align="center"><img src="assets/dragon-astroid-filled.jpg" alt="Dragon rule-set with astroid" width="500px"></p>
 
 I also really like this version with the Archimedes Spiral.
 
-<p align="center"><img src="assets/dragon-archimedes-spiral.jpg" alt="Dragon rule-set with eight curve" width="300px"></p>
+<p align="center"><img src="assets/dragon-archimedes-spiral.jpg" alt="Dragon rule-set with eight curve" width="500px"></p>
 
 Since many of the shapes are a function of parameters that can be altered, I added some sliders to experiment and was able to generate some fun patterns.  For example, I used the [supershape](https://thecodingtrain.com/challenges/23-2d-supershapes) in the Crystal rule-set and the Krishna's Anklet rule-set yielding very different patterns.
 
 ### Crystal rule-set
 
-<p align="center"><img src="assets/crystal-supershape.jpg" alt="Crystal pattern with supershape" width="300px"></p>
+<p align="center"><img src="assets/crystal-supershape.jpg" alt="Crystal pattern with supershape" width="500px"></p>
 
 ### Krishna's Anklet rule-set
 
-<p align="center"><img src="assets/krisha-anklet-supershape.jpg" alt="Crystal pattern with supershape" width="300px"></p>
+<p align="center"><img src="assets/krisha-anklet-supershape.jpg" alt="Crystal pattern with supershape" width="500px"></p>
 
 Sometimes when you insert a shape into a rule-set, the result is quite different from the typical representation. One example is inserting the Cassini oval into the Hilbert rule-set. I am not sure that many people would look at this image and realize how it was generated.
 
@@ -44,7 +44,7 @@ Or this one generated with the pentaplexity ruleset and the cannibus curve.
 
 Of course, one of the original applications for L-systems is creating realistic looking trees. I think adding a shape to the rule-set can improve the look of the trees. For example, here is a tree rendered with the zig-zag curve.
 
-<p align="center"><img src="assets/zigzag-tree.jpg" alt="Tree rule-set with zig-zag curve" width="300px"></p>
+<p align="center"><img src="assets/zigzag-tree.jpg" alt="Tree rule-set with zig-zag curve" width="500px"></p>
 
 
 ## 🌄 Gallery
@@ -65,17 +65,12 @@ Of course, one of the original applications for L-systems is creating realistic 
     margin-right: auto;" width="500" /><br /><sub><b><br/>Square skierpinski with lissajous curve</b></sub></a></td>
 </tr>
 <tr>
-      <td align="center"><a href=""> <img class="img" src="Crystal rule-set with ceva curve" alt="Snake kolam rule set with kiss curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Snake kolam rule set with kiss curve</b></sub></a></td>
+      <td align="center"><a href=""> <img class="img" src="Cassets/snake-kolam-kiss.jpg" alt="Snake kolam rule set with kiss curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Snake kolam rule set with kiss curve</b></sub></a></td>
       <td align="center"><a href=""> <img class="img" src="" alt="" style="vertical-align:top;" width="500" /><br /><sub><b><br/>title</b></sub></a></td>
       <td align="center"><a href=""> <img class="img" src="" alt="" style="vertical-align:top;" width="500" /><br /><sub><b><br/>title</b></sub></a></td>
     <td align="center"><a href=""> <img class="img" src="" alt="" style="vertical-align:top;" width="500" /><br /><sub><b><br/>title</b></sub></a></td>
   </tr>
-  <tr>
-      <td align="center"><a href=""> <img class="img" src="" alt="" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Tree with zigzag shape</b></sub></a></td>
-      <td align="center"><a href=""> <img class="img" src="" alt="" style="vertical-align:top;" width="500" /><br /><sub><b><br/>title</b></sub></a></td>
-      <td align="center"><a href=""> <img class="img" src="" alt="" style="vertical-align:top;" width="500" /><br /><sub><b><br/>title</b></sub></a></td>
-    <td align="center"><a href=""> <img class="img" src="" alt="" style="vertical-align:top;" width="500" /><br /><sub><b><br/>title</b></sub></a></td>
-  </tr>
+  
     
  </tbody>
 </table>
