@@ -40,6 +40,8 @@ Of course, one of the original applications for L-systems is creating realistic 
 
 <p align="center"><img src="assets/tree-zig-zag.jpg" alt="Tree rule-set with zig-zag curve" width="500px"></p>
 
+Here is my gallery with some examples of what you can create inserting shapes into L-system rule-sets. I also have additional images in the assets folder.
+
 ## 🌄 Gallery
 
 <!-- IMAGE-LIST:START - Do not remove or modify this section -->
