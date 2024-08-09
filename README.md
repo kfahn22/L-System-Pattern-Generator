@@ -69,7 +69,7 @@ Of course, one of the original applications for L-systems is creating realistic 
       <td align="center"><a href=""> <img class="img" src="assets/koch_snowflake-tear.jpg" alt="Koch snowflake rule-set with tear curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Koch snowflake rule-set with tear curve</b></sub></a></td>
       <td align="center"><a href=""> <img class="img" src="assets/koch-ceva.jpg" alt="Koch rule-set with ceva curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Koch rule-set with ceva curve</b></sub></a></td>
        <td align="center"><a href=""> <img class="img" src="assets/koch-snowflake-kiss.jpg" alt="Koch snowflake rule set with kiss curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Koch snowflake rule set with kiss curve</b></sub></a></td>
-    <td align="center"><a href=""> <img class="img" src="assets/pentaplexity-spiral.jpg" alt="Pentaplexity rule-set with Lituus spiral" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Pentaplexity rule-set with Lituus spiral</b></sub></a></td>
+    <td align="center"><a href=""> <img class="img" src="assets/pentaplexity-supershape.jpg" alt="Pentaplexity rule-set with supershape" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Pentaplexity rule-set with supershape</b></sub></a></td>
   </tr>
   
     
