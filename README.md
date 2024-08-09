@@ -40,7 +40,7 @@ Or this one generated with the pentaplexity ruleset and the cannibus curve.
 
 Of course, one of the original applications for L-systems is creating realistic looking trees. I think adding a shape to the rule-set can improve the look of the trees. For example, here is a tree rendered with the zig-zag curve.
 
-<p align="center"><img src="assets/zigzag-tree.jpg" alt="Tree rule-set with zig-zag curve" width="500px"></p>
+<p align="center"><img src="assets/tree-zig-zag.jpg" alt="Tree rule-set with zig-zag curve" width="500px"></p>
 
 ## 🌄 Gallery
 
