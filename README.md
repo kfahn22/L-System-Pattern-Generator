@@ -14,11 +14,11 @@ Daniel Shiffman recently recorded a Coding Challenge on the dragon fractal (comi
 
 <p align="center"><img src="assets/dragon-astroid-filled.jpg" alt="Dragon rule-set with astroid" width="500px"></p>
 
-I also really like this version with the Archimedes Spiral.
+I also really like this version with the Archimedes spiral.
 
 <p align="center"><img src="assets/dragon-archimedes-spiral.jpg" alt="Dragon rule-set with eight curve" width="500px"></p>
 
-Since many of the shapes are a function of parameters that can be altered, I added some sliders to experiment and was able to generate some fun patterns. For example, I used the [supershape](https://thecodingtrain.com/challenges/23-2d-supershapes) in the Crystal rule-set and the Krishna's Anklet rule-set yielding very different patterns.
+Since many of the shapes are a function of parameters that can be altered, I added some sliders to experiment with different rule-set/shape curve combinations and was able to generate some fun patterns. For example, I used the [supershape](https://thecodingtrain.com/challenges/23-2d-supershapes) in the crystal rule-set and the Krishna's anklet rule-set yielding very different patterns.
 
 ### Crystal rule-set
 
@@ -74,8 +74,6 @@ Of course, one of the original applications for L-systems is creating realistic 
 <!-- prettier-ignore-end -->
 
 <!-- IMAGE-LIST:END -->
-
-[Animated dragon curve](https://editor.p5js.org/kfahn/sketches/ePtGuXHE-)
 
 ## References
 
