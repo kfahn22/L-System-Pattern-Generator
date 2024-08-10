@@ -752,9 +752,7 @@ function pickShape() {
       selectedShape.addPoints();
       break;
     case "text":
-      // shapeAngle PI
       selectedShape = new addText(0, 0, length * shapeScale, shapeAngle);
-      //selectedShape.addPoints();
       break;
     case "zigzag":
       // shapeAngle PI

@@ -158,7 +158,7 @@
   "hexagonal_gosper": {
     "axiom": "XF",
     "rules": {
-      "X": "X+YF++YF-FX--F{XF}X-YF+",
+      "X": "X+YF++YF-FX--FXFX-YF+",
       "Y": "-FX+YFYF++YF+FX--FX-Y"
     },
     "angle": "60",
@@ -167,7 +167,7 @@
   "hilbert": {
     "axiom": "X",
     "rules": {
-      "X": "-YF+{XFX}+FY-",
+      "X": "-YF+XFX+FY-",
       "Y": "+XF-YFY-FX+"
     },
     "angle": "90",
