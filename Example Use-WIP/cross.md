@@ -1,6 +1,6 @@
 # Maltese Cross Curve
 
-<p align="center"><img src="shape_images/cross.jpg" alt="gear" width="500px"></p>
+<p align="center"><img src="shape_images/cross.jpg" alt="cross" width="500px"></p>
 
 ## 🌄 Gallery
 
