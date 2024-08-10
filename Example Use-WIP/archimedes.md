@@ -14,8 +14,8 @@
      <td align="center"><a href=""> <img class="img" src="assets/dragon-archimedes-spiral.jpg" alt="" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/></b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="" alt="" style="vertical-align:top;" width="500" /><br /><sub><b><br/></b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="" alt="" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="Example Use-WIP/assets/archimedes/cross.jpg" alt="" style="vertical-align:top;" width="500" /><br /><sub><b><br/></b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="Example Use-WIP/assets/archimedes/board.jpg" alt="" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/></b></sub></a></td>
 </tr>
