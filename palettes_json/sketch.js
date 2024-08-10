@@ -571,6 +571,7 @@ function addShapes() {
   shapeDropdown.option("supershape");
   shapeDropdown.option("spiral");
   shapeDropdown.option("tear");
+  shapeDropdown.option("text");
   shapeDropdown.option("zigzag");
 
   // Set initial value of the dropdown
@@ -749,6 +750,11 @@ function pickShape() {
       // shapeAngle PI
       selectedShape = new TearDrop(0, 0, length * shapeScale, shapeAngle);
       selectedShape.addPoints();
+      break;
+    case "text":
+      // shapeAngle PI
+      selectedShape = new addText(0, 0, length * shapeScale, shapeAngle);
+      //selectedShape.addPoints();
       break;
     case "zigzag":
       // shapeAngle PI

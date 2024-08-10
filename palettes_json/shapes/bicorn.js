@@ -24,7 +24,7 @@ class Bicorn {
     for (let p of this.points) {
       vertex(p.x, p.y);
     }
-    endShape();
+    endShape(CLOSE);
     pop();
   }
 }
