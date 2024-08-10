@@ -1,6 +1,6 @@
 # Gear Curve
 
-<p align="center"><img src="shape_images/gear.jpg" alt="archimedes spiral" width="500px"></p>
+<p align="center"><img src="shape_images/gear.jpg" alt="gear" width="500px"></p>
 
 ## 🌄 Gallery
 

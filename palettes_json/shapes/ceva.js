@@ -10,7 +10,7 @@ class Ceva {
   }
 
   addPoints() {
-    for (let theta = 0; theta < TWO_PI; theta += 0.1) {
+    for (let theta = 0; theta < TWO_PI; theta += 0.05) {
       let x = this.r * (cos(3 * theta) + 2 * cos(theta));
       let y = this.r * sin(3 * theta);
       this.points.push(createVector(x, y));
