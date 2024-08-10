@@ -782,7 +782,7 @@ function pickShape() {
         dir,
         length * shapeScale,
         a,
-        n,
+        -1/2,
         shapeAngle
       );
       //selectedShape = new Spiral(0, 0, dir, length, .5, -0.5, 0);

@@ -11,7 +11,7 @@ class Spiral {
     this.x = x;
     this.y = y;
     this.dir = dir;
-    this.sc = sc;
+    this.sc = sc/2;
     this.a = a;
     this.points = [];
     this.n = n;
