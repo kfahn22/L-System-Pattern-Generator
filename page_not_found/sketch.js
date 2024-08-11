@@ -61,7 +61,8 @@ function setup() {
   noStroke();
   fill("#70327E");
   textSize(24);
-  text("PAGE NOT FOUND", width * 0.375, height * 0.51);
+  textAlign(CENTER, CENTER);
+  text("PAGE NOT FOUND", width / 2, height / 2);
   pop();
 }
 

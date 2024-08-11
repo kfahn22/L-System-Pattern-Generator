@@ -171,6 +171,9 @@ function setup() {
     generate();
   }
   turtle();
+  if (selectedShape === "word") {
+    addText();
+  }
 }
 
 function draw() {
@@ -205,6 +208,7 @@ function addPalettes() {
   paletteDropdown.option("purple_aqua");
   paletteDropdown.option("green");
   paletteDropdown.option("rose");
+  paletteDropdown.option("raspberry");
   paletteDropdown.option("fushia_blue");
   paletteDropdown.option("pink_ltblue");
   paletteDropdown.option("blue_green");
@@ -237,6 +241,10 @@ function selectPalette() {
     case "green":
       url =
         "https://supercolorpalette.com/?scp=G0-hsl-118823-13961B-17A314-25B116-36BF18-49CC19-5EDA1B-75E421";
+      break;
+    case "raspberry":
+      url =
+        "https://supercolorpalette.com/?scp=G0-hsl-FF1F57-FF246D-FF2982-FF2E96-FF33AA-FF38BD-FF3DCF-FF42E0-FF47F0-FF4DFF";
       break;
     case "rose":
       url =
@@ -631,7 +639,7 @@ function addShapes() {
   shapeDropdown.option("supershape");
   shapeDropdown.option("spiral");
   shapeDropdown.option("tear");
-  shapeDropdown.option("text");
+  shapeDropdown.option("word");
   shapeDropdown.option("zigzag");
 
   // Set initial value of the dropdown
@@ -782,7 +790,7 @@ function pickShape() {
         dir,
         length * shapeScale,
         a,
-        -1/2,
+        -1 / 2,
         shapeAngle
       );
       //selectedShape = new Spiral(0, 0, dir, length, .5, -0.5, 0);
@@ -811,10 +819,17 @@ function pickShape() {
       selectedShape = new TearDrop(0, 0, length * shapeScale, shapeAngle);
       selectedShape.addPoints();
       break;
-    case "text":
-      // shapeAngle PI
-      selectedShape = new addText(0, 0, length * shapeScale, shapeAngle);
-      selectedShape.addPoints();
+    case "word":
+      selectedShape = new addWord(0, 0, length * shapeScale);
+      push();
+      translate(width / 2, height / 2);
+      noStroke();
+      fill(random(palette));
+      textSize(30);
+      textAlign(CENTER, CENTER);
+      //text("IS ALL YOU NEED", 0, 0);
+      text("PAGE NOT FOUND", 0, 0);
+      pop();
       break;
     case "zigzag":
       // shapeAngle PI
@@ -1060,6 +1075,9 @@ function reset() {
     levellabel.html("Level: " + levelSlider.value());
   }
   pop();
+  if (selectedShape === "word") {
+    addText();
+  }
 }
 
 function updateLabels() {
@@ -1096,4 +1114,14 @@ function adjustFill() {
     strokeWeight(sw);
     stroke(c);
   }
+}
+
+function addText() {
+  push();
+  let s = length * shapeScale;
+  translate(width / 2, height / 2);
+  fill(random(palette));
+  textSize(2 * s);
+  text("IS ALL YOU NEED", 0, 0);
+  pop();
 }
