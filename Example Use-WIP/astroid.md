@@ -14,6 +14,8 @@
      <td align="center"><a href=""> <img class="img" src="assets/astroid/krishna_anklet.jpg" alt="" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/></b></sub></a></td>
+    </tr>
+    <tr>
      <td align="center"><a href=""> <img class="img" src="assets/astroid/mango_leaf.jpg" alt="" style="vertical-align:top;" width="500" /><br /><sub><b><br/></b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="assets/astroid/snake_kolam.jpg" alt="" style=" display: block;
     margin-left: auto;
