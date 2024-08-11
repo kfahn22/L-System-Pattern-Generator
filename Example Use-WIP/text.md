@@ -11,7 +11,7 @@
   <tbody>
     <tr>
      <td align="center"><a href=""> <img class="img" src="assets/text/crystal.jpg" alt="" style="vertical-align:top;" width="500" /><br /><sub><b><br/></b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="assets/text/koch-snowflake.jpg" alt="" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="assets/text/koch_snowflake.jpg" alt="" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/></b></sub></a></td>
     </tr>
