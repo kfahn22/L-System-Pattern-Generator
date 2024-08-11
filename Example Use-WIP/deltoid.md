@@ -14,6 +14,8 @@
      <td align="center"><a href=""> <img class="img" src="assets/deltoid/cross.jpg" alt="" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/></b></sub></a></td>
+    </tr>
+    <tr>
      <td align="center"><a href=""> <img class="img" src="assets/deltoid/skierpinski.jpg" alt="" style="vertical-align:top;" width="500" /><br /><sub><b><br/></b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="assets/deltoid/square-skierpinski.jpg" alt="" style=" display: block;
     margin-left: auto;
