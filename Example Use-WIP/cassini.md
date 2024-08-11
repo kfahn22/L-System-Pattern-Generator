@@ -10,14 +10,14 @@
 <table>
   <tbody>
     <tr>
-     <td align="center"><a href=""> <img class="img" src="assets/cassini/koch_snowflake.jpg" alt="" style="vertical-align:top;" width="500" /><br /><sub><b><br/></b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="assets/cassini/crystal.jpg" alt="" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="assets/cassini/snake-kolam.jpg" alt="" style="vertical-align:top;" width="500" /><br /><sub><b><br/></b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/cassini/snake-kolam-filled.jpg" alt="" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/></b></sub></a></td>
     </tr>
     <tr>
-     <td align="center"><a href=""> <img class="img" src="assets/cassini/quad_gosper.jpg" alt="" style="vertical-align:top;" width="500" /><br /><sub><b><br/></b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="assets/cassini/quad_snowflake.jpg" alt="" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="assets/cassini/square-skierpinski.jpg" alt="" style="vertical-align:top;" width="500" /><br /><sub><b><br/></b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/cassini/skierpinski.jpg" alt="" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/></b></sub></a></td>
 </tr>
