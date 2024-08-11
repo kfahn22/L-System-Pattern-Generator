@@ -207,6 +207,7 @@ function addPalettes() {
   paletteDropdown.option("purple");
   paletteDropdown.option("purple_aqua");
   paletteDropdown.option("green");
+  paletteDropdown.option("plant-greens");
   paletteDropdown.option("rose");
   paletteDropdown.option("raspberry");
   paletteDropdown.option("fushia_blue");
@@ -241,6 +242,10 @@ function selectPalette() {
     case "green":
       url =
         "https://supercolorpalette.com/?scp=G0-hsl-118823-13961B-17A314-25B116-36BF18-49CC19-5EDA1B-75E421";
+      break;
+    case "plant-greens":
+      url =
+        "https://supercolorpalette.com/?scp=G0-hsl-015A0F-015F08-036402-0C6902-166F02-207402-2B7902-387E02-448302-528802";
       break;
     case "raspberry":
       url =
@@ -827,8 +832,8 @@ function pickShape() {
       fill(random(palette));
       textSize(30);
       textAlign(CENTER, CENTER);
-      //text("IS ALL YOU NEED", 0, 0);
-      text("PAGE NOT FOUND", 0, 0);
+      text("IS ALL YOU NEED", 0, 0);
+      //text("PAGE NOT FOUND", 0, 0);
       pop();
       break;
     case "zigzag":

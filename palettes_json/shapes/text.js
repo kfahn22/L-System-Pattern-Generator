@@ -12,7 +12,8 @@ class addText {
     translate(this.x, this.y);
     rotate(this.angle);
     textSize(this.r);
-    text('LOVE', this.x - this.r/2, this.y - this.r/2);
+    textAlign(CENTER, CENTER);
+    text('LOVE', this.x, this.y);
     pop();
   }
 }
