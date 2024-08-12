@@ -306,6 +306,7 @@ function selectPalette() {
 function addSliders() {
   wSlider = createSlider(0.05, 1, 0.1, 0.025);
   wSlider.position(width + 10, 35);
+  wSlider.addClass("slider");
   wlabel = createP("Translate x:");
   wlabel.position(wSlider.x, wSlider.y - 35);
   wlabel.style("color", "white");
@@ -353,8 +354,9 @@ function addSliders() {
   levellabel.style("color", "white");
 
   // Sliders for shape variables
-  rotateShapeSlider = createSlider(-180, 180, 0, 5);
+  rotateShapeSlider = createSlider(-180, 180, 0, 1);
   rotateShapeSlider.position(width + 10, 460);
+  rotateShapeSlider.size(150);
   rotateShapelabel = createP("Rotate shape:");
   rotateShapelabel.position(rotateShapeSlider.x, rotateShapeSlider.y - 35);
   rotateShapelabel.style("color", "white");
@@ -689,7 +691,14 @@ function pickShape() {
     case "cassini":
       // 1, 1.25 peanut shaped/
       // 1, 2 oval
-      selectedShape = new CassiniOval(0, 0, length * shapeScale, a, b, shapeAngle);
+      selectedShape = new CassiniOval(
+        0,
+        0,
+        length * shapeScale,
+        a,
+        b,
+        shapeAngle
+      );
       selectedShape.addPoints();
       break;
     case "ceva":
@@ -704,7 +713,14 @@ function pickShape() {
     case "cross":
       // 1 quadrifolium
       // gets longer and more rounded as a increases
-      selectedShape = new MalteseCross(0, 0, length * shapeScale, a, b, shapeAngle);
+      selectedShape = new MalteseCross(
+        0,
+        0,
+        length * shapeScale,
+        a,
+        b,
+        shapeAngle
+      );
       selectedShape.addPoints();
       break;
     case "deltoid":
@@ -729,7 +745,14 @@ function pickShape() {
       selectedShape.addPoints();
       break;
     case "kiss":
-      selectedShape = new KissCurve(0, 0, length * shapeScale, a, b, shapeAngle);
+      selectedShape = new KissCurve(
+        0,
+        0,
+        length * shapeScale,
+        a,
+        b,
+        shapeAngle
+      );
       selectedShape.addPoints();
       break;
     case "line":
@@ -802,7 +825,15 @@ function pickShape() {
       selectedShape.addPoints();
       break;
     case "superellipse":
-      selectedShape = new Superellipse(0, 0, length * shapeScale, a, b, n, shapeAngle);
+      selectedShape = new Superellipse(
+        0,
+        0,
+        length * shapeScale,
+        a,
+        b,
+        n,
+        shapeAngle
+      );
       selectedShape.addPoints();
       break;
     case "supershape":

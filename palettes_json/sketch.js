@@ -15,6 +15,7 @@ let fractal; // rendered fractal
 // Add variables for the lsystems
 let none;
 let board;
+let board2;
 let circular;
 let circular2;
 let cross;
@@ -48,6 +49,7 @@ let triangle_rule;
 
 // Shape and color variables
 let selectedShape; // custom shape to use in fractal
+let blackWhitePalette;
 let blueGreenPalette;
 let lightBluePalette;
 let brownGreenPalette;
@@ -293,6 +295,7 @@ function getRules(data) {
 
   none = lsystem.none;
   board = lsystem.board;
+  board2 = lsystem.board2;
   circular = lsystem.circular;
   circular2 = lsystem.circular2;
   cross = lsystem.cross;
@@ -381,6 +384,9 @@ function pickRule() {
 
     case "board":
       currentFractal = board;
+      break;
+    case "board2":
+      currentFractal = board2;
       break;
     case "circular":
       currentFractal = circular;
@@ -487,6 +493,7 @@ function pickRule() {
 
 function getColors(data) {
   palettes = data.colors;
+  blackWhitePalette = palettes.black_white;
   aquaBluePalette = palettes.aqua_blue;
   lightBluePalette = palettes.light_blue;
   brownGreenPalette = palettes.brown_green;
@@ -513,6 +520,7 @@ function getColors(data) {
   // Create dropdown menu
   colorDropdown = createSelect();
   colorDropdown.position(300, 5);
+  colorDropdown.option("black_white");
   colorDropdown.option("aqua_blue");
   colorDropdown.option("light_blue");
   colorDropdown.option("brown_green");
@@ -766,6 +774,9 @@ function pickShape() {
 function pickColor() {
   currentPalette = colorDropdown.value();
   switch (currentPalette) {
+    case "black_white":
+      currentPalette = blackWhitePalette;
+      break;
     case "aqua_blue":
       currentPalette = aquaBluePalette;
       break;

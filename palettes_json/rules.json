@@ -155,7 +155,7 @@
     "angle": "90",
     "length_factor": "1"
   },
-  "fern1": {
+  "fern": {
     "axiom": "F",
     "rules": {
       "F": "FF+[+F-F-F]-[-F+F+F]"
