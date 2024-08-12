@@ -1,8 +1,9 @@
-// L-system koch-snowflake rule from Paul Bourke
+/// L-system koch-snowflake rule from Paul Bourk2
 // https://paulbourke.net/fractals/lsys/
 // Basic code from:
 // https://natureofcode.com/fractals/
 // https://thecodingtrain.com/challenges/16-l-system-fractal-trees
+
 
 let level = 2; // fractal level
 let length = 45; // step length
@@ -10,8 +11,9 @@ let axiom;
 let rules;
 let angle;
 let sentence;
-let fractal;
+let fractal; 
 let shapeScale; //  set text length to fraction of step length
+
 
 let lsystem = {
   koch_snowflake: {
@@ -23,33 +25,19 @@ let lsystem = {
   },
 };
 
-let palette = [
-  "#70327E",
-  "#0B6A88",
-  "#701616",
-  "#9253A1",
-  "#2DC5F4",
-  "#F16164",
-  "#A42963",
-  "#F89E4F",
-  "#EC015A",
-  "#F063A4",
-  "#FCEE21",
-  "#66D334",
-];
 
 function setup() {
   createCanvas(800, 600);
-  background(255);
-
+  background("#595959");
+  
   fractal = lsystem.koch_snowflake;
   setRule(fractal);
-
+  
   // Set text size as a fraction of length
-  shapeScale = 0.75;
+  shapeScale = 0.4;
   selectedShape = new addText(0, 0, length * shapeScale);
   push();
-  translate(width * 0.25, height * 0.3);
+  translate(width * 0.25, height * 0.31);
 
   for (let i = 0; i < level; i++) {
     generate();
@@ -58,10 +46,10 @@ function setup() {
   pop();
   push();
   noStroke();
-  fill("#70327E");
+  fill(255);
   textSize(24);
-  textAlign(CENTER, CENTER);
-  text("PAGE NOT FOUND", width / 2, height / 2);
+  textAlign(CENTER, CENTER)
+  text("PAGE NOT FOUND", width/2, height /2);
   pop();
 }
 
@@ -102,7 +90,7 @@ function turtle() {
   for (let i = 0; i < sentence.length; i++) {
     let current = sentence.charAt(i);
     if (current === "F") {
-      fill(random(palette));
+      fill(255);
       noStroke();
       selectedShape.show();
       translate(length, 0);

@@ -1,17 +1,18 @@
 class addWord {
-  constructor(x, y, r) {
+  constructor(x, y, r, angle) {
     this.x = x;
     this.y = y;
     this.r = r;
+    this.angle = angle;
   }
 
   show() {
     push();
     translate(this.x, this.y);
+    rotate(this.angle);
     textSize(this.r);
     textAlign(CENTER, CENTER);
-    //text("LOVE", this.x - this.r / 2, this.y - this.r / 2);
-    //text("404", this.x - this.r / 2, this.y - this.r / 2);
+    //text("404", this.x, this.y);
      text("LOVE", this.x, this.y);
     pop();
   }

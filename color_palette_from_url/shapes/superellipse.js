@@ -1,7 +1,7 @@
 // https://thecodingtrain.com/challenges/19-superellipse
 
 class Superellipse {
-  constructor(x, y, sc, a, b, n) {
+  constructor(x, y, sc, a, b, n, angle) {
     this.x = x;
     this.y = y;
     // this.dir = dir;
@@ -10,6 +10,7 @@ class Superellipse {
     this.b = b;
     this.n = n; // 0.5 astroid
     //this.angle = angle;
+    this.angle = angle;
     this.points = [];
   }
 
@@ -34,7 +35,7 @@ class Superellipse {
   show() {
     push();
     translate(this.x, this.y);
-    // rotate(this.angle);
+    rotate(this.angle);
     beginShape();
     for (let p of this.points) {
       vertex(p.x, p.y);

@@ -2,11 +2,12 @@
 // https://mathworld.wolfram.com/Astroid.html
 
 class Astroid {
-  constructor(x, y, r, a) {
+  constructor(x, y, r, a, angle) {
     this.x = x;
     this.y = y;
     this.r = r;
     this.a = a;
+    this.angle = angle
     this.points = [];
   }
 
@@ -21,6 +22,7 @@ class Astroid {
   show() {
     push();
     translate(this.x, this.y);
+    rotate(this.angle);
     beginShape();
     for (let p of this.points) {
       vertex(p.x, p.y);

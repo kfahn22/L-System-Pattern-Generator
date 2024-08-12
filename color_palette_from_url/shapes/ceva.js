@@ -2,10 +2,11 @@
 // https://virtualmathmuseum.org/Curves/clothoid/kappaCurve.html
 
 class Ceva {
-  constructor(x, y, r) {
+  constructor(x, y, r, angle) {
     this.x = x;
     this.y = y;
     this.r = r;
+    this.angle = angle;
     this.points = [];
   }
 
@@ -20,6 +21,7 @@ class Ceva {
   show() {
     push();
     translate(this.x, this.y);
+    rotate(this.angle);
     beginShape();
     for (let p of this.points) {
       vertex(p.x, p.y);

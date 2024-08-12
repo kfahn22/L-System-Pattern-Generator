@@ -1,11 +1,12 @@
 // https://mathcurve.com/courbes2d.gb/deltoid/deltoid.shtml
 
 class Deltoid {
-  constructor(x, y, r) {
+  constructor(x, y, r, angle) {
     this.x = x;
     this.y = y;
     this.r = r;
     this.a = 1;
+    this.angle = angle;
     this.points = [];
   }
 
@@ -20,7 +21,7 @@ class Deltoid {
   show() {
     push();
     translate(this.x, this.y);
-    rotate(PI / 6);
+    rotate(this.angle); // PI/6
     beginShape();
     for (let p of this.points) {
       vertex(p.x, p.y);

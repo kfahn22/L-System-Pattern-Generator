@@ -150,7 +150,7 @@ function setup() {
   angle = radians(rotateSlider.value());
   shapeScale = scaleSlider.value();
   currentAlpha = alphaSlider.value();
-  shapeScale = scaleSlider.value();
+  shapeAngle = radians(rotateShapeSlider.value());
   a = aSlider.value();
   b = bSlider.value();
   m = mSlider.value();
@@ -665,7 +665,7 @@ function pickShape() {
       selectedShape.addPoints();
       break;
     case "astroid":
-      selectedShape = new Astroid(0, 0, length * shapeScale, a);
+      selectedShape = new Astroid(0, 0, length * shapeScale, a, shapeAngle);
       selectedShape.addPoints();
       break;
     case "atom":
@@ -675,11 +675,11 @@ function pickShape() {
       selectedShape.addPoints();
       break;
     case "bicorn":
-      selectedShape = new Bicorn(0, 0, length * shapeScale);
+      selectedShape = new Bicorn(0, 0, length * shapeScale, shapeAngle);
       selectedShape.addPoints();
       break;
     case "butterfly":
-      selectedShape = new Butterfly(0, 0, length * shapeScale);
+      selectedShape = new Butterfly(0, 0, length * shapeScale, shapeAngle);
       selectedShape.addPoints();
       break;
     case "cannibus":
@@ -689,11 +689,11 @@ function pickShape() {
     case "cassini":
       // 1, 1.25 peanut shaped/
       // 1, 2 oval
-      selectedShape = new CassiniOval(0, 0, length * shapeScale, a, b);
+      selectedShape = new CassiniOval(0, 0, length * shapeScale, a, b, shapeAngle);
       selectedShape.addPoints();
       break;
     case "ceva":
-      selectedShape = new Ceva(0, 0, length * shapeScale);
+      selectedShape = new Ceva(0, 0, length * shapeScale, shapeAngle);
       selectedShape.addPoints();
       break;
     case "cornu":
@@ -704,7 +704,7 @@ function pickShape() {
     case "cross":
       // 1 quadrifolium
       // gets longer and more rounded as a increases
-      selectedShape = new MalteseCross(0, 0, length * shapeScale, a, b);
+      selectedShape = new MalteseCross(0, 0, length * shapeScale, a, b, shapeAngle);
       selectedShape.addPoints();
       break;
     case "deltoid":
@@ -713,7 +713,7 @@ function pickShape() {
       selectedShape.addPoints();
       break;
     case "eight":
-      selectedShape = new Eight(0, 0, length * shapeScale);
+      selectedShape = new Eight(0, 0, length * shapeScale, shapeAngle);
       selectedShape.addPoints();
       break;
     case "gear":
@@ -729,7 +729,7 @@ function pickShape() {
       selectedShape.addPoints();
       break;
     case "kiss":
-      selectedShape = new KissCurve(0, 0, length * shapeScale, a, b);
+      selectedShape = new KissCurve(0, 0, length * shapeScale, a, b, shapeAngle);
       selectedShape.addPoints();
       break;
     case "line":
@@ -802,7 +802,7 @@ function pickShape() {
       selectedShape.addPoints();
       break;
     case "superellipse":
-      selectedShape = new Superellipse(0, 0, length * shapeScale, a, b, n);
+      selectedShape = new Superellipse(0, 0, length * shapeScale, a, b, n, shapeAngle);
       selectedShape.addPoints();
       break;
     case "supershape":
@@ -815,7 +815,8 @@ function pickShape() {
         n1,
         n2,
         n3,
-        m
+        m,
+        shapeAngle
       );
       selectedShape.addPoints();
       break;
@@ -825,7 +826,7 @@ function pickShape() {
       selectedShape.addPoints();
       break;
     case "word":
-      selectedShape = new addWord(0, 0, length * shapeScale);
+      selectedShape = new addWord(0, 0, length * shapeScale, shapeAngle);
       push();
       translate(width / 2, height / 2);
       noStroke();

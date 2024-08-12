@@ -1,10 +1,11 @@
 // https://mathcurve.com/courbes2d/ornementales/ornementales.shtml
 
 class Knot {
-  constructor(x, y, sc) {
+  constructor(x, y, sc, angle) {
     this.x = x;
     this.y = y;
     this.sc = sc/2;
+    this.angle = angle;
     this.points = [];
   }
 
@@ -19,7 +20,7 @@ class Knot {
   show(angle) {
     push();
     translate(this.x, this.y);
-    rotate(angle);
+    rotate(this.angle);
     beginShape();
     for (let p of this.points) {
       vertex(p.x, p.y);

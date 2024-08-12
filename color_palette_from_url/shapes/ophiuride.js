@@ -1,12 +1,13 @@
 // https://mathworld.wolfram.com/Ophiuride.html
 
 class Ophiuride {
-  constructor(x, y, sc, a, b) {
+  constructor(x, y, sc, a, b, angle) {
     this.x = x;
     this.y = y;
     this.sc = sc;
     this.a = a;
     this.b = b;
+    this.angle = angle;
     this.points = [];
   }
 
@@ -22,7 +23,7 @@ class Ophiuride {
   show() {
     push();
     translate(this.x, this.y);
-     rotate(PI/4);
+    rotate(PI/4);
     beginShape();
     for (let p of this.points) {
       vertex(p.x, p.y);

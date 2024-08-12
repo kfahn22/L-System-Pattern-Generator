@@ -1,12 +1,13 @@
 // https://mathcurve.com/courbes2d.gb/bouche/bouche.shtml
 
 class KissCurve {
-  constructor(x, y, r, a, b) {
+  constructor(x, y, r, a, b, angle) {
     this.x = x;
     this.y = y;
     this.r = r;
     this.a = a;
     this.b = b;
+    this.angle = angle;
     this.points = [];
   }
 
@@ -21,6 +22,7 @@ class KissCurve {
   show() {
     push();
     translate(this.x, this.y);
+    rotate(this.angle);
     beginShape();
     for (let p of this.points) {
       vertex(p.x, p.y);

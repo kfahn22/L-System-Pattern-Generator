@@ -3,10 +3,11 @@
 const e = 2.71828;
 
 class Butterfly {
-  constructor(x, y, sc) {
+  constructor(x, y, sc, angle) {
     this.x = x;
     this.y = y;
     this.sc = sc;
+    this.angle = angle;
     this.points = [];
   }
 
@@ -25,6 +26,7 @@ class Butterfly {
   show() {
     push();
     translate(this.x, this.y);
+    rotate(this.angle);
     beginShape();
     for (let p of this.points) {
       vertex(p.x, p.y);

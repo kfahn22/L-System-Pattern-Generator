@@ -1,7 +1,7 @@
 // https://thecodingtrain.com/challenges/23-2d-supershapes
 
 class Supershape {
-  constructor(x, y, sc, a, b, n1, n2, n3, m) {
+  constructor(x, y, sc, a, b, n1, n2, n3, m, angle) {
     this.x = x;
     this.y = y;
     this.sc = sc;
@@ -11,6 +11,7 @@ class Supershape {
     this.n2 = n2;
     this.n3 = n3;
     this.m = m;
+    this.angle = angle;
     this.points = [];
   }
 
@@ -40,6 +41,7 @@ class Supershape {
   show() {
     push();
     translate(this.x, this.y);
+    rotate(this.angle);
     beginShape();
     for (let p of this.points) {
       vertex(p.x, p.y);

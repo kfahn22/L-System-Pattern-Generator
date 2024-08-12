@@ -1,12 +1,13 @@
 // https://mathworld.wolfram.com/CassiniOvals.html
 
 class CassiniOval {
-  constructor(x, y, r, a, b) {
+  constructor(x, y, r, a, b, angle) {
     this.x = x;
     this.y = y;
     this.r = r;
     this.a = a;
     this.b = b;
+    this.angle = angle;
     this.points = [];
   }
 
@@ -23,6 +24,7 @@ class CassiniOval {
   show() {
     push();
     translate(this.x, this.y);
+    rotate(this.angle);
     beginShape();
     for (let p of this.points) {
       vertex(p.x, p.y);
