@@ -1,0 +1,13 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #595959;
+}
+canvas {
+  display: block;
+}
+
+.slider {
+  background: red;
+}
