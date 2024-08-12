@@ -316,7 +316,7 @@ function addSliders() {
   hlabel.position(hSlider.x, hSlider.y - 35);
   hlabel.style("color", "white");
 
-  lengthSlider = createSlider(10, 50, 20, 1);
+  lengthSlider = createSlider(10, 100, 20, 1);
   lengthSlider.position(width + 10, 215);
   lengthlabel = createP("Step length:");
   lengthlabel.position(lengthSlider.x, lengthSlider.y - 35);

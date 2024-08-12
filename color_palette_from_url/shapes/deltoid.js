@@ -1,7 +1,7 @@
 // https://mathcurve.com/courbes2d.gb/deltoid/deltoid.shtml
 
 class Deltoid {
-  constructor(x, y, r, angle) {
+  constructor(x, y, r, a, angle) {
     this.x = x;
     this.y = y;
     this.r = r;
