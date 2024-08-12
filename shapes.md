@@ -1,2 +1,0 @@
-# Archimedes Spiral
-
