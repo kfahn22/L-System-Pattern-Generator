@@ -57,7 +57,6 @@ function setup() {
   turtle();
   pop();
   push();
-  rectMode(CENTER);
   noStroke();
   fill("#70327E");
   textSize(24);
