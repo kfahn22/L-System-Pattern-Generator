@@ -58,6 +58,8 @@ Here is a gallery with some examples of what you can create inserting shapes int
      <td align="center"><a href=""> <img class="img" src="assets/mango-astroid.jpg" alt="Mango leaf filled with astroid shape" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Mango leaf with astroid shape</b></sub></a></td>
+    </tr>
+    <tr>
      <td align="center"><a href=""> <img class="img" src="assets/anklet-quadrifolium.jpg" alt="Krishna's anklet with quadrifolium curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Krishna's anklet with quadrifolium curve</b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="assets/square-skierpinkski-lissajous.jpg" alt="Square skierpinski with lissajous curve" style=" display: block;
     margin-left: auto;
@@ -66,12 +68,16 @@ Here is a gallery with some examples of what you can create inserting shapes int
 <tr>
       <td align="center"><a href=""> <img class="img" src="assets/crystal-rose.jpg" alt="Crystal rule-set with rose curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Crystal rule-set with rose curve</b></sub></a></td>
       <td align="center"><a href=""> <img class="img" src="assets/crystal-ceva.jpg" alt="Crystal rule-set with ceva curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Crystal rule-set with ceva curve</b></sub></a></td>
+       </tr>
+    <tr>
        <td align="center"><a href=""> <img class="img" src="assets/snake-kolam-kiss.jpg" alt="Snake kolam rule set with kiss curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Snake kolam rule set with kiss curve</b></sub></a></td>
        <td align="center"><a href=""> <img class="img" src="assets/board-cross.jpg" alt="Board rule-set with cross curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Board rule-set with cross curve</b></sub></a></td>
   </tr>
   <tr>
       <td align="center"><a href=""> <img class="img" src="assets/koch_snowflake-tear.jpg" alt="Koch snowflake rule-set with tear curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Koch snowflake rule-set with tear curve</b></sub></a></td>
       <td align="center"><a href=""> <img class="img" src="assets/koch-ceva.jpg" alt="Koch rule-set with ceva curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Koch rule-set with ceva curve</b></sub></a></td>
+       </tr>
+    <tr>
        <td align="center"><a href=""> <img class="img" src="assets/koch-snowflake-kiss.jpg" alt="Koch snowflake rule set with kiss curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Koch snowflake rule set with kiss curve</b></sub></a></td>
     <td align="center"><a href=""> <img class="img" src="assets/pentaplexity-supershape.jpg" alt="Pentaplexity rule-set with supershape" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Pentaplexity rule-set with supershape</b></sub></a></td>
   </tr>
