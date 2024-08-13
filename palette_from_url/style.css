@@ -21,7 +21,7 @@ canvas {
   transition: opacity .2s;
 } */
 
-.slider {
+/* .slider {
   -webkit-appearance: none;
   width: 20%;
   height: 10px;
@@ -49,4 +49,4 @@ canvas {
   border-radius: 50%;
   background: #3a57e6;
   cursor: pointer;
-}
+} */
