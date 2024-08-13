@@ -1,11 +1,12 @@
 // https://mathcurve.com/courbes2d.gb/deltoid/deltoid.shtml
 
 class Quadrifolium {
-  constructor(x, y, r) {
+  constructor(x, y, r, angle) {
     this.x = x;
     this.y = y;
     this.r = r;
     this.a = 1;
+    this.angle = angle;
     this.points = [];
   }
 
@@ -19,6 +20,7 @@ class Quadrifolium {
   show() {
     push();
     translate(this.x, this.y);
+    rotate(this.angle);
     beginShape();
     for (let p of this.points) {
       vertex(p.x, p.y);

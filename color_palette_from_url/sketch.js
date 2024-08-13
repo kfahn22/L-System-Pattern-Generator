@@ -1,6 +1,10 @@
 // L-system rules mostly from Paul Bourke
 // https://paulbourke.net/fractals/lsys/
 
+// Basic code from:
+// https://natureofcode.com/fractals/
+// https://thecodingtrain.com/challenges/16-l-system-fractal-trees
+
 let level; // fractal level
 let length; // step length
 let axiom;
@@ -98,7 +102,7 @@ let blabel;
 let mlabel;
 let nlabel;
 let n1label, n2label, n3label;
-let rotate2label;
+let rotateShapelabel;
 
 // Color palette variables
 let palette;
@@ -785,7 +789,7 @@ function pickShape() {
       selectedShape.addPoints();
       break;
     case "quadrifolium":
-      selectedShape = new Quadrifolium(0, 0, length * shapeScale, a);
+      selectedShape = new Quadrifolium(0, 0, length * shapeScale, shapeAngle);
       selectedShape.addPoints();
       break;
     case "quadrilateral":
@@ -975,9 +979,9 @@ function turtle() {
       }
       pop();
     } else if (current == "(") {
-      angle -= radians(0.1);
+      angle -= radians(1);
     } else if (current == ")") {
-      angle += radians(0.1);
+      angle += radians(1);
     } else if (current == "{") {
       beginShape();
     } else if (current == "}") {
