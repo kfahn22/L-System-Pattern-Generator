@@ -5,6 +5,7 @@ let level; // fractal level
 let length; // step length
 let axiom;
 let sentence;
+let angle; // angle of fractal rotation
 let rules = {};
 let fractals = {};
 let currentFractal;
@@ -46,33 +47,27 @@ let triangle_rule;
 // Shape and color variables
 let selectedShape; // custom shape to use in fractal
 
-// Color variables
-let fl = false; // whether the shapes are filled or stroke
-let bkcolor = false; // background white (true) or black (false)
-let sw; // strokeweight
-let angle; // angle of rotation
-
-let resetButton; // Reset fractal
 let wadj; // amount to to translate in x direction
 let hadj; // amount to to translate in y direction
-let shapeScale; //variable to adjust size of shapes
+let sw; // strokeweight
 
 // Shape parameters
-let shapeAngle;
+let shapeAngle; // angle of rotation for shape
+let shapeScale; // variable to adjust size of shapes
 let a;
 let b;
 let m;
 let n;
 let n1, n2, n3;
 
+// Controls
+
+let resetButton; // Reset fractal
+
 // Drop downs to select rule, pattern, and colors
 let shapeDropdown;
 let ruleDropdown;
 let paletteDropdown;
-
-// Palette variables
-let palette;
-let currentPalette;
 
 // Sliders
 let wSlider, hSlider; // placement of fractral
@@ -104,6 +99,14 @@ let mlabel;
 let nlabel;
 let n1label, n2label, n3label;
 let rotate2label;
+
+// Color palette variables
+let palette;
+let currentPalette;
+
+// Color variables
+let fl = false; // whether the shapes are filled or stroke
+let bkcolor = false; // background white (true) or black (false)
 
 function preload() {
   loadJSON("rules.json", getRules);
@@ -212,6 +215,7 @@ function addPalettes() {
   paletteDropdown.option("raspberry");
   paletteDropdown.option("fushia_blue");
   paletteDropdown.option("pink_ltblue");
+  paletteDropdown.option("blue");
   paletteDropdown.option("blue_green");
   paletteDropdown.option("blue_aqua");
   paletteDropdown.option("blue_yellow");
@@ -221,6 +225,7 @@ function addPalettes() {
   paletteDropdown.option("red_multi");
   paletteDropdown.option("primary");
   paletteDropdown.option("sunny");
+  paletteDropdown.option("orange");
 
   // Set default palette
   paletteDropdown.selected("fushia_multi");
@@ -298,6 +303,14 @@ function selectPalette() {
     case "purple_aqua":
       url =
         "https://supercolorpalette.com/?scp=G0-hsl-BF1FFF-9C24FF-7B29FF-5B2EFF-3D33FF-384FFF-3D74FF-4297FF-47B9FF-4DD8FF";
+      break;
+    case "blue":
+      url =
+        "https://supercolorpalette.com/?scp=G0-hsl-2A1FFF-242BFF-2942FF-2E58FF-336DFF-3881FF";
+      break;
+    case "orange":
+      url =
+        "https://supercolorpalette.com/?scp=G0-hsl-FFA91F-FF9924-FF8929-FF7B2E-FF6D33-FF6038";
       break;
   }
   return url;
@@ -920,7 +933,7 @@ function generate() {
 
 function turtle() {
   for (let i = 0; i < sentence.length; i++) {
-    let sl = sentence.length;
+    //let sl = sentence.length;
     let current = sentence.charAt(i);
     adjustFill();
     if (current === "F") {
@@ -983,7 +996,7 @@ function reset() {
   sw = strokeWeightSlider.value();
   angle = radians(rotateSlider.value());
   shapeScale = scaleSlider.value();
-  shapeAngle = rotateShapeSlider.value();
+  shapeAngle = radians(rotateShapeSlider.value());
   a = aSlider.value();
   b = bSlider.value();
   m = mSlider.value();
@@ -1089,7 +1102,8 @@ function reset() {
     (ruleDropdown.value() === "hilbert" ||
       ruleDropdown.value() === "pentaplexity" ||
       ruleDropdown.value() === "triangle_rule" ||
-      ruleDropdown.value() === "fern3")
+      ruleDropdown.value() === "fern3" ||
+      ruleDropdown.value() === "snake-kolam")
   ) {
     stroke(255);
     text(

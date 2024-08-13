@@ -14,6 +14,7 @@ let fractal; // rendered fractal
 
 // Add variables for the lsystems
 let none;
+let bush;
 let board;
 let board2;
 let circular;
@@ -137,7 +138,8 @@ function preload() {
 function setup() {
   let canvas = createCanvas(600, 600);
   canvas.position(0, 50);
-  background(currentPalette[4]);
+  background(255);
+  //background(currentPalette[4]);
 
   // Controls
   addButtons();
@@ -194,7 +196,7 @@ function addSliders() {
   hlabel = createP("Translate y:");
   hlabel.position(hSlider.x, hSlider.y - 35);
 
-  lengthSlider = createSlider(10, 50, 20, 1);
+  lengthSlider = createSlider(5, 100, 20, 1);
   lengthSlider.position(width + 10, 215);
   lengthlabel = createP("Step length:");
   lengthlabel.position(lengthSlider.x, lengthSlider.y - 35);
@@ -296,6 +298,7 @@ function getRules(data) {
   none = lsystem.none;
   board = lsystem.board;
   board2 = lsystem.board2;
+  bush = lsystem.bush;
   circular = lsystem.circular;
   circular2 = lsystem.circular2;
   cross = lsystem.cross;
@@ -336,6 +339,7 @@ function getRules(data) {
   ruleDropdown.option("none");
   ruleDropdown.option("board");
   ruleDropdown.option("board2");
+  ruleDropdown.option("bush");
   ruleDropdown.option("circular");
   ruleDropdown.option("circular2");
   ruleDropdown.option("cross");
@@ -381,12 +385,14 @@ function pickRule() {
     case "none":
       currentFractal = none;
       break;
-
     case "board":
       currentFractal = board;
       break;
     case "board2":
       currentFractal = board2;
+      break;
+    case "bush":
+      currentFractal = bush;
       break;
     case "circular":
       currentFractal = circular;
@@ -862,7 +868,8 @@ function keyPressed() {
 
 function updateVariables() {
   colorDropdown.changed(pickColor);
-  background(currentPalette[4]);
+  //background(currentPalette[4]);
+  background(255);
   fillShape.changed(adjustFill);
   shapeDropdown.changed(pickShape);
   ruleDropdown.changed(pickRule);
@@ -897,7 +904,7 @@ function turtle() {
       if (selectedShape) {
         selectedShape.show();
       } else {
-        stroke(currentPalette[1]);
+        stroke(0);
         noFill();
         strokeWeight(sw);
         line(0, 0, length, 0);
@@ -946,7 +953,8 @@ function turtle() {
 }
 
 function reset() {
-  background(currentPalette[4]);
+  //background(currentPalette[4]);
+  background(255);
   wadj = wSlider.value();
   hadj = hSlider.value();
   level = levelSlider.value();
@@ -1007,7 +1015,6 @@ function reset() {
   } else if (
     levelSlider.value() > 3 &&
     (ruleDropdown.value() === "board" ||
-      ruleDropdown.value() === "fern" ||
       ruleDropdown.value() === "hexagonal_gosper" ||
       ruleDropdown.value() === "skierpinski" ||
       ruleDropdown.value() === "peano" ||
@@ -1031,7 +1038,7 @@ function reset() {
     turtle();
   } else if (
     levelSlider.value() > 4 &&
-    (ruleDropdown.value() === "cross" || ruleDropdown.value() === "crystal")
+    (ruleDropdown.value() === "cross" || ruleDropdown.value() === "crystal" || ruleDropdown.value() === "fern" )
   ) {
     stroke(255);
     text(

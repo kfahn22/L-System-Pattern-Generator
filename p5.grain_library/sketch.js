@@ -211,18 +211,21 @@ function addPalettes() {
   paletteDropdown.position(280, 5);
   paletteDropdown.option("purple");
   paletteDropdown.option("purple_aqua");
+  paletteDropdown.option("green_purple");
   paletteDropdown.option("green");
   paletteDropdown.option("plant-greens");
   paletteDropdown.option("rose");
+  paletteDropdown.option("pink_ltblue");
   paletteDropdown.option("raspberry");
   paletteDropdown.option("fushia_blue");
-  paletteDropdown.option("pink_ltblue");
+  paletteDropdown.option("blue");
   paletteDropdown.option("blue_green");
   paletteDropdown.option("blue_aqua");
   paletteDropdown.option("blue_yellow");
   paletteDropdown.option("orange_blue");
-  paletteDropdown.option("green_purple");
+  paletteDropdown.option("orange");
   paletteDropdown.option("fushia_multi");
+  paletteDropdown.option("aqua_multi");
   paletteDropdown.option("red_multi");
   paletteDropdown.option("primary");
   paletteDropdown.option("sunny");
@@ -292,6 +295,10 @@ function selectPalette() {
       url =
         "https://supercolorpalette.com/?scp=G0-hsl-B80000-B8000F-5FB800-6EB800-00B8B5-00B8A5-5900B8-4900B8";
       break;
+      case "aqua_multi":
+        url =
+          "https://supercolorpalette.com/?scp=G0-hsl-CB1FFF-B81FFF-A51FFF-FF571F-FF441F-FF311F-57FF1F-69FF1F-7CFF1F-1FC7FF-1FDAFF-1FECFF";
+          break;
     case "primary":
       url =
         "https://supercolorpalette.com/?scp=G0-hsl-1F75FF-1F87FF-1F9AFF-FF2F1F-FF201F-FF1F30-F5FF1F-FFF61F";
@@ -303,6 +310,14 @@ function selectPalette() {
     case "purple_aqua":
       url =
         "https://supercolorpalette.com/?scp=G0-hsl-BF1FFF-9C24FF-7B29FF-5B2EFF-3D33FF-384FFF-3D74FF-4297FF-47B9FF-4DD8FF";
+      break;
+    case "blue":
+      url =
+        "https://supercolorpalette.com/?scp=G0-hsl-2A1FFF-242BFF-2942FF-2E58FF-336DFF-3881FF";
+      break;
+    case "orange":
+      url =
+        "https://supercolorpalette.com/?scp=G0-hsl-FFA91F-FF9924-FF8929-FF7B2E-FF6D33-FF6038";
       break;
   }
   return url;

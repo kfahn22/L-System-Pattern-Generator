@@ -55,7 +55,8 @@
     "axiom": "Y",
     "rules": {
       "X": "X[-FFF][+FFF]FX",
-      "Y": "YFX[+Y][-Y]"
+      "Y": "YFX[+Y][-Y]",
+      "length_factor": "0.8"
     },
     "angle": "25.7",
     "length_factor": "1"
@@ -161,7 +162,7 @@
       "F": "FF+[+F-F-F]-[-F+F+F]"
     },
     "angle": "22.5",
-    "length_factor": "1"
+    "length_factor": "0.7"
   },
   "fern2": {
     "axiom": "F",
