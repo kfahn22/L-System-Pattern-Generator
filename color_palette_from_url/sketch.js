@@ -5,6 +5,8 @@
 // https://natureofcode.com/fractals/
 // https://thecodingtrain.com/challenges/16-l-system-fractal-trees
 
+// You can find additional information about code at https://github.com/kfahn22/L-System-Pattern-Generator
+
 let level; // fractal level
 let length; // step length
 let axiom;
@@ -333,42 +335,49 @@ function addSliders() {
 
   hSlider = createSlider(0.05, 1, 0.1, 0.025);
   hSlider.position(width + 10, 90);
+  hSlider.addClass("slider");
   hlabel = createP("Translate y:");
   hlabel.position(hSlider.x, hSlider.y - 35);
   hlabel.style("color", "white");
 
   lengthSlider = createSlider(10, 100, 20, 1);
   lengthSlider.position(width + 10, 215);
+  lengthSlider.addClass("slider");
   lengthlabel = createP("Step length:");
   lengthlabel.position(lengthSlider.x, lengthSlider.y - 35);
   lengthlabel.style("color", "white");
 
   strokeWeightSlider = createSlider(0.1, 8, 1.5, 0.1);
   strokeWeightSlider.position(width + 10, 270);
+  strokeWeightSlider.addClass("slider");
   swlabel = createP("StrokeWeight:");
   swlabel.position(strokeWeightSlider.x, strokeWeightSlider.y - 35);
   swlabel.style("color", "white");
 
   alphaSlider = createSlider(100, 255, 200, 5);
   alphaSlider.position(width + 10, 330);
+  alphaSlider.addClass("slider");
   alphalabel = createP("Alpha:");
   alphalabel.position(alphaSlider.x, alphaSlider.y - 35);
   alphalabel.style("color", "white");
 
   scaleSlider = createSlider(0.15, 1.15, 0.5, 0.05);
   scaleSlider.position(width + 10, 370);
+  scaleSlider.addClass("slider");
   scalelabel = createP("Scale:");
   scalelabel.position(scaleSlider.x, scaleSlider.y - 35);
   scalelabel.style("color", "white");
 
   rotateSlider = createSlider(-180, 180, 0, 5);
   rotateSlider.position(width + 10, 415);
+  rotateSlider.addClass("slider");
   rotatelabel = createP("Rotate fractal:");
   rotatelabel.position(rotateSlider.x, rotateSlider.y - 35);
   rotatelabel.style("color", "white");
 
   levelSlider = createSlider(0, 12, 3, 1);
   levelSlider.position(width + 10, 155);
+  levelSlider.addClass("slider");
   levellabel = createP("Fractal level:");
   levellabel.position(levelSlider.x, levelSlider.y - 35);
   levellabel.style("color", "white");
@@ -376,49 +385,57 @@ function addSliders() {
   // Sliders for shape variables
   rotateShapeSlider = createSlider(-180, 180, 0, 1);
   rotateShapeSlider.position(width + 10, 460);
-  rotateShapeSlider.size(150);
+  rotateShapeSlider.addClass("slider");
+  //rotateShapeSlider.size(150);
   rotateShapelabel = createP("Rotate shape:");
   rotateShapelabel.position(rotateShapeSlider.x, rotateShapeSlider.y - 35);
   rotateShapelabel.style("color", "white");
 
   aSlider = createSlider(0, 10, 2, 0.25);
   aSlider.position(width + 10, 500);
+  aSlider.addClass("slider");
   alabel = createP("a:");
   alabel.position(aSlider.x, aSlider.y - 35);
   alabel.style("color", "white");
 
   bSlider = createSlider(0, 10, 2.5, 0.25);
   bSlider.position(width + 10, 540);
+  bSlider.addClass("slider");
   blabel = createP("b: ");
   blabel.position(bSlider.x, bSlider.y - 35);
   blabel.style("color", "white");
 
   mSlider = createSlider(0, 10, 6, 1);
   mSlider.position(width + 10, 580);
+  mSlider.addClass("slider");
   mlabel = createP("m:");
   mlabel.position(mSlider.x, mSlider.y - 35);
   mlabel.style("color", "white");
 
   nSlider = createSlider(-1, 5, 1, 0.5);
   nSlider.position(width + 10, 620);
+  nSlider.addClass("slider");
   nlabel = createP("n: ");
   nlabel.position(nSlider.x, nSlider.y - 35);
   nlabel.style("color", "white");
 
   n1Slider = createSlider(0.25, 2, 1, 0.25);
   n1Slider.position(width + 10, 650);
+  n1Slider.addClass("slider");
   n1label = createP("n1: ");
   n1label.position(n1Slider.x, n1Slider.y - 35);
   n1label.style("color", "white");
 
   n2Slider = createSlider(0.25, 2, 1, 0.25);
   n2Slider.position(width + 10, 690);
+  n2Slider.addClass("slider");
   n2label = createP("n2: ");
   n2label.position(n2Slider.x, n2Slider.y - 35);
   n2label.style("color", "white");
 
   n3Slider = createSlider(0.25, 2, 1, 0.25);
   n3Slider.position(width + 10, 730);
+  n3Slider.addClass("slider");
   n3label = createP("n3: ");
   n3label.position(n3Slider.x, n3Slider.y - 35);
   n3label.style("color", "white");
