@@ -213,6 +213,14 @@
     "angle": "45",
     "length_factor": "1"
   },
+  "levy": {
+    "axiom": "F",
+    "rules": {
+      "F": "-F++F-"
+    },
+    "angle": "45",
+    "length_factor": "1"
+  },
   "mango_leaf": {
     "axiom": "Y---Y",
     "rules": {
@@ -254,6 +262,15 @@
       "F": "F+F-F-FFF+F+F-F"
     },
     "angle": "90",
+    "length_factor": "1"
+  },
+  "quadratic_koch_island2": {
+    "axiom": "X+X+X+X+X+X+X+X",
+    "rules": {
+      "X": "X+YF++YF-FX--FXFX-YF+X",
+      "Y": "-FX+YFYF++YF+FX--FX-YF"
+    },
+    "angle": "45",
     "length_factor": "1"
   },
   "quadratic_snowflake1": {
@@ -302,6 +319,15 @@
       "X": "XF+F+XF--F--XF+F+X"
     },
     "angle": "45",
+    "length_factor": "1"
+  },
+  "skierpinski_arrowhead": {
+    "axiom": "YF",
+    "rules": {
+      "X": "YF+XF+Y",
+      "Y": "XF-YF-X"
+    },
+    "angle": "60",
     "length_factor": "1"
   },
   "square_skierpinski": {

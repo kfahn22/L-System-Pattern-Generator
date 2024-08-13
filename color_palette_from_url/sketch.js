@@ -32,6 +32,7 @@ let kolam;
 let koch_curve;
 let krishna_anklet;
 let koch_snowflake;
+let levy;
 let mango_leaf;
 let peano;
 let pentaplexity;
@@ -39,9 +40,11 @@ let quadratic_gosper;
 let quadratic_snowflake1;
 let quadratic_snowflake2;
 let quadratic_koch_island;
+let quadratic_koch_island2;
 let rings;
 let snake_kolam;
 let skierpinski;
+let skierpinski_arrowhead;
 let square_skierpinski;
 let sticks;
 let tree;
@@ -468,17 +471,19 @@ function getRules(data) {
   koch_curve = lsystem.koch_curve;
   krishna_anklet = lsystem.krishna_anklet;
   koch_snowflake = lsystem.koch_snowflake;
-  leaf = lsystem.leaf;
+  levy = lsystem.levy;
   mango_leaf = lsystem.mango_leaf;
   peano = lsystem.peano;
   pentaplexity = lsystem.pentaplexity;
   quadratic_gosper = lsystem.quadratic_gosper;
   quadratic_koch_island = lsystem.quadratic_koch_island;
+  quadratic_koch_island2 = lsystem.quadratic_koch_island2;
   quadratic_snowflake1 = lsystem.quadratic_snowflake1;
   quadratic_snowflake2 = lsystem.quadratic_snowflake2;
   rings = lsystem.rings;
   snake_kolam = lsystem.snake_kolam;
   skierpinski = lsystem.skierpinski;
+  skierpinski_arrowhead = lsystem.skierpinski_arrowhead;
   square_skierpinski = lsystem.square_skierpinski;
   sticks = lsystem.sticks;
   tree = lsystem.tree;
@@ -504,17 +509,20 @@ function getRules(data) {
   ruleDropdown.option("koch_curve");
   ruleDropdown.option("krishna_anklet");
   ruleDropdown.option("koch_snowflake");
+  ruleDropdown.option("levy");
   ruleDropdown.option("mango_leaf");
   ruleDropdown.option("peano");
   ruleDropdown.option("pentaplexity");
   ruleDropdown.option("quadratic_gosper");
   ruleDropdown.option("quadratic_koch_island");
+  ruleDropdown.option("quadratic_koch_island2");
   ruleDropdown.option("quadratic_snowflake1");
   ruleDropdown.option("quadratic_snowflake2");
   ruleDropdown.option("rings");
   ruleDropdown.option("snake_kolam");
   ruleDropdown.option("skierpinski");
   ruleDropdown.option("square_skierpinski");
+  ruleDropdown.option("skierpinski_arrowhead");
   ruleDropdown.option("sticks");
   ruleDropdown.option("tree");
   ruleDropdown.option("tiles");
@@ -582,6 +590,9 @@ function pickRule() {
     case "koch_snowflake":
       currentFractal = koch_snowflake;
       break;
+    case "levy":
+      currentFractal = levy;
+      break;
     case "mango_leaf":
       currentFractal = mango_leaf;
       break;
@@ -596,6 +607,9 @@ function pickRule() {
       break;
     case "quadratic_koch_island":
       currentFractal = quadratic_koch_island;
+      break;
+    case "quadratic_koch_island2":
+      currentFractal = quadratic_koch_island2;
       break;
     case "quadratic_snowflake1":
       currentFractal = quadratic_snowflake1;
@@ -614,6 +628,9 @@ function pickRule() {
       break;
     case "skierpinski":
       currentFractal = skierpinski;
+      break;
+    case "skierpinski_arrowhead":
+      currentFractal = skierpinski_arrowhead;
       break;
     case "square_skierpinski":
       currentFractal = square_skierpinski;
