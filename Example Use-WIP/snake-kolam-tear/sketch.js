@@ -1,4 +1,4 @@
-/// L-system snake-kolam rule from Paul Bourke
+// L-system snake-kolam rule from Paul Bourke
 // https://paulbourke.net/fractals/lsys/
 // Basic code from:
 // https://natureofcode.com/fractals/
@@ -13,7 +13,7 @@ let rules;
 let angle;
 let sentence;
 let fractal;
-let shapeScale = 0.65; //  set shape length to fraction of step length
+let shapeScale = 0.7; //  set shape length to fraction of step length
 let palette;
 let url;
 
