@@ -979,9 +979,9 @@ function turtle() {
       }
       pop();
     } else if (current == "(") {
-      angle -= radians(1);
+      angle -= radians(0.1);
     } else if (current == ")") {
-      angle += radians(1);
+      angle += radians(0.1);
     } else if (current == "{") {
       beginShape();
     } else if (current == "}") {
