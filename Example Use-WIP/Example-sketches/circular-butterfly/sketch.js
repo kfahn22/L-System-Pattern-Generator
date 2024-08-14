@@ -169,15 +169,16 @@ function hexToRgb(hex) {
 function addPalettes() {
   paletteDropdown = createSelect();
   paletteDropdown.position(width + 5, 5);
+  paletteDropdown.option("pink");
   paletteDropdown.option("pink_ltblue");
   paletteDropdown.option("orange");
   paletteDropdown.option("blue");
+  paletteDropdown.option("lt_blue");
   paletteDropdown.option("purple");
   paletteDropdown.option("yellow");
+  paletteDropdown.option("aqua");
   paletteDropdown.option("blue_green");
   paletteDropdown.option("blue_aqua");
-  paletteDropdown.option("blue_yellow");
-  paletteDropdown.option("orange_blue");
 
   // Set default palette
   paletteDropdown.selected("yellow");
@@ -188,6 +189,10 @@ function selectPalette() {
   currentPalette = paletteDropdown.value();
 
   switch (currentPalette) {
+    case "pink":
+      url =
+        "https://supercolorpalette.com/?scp=G0-hsl-F165B2-F37CC1-F594D0-F7ABDD-F9C2E8";
+      break;
     case "pink_ltblue":
       url =
         "https://supercolorpalette.com/?scp=G0-hsl-E198B8-E3A1CE-E5A9E1-DDB0E8-D4B8EA-CEC0EC-CBC8EF-D0D6F1";
@@ -196,13 +201,17 @@ function selectPalette() {
       url =
         "https://supercolorpalette.com/?scp=G0-hsl-2A1FFF-242BFF-2942FF-2E58FF-336DFF-3881FF";
       break;
+    case "lt_blue":
+      url =
+        "https://supercolorpalette.com/?scp=G0-hsl-94C3F5-ABD2F7-C2E1F9-DAEDFC-F1F9FE";
+      break;
     case "orange":
       url =
         "https://supercolorpalette.com/?scp=G0-hsl-FFA91F-FF9924-FF8929-FF7B2E-FF6D33-FF6038";
       break;
-    case "blue_yellow":
+    case "aqua":
       url =
-        "https://supercolorpalette.com/?scp=G0-hsl-FFDA1F-FFC71F-FFB41F-FFA21F-1F44FF-1F57FF-1F69FF-1F7CFF";
+        "https://supercolorpalette.com/?scp=G0-hsl-1FFFCE-38FFCD-52FFCE-6BFFD0-85FFD4-9EFFDA-B8FFE1-D1FFEA";
       break;
     case "purple":
       url =
@@ -216,12 +225,9 @@ function selectPalette() {
       url =
         "https://supercolorpalette.com/?scp=G0-hsl-1F75FF-1F87FF-1F9AFF-1FADFF-1FBFFF-1FD2FF-1FE5FF-1FF8FF";
       break;
-    case "orange_blue":
+    case "yellow":
       url =
-        "https://supercolorpalette.com/?scp=G0-hsl-FF8B1F-FF781F-FF661F-1F9CFF-1FAFFF";
-      break;
-      case "yellow":
-      url = "https://supercolorpalette.com/?scp=G0-hsl-FFDA1F-FFD738-FFD752-FFD86B-FFDA85-FFDF9E-FFE5B8-FFEDD1";
+        "https://supercolorpalette.com/?scp=G0-hsl-FFDA1F-FFD738-FFD752-FFD86B-FFDA85-FFDF9E-FFE5B8-FFEDD1";
       break;
   }
   return url;
@@ -234,7 +240,7 @@ function reset() {
 
   selectedShape = new Butterfly(0, 0, length * shapeScale, 0);
   selectedShape.addPoints();
-  translate(width * 0.25, height * 0.375);
+  translate(width * 0.45, height * 0.4);
   background(0);
   setRule(fractal);
   for (let i = 0; i < level; i++) {
