@@ -14,7 +14,7 @@ let axiom;
 let rules;
 let angle;
 let sentence;
-let fractal;
+let pattern;
 let shapeScale = 1.15; //  set shape length to fraction of step length
 let palette;
 let url;
@@ -36,9 +36,6 @@ function setup() {
   createCanvas(600, 600);
   background(0);
 
-  // Add p5gain library
-  //p5grain.setup();
-
   resetButton = createButton("Reset");
   resetButton.position(width + 110, 5);
   resetButton.mousePressed(reset);
@@ -47,8 +44,8 @@ function setup() {
   selectPalette();
   palette = createPaletteFromURL(url);
   palette.alpha = 150;
-  fractal = lsystem.circular;
-  setRule(fractal);
+  pattern = lsystem.circular;
+  setRule(pattern);
 
   // Set shape size as a fraction of length
   strokeWeight(2);
@@ -57,13 +54,9 @@ function setup() {
   push();
   translate(width * 0.45, height * 0.4);
 
-  for (let i = 0; i < level; i++) {
-    generate();
-  }
+  generate();
   turtle();
   pop();
-
-  //applyChromaticGrain(42);
 }
 
 function draw() {
@@ -174,11 +167,9 @@ function addPalettes() {
   paletteDropdown.option("orange");
   paletteDropdown.option("blue");
   paletteDropdown.option("lt_blue");
-  paletteDropdown.option("purple");
   paletteDropdown.option("yellow");
   paletteDropdown.option("aqua");
   paletteDropdown.option("blue_green");
-  paletteDropdown.option("blue_aqua");
 
   // Set default palette
   paletteDropdown.selected("yellow");
@@ -213,17 +204,9 @@ function selectPalette() {
       url =
         "https://supercolorpalette.com/?scp=G0-hsl-1FFFCE-38FFCD-52FFCE-6BFFD0-85FFD4-9EFFDA-B8FFE1-D1FFEA";
       break;
-    case "purple":
-      url =
-        "https://supercolorpalette.com/?scp=G0-hsl-1F7CFF-1F5EFF-1F40FF-1F22FF-391FFF-571FFF-751FFF-931FFF";
-      break;
     case "blue_green":
       url =
         "https://supercolorpalette.com/?scp=G0-hsl-3C80B4-3C8AB4-3C94B4-3C9EB4-3CA8B4-3CB2B4-3CB4AC-3CB4A2";
-      break;
-    case "blue_aqua":
-      url =
-        "https://supercolorpalette.com/?scp=G0-hsl-1F75FF-1F87FF-1F9AFF-1FADFF-1FBFFF-1FD2FF-1FE5FF-1FF8FF";
       break;
     case "yellow":
       url =
@@ -242,10 +225,8 @@ function reset() {
   selectedShape.addPoints();
   translate(width * 0.45, height * 0.4);
   background(0);
-  setRule(fractal);
-  for (let i = 0; i < level; i++) {
-    generate();
-  }
+  setRule(pattern);
+  generate();
   turtle();
   pop();
 

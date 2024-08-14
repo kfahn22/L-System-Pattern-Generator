@@ -1,6 +1,5 @@
 // heart curve equation from https://mathworld.wolfram.com/HeartCurve.html
 
-
 class Heart {
   constructor(x, y, r, angle) {
     this.x = x;

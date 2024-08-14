@@ -8,8 +8,8 @@
 // Lissajous code:
 // https://thecodingtrain.com/challenges/116-lissajous-curve-table
 
-let level = 2; // fractal level
-let length = 93; // step length
+let level = 3; // fractal level
+let length = 20; // step length
 let axiom;
 let rules;
 let angle;
@@ -19,28 +19,7 @@ let shapeScale = 0.45; //  set shape length to fraction of step length
 let palette;
 let url;
 
-// Lissajous parameters
-let a = 4;
-let b = 4.5;
-let m = 3;
-
 let lsystem = {
-  krishna_anklet: {
-    axiom: "-X--X",
-    rules: {
-      X: "XFX--X{F}X",
-    },
-    angle: "45",
-    length_factor: "1",
-  },
-  square_skierpinski: {
-    axiom: "F+XF+F+XF",
-    rules: {
-      X: "XF-F+F-XF+F+XF-F+F-X",
-    },
-    angle: "90",
-    length_factor: "1",
-  },
   kolam: {
     axiom: "(-D--D)",
     rules: {
@@ -68,17 +47,17 @@ function setup() {
   addPalettes();
   selectPalette();
   palette = createPaletteFromURL(url);
-  palette.alpha = 255;
+  palette.alpha = 150;
   fractal = lsystem.kolam;
   setRule(fractal);
 
-  // Set text size as a fraction of length
-  strokeWeight(3);
+  // Set shape size as a fraction of length
+  strokeWeight(1);
   fill(random(palette));
-  selectedShape = new Lissajous(0, 0, length * shapeScale, a, b, m, 0);
+  selectedShape = new Gear(0, 0, length * shapeScale, 0.75, 6, 0);
   selectedShape.addPoints();
   push();
-  translate(width * 0.5, height * 0.825);
+  translate(width * 0.5, height * 0.95);
 
   for (let i = 0; i < level; i++) {
     generate();
@@ -126,8 +105,10 @@ function turtle() {
   for (let i = 0; i < sentence.length; i++) {
     let current = sentence.charAt(i);
     if (current === "F") {
-      stroke(random(palette));
-      noFill();
+      let c = random(palette);
+      c[3] = 140;
+      fill(c);
+      noStroke();
       selectedShape.show();
       translate(length, 0);
     } else if (current === "f") {
@@ -244,9 +225,9 @@ function reset() {
   url = selectPalette();
   palette = createPaletteFromURL(url);
 
-  selectedShape = new Lissajous(0, 0, length * shapeScale, a, b, m, 0);
+  selectedShape = new Gear(0, 0, length * shapeScale, 0.75, 6, 0);
   selectedShape.addPoints();
-  translate(width * 0.5, height * 0.825);
+  translate(width * 0.5, height * 0.95);
   background(0);
   setRule(fractal);
   for (let i = 0; i < level; i++) {
