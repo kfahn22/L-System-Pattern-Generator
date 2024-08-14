@@ -1,4 +1,4 @@
-// L-system koch snowflake rule from Paul Bourke
+// Learn more about L-systems
 // https://paulbourke.net/fractals/lsys/
 // Basic code from:
 // https://natureofcode.com/fractals/
@@ -8,24 +8,26 @@
 
 // More info at https://github.com/kfahn22/L-System-Pattern-Generator
 
-let level = 1; // fractal level
-let length = 100; // step length
+let level = 1; // not a fractal
+let length = 34; // step length
 let axiom;
 let rules;
 let angle;
 let sentence;
 let fractal;
-let shapeScale = 0.55; //  set shape length to fraction of step length
+let shapeScale = 1.15; //  set shape length to fraction of step length
 let palette;
 let url;
+let currentAlpha = 150;
 
 let lsystem = {
-  koch_snowflake: {
-    axiom: "F++F++F",
+  circular: {
+    axiom: "F",
     rules: {
-      F: "F-F++F-F",
+      F: "F+F+F+F+F+F+F+F+F+F+F+F",
+      X: "",
     },
-    angle: "60",
+    angle: "30",
     length_factor: "1",
   },
 };
@@ -35,7 +37,7 @@ function setup() {
   background(0);
 
   // Add p5gain library
-  p5grain.setup();
+  //p5grain.setup();
 
   resetButton = createButton("Reset");
   resetButton.position(width + 110, 5);
@@ -45,15 +47,15 @@ function setup() {
   selectPalette();
   palette = createPaletteFromURL(url);
   palette.alpha = 150;
-  fractal = lsystem.koch_snowflake;
+  fractal = lsystem.circular;
   setRule(fractal);
 
   // Set shape size as a fraction of length
-  strokeWeight(3);
-  selectedShape = new Bicorn(0, 0, length * shapeScale, radians(30));
+  strokeWeight(2);
+  selectedShape = new Butterfly(0, 0, length * shapeScale, 0);
   selectedShape.addPoints();
   push();
-  translate(width * 0.25, height * 0.375);
+  translate(width * 0.45, height * 0.4);
 
   for (let i = 0; i < level; i++) {
     generate();
@@ -61,7 +63,7 @@ function setup() {
   turtle();
   pop();
 
-  applyChromaticGrain(42);
+  //applyChromaticGrain(42);
 }
 
 function draw() {
@@ -101,10 +103,10 @@ function turtle() {
   for (let i = 0; i < sentence.length; i++) {
     let current = sentence.charAt(i);
     if (current === "F") {
-      stroke(random(palette));
-      // noFill();
-      fill(random(palette));
-      //noStroke();
+      let c = random(palette);
+      c[3] = currentAlpha;
+      stroke(c);
+      noFill();
       selectedShape.show();
       translate(length, 0);
     } else if (current === "f") {
@@ -171,13 +173,14 @@ function addPalettes() {
   paletteDropdown.option("orange");
   paletteDropdown.option("blue");
   paletteDropdown.option("purple");
+  paletteDropdown.option("yellow");
   paletteDropdown.option("blue_green");
   paletteDropdown.option("blue_aqua");
   paletteDropdown.option("blue_yellow");
   paletteDropdown.option("orange_blue");
 
   // Set default palette
-  paletteDropdown.selected("pink_ltblue");
+  paletteDropdown.selected("yellow");
   url = paletteDropdown.changed(selectPalette);
 }
 
@@ -217,6 +220,9 @@ function selectPalette() {
       url =
         "https://supercolorpalette.com/?scp=G0-hsl-FF8B1F-FF781F-FF661F-1F9CFF-1FAFFF";
       break;
+      case "yellow":
+      url = "https://supercolorpalette.com/?scp=G0-hsl-FFDA1F-FFD738-FFD752-FFD86B-FFDA85-FFDF9E-FFE5B8-FFEDD1";
+      break;
   }
   return url;
 }
@@ -226,7 +232,7 @@ function reset() {
   url = selectPalette();
   palette = createPaletteFromURL(url);
 
-  selectedShape = new Bicorn(0, 0, length * shapeScale, radians(30));
+  selectedShape = new Butterfly(0, 0, length * shapeScale, 0);
   selectedShape.addPoints();
   translate(width * 0.25, height * 0.375);
   background(0);

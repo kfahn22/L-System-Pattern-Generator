@@ -1,4 +1,4 @@
-// L-system koch snowflake rule from Paul Bourke
+// For more info on L-systems see
 // https://paulbourke.net/fractals/lsys/
 // Basic code from:
 // https://natureofcode.com/fractals/
@@ -6,26 +6,27 @@
 // Grain filter from
 // https://github.com/meezwhite/p5.grain
 
-// More info at https://github.com/kfahn22/L-System-Pattern-Generator
-
-let level = 1; // fractal level
-let length = 100; // step length
+let level = 1; // this is not a fractal
+let length = 80; // step length
 let axiom;
 let rules;
 let angle;
 let sentence;
-let fractal;
-let shapeScale = 0.55; //  set shape length to fraction of step length
+let design;
+let shapeScale = 0.63; //  set shape length to fraction of step length
 let palette;
 let url;
+let sw = 3;
+let fillShape;
 
 let lsystem = {
-  koch_snowflake: {
-    axiom: "F++F++F",
+  circular: {
+    axiom: "F",
     rules: {
-      F: "F-F++F-F",
+      F: "F+F+F+F+F+F+F+F+F+F+F+F",
+      X: "",
     },
-    angle: "60",
+    angle: "30",
     length_factor: "1",
   },
 };
@@ -41,23 +42,24 @@ function setup() {
   resetButton.position(width + 110, 5);
   resetButton.mousePressed(reset);
 
+  fillShape = createCheckbox("Fill", true);
+  fillShape.position(width + 160, 5);
+  fillShape.style("color", "white");
+
   addPalettes();
   selectPalette();
   palette = createPaletteFromURL(url);
-  palette.alpha = 150;
-  fractal = lsystem.koch_snowflake;
-  setRule(fractal);
+  design = lsystem.circular;
+  setRule(design);
 
-  // Set shape size as a fraction of length
-  strokeWeight(3);
-  selectedShape = new Bicorn(0, 0, length * shapeScale, radians(30));
+  strokeWeight(sw);
+
+  selectedShape = new Deltoid(0, 0, length * shapeScale, radians(76));
   selectedShape.addPoints();
   push();
-  translate(width * 0.25, height * 0.375);
+  translate(width * 0.425, height * 0.25);
 
-  for (let i = 0; i < level; i++) {
-    generate();
-  }
+  generate();
   turtle();
   pop();
 
@@ -101,10 +103,7 @@ function turtle() {
   for (let i = 0; i < sentence.length; i++) {
     let current = sentence.charAt(i);
     if (current === "F") {
-      stroke(random(palette));
-      // noFill();
-      fill(random(palette));
-      //noStroke();
+      adjustFill();
       selectedShape.show();
       translate(length, 0);
     } else if (current === "f") {
@@ -177,7 +176,7 @@ function addPalettes() {
   paletteDropdown.option("orange_blue");
 
   // Set default palette
-  paletteDropdown.selected("pink_ltblue");
+  paletteDropdown.selected("blue_aqua");
   url = paletteDropdown.changed(selectPalette);
 }
 
@@ -225,21 +224,35 @@ function reset() {
   push();
   url = selectPalette();
   palette = createPaletteFromURL(url);
-
-  selectedShape = new Bicorn(0, 0, length * shapeScale, radians(30));
+  adjustFill();
+  selectedShape = new Deltoid(0, 0, length * shapeScale, radians(76));
   selectedShape.addPoints();
-  translate(width * 0.25, height * 0.375);
+  translate(width * 0.425, height * 0.275);
   background(0);
-  setRule(fractal);
-  for (let i = 0; i < level; i++) {
-    generate();
-  }
+  setRule(design);
+  generate();
   turtle();
   pop();
 
   applyChromaticGrain(42);
 }
 
+function adjustFill() {
+  let c = random(palette);
+  let a = 200;
+  // console.log(c);
+  // console.log(a);
+  //c.setAlpha(a); // getting error???
+  c[3] = a;
+  if (fillShape.checked() === true) {
+    noStroke();
+    fill(c);
+  } else {
+    noFill();
+    strokeWeight(sw);
+    stroke(c);
+  }
+}
 // Function to save the canvas as an image when 's' key is pressed
 function keyPressed() {
   if (key === "s" || key === "S") {

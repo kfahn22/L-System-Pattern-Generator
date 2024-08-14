@@ -971,7 +971,6 @@ function generate() {
 
 function turtle() {
   for (let i = 0; i < sentence.length; i++) {
-    //let sl = sentence.length;
     let current = sentence.charAt(i);
     adjustFill();
     if (current === "F") {
