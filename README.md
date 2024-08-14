@@ -44,7 +44,7 @@ Of course, one of the original applications for L-systems is creating realistic 
 
 I also want to give a shout-out to [supercolorpalette.com](https://supercolorpalette.com)! I started out by creating a json file with palettes, but eventually found the supercolorpalette website. I was able to get the HEX codes from the url, and then create palette arrays very easily with some helper functions from chatGPT -- so much easier and faster than manually creating the palette arrays.
 
-You can find example sketches [here](https://editor.p5js.org/kfahn/collections/BreDLmlQZ) and [here](Example Use-WIP).
+You can find example sketches [here](https://editor.p5js.org/kfahn/collections/BreDLmlQZ).
 
 ## 🌄 Gallery
 
