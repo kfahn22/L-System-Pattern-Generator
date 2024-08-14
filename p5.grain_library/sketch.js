@@ -792,7 +792,7 @@ function pickShape() {
       selectedShape.addPoints();
       break;
     case "quadrifolium":
-      selectedShape = new Quadrifolium(0, 0, length * shapeScale, a);
+      selectedShape = new Quadrifolium(0, 0, length * shapeScale, a, shapeAngle);
       selectedShape.addPoints();
       break;
     case "quadrilateral":

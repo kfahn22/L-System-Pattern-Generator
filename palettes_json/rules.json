@@ -219,7 +219,7 @@
       "C": "BFA--BFA",
       "D": "CFC--CFC"
     },
-    "angle": "45",
+    "angle": "45.1",
     "length_factor": "1"
   },
   "koch_curve": {
