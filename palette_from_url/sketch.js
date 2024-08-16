@@ -679,9 +679,10 @@ function addShapes() {
   shapeDropdown.option("cannibus");
   shapeDropdown.option("cassini");
   shapeDropdown.option("ceva");
-  shapeDropdown.option("deltoid");
+  shapeDropdown.option("craniod");
   shapeDropdown.option("cornu");
   shapeDropdown.option("cross");
+  shapeDropdown.option("deltoid");
   shapeDropdown.option("eight");
   shapeDropdown.option("gear");
   shapeDropdown.option("heart");
@@ -759,6 +760,11 @@ function pickShape() {
     case "cornu":
       // angle PI/2;
       selectedShape = new CornuSpiral(0, 0, length * shapeScale, shapeAngle);
+      selectedShape.addPoints();
+      break;
+    case "craniod":
+      // angle PI/2;
+      selectedShape = new Craniod(0, 0, length * shapeScale, a, b, m, shapeAngle);
       selectedShape.addPoints();
       break;
     case "cross":
