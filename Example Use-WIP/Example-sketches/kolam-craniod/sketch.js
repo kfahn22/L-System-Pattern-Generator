@@ -11,7 +11,7 @@ let rules;
 let angle;
 let sentence;
 let fractal;
-let shapeScale = 0.2; //  set shape length to fraction of step length
+let shapeScale = 0.15; //  set shape length to fraction of step length
 let palette;
 let url;
 
@@ -40,14 +40,22 @@ function setup() {
   addPalettes();
   selectPalette();
   palette = createPaletteFromURL(url);
-  palette.alpha = 150;
+  //palette.alpha = 235;
   fractal = lsystem.kolam;
   setRule(fractal);
 
   // Set shape size as a fraction of length
-  strokeWeight(0.7);
+  strokeWeight(1.9);
   fill(random(palette));
-  selectedShape = new Butterfly(0, 0, length * shapeScale, radians(-133));
+  selectedShape = new Craniod(
+    0,
+    0,
+    length * shapeScale,
+    3.75,
+    1,
+    6,
+    radians(44)
+  );
   selectedShape.addPoints();
   push();
   translate(width * 0.5, height * 0.9);
@@ -97,7 +105,7 @@ function turtle() {
     let current = sentence.charAt(i);
     if (current === "F") {
       let c = random(palette);
-      c[3] = 140;
+      c[3] = 200;
       stroke(c);
       noFill();
       selectedShape.show();
@@ -221,7 +229,15 @@ function reset() {
   url = selectPalette();
   palette = createPaletteFromURL(url);
 
-  selectedShape = new Butterfly(0, 0, length * shapeScale, radians(-133));
+  selectedShape = new Craniod(
+    0,
+    0,
+    length * shapeScale,
+    3.75,
+    1,
+    6,
+    radians(44)
+  );
   selectedShape.addPoints();
   translate(width * 0.5, height * 0.925);
   background(0);
