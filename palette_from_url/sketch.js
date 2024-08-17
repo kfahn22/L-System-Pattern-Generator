@@ -235,6 +235,7 @@ function addPalettes() {
   paletteDropdown.option("primary");
   paletteDropdown.option("sunny");
   paletteDropdown.option("orange");
+  paletteDropdown.option("orange_green");
 
   // Set default palette
   paletteDropdown.selected("fushia_multi");
@@ -245,6 +246,10 @@ function selectPalette() {
   currentPalette = paletteDropdown.value();
 
   switch (currentPalette) {
+    case "orange_green": 
+     url =
+       "https://supercolorpalette.com/?scp=G0-hsl-FF9E1F-FFE957-F4C148-73BE50-18AF6B";
+       break;
     case "blue_yellow":
       url =
         "https://supercolorpalette.com/?scp=G0-hsl-FFDA1F-FFC71F-FFB41F-FFA21F-1F44FF-1F57FF-1F69FF-1F7CFF";
