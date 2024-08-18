@@ -15,7 +15,7 @@ class Craniod {
   }
 
   addPoints() {
-    for (let theta = 0; theta < TWO_PI; theta += 0.1) {
+    for (let theta = 0; theta < TWO_PI; theta += 0.05) {
       let r =
         this.a * sin(theta) +
         this.b * sqrt(1 - this.p * pow(cos(theta), 2)) +
