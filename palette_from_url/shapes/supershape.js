@@ -30,7 +30,7 @@ class Supershape {
   }
 
   addPoints() {
-    for (let theta = 0; theta <= TWO_PI; theta += 0.1) {
+    for (let theta = 0; theta <= TWO_PI; theta += 0.05) {
       let r = this.superformula(theta);
       let x = this.sc * r * cos(theta);
       let y = this.sc * r * sin(theta);

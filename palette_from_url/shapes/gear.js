@@ -2,7 +2,7 @@
 // https://help.tc2000.com/m/69445/l/755460-hyperbolic-functions-table
 
 class Gear {
-  constructor(x, y, sc, b, m) {
+  constructor(x, y, sc, b, m, angle) {
     this.x = x;
     this.y = y;
     this.a = 1;
@@ -10,6 +10,7 @@ class Gear {
     this.m = m;
     this.sc = sc;
     this.points = [];
+    this.angle = angle;
   }
 
   hyperbolicTan(theta) {
@@ -38,6 +39,7 @@ class Gear {
   show() {
     push();
     translate(this.x, this.y);
+    rotate(this.angle);
     beginShape();
     for (let v of this.points) {
       vertex(v.x, v.y);

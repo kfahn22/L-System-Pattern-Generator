@@ -246,10 +246,10 @@ function selectPalette() {
   currentPalette = paletteDropdown.value();
 
   switch (currentPalette) {
-    case "orange_green": 
-     url =
-       "https://supercolorpalette.com/?scp=G0-hsl-FF9E1F-FFE957-F4C148-73BE50-18AF6B";
-       break;
+    case "orange_green":
+      url =
+        "https://supercolorpalette.com/?scp=G0-hsl-FF9E1F-FFE957-F4C148-73BE50-18AF6B";
+      break;
     case "blue_yellow":
       url =
         "https://supercolorpalette.com/?scp=G0-hsl-FFDA1F-FFC71F-FFB41F-FFA21F-1F44FF-1F57FF-1F69FF-1F7CFF";
@@ -514,42 +514,45 @@ function getRules(data) {
 
   ruleDropdown = createSelect();
   ruleDropdown.position(10, 5);
-  ruleDropdown.option("none");
-  ruleDropdown.option("board");
-  ruleDropdown.option("board2");
-  ruleDropdown.option("circular");
-  ruleDropdown.option("cross");
-  ruleDropdown.option("crystal");
-  ruleDropdown.option("dragon1");
-  ruleDropdown.option("dragon2");
-  ruleDropdown.option("fern");
-  ruleDropdown.option("fern2");
-  ruleDropdown.option("fern3");
-  ruleDropdown.option("hexagonal_gosper");
-  ruleDropdown.option("hilbert");
-  ruleDropdown.option("kolam");
-  ruleDropdown.option("koch_curve");
-  ruleDropdown.option("krishna_anklet");
-  ruleDropdown.option("koch_snowflake");
-  ruleDropdown.option("levy");
-  ruleDropdown.option("mango_leaf");
-  ruleDropdown.option("peano");
-  ruleDropdown.option("pentaplexity");
-  ruleDropdown.option("quadratic_gosper");
-  ruleDropdown.option("quadratic_koch_island");
-  ruleDropdown.option("quadratic_koch_island2");
-  ruleDropdown.option("quadratic_snowflake1");
-  ruleDropdown.option("quadratic_snowflake2");
-  ruleDropdown.option("rings");
-  ruleDropdown.option("snake_kolam");
-  ruleDropdown.option("skierpinski");
-  ruleDropdown.option("square_skierpinski");
-  ruleDropdown.option("skierpinski_arrowhead");
-  ruleDropdown.option("sticks");
-  ruleDropdown.option("tree");
-  ruleDropdown.option("tiles");
-  ruleDropdown.option("triangle_rule");
+  let options = [
+    "none",
+    "board",
+    "board2",
+    "circular",
+    "cross",
+    "crystal",
+    "dragon1",
+    "dragon2",
+    "fern",
+    "fern2",
+    "fern3",
+    "hexagonal_gosper",
+    "hilbert",
+    "kolam",
+    "koch_curve",
+    "koch_snowflake",
+    "krishna_anklet",
+    "levy",
+    "mango_leaf",
+    "peano",
+    "pentaplexity",
+    "quadratic_gosper",
+    "quadratic_koch_island",
+    "quadratic_koch_island2",
+    "quadratic_snowflake1",
+    "quadratic_snowflake2",
+    "rings",
+    "snake_kolam",
+    "skierpinski",
+    "square_skierpinski",
+    "skierpinski_arrowhead",
+    "sticks",
+    "tree",
+    "tiles",
+    "triangle_rule",
+  ];
 
+  options.forEach((option) => ruleDropdown.option(option));
   // Set initial value of the dropdown
   currentFractal = ruleDropdown.selected("crystal");
   ruleDropdown.changed(pickRule);
@@ -676,35 +679,39 @@ function pickRule() {
 function addShapes() {
   shapeDropdown = createSelect();
   shapeDropdown.position(180, 5);
-  shapeDropdown.option("archimedes");
-  shapeDropdown.option("astroid");
-  shapeDropdown.option("atom");
-  shapeDropdown.option("bicorn");
-  shapeDropdown.option("butterfly");
-  shapeDropdown.option("cannibus");
-  shapeDropdown.option("cassini");
-  shapeDropdown.option("ceva");
-  shapeDropdown.option("craniod");
-  shapeDropdown.option("cornu");
-  shapeDropdown.option("cross");
-  shapeDropdown.option("deltoid");
-  shapeDropdown.option("eight");
-  shapeDropdown.option("gear");
-  shapeDropdown.option("heart");
-  shapeDropdown.option("lissajous");
-  shapeDropdown.option("kiss");
-  shapeDropdown.option("knot");
-  shapeDropdown.option("line");
-  shapeDropdown.option("ophiuride");
-  shapeDropdown.option("quadrifolium");
-  shapeDropdown.option("quadrilateral");
-  shapeDropdown.option("rose");
-  shapeDropdown.option("superellipse");
-  shapeDropdown.option("supershape");
-  shapeDropdown.option("spiral");
-  shapeDropdown.option("tear");
-  shapeDropdown.option("word");
-  shapeDropdown.option("zigzag");
+  let options = [
+    "archimedes",
+    "astroid",
+    "atom",
+    "bicorn",
+    "butterfly",
+    "cannibus",
+    "cassini",
+    "ceva",
+    "craniod",
+    "cornu",
+    "cross",
+    "deltoid",
+    "eight",
+    "gear",
+    "heart",
+    "lissajous",
+    "kiss",
+    "kiss",
+    "knot",
+    "line",
+    "ophiuride",
+    "quadrifolium",
+    "quadrilateral",
+    "rose",
+    "superellipse",
+    "supershape",
+    "spiral",
+    "tear",
+    "word",
+    "zigzag",
+  ];
+  options.forEach((option) => shapeDropdown.option(option));
 
   // Set initial value of the dropdown
   shapeDropdown.selected("cross");
@@ -769,7 +776,15 @@ function pickShape() {
       break;
     case "craniod":
       // angle PI/2;
-      selectedShape = new Craniod(0, 0, length * shapeScale, a, b, m, shapeAngle);
+      selectedShape = new Craniod(
+        0,
+        0,
+        length * shapeScale,
+        a,
+        b,
+        m,
+        shapeAngle
+      );
       selectedShape.addPoints();
       break;
     case "cross":
@@ -795,7 +810,7 @@ function pickShape() {
       selectedShape.addPoints();
       break;
     case "gear":
-      selectedShape = new Gear(0, 0, length * shapeScale, b, m);
+      selectedShape = new Gear(0, 0, length * shapeScale, b, m, shapeAngle);
       selectedShape.addPoints();
       break;
     case "heart":
