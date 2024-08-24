@@ -13,8 +13,8 @@ class MalteseCross {
 
   addPoints() {
     for (let theta = 0.1; theta < TWO_PI; theta += 0.1) {
-      let x = this.r * + cos(theta) * (pow(cos(theta), 2) - this.a);
-      let y = this.r * + this.b * sin(theta) * pow(cos(theta), 2);
+      let x = this.r + cos(theta) * (pow(cos(theta), 2) - this.a);
+      let y = this.r + this.b * sin(theta) * pow(cos(theta), 2);
       this.points.push(createVector(x, y));
     }
   }
