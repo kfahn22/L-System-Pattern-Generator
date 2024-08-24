@@ -51,7 +51,7 @@ let n1, n2, n3;
 // Buttons and checkboxes
 let resetButton; // Reset both fractals
 
-let addSecondFractal; // Whether to add a second fractal
+let deleteSecondFractal; // Whether to add a second fractal
 
 // Color variables
 // whether the shapes are filled or stroke
@@ -62,7 +62,6 @@ let bkcolor; // background white (true) or black (false)
 // Drop downs to select rule, pattern, and colors
 let shapeDropdown0;
 let shapeDropdown1;
-//let ruleDropdown;
 let ruleDropdown0;
 let ruleDropdown1;
 let paletteDropdown0;
@@ -73,8 +72,16 @@ let url1;
 
 // Paragraph adding warning if level gets too high
 let p;
-let warning;
+
+let warning = "";
 let addWarning = false;
+
+// Add a message if choosen shape is a function of shape parameters
+let p2;
+//let message;
+let message0 = null;
+let message1 = null;
+let addMessage;
 
 // Color palette variables
 let palette;
@@ -125,7 +132,7 @@ function setup() {
   paletteDropdown0 = addPalettes(x, 95, "purple");
 
   // Add fractal
-  addFractal(
+  message0 = addFractal(
     sliders0,
     ruleDropdown0,
     shapeDropdown0,
@@ -134,7 +141,7 @@ function setup() {
   );
 
   // Add sliders for second fractal
-  if (addSecondFractal.checked() === true) {
+  if (deleteSecondFractal.checked() === false) {
     [sliders1, sliderLabels1] = addSliders(
       x + 650,
       "second",
@@ -159,7 +166,7 @@ function setup() {
     shapeDropdown1 = addShapesDropdown(x + 430, 50, "gear");
     paletteDropdown1 = addPalettes(x + 430, 95, "purple_green");
 
-    addFractal(
+    message1 = addFractal(
       sliders1,
       ruleDropdown1,
       shapeDropdown1,
@@ -173,16 +180,65 @@ function setup() {
   }
 
   p = createP(warning);
-  p.position(250, 150);
+  p.position(250, 125);
 
   if (!addWarning) {
     p.hide();
   }
+  // p2 = createP("message");
+  // p2.position(250, 160);
+  p2 = addShapeMessage(message0, message1);
 }
 
 function draw() {
   noLoop();
 }
+
+function addShapeMessage(message0, message1) {
+  addMessage = true;
+  let p2;
+  if (message0 === message1 && message0 != null) {
+    p2 = createP(message0);
+  } else if (message0 != null && message1 != null && message0 != message1) {
+    p2 = createP(message0 + " " + message1);
+  } else if (message0 === null && message1 != null) {
+    p2 = createP(message1);
+  } else if (message0 != null && message1 === null) {
+    p2 = createP(message0);
+  } else {
+    addMessage = false;
+  }
+  //console.log(p2);
+  if (addMessage) {
+    p2.show();
+    p2.position(250, 160)
+  } else {
+    p2.hide();
+  }
+  return p2;
+}
+
+// function addShapeMessage(message0, message1) {
+//   addMessage = true;
+//   if (message0 === message1) {
+//     p2 = createP(message0);
+//     p2.position(250, 150);
+//   } else if (message0 != null && message1 != null && message0 === message1) {
+//     p2 = createP(message0 + " " + message1);
+//     p2.position(250, 150);
+//   } else if (message0 === null && message1 != null) {
+//     p2 = createP(message1);
+//   } else if (message0 != null && message1 === null) {
+//     p2 = createP(message0);
+//   } else {
+//     addMessage = false;
+//   }
+//   if (!addMessage) {
+//     p2.hide();
+//   } else {
+//     p2.show();
+//   }
+// }
 
 function addFractal(
   sliders,
@@ -219,13 +275,15 @@ function addFractal(
   push();
   translate(width * wadj, height * hadj);
   rotate(angle);
-  pickShape(shapeDropdown.value());
+  message = pickShape(shapeDropdown.value());
   pickRule(fractal);
   for (let i = 0; i < level; i++) {
     generate();
   }
   turtle(palette, sliders, shapeDropdown, fillShape);
   pop();
+
+  return message;
 }
 
 // Helper functions to convert the url string to the palette array from chatGPT
@@ -713,12 +771,18 @@ function pickShape(selected) {
     n3,
     shapeAngle
   );
+  addMessage = false;
+  let message = null;
   switch (selected) {
     case "archimedes":
       selectedShape.archimedesSpiral();
+      addMessage = true;
+      message = "The archimedes spiral is a f(n).";
       break;
     case "astroid":
       selectedShape.astroid();
+      addMessage = true;
+      message = "The astroid is a f(a).";
       break;
     case "atom":
       selectedShape.atom();
@@ -735,7 +799,9 @@ function pickShape(selected) {
     case "cassini":
       // 1, 1.25 peanut shaped/
       // 1, 2 oval
+      addMessage = true;
       selectedShape.cassiniOval();
+      message = "The cassini oval curve is a f(a, b).";
       break;
     case "ceva":
       selectedShape.ceva();
@@ -747,11 +813,15 @@ function pickShape(selected) {
     case "craniod":
       // angle PI/2;
       selectedShape.craniod();
+      addMessage = true;
+      message = "The craniod curve is a f(a, b, m).";
       break;
     case "cross":
       // 1 quadrifolium
       // gets longer and more rounded as a increases
       selectedShape.malteseCross();
+      addMessage = true;
+      message = "The cross curve is a f(a, b).";
       break;
     case "deltoid":
       // angle PI/6;
@@ -762,15 +832,20 @@ function pickShape(selected) {
       break;
     case "gear":
       selectedShape.gear();
+      addMessage = true;
+      message = "The gear curve is a f(a, b, m).";
       break;
     case "heart":
       selectedShape.heart();
+      addMessage = false;
       break;
     case "knot":
       selectedShape.knot();
       break;
     case "kiss":
       selectedShape.kissCurve();
+      addMessage = true;
+      message = "The kiss curve is a f(a, b).";
       break;
     case "hersheyKiss":
       selectedShape.hersheyKiss();
@@ -780,16 +855,22 @@ function pickShape(selected) {
       break;
     case "lissajous":
       selectedShape.lissajous();
+      addMessage = true;
+      message = "The lissajous curve is a f(a, b, m).";
       break;
     case "quadrifolium":
       selectedShape.quadrifolium();
       break;
     case "quadrilateral":
       selectedShape.quadrilaterial();
+      addMessage = true;
+      message = "The quadrilaterial curve is a f(m).";
       break;
     case "rose":
       // a > 0 levels hole in middle
       selectedShape.rose();
+      addMessage = true;
+      message = "The rose curve is a f(a, b, n).";
       break;
     case "ophiuride":
       // a > 0 levels hole in middle
@@ -797,12 +878,18 @@ function pickShape(selected) {
       break;
     case "spiral":
       selectedShape.spiral();
+      addMessage = true;
+      message = "The spiral curve is a f(a).";
       break;
     case "superellipse":
-      selectedShape.superellipse();
+      selectedShape.superellipse(a, b, n);
+      addMessage = true;
+      message = "The superellipse curve is a f().";
       break;
     case "supershape":
       selectedShape.supershape();
+      addMessage = true;
+      message = "The supershape curve is a f(a, b, m, n, n1, n2, n3).";
       break;
     case "tear":
       // selectedShapeAngle PI
@@ -823,6 +910,8 @@ function pickShape(selected) {
       selectedShape.zigzag();
       break;
   }
+ return message;
+  
 }
 
 function generate() {
@@ -906,6 +995,9 @@ function reset() {
   addWarning = false;
   warning = "";
   p.hide();
+  p2.hide();
+  message0 = null;
+  message1 = null;
 
   // Update Variables
   if (bkcolor.checked() === true) {
@@ -915,7 +1007,7 @@ function reset() {
   }
 
   push();
-  addValidFractal(
+  message0 = addValidFractal(
     sliders0,
     sliderLabels0,
     ruleDropdown0,
@@ -924,9 +1016,9 @@ function reset() {
     fillShape0
   );
   pop();
-  if (addSecondFractal.checked() === true) {
+  if (deleteSecondFractal.checked() === false) {
     push();
-    addValidFractal(
+    message1 = addValidFractal(
       sliders1,
       sliderLabels1,
       ruleDropdown1,
@@ -936,10 +1028,9 @@ function reset() {
     );
     pop();
   }
-
-  // if (selectedShape === "word") {
-  //   addText();
-  // }
+  // p2 = createP(message);
+  // p2.position(250, 160);
+  p2 = addShapeMessage(message0, message1);
 }
 
 // Limits added to level for certain fractals to prevent sketch from freezing!
@@ -973,7 +1064,7 @@ function addValidFractal(
   selectPalette(paletteDropdown.value());
   palette = createPaletteFromURL(url);
   adjustFill(palette, sw, currentAlpha, fillShape);
-  pickShape(shapeDropdown.value());
+  message = pickShape(shapeDropdown.value());
   translate(width * wadj, height * hadj);
   rotate(angle);
   // pickRule() must be after rotate(angle) for rotation to work properly
@@ -985,9 +1076,6 @@ function addValidFractal(
     (ruleDropdown.value() === "circular" ||
       ruleDropdown.value() === "circular2")
   ) {
-    // p = createP(
-    //   "The level cannot be > 1 with the circular pattern"
-    // );
     warning = "The level cannot be > 1 with the circular pattern.";
     addWarning = true;
     level = 1;
@@ -1002,9 +1090,6 @@ function addValidFractal(
       ruleDropdown.value() === "quadratic_koch_island" ||
       ruleDropdown.value() === "quadratic_koch_island2")
   ) {
-    // p = createP(
-    //   "The level cannot be > 2 with the current fractal pattern"
-    // );
     warning = "The level cannot be > 2 with the current fractal pattern.";
     addWarning = true;
     level = 2;
@@ -1030,9 +1115,6 @@ function addValidFractal(
       ruleDropdown.value() === "square_skierpinski" ||
       ruleDropdown.value() === "tiles")
   ) {
-    //  p = createP(
-    //     "The level cannot be > 3 with the current fractal pattern"
-    //   );
     warning = "The level cannot be > 3 with the current fractal pattern.";
     addWarning = true;
     level = 3;
@@ -1045,11 +1127,6 @@ function addValidFractal(
     sliders[2].value() > 4 &&
     (ruleDropdown.value() === "cross" || ruleDropdown.value() === "crystal")
   ) {
-    // p = createP(
-    //   "The level cannot be > 4 with the current fractal pattern",
-    //   -width / 2 + 20,
-    //   -height / 2 + 20
-    // );
     warning = "The level cannot be > 4 with the current fractal pattern.";
     addWarning = true;
     level = 4;
@@ -1070,9 +1147,6 @@ function addValidFractal(
       ruleDropdown.value() === "sticks" ||
       ruleDropdown.value() === "triangle")
   ) {
-    // p = createP(
-    //   "The level cannot be > 5 with the current fractal pattern",
-    // );
     warning = "The level cannot be > 5 with the current fractal pattern.";
     addWarning = true;
     level = 5;
@@ -1098,6 +1172,7 @@ function addValidFractal(
     p.hide();
   }
   updateLabels(sliders, sliderLabels);
+  return message;
 }
 
 // Add buttons and checkboxes
@@ -1108,9 +1183,9 @@ function addControls(pos) {
   resetButton.mousePressed(reset);
 
   // Checkbox to add a second fractal
-  addSecondFractal = createCheckbox("Add second fractal", true);
-  addSecondFractal.position(pos, 90);
-  addSecondFractal.style("color", "white");
+  deleteSecondFractal = createCheckbox("Delete second fractal", false);
+  deleteSecondFractal.position(pos, 90);
+  deleteSecondFractal.style("color", "white");
 
   // Checkbox to determine whether shapes are filled
   fillShape0 = createCheckbox("Fill fractal 1 shapes", false);
