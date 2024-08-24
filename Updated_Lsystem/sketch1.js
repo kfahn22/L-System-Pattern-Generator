@@ -180,7 +180,7 @@ function setup() {
   }
 
   p = createP(warning);
-  p.position(250, 125);
+  p.position(250, 75);
 
   if (!addWarning) {
     p.hide();
@@ -211,7 +211,7 @@ function addShapeMessage(message0, message1) {
   //console.log(p2);
   if (addMessage) {
     p2.show();
-    p2.position(250, 160)
+    p2.position(250, 160);
   } else {
     p2.hide();
   }
@@ -910,8 +910,7 @@ function pickShape(selected) {
       selectedShape.zigzag();
       break;
   }
- return message;
-  
+  return message;
 }
 
 function generate() {
@@ -1164,7 +1163,7 @@ function addValidFractal(
     sliderLabels[2].html("Level: " + sliders[2].value());
   }
   p = createP(warning);
-  p.position(250, 160);
+  p.position(250, 140);
 
   if (addWarning) {
     p.show();
