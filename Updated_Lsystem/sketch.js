@@ -18,6 +18,7 @@ let currentFractal0;
 let currentFractal1;
 let lsystem; // rules data
 let lf; // length adjustment factor
+let maxLevel; // control added to keep sketch from freezing
 let fractal; // rendered fractal
 
 let fractalSliders;
@@ -51,7 +52,7 @@ let n1, n2, n3;
 // Buttons and checkboxes
 let resetButton; // Reset both fractals
 
-let addSecondFractal; // Whether to add a second fractal
+let deleteSecondFractal; // Whether to add a second fractal
 
 // Color variables
 // whether the shapes are filled or stroke
@@ -62,7 +63,6 @@ let bkcolor; // background white (true) or black (false)
 // Drop downs to select rule, pattern, and colors
 let shapeDropdown0;
 let shapeDropdown1;
-//let ruleDropdown;
 let ruleDropdown0;
 let ruleDropdown1;
 let paletteDropdown0;
@@ -73,8 +73,17 @@ let url1;
 
 // Paragraph adding warning if level gets too high
 let p;
-let warning;
+
+let warning = "";
 let addWarning = false;
+
+// Add a message if choosen shape is a function of shape parameters
+let p2;
+let shapeMessage = null;
+let ruleMessage = null;
+let message0 = null;
+let message1 = null;
+let addMessage;
 
 // Color palette variables
 let palette;
@@ -125,7 +134,7 @@ function setup() {
   paletteDropdown0 = addPalettes(x, 95, "purple");
 
   // Add fractal
-  addFractal(
+  message0 = addFractal(
     sliders0,
     ruleDropdown0,
     shapeDropdown0,
@@ -134,7 +143,7 @@ function setup() {
   );
 
   // Add sliders for second fractal
-  if (addSecondFractal.checked() === true) {
+  if (deleteSecondFractal.checked() === false) {
     [sliders1, sliderLabels1] = addSliders(
       x + 650,
       "second",
@@ -159,7 +168,7 @@ function setup() {
     shapeDropdown1 = addShapesDropdown(x + 430, 50, "gear");
     paletteDropdown1 = addPalettes(x + 430, 95, "purple_green");
 
-    addFractal(
+    message1 = addFractal(
       sliders1,
       ruleDropdown1,
       shapeDropdown1,
@@ -173,15 +182,45 @@ function setup() {
   }
 
   p = createP(warning);
-  p.position(250, 150);
+  p.position(250, 75);
+  p.addClass("p");
 
   if (!addWarning) {
     p.hide();
   }
+  p2 = addShapeMessage(message0, message1);
 }
 
 function draw() {
   noLoop();
+}
+
+function addShapeMessage(message0, message1) {
+  addMessage = true;
+  let message = null;
+  if (
+    (message0 === message1 && message0 != null) ||
+    (message0 != null && message1 === null)
+  ) {
+    message = message0;
+  } else if (message0 != null && message1 != null && message0 != message1) {
+    message = message0 + " " + message1;
+  } else if (message0 === null && message1 != null) {
+    message = message1;
+  } else {
+    addMessage = false;
+  }
+
+  let p2 = createP(message);
+  p2.position(250, 155);
+  p2.addClass("p");
+
+  if (addMessage) {
+    p2.show();
+  } else {
+    p2.hide();
+  }
+  return p2;
 }
 
 function addFractal(
@@ -219,13 +258,25 @@ function addFractal(
   push();
   translate(width * wadj, height * hadj);
   rotate(angle);
-  pickShape(shapeDropdown.value());
+  let shapeMessage = pickShape(shapeDropdown.value());
   pickRule(fractal);
-  for (let i = 0; i < level; i++) {
-    generate();
+  if (level < maxLevel) {
+    ruleMessage =
+      "The level cannot be greater than " + `${maxLevel}` + " for this rule.";
+    for (let i = 0; i < level; i++) {
+      generate();
+    }
+    turtle(palette, sliders, shapeDropdown, fillShape);
+    pop();
+  } else {
+    for (let i = 0; i < maxLevel; i++) {
+      generate();
+    }
+    turtle(palette, sliders, shapeDropdown, fillShape);
+    pop();
   }
-  turtle(palette, sliders, shapeDropdown, fillShape);
-  pop();
+  return shapeMessage;
+  //return [shapeMessage, ruleMessage];
 }
 
 // Helper functions to convert the url string to the palette array from chatGPT
@@ -251,6 +302,7 @@ function hexToRgb(hex) {
 
 function addPalettes(posx, posy, choice) {
   let options = [
+    "white",
     "purple",
     "purple_aqua",
     "green",
@@ -287,6 +339,10 @@ function addPalettes(posx, posy, choice) {
 // Add urls with color palettes
 function selectPalette(selected) {
   switch (selected) {
+    case "white":
+      url =
+        "https://supercolorpalette.com/?scp=G0-hsl-FFFFFF-FFFFFF-FFFFFF-FFFFFF-FFFFFF-FFFFFF-FFFFFF";
+      break;
     case "orange_green":
       url =
         "https://supercolorpalette.com/?scp=G0-hsl-FF9E1F-FFE957-F4C148-73BE50-18AF6B";
@@ -309,7 +365,7 @@ function selectPalette(selected) {
       break;
     case "raspberry":
       url =
-        "https://supercolorpalette.com/?scp=G0-hsl-FF1F57-FF246D-FF2982-FF2E96-FF33AA-FF38BD-FF3DCF-FF42E0-FF47F0-FF4DFF";
+        "https://supercolorpalette.com/?scp=G0-hsl-FF1FE9-FF1FFB-F01FFF-DD1FFF-CB1FFF";
       break;
     case "rose":
       url =
@@ -317,7 +373,7 @@ function selectPalette(selected) {
       break;
     case "fushia_blue":
       url =
-        "https://supercolorpalette.com/?scp=G0-hsl-9E0A4A-AD0B79-BB0CAF-A70DC9-800ED8-530FE6-2314F0-2248F1";
+        "https://supercolorpalette.com/?scp=G0-hsl-FF1FE9-DD1FFF-A51FFF-6D1FFF-351FFF-531FFF-711FFF";
       break;
     case "pink_ltblue":
       url =
@@ -402,11 +458,11 @@ function addSliders(
   sliderLabels[1] = createP("Translate y:");
 
   // level
-  mySliders[2] = createSlider(0, 12, level, 1);
+  mySliders[2] = createSlider(0, 13, level, 1);
   sliderLabels[2] = createP("Level:");
 
   // length
-  mySliders[3] = createSlider(10, 100, length, 1);
+  mySliders[3] = createSlider(5, 150, length, 1);
   sliderLabels[3] = createP("Step length:");
 
   // strokeweight
@@ -475,6 +531,7 @@ function setRule(pattern) {
   rules = pattern.rules;
   angle = radians(pattern.angle);
   lf = pattern.length_factor;
+  maxLevel = pattern.max_Level;
   sentence = axiom;
 }
 
@@ -483,14 +540,22 @@ function getRules(data) {
 }
 
 function addRuleDropdown(posx, posy, choice) {
+  let ruleDropdown;
   let ruleOptions = [
     "none",
+    "ADH231a",
+    "ADH256a",
     "board",
     "board2",
+    "border1",
+    "box",
+    "cesaro",
+    "recursive_circles",
     "circular",
     "circular2",
     "cross",
     "crystal",
+    "doily",
     "dragon1",
     "dragon2",
     "fern",
@@ -498,20 +563,29 @@ function addRuleDropdown(posx, posy, choice) {
     "fern3",
     "hexagonal_gosper",
     "hilbert",
+    "island_curve",
     "kolam",
     "koch_curve",
     "koch_snowflake",
     "krishna_anklet",
     "levy",
+    "levy_curve",
+    "maze",
     "mango_leaf",
+    "moore",
     "peano",
+    "peano_c",
+    "penrose_tiling",
     "pentaplexity",
+    "pentadentrite",
+    "phyllotaxis",
     "quadratic_gosper",
     "quadratic_koch_island",
     "quadratic_koch_island2",
     "quadratic_snowflake1",
     "quadratic_snowflake2",
     "rings",
+    "rounded_star",
     "snake_kolam",
     "skierpinski",
     "square_skierpinski",
@@ -538,11 +612,29 @@ function pickRule(currentFractal) {
     case "none":
       currentFractal = lsystem.none;
       break;
+    case "ADH231a":
+      currentFractal = lsystem.ADH231a;
+      break;
+    case "ADH256a":
+      currentFractal = lsystem.ADH256a;
+      break;
     case "board":
       currentFractal = lsystem.board;
       break;
     case "board2":
       currentFractal = lsystem.board2;
+      break;
+    case "border1":
+      currentFractal = lsystem.border1;
+      break;
+    case "box":
+      currentFractal = lsystem.box;
+      break;
+    case "cesaro":
+      currentFractal = lsystem.cesaro;
+      break;
+    case "recursive_circles":
+      currentFractal = lsystem.recursive_circles;
       break;
     case "circular":
       currentFractal = lsystem.circular;
@@ -558,6 +650,9 @@ function pickRule(currentFractal) {
       break;
     case "diamond":
       currentFractal = lsystem.diamond;
+      break;
+    case "doily":
+      currentFractal = lsystem.doily;
       break;
     case "dragon1":
       currentFractal = lsystem.dragon1;
@@ -577,6 +672,9 @@ function pickRule(currentFractal) {
     case "hexagonal_gosper":
       currentFractal = lsystem.hexagonal_gosper;
       break;
+    case "island_curve":
+      currentFractal = lsystem.island_curve;
+      break;
     case "hilbert":
       currentFractal = lsystem.hilbert;
       break;
@@ -595,14 +693,35 @@ function pickRule(currentFractal) {
     case "levy":
       currentFractal = lsystem.levy;
       break;
+    case "levy_curve":
+      currentFractal = lsystem.levy_curve;
+      break;
     case "mango_leaf":
       currentFractal = lsystem.mango_leaf;
+      break;
+    case "maze":
+      currentFractal = lsystem.maze;
+      break;
+    case "moore":
+      currentFractal = lsystem.moore;
       break;
     case "peano":
       currentFractal = lsystem.peano;
       break;
+    case "peano_c":
+      currentFractal = lsystem.peano_c;
+      break;
+    case "penrose_tiling":
+      currentFractal = lsystem.penrose_tiling;
+      break;
     case "pentaplexity":
       currentFractal = lsystem.pentaplexity;
+      break;
+    case "pentadentrite":
+      currentFractal = lsystem.pentadentrite;
+      break;
+    case "phyllotaxis":
+      currentFractal = lsystem.phyllotaxis;
       break;
     case "quadratic_gosper":
       currentFractal = lsystem.quadratic_gosper;
@@ -627,6 +746,9 @@ function pickRule(currentFractal) {
       break;
     case "rings":
       currentFractal = lsystem.rings;
+      break;
+    case "rounded_star":
+      currentFractal = lsystem.rounded_star;
       break;
     case "skierpinski":
       currentFractal = lsystem.skierpinski;
@@ -713,12 +835,18 @@ function pickShape(selected) {
     n3,
     shapeAngle
   );
+  addMessage = false;
+  let message = null;
   switch (selected) {
     case "archimedes":
       selectedShape.archimedesSpiral();
+      addMessage = true;
+      message = "The archimedes spiral is a f(n).";
       break;
     case "astroid":
       selectedShape.astroid();
+      addMessage = true;
+      message = "The astroid is a f(a).";
       break;
     case "atom":
       selectedShape.atom();
@@ -735,7 +863,9 @@ function pickShape(selected) {
     case "cassini":
       // 1, 1.25 peanut shaped/
       // 1, 2 oval
+      addMessage = true;
       selectedShape.cassiniOval();
+      message = "The cassini oval curve is a f(a, b).";
       break;
     case "ceva":
       selectedShape.ceva();
@@ -747,11 +877,15 @@ function pickShape(selected) {
     case "craniod":
       // angle PI/2;
       selectedShape.craniod();
+      addMessage = true;
+      message = "The craniod curve is a f(a, b, m).";
       break;
     case "cross":
       // 1 quadrifolium
       // gets longer and more rounded as a increases
       selectedShape.malteseCross();
+      addMessage = true;
+      message = "The cross curve is a f(a, b).";
       break;
     case "deltoid":
       // angle PI/6;
@@ -762,15 +896,20 @@ function pickShape(selected) {
       break;
     case "gear":
       selectedShape.gear();
+      addMessage = true;
+      message = "The gear curve is a f(a, b, m).";
       break;
     case "heart":
       selectedShape.heart();
+      addMessage = false;
       break;
     case "knot":
       selectedShape.knot();
       break;
     case "kiss":
       selectedShape.kissCurve();
+      addMessage = true;
+      message = "The kiss curve is a f(a, b).";
       break;
     case "hersheyKiss":
       selectedShape.hersheyKiss();
@@ -780,29 +919,43 @@ function pickShape(selected) {
       break;
     case "lissajous":
       selectedShape.lissajous();
+      addMessage = true;
+      message = "The lissajous curve is a f(a, b, m).";
       break;
     case "quadrifolium":
       selectedShape.quadrifolium();
       break;
     case "quadrilateral":
       selectedShape.quadrilaterial();
+      addMessage = true;
+      message = "The quadrilaterial curve is a f(m).";
       break;
     case "rose":
       // a > 0 levels hole in middle
       selectedShape.rose();
+      addMessage = true;
+      message = "The rose curve is a f(a, b, n).";
       break;
     case "ophiuride":
       // a > 0 levels hole in middle
       selectedShape.ophiuride();
+      addMessage = true;
+      message = "The ophiuride curve is a f(a).";
       break;
     case "spiral":
       selectedShape.spiral();
+      addMessage = true;
+      message = "The spiral curve is a f(a).";
       break;
     case "superellipse":
       selectedShape.superellipse();
+      addMessage = true;
+      message = "The superellipse curve is a f(a, b, n).";
       break;
     case "supershape":
       selectedShape.supershape();
+      addMessage = true;
+      message = "The supershape curve is a f(a, b, m, n, n1, n2, n3).";
       break;
     case "tear":
       // selectedShapeAngle PI
@@ -823,6 +976,7 @@ function pickShape(selected) {
       selectedShape.zigzag();
       break;
   }
+  return message;
 }
 
 function generate() {
@@ -850,16 +1004,13 @@ function turtle(palette, sliders, shapeDropdown, fillShape) {
     let current = sentence.charAt(i);
     let sw = sliders[4].value();
     let a = sliders[5].value();
+    let openShapes = ["archimedes", "cornu", "spiral", "zigzig"];
     adjustFill(palette, sw, a, fillShape);
     if (current === "F") {
       if (selectedShape) {
         {
-          if (
-            shapeDropdown.value() == "archimedes" ||
-            shapeDropdown.value() == "cornu" ||
-            shapeDropdown.value() == "spiral" ||
-            shapeDropdown.value() === "zigzig"
-          ) {
+          //console.log(selectedShape);
+          if (openShapes.includes(shapeDropdown.value())) {
             selectedShape.openShow();
           } else {
             selectedShape.show();
@@ -880,13 +1031,12 @@ function turtle(palette, sliders, shapeDropdown, fillShape) {
     } else if (current == ">") {
       push();
       length = length * lf;
-      pickShape(shapeDropdown);
+      pickShape(shapeDropdown.value());
       pop();
     } else if (current == "<") {
       push();
-
       length = length / lf;
-      pickShape(shapeDropdown);
+      pickShape(shapeDropdown.value());
       pop();
     } else if (current == "(") {
       angle -= radians(0.1);
@@ -898,14 +1048,18 @@ function turtle(palette, sliders, shapeDropdown, fillShape) {
       noStroke();
       fill(random(palette));
       endShape();
+    } else if (current == "b") {
     }
   }
 }
 
 function reset() {
-  addWarning = false;
-  warning = "";
+  // addWarning = false;
+  // warning = "";
   p.hide();
+  //p2.hide();
+  message0 = null;
+  message1 = null;
 
   // Update Variables
   if (bkcolor.checked() === true) {
@@ -915,7 +1069,7 @@ function reset() {
   }
 
   push();
-  addValidFractal(
+  message0 = addValidFractal(
     sliders0,
     sliderLabels0,
     ruleDropdown0,
@@ -924,9 +1078,9 @@ function reset() {
     fillShape0
   );
   pop();
-  if (addSecondFractal.checked() === true) {
+  if (deleteSecondFractal.checked() === false) {
     push();
-    addValidFractal(
+    message1 = addValidFractal(
       sliders1,
       sliderLabels1,
       ruleDropdown1,
@@ -936,10 +1090,15 @@ function reset() {
     );
     pop();
   }
+  p = createP(warning);
+  p.position(250, 140);
 
-  // if (selectedShape === "word") {
-  //   addText();
-  // }
+  if (addWarning) {
+    p.show();
+  } else {
+    p.hide();
+  }
+  p2 = addShapeMessage(message0, message1);
 }
 
 // Limits added to level for certain fractals to prevent sketch from freezing!
@@ -951,6 +1110,9 @@ function addValidFractal(
   paletteDropdown,
   fillShape
 ) {
+  addWarning = false;
+  warning = "";
+  p2.hide();
   // Update values
   wadj = sliders[0].value();
   hadj = sliders[1].value();
@@ -969,135 +1131,34 @@ function addValidFractal(
   n2 = sliders[14].value();
   n3 = sliders[15].value();
 
-  //updateLabels(sliders);
   selectPalette(paletteDropdown.value());
   palette = createPaletteFromURL(url);
   adjustFill(palette, sw, currentAlpha, fillShape);
-  pickShape(shapeDropdown.value());
+  let message = pickShape(shapeDropdown.value());
   translate(width * wadj, height * hadj);
   rotate(angle);
   // pickRule() must be after rotate(angle) for rotation to work properly
   let currentFractal = ruleDropdown.value();
   pickRule(currentFractal);
-
-  if (
-    sliders[2].value() > 1 &&
-    (ruleDropdown.value() === "circular" ||
-      ruleDropdown.value() === "circular2")
-  ) {
-    // p = createP(
-    //   "The level cannot be > 1 with the circular pattern"
-    // );
-    warning = "The level cannot be > 1 with the circular pattern.";
+  //let max = maxLevel;
+  if (level > maxLevel) {
+    warning =
+      "The level cannot be greater " + `${maxLevel}` + " with this rule-set.";
     addWarning = true;
-    level = 1;
-    for (let i = 0; i < level + 1; i++) {
+    for (let i = 0; i < maxLevel; i++) {
       generate();
     }
-    sliderLabels[2].html("Level: " + "1");
     turtle(palette, sliders, shapeDropdown, fillShape);
-  } else if (
-    sliders[2].value() > 2 &&
-    (ruleDropdown.value() === "quadratic_gosper" ||
-      ruleDropdown.value() === "quadratic_koch_island" ||
-      ruleDropdown.value() === "quadratic_koch_island2")
-  ) {
-    // p = createP(
-    //   "The level cannot be > 2 with the current fractal pattern"
-    // );
-    warning = "The level cannot be > 2 with the current fractal pattern.";
-    addWarning = true;
-    level = 2;
-    for (let i = 0; i < level + 1; i++) {
-      generate();
-    }
-    sliderLabels[2].html("Level: " + "2");
-    turtle(palette, sliders, shapeDropdown, fillShape);
-  } else if (
-    sliders[2].value() > 3 &&
-    (ruleDropdown.value() === "board" ||
-      ruleDropdown.value() === "board2" ||
-      ruleDropdown.value() === "fern" ||
-      ruleDropdown.value() === "hexagonal_gosper" ||
-      ruleDropdown.value() === "koch_curve" ||
-      ruleDropdown.value() === "koch_snowflake" ||
-      ruleDropdown.value() === "peano" ||
-      ruleDropdown.value() === "rings" ||
-      ruleDropdown.value() === "quadratic_snowflake1" ||
-      ruleDropdown.value() === "quadratic_snowflake2" ||
-      ruleDropdown.value() === "skierpinski" ||
-      ruleDropdown.value() === "skierpinski_arrowhead" ||
-      ruleDropdown.value() === "square_skierpinski" ||
-      ruleDropdown.value() === "tiles")
-  ) {
-    //  p = createP(
-    //     "The level cannot be > 3 with the current fractal pattern"
-    //   );
-    warning = "The level cannot be > 3 with the current fractal pattern.";
-    addWarning = true;
-    level = 3;
-    for (let i = 0; i < level + 1; i++) {
-      generate();
-    }
-    sliderLabels[2].html("Level: " + "3");
-    turtle(palette, sliders, shapeDropdown, fillShape);
-  } else if (
-    sliders[2].value() > 4 &&
-    (ruleDropdown.value() === "cross" || ruleDropdown.value() === "crystal")
-  ) {
-    // p = createP(
-    //   "The level cannot be > 4 with the current fractal pattern",
-    //   -width / 2 + 20,
-    //   -height / 2 + 20
-    // );
-    warning = "The level cannot be > 4 with the current fractal pattern.";
-    addWarning = true;
-    level = 4;
-    for (let i = 0; i < level + 1; i++) {
-      generate();
-    }
-    sliderLabels[2].html("Level: " + "4");
-    turtle(palette, sliders, shapeDropdown, fillShape);
-  } else if (
-    sliders[2].value() > 5 &&
-    (ruleDropdown.value() === "fern2" ||
-      ruleDropdown.value() === "fern3" ||
-      ruleDropdown.value() === "hilbert" ||
-      ruleDropdown.value() === "krishna_anklet" ||
-      ruleDropdown.value() === "kolam" ||
-      ruleDropdown.value() === "pentaplexity" ||
-      ruleDropdown.value() === "snake-kolam" ||
-      ruleDropdown.value() === "sticks" ||
-      ruleDropdown.value() === "triangle")
-  ) {
-    // p = createP(
-    //   "The level cannot be > 5 with the current fractal pattern",
-    // );
-    warning = "The level cannot be > 5 with the current fractal pattern.";
-    addWarning = true;
-    level = 5;
-    for (let i = 0; i < level + 1; i++) {
-      generate();
-    }
-    sliderLabels[2].html("Level: " + "5");
-    turtle(palette, sliders, shapeDropdown, fillShape);
+    sliderLabels[2].html("Level: " + `${maxLevel}`);
   } else {
-    addWarning = false;
     for (let i = 0; i < level; i++) {
       generate();
     }
     turtle(palette, sliders, shapeDropdown, fillShape);
-    sliderLabels[2].html("Level: " + sliders[2].value());
-  }
-  p = createP(warning);
-  p.position(250, 160);
-
-  if (addWarning) {
-    p.show();
-  } else {
-    p.hide();
+    sliderLabels[2].html("Level: " + `${level}`);
   }
   updateLabels(sliders, sliderLabels);
+  return message;
 }
 
 // Add buttons and checkboxes
@@ -1108,9 +1169,9 @@ function addControls(pos) {
   resetButton.mousePressed(reset);
 
   // Checkbox to add a second fractal
-  addSecondFractal = createCheckbox("Add second fractal", true);
-  addSecondFractal.position(pos, 90);
-  addSecondFractal.style("color", "white");
+  deleteSecondFractal = createCheckbox("Delete second fractal", false);
+  deleteSecondFractal.position(pos, 90);
+  deleteSecondFractal.style("color", "white");
 
   // Checkbox to determine whether shapes are filled
   fillShape0 = createCheckbox("Fill fractal 1 shapes", false);
@@ -1125,7 +1186,9 @@ function addControls(pos) {
   bkcolor.style("color", "white");
 
   if (bkcolor.checked() === true) {
-    background(255);
+    //background(255);
+    let palette = paletteDropdown0.value();
+    background(random(palette));
   } else {
     background(0);
   }

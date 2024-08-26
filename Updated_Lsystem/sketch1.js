@@ -18,6 +18,7 @@ let currentFractal0;
 let currentFractal1;
 let lsystem; // rules data
 let lf; // length adjustment factor
+let maxLevel; // control added to keep sketch from freezing
 let fractal; // rendered fractal
 
 let fractalSliders;
@@ -66,6 +67,7 @@ let ruleDropdown0;
 let ruleDropdown1;
 let paletteDropdown0;
 let paletteDropdown1;
+let backgroundDropdown;
 let url;
 let url0;
 let url1;
@@ -78,7 +80,8 @@ let addWarning = false;
 
 // Add a message if choosen shape is a function of shape parameters
 let p2;
-//let message;
+let shapeMessage = null;
+let ruleMessage = null;
 let message0 = null;
 let message1 = null;
 let addMessage;
@@ -104,6 +107,9 @@ function setup() {
   // );
   // Add Buttons and checkboxes
   addControls(x + 225);
+
+  backgroundDropdown = addPalettes(300, 150, "purple");
+  //console.log(backgroundDropdown)
 
   // Add sliders and dropdowns for first fractal
   // addSliders(pos, idName, wadj, hadj, level, length, strokeweight, alpha, scale, rotate, rotateShape, a, b, m, n, n1, n2, n3)
@@ -181,12 +187,11 @@ function setup() {
 
   p = createP(warning);
   p.position(250, 75);
+  p.addClass("p");
 
   if (!addWarning) {
     p.hide();
   }
-  // p2 = createP("message");
-  // p2.position(250, 160);
   p2 = addShapeMessage(message0, message1);
 }
 
@@ -196,49 +201,31 @@ function draw() {
 
 function addShapeMessage(message0, message1) {
   addMessage = true;
-  let p2;
-  if (message0 === message1 && message0 != null) {
-    p2 = createP(message0);
+  let message = null;
+  if (
+    (message0 === message1 && message0 != null) ||
+    (message0 != null && message1 === null)
+  ) {
+    message = message0;
   } else if (message0 != null && message1 != null && message0 != message1) {
-    p2 = createP(message0 + " " + message1);
+    message = message0 + " " + message1;
   } else if (message0 === null && message1 != null) {
-    p2 = createP(message1);
-  } else if (message0 != null && message1 === null) {
-    p2 = createP(message0);
+    message = message1;
   } else {
     addMessage = false;
   }
-  //console.log(p2);
+
+  let p2 = createP(message);
+  p2.position(250, 155);
+  p2.addClass("p");
+
   if (addMessage) {
     p2.show();
-    p2.position(250, 160);
   } else {
     p2.hide();
   }
   return p2;
 }
-
-// function addShapeMessage(message0, message1) {
-//   addMessage = true;
-//   if (message0 === message1) {
-//     p2 = createP(message0);
-//     p2.position(250, 150);
-//   } else if (message0 != null && message1 != null && message0 === message1) {
-//     p2 = createP(message0 + " " + message1);
-//     p2.position(250, 150);
-//   } else if (message0 === null && message1 != null) {
-//     p2 = createP(message1);
-//   } else if (message0 != null && message1 === null) {
-//     p2 = createP(message0);
-//   } else {
-//     addMessage = false;
-//   }
-//   if (!addMessage) {
-//     p2.hide();
-//   } else {
-//     p2.show();
-//   }
-// }
 
 function addFractal(
   sliders,
@@ -275,15 +262,25 @@ function addFractal(
   push();
   translate(width * wadj, height * hadj);
   rotate(angle);
-  message = pickShape(shapeDropdown.value());
+  let shapeMessage = pickShape(shapeDropdown.value());
   pickRule(fractal);
-  for (let i = 0; i < level; i++) {
-    generate();
+  if (level < maxLevel) {
+    ruleMessage =
+      "The level cannot be greater than " + `${maxLevel}` + " for this rule.";
+    for (let i = 0; i < level; i++) {
+      generate();
+    }
+    turtle(palette, sliders, shapeDropdown, fillShape);
+    pop();
+  } else {
+    for (let i = 0; i < maxLevel; i++) {
+      generate();
+    }
+    turtle(palette, sliders, shapeDropdown, fillShape);
+    pop();
   }
-  turtle(palette, sliders, shapeDropdown, fillShape);
-  pop();
-
-  return message;
+  return shapeMessage;
+  //return [shapeMessage, ruleMessage];
 }
 
 // Helper functions to convert the url string to the palette array from chatGPT
@@ -309,6 +306,7 @@ function hexToRgb(hex) {
 
 function addPalettes(posx, posy, choice) {
   let options = [
+    "white",
     "purple",
     "purple_aqua",
     "green",
@@ -345,6 +343,10 @@ function addPalettes(posx, posy, choice) {
 // Add urls with color palettes
 function selectPalette(selected) {
   switch (selected) {
+    case "white":
+      url =
+        "https://supercolorpalette.com/?scp=G0-hsl-FFFFFF-FFFFFF-FFFFFF-FFFFFF-FFFFFF-FFFFFF-FFFFFF";
+      break;
     case "orange_green":
       url =
         "https://supercolorpalette.com/?scp=G0-hsl-FF9E1F-FFE957-F4C148-73BE50-18AF6B";
@@ -367,7 +369,7 @@ function selectPalette(selected) {
       break;
     case "raspberry":
       url =
-        "https://supercolorpalette.com/?scp=G0-hsl-FF1F57-FF246D-FF2982-FF2E96-FF33AA-FF38BD-FF3DCF-FF42E0-FF47F0-FF4DFF";
+        "https://supercolorpalette.com/?scp=G0-hsl-FF1FE9-FF1FFB-F01FFF-DD1FFF-CB1FFF";
       break;
     case "rose":
       url =
@@ -375,7 +377,7 @@ function selectPalette(selected) {
       break;
     case "fushia_blue":
       url =
-        "https://supercolorpalette.com/?scp=G0-hsl-9E0A4A-AD0B79-BB0CAF-A70DC9-800ED8-530FE6-2314F0-2248F1";
+        "https://supercolorpalette.com/?scp=G0-hsl-FF1FE9-DD1FFF-A51FFF-6D1FFF-351FFF-531FFF-711FFF";
       break;
     case "pink_ltblue":
       url =
@@ -533,6 +535,7 @@ function setRule(pattern) {
   rules = pattern.rules;
   angle = radians(pattern.angle);
   lf = pattern.length_factor;
+  maxLevel = pattern.max_Level;
   sentence = axiom;
 }
 
@@ -541,6 +544,7 @@ function getRules(data) {
 }
 
 function addRuleDropdown(posx, posy, choice) {
+  let ruleDropdown;
   let ruleOptions = [
     "none",
     "board",
@@ -875,6 +879,8 @@ function pickShape(selected) {
     case "ophiuride":
       // a > 0 levels hole in middle
       selectedShape.ophiuride();
+      addMessage = true;
+      message = "The ophiuride curve is a f(a).";
       break;
     case "spiral":
       selectedShape.spiral();
@@ -882,9 +888,9 @@ function pickShape(selected) {
       message = "The spiral curve is a f(a).";
       break;
     case "superellipse":
-      selectedShape.superellipse(a, b, n);
+      selectedShape.superellipse();
       addMessage = true;
-      message = "The superellipse curve is a f().";
+      message = "The superellipse curve is a f(a, b, n).";
       break;
     case "supershape":
       selectedShape.supershape();
@@ -938,16 +944,13 @@ function turtle(palette, sliders, shapeDropdown, fillShape) {
     let current = sentence.charAt(i);
     let sw = sliders[4].value();
     let a = sliders[5].value();
+    let openShapes = ["archimedes", "cornu", "spiral", "zigzig"];
     adjustFill(palette, sw, a, fillShape);
     if (current === "F") {
       if (selectedShape) {
         {
-          if (
-            shapeDropdown.value() == "archimedes" ||
-            shapeDropdown.value() == "cornu" ||
-            shapeDropdown.value() == "spiral" ||
-            shapeDropdown.value() === "zigzig"
-          ) {
+          console.log(selectedShape);
+          if (openShapes.includes(shapeDropdown.value())) {
             selectedShape.openShow();
           } else {
             selectedShape.show();
@@ -968,13 +971,12 @@ function turtle(palette, sliders, shapeDropdown, fillShape) {
     } else if (current == ">") {
       push();
       length = length * lf;
-      pickShape(shapeDropdown);
+      pickShape(shapeDropdown.value());
       pop();
     } else if (current == "<") {
       push();
-
       length = length / lf;
-      pickShape(shapeDropdown);
+      pickShape(shapeDropdown.value());
       pop();
     } else if (current == "(") {
       angle -= radians(0.1);
@@ -991,10 +993,10 @@ function turtle(palette, sliders, shapeDropdown, fillShape) {
 }
 
 function reset() {
-  addWarning = false;
-  warning = "";
+  // addWarning = false;
+  // warning = "";
   p.hide();
-  p2.hide();
+  //p2.hide();
   message0 = null;
   message1 = null;
 
@@ -1027,8 +1029,14 @@ function reset() {
     );
     pop();
   }
-  // p2 = createP(message);
-  // p2.position(250, 160);
+  p = createP(warning);
+  p.position(250, 140);
+
+  if (addWarning) {
+    p.show();
+  } else {
+    p.hide();
+  }
   p2 = addShapeMessage(message0, message1);
 }
 
@@ -1041,6 +1049,9 @@ function addValidFractal(
   paletteDropdown,
   fillShape
 ) {
+  addWarning = false;
+  warning = "";
+  p2.hide();
   // Update values
   wadj = sliders[0].value();
   hadj = sliders[1].value();
@@ -1059,116 +1070,31 @@ function addValidFractal(
   n2 = sliders[14].value();
   n3 = sliders[15].value();
 
-  //updateLabels(sliders);
   selectPalette(paletteDropdown.value());
   palette = createPaletteFromURL(url);
   adjustFill(palette, sw, currentAlpha, fillShape);
-  message = pickShape(shapeDropdown.value());
+  let message = pickShape(shapeDropdown.value());
   translate(width * wadj, height * hadj);
   rotate(angle);
   // pickRule() must be after rotate(angle) for rotation to work properly
   let currentFractal = ruleDropdown.value();
   pickRule(currentFractal);
-
-  if (
-    sliders[2].value() > 1 &&
-    (ruleDropdown.value() === "circular" ||
-      ruleDropdown.value() === "circular2")
-  ) {
-    warning = "The level cannot be > 1 with the circular pattern.";
+  //let max = maxLevel;
+  if (level > maxLevel) {
+    warning =
+      "The level cannot be greater " + `${maxLevel}` + " with this rule-set.";
     addWarning = true;
-    level = 1;
-    for (let i = 0; i < level + 1; i++) {
+    for (let i = 0; i < maxLevel; i++) {
       generate();
     }
-    sliderLabels[2].html("Level: " + "1");
     turtle(palette, sliders, shapeDropdown, fillShape);
-  } else if (
-    sliders[2].value() > 2 &&
-    (ruleDropdown.value() === "quadratic_gosper" ||
-      ruleDropdown.value() === "quadratic_koch_island" ||
-      ruleDropdown.value() === "quadratic_koch_island2")
-  ) {
-    warning = "The level cannot be > 2 with the current fractal pattern.";
-    addWarning = true;
-    level = 2;
-    for (let i = 0; i < level + 1; i++) {
-      generate();
-    }
-    sliderLabels[2].html("Level: " + "2");
-    turtle(palette, sliders, shapeDropdown, fillShape);
-  } else if (
-    sliders[2].value() > 3 &&
-    (ruleDropdown.value() === "board" ||
-      ruleDropdown.value() === "board2" ||
-      ruleDropdown.value() === "fern" ||
-      ruleDropdown.value() === "hexagonal_gosper" ||
-      ruleDropdown.value() === "koch_curve" ||
-      ruleDropdown.value() === "koch_snowflake" ||
-      ruleDropdown.value() === "peano" ||
-      ruleDropdown.value() === "rings" ||
-      ruleDropdown.value() === "quadratic_snowflake1" ||
-      ruleDropdown.value() === "quadratic_snowflake2" ||
-      ruleDropdown.value() === "skierpinski" ||
-      ruleDropdown.value() === "skierpinski_arrowhead" ||
-      ruleDropdown.value() === "square_skierpinski" ||
-      ruleDropdown.value() === "tiles")
-  ) {
-    warning = "The level cannot be > 3 with the current fractal pattern.";
-    addWarning = true;
-    level = 3;
-    for (let i = 0; i < level + 1; i++) {
-      generate();
-    }
-    sliderLabels[2].html("Level: " + "3");
-    turtle(palette, sliders, shapeDropdown, fillShape);
-  } else if (
-    sliders[2].value() > 4 &&
-    (ruleDropdown.value() === "cross" || ruleDropdown.value() === "crystal")
-  ) {
-    warning = "The level cannot be > 4 with the current fractal pattern.";
-    addWarning = true;
-    level = 4;
-    for (let i = 0; i < level + 1; i++) {
-      generate();
-    }
-    sliderLabels[2].html("Level: " + "4");
-    turtle(palette, sliders, shapeDropdown, fillShape);
-  } else if (
-    sliders[2].value() > 5 &&
-    (ruleDropdown.value() === "fern2" ||
-      ruleDropdown.value() === "fern3" ||
-      ruleDropdown.value() === "hilbert" ||
-      ruleDropdown.value() === "krishna_anklet" ||
-      ruleDropdown.value() === "kolam" ||
-      ruleDropdown.value() === "pentaplexity" ||
-      ruleDropdown.value() === "snake-kolam" ||
-      ruleDropdown.value() === "sticks" ||
-      ruleDropdown.value() === "triangle")
-  ) {
-    warning = "The level cannot be > 5 with the current fractal pattern.";
-    addWarning = true;
-    level = 5;
-    for (let i = 0; i < level + 1; i++) {
-      generate();
-    }
-    sliderLabels[2].html("Level: " + "5");
-    turtle(palette, sliders, shapeDropdown, fillShape);
+    sliderLabels[2].html("Level: " + `${maxLevel}`);
   } else {
-    addWarning = false;
     for (let i = 0; i < level; i++) {
       generate();
     }
     turtle(palette, sliders, shapeDropdown, fillShape);
-    sliderLabels[2].html("Level: " + sliders[2].value());
-  }
-  p = createP(warning);
-  p.position(250, 140);
-
-  if (addWarning) {
-    p.show();
-  } else {
-    p.hide();
+    sliderLabels[2].html("Level: " + `${level}`);
   }
   updateLabels(sliders, sliderLabels);
   return message;
@@ -1197,12 +1123,13 @@ function addControls(pos) {
   bkcolor = createCheckbox("Background", false);
   bkcolor.position(pos, 40);
   bkcolor.style("color", "white");
-
-  if (bkcolor.checked() === true) {
-    background(255);
-  } else {
-    background(0);
-  }
+  console.log(backgroundDropdown);
+  addBackgroundColor(backgroundDropdown);
+  // if (bkcolor.checked() === true) {
+  //   background(255);
+  // } else {
+  //   background(0);
+  // }
 }
 
 // Function to save the canvas as an image when 's' key is pressed
@@ -1241,6 +1168,18 @@ function adjustFill(palette, sw, a, fillShape) {
     noFill();
     strokeWeight(sw);
     stroke(c);
+  }
+}
+
+function addBackgroundColor(paletteDropdown) {
+  // Get color palette
+  selectPalette(paletteDropdown.value());
+  //url = selectPalette(paletteDropdown.value());
+  palette = createPaletteFromURL(url);
+  if (bkcolor.checked() === true) {
+    background(random(palette));
+  } else {
+    background(0);
   }
 }
 

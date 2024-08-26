@@ -5,7 +5,9 @@
       "F": "F"
     },
     "angle": "0",
-    "length_factor": "1"
+    "length_factor": "1",
+    "max_Level": "0",
+    "author": ""
   },
   "algae": {
     "axiom": "aF",
@@ -33,7 +35,39 @@
       "v": "Fv"
     },
     "angle": "12",
-    "length_factor": "1"
+    "length_factor": "1",
+    "max_Level": "5",
+    "author": "Paul Bourke"
+  },
+  "ADH231a": {
+    "axiom": "F++++F",
+    "rules": {
+      "F": "F+F+F++++F+F+F"
+    },
+    "angle": "45",
+    "length_factor": "1",
+    "max_Level": "3",
+    "author": "Anthony Hammer"
+  },
+  "ADH256a": {
+    "axiom": "F+F+F+F++F-F-F-F",
+    "rules": {
+      "F": "F+F++F+FF"
+    },
+    "angle": "90",
+    "length_factor": "1",
+    "max_Level": "3",
+    "author": "Anthony Hammer"
+  },
+  "ADH258a": {
+    "axiom": "F++F++F+++F--F--F",
+    "rules": {
+      "F": "FF++F++F++FFF"
+    },
+    "angle": "60",
+    "length_factor": "1",
+    "max_Level": "3",
+    "author": "Anthony Hammer"
   },
   "board": {
     "axiom": "F+F+F+F",
@@ -41,7 +75,9 @@
       "F": "FF+F+F+F+FF"
     },
     "angle": "90",
-    "length_factor": "1"
+    "length_factor": "1",
+    "max_Level": "3",
+    "author": "Paul Bourke"
   },
   "board2": {
     "axiom": "F+F+F+F",
@@ -49,7 +85,29 @@
       "F": "{FF}+F+F+F+FF"
     },
     "angle": "90",
-    "length_factor": "1"
+    "length_factor": "1",
+    "max_Level": "3"
+  },
+  "border1": {
+    "axiom": "XYXYXYX+XYXYXYX-XYXYXYX-XYXYXYX",
+    "rules": {
+      "X": "FX+FX+FXFY-FY-",
+      "Y": "+FX+FXFY-FY-FY"
+    },
+    "angle": "90",
+    "length_factor": "1",
+    "max_Level": "5",
+    "author": "William McWorter"
+  },
+  "box": {
+    "axiom": "F-F-F-F",
+    "rules": {
+      "F": "F-F+F+F-F"
+    },
+    "angle": "90",
+    "length_factor": "1",
+    "max_Level": "3",
+    "author": ""
   },
   "bush": {
     "axiom": "Y",
@@ -58,7 +116,20 @@
       "Y": "YFX[+Y][-Y]"
     },
     "angle": "25.7",
-    "length_factor": "1"
+    "length_factor": "1",
+    "max_Level": "5",
+    "author": "Paul Bourke"
+  },
+  "recursive_circles": {
+    "axiom": "F",
+    "rules": {
+      "F": "FXF",
+      "X": "[-F+F+F]+F-F-F+"
+    },
+    "angle": "60",
+    "length_factor": "1",
+    "max_Level": "5",
+    "author": ""
   },
   "circular": {
     "axiom": "F",
@@ -66,7 +137,9 @@
       "F": "F+F+F+F+F+F+F+F+F+F+F+F"
     },
     "angle": "30",
-    "length_factor": "1"
+    "length_factor": "1",
+    "max_Level": "1",
+    "author": ""
   },
   "circular2": {
     "axiom": "F",
@@ -74,33 +147,39 @@
       "F": "F+F+F+F+F+F+F+F+F+F+F+F+F+F+F+F+F+F"
     },
     "angle": "20",
-    "length_factor": "1.33"
+    "length_factor": "1.33",
+    "max_Level": "1",
+    "author": ""
   },
-  "circular3": {
+  "cesaro": {
     "axiom": "F",
     "rules": {
-      "F": "FX+FX",
-      "X": "FF-FF"
+      "F": "F-F++F-F"
     },
-    "angle": "60",
-    "length_factor": "1.33"
-  },
-  "spiral": {
-    "axiom": "F",
-    "rules": {
-      "F": "FX+FX+FX+FX",
-      "X": "FF"
-    },
-    "angle": "20",
-    "length_factor": "1.33"
+    "angle": "85",
+    "length_factor": "1",
+    "max_Level": "6",
+    "author": ""
   },
   "cross": {
+    "axiom": "F+F+F+F",
+    "rules": {
+      "F": "F+FF++F+F"
+    },
+    "angle": "90",
+    "length_factor": "1",
+    "max_Level": "4",
+    "author": "Paul Bourke"
+  },
+  "cross2": {
     "axiom": "F+F+F+F",
     "rules": {
       "F": "F+F-F+F+F"
     },
     "angle": "90",
-    "length_factor": "1"
+    "length_factor": "1",
+    "max_Level": "4",
+    "author": "Paul Bourke"
   },
   "crystal": {
     "axiom": "F+F+F+F",
@@ -108,18 +187,31 @@
       "F": "{FF}+F++F+F"
     },
     "angle": "90",
-    "length_factor": "1"
+    "length_factor": "1",
+    "max_Level": "4",
+    "author": "Paul Bourke"
+  },
+  "doily": {
+    "axiom": "F--F--F--F--F--F",
+    "rules": {
+      "F": "-F[--F--F]++F--F+"
+    },
+    "angle": "30",
+    "length_factor": "1",
+    "max_Level": "4",
+    "author": "Adrian Mariano"
   },
   "dragon1": {
     "axiom": "FX",
     "rules": {
       "X": "X+YF+",
       "Y": "-{FZXZ}-Y",
-      "Z": "*",
-      "length_factor": "1"
+      "Z": "*"
     },
     "angle": "90",
-    "length_factor": "1"
+    "length_factor": "1",
+    "max_Level": "12",
+    "author": "Paul Bourke"
   },
   "dragon2": {
     "axiom": "FX",
@@ -129,7 +221,9 @@
       "length_factor": "1"
     },
     "angle": "90",
-    "length_factor": "1"
+    "length_factor": "1",
+    "max_Level": "12",
+    "author": ""
   },
   "fern": {
     "axiom": "F",
@@ -137,7 +231,9 @@
       "F": "FF+[+F-F-F]-[-F+F+F]"
     },
     "angle": "22.5",
-    "length_factor": "1"
+    "length_factor": "1",
+    "max_Level": "12",
+    "author": ""
   },
   "fern2": {
     "axiom": "F",
@@ -145,7 +241,9 @@
       "F": "F[+FF][-FF]F[-F][+F]F"
     },
     "angle": "35",
-    "length_factor": "1"
+    "length_factor": "1",
+    "max_Level": "5",
+    "author": ""
   },
   "fern3": {
     "axiom": "FX",
@@ -153,7 +251,9 @@
       "X": ">[-FX]+FX<"
     },
     "angle": "40",
-    "length_factor": "0.8"
+    "length_factor": "0.8",
+    "max_Level": "5",
+    "author": ""
   },
   "hexagonal_gosper": {
     "axiom": "XF",
@@ -162,7 +262,9 @@
       "Y": "-FX+YFYF++YF+FX--FX-Y"
     },
     "angle": "60",
-    "length_factor": "1"
+    "length_factor": "1",
+    "max_Level": "3",
+    "author": "Paul Bourke"
   },
   "hilbert": {
     "axiom": "X",
@@ -171,7 +273,64 @@
       "Y": "+XF-YFY-FX+"
     },
     "angle": "90",
-    "length_factor": "1"
+    "length_factor": "1",
+    "max_Level": "5",
+    "author": "Paul Bourke"
+  },
+  "hex-7b": {
+    "axiom": "X",
+    "rules": {
+      "X": "-F++F-X-F--F+Y---F--F+Y+F++F-X+++F++F-X-F++F-X+++F--F+Y--",
+      "Y": "+F++F-X-F--F+Y+F--F+Y---F--F+Y---F++F-X+++F++F-X+++F--F+Y"
+    },
+    "angle": "45",
+    "length_factor": "1",
+    "max_Level": "5",
+    "author": "Gary Teachout"
+  },
+  "island_curve": {
+    "axiom": "F-F-F-F",
+    "rules": {
+      "F": "F-f+FF-F-FF-Ff-FF+f-FF+F+FF+Ff+FFF",
+      "f": "ffffff"
+    },
+    "angle": "90",
+    "length_factor": "1",
+    "max_Level": "3",
+    "author": ""
+  },
+  "kolam": {
+    "axiom": "(-D--D)",
+    "rules": {
+      "A": "F++FFFF--F--FFFF++F++FFFF--F",
+      "B": "F--FFFF++F++FFFF--F--FFFF++F",
+      "C": "BFA--BFA",
+      "D": "CFC--CFC"
+    },
+    "angle": "45.1",
+    "length_factor": "1",
+    "max_Level": "5",
+    "author": "Paul Bourke"
+  },
+  "koch_curve": {
+    "axiom": "F+F+F+F",
+    "rules": {
+      "F": "{F+F}-F-FF+F+F-F"
+    },
+    "angle": "90",
+    "length_factor": "1",
+    "max_Level": "3",
+    "author": "Paul Bourke"
+  },
+  "krishna_anklet": {
+    "axiom": "-X--X",
+    "rules": {
+      "X": "XFX--X{F}X"
+    },
+    "angle": "45",
+    "length_factor": "1",
+    "max_Level": "5",
+    "author": "Paul Bourke"
   },
   "leaf": {
     "axiom": "a",
@@ -183,35 +342,9 @@
       "y": "b"
     },
     "angle": "45",
-    "length_factor": "1.36"
-  },
-
-  "kolam": {
-    "axiom": "(-D--D)",
-    "rules": {
-      "A": "F++FFFF--F--FFFF++F++FFFF--F",
-      "B": "F--FFFF++F++FFFF--F--FFFF++F",
-      "C": "BFA--BFA",
-      "D": "CFC--CFC"
-    },
-    "angle": "45.1",
-    "length_factor": "1"
-  },
-  "koch_curve": {
-    "axiom": "F+F+F+F",
-    "rules": {
-      "F": "{F+F}-F-FF+F+F-F"
-    },
-    "angle": "90",
-    "length_factor": "1"
-  },
-  "krishna_anklet": {
-    "axiom": "-X--X",
-    "rules": {
-      "X": "XFX--X{F}X"
-    },
-    "angle": "45",
-    "length_factor": "1"
+    "length_factor": "1.36",
+    "max_Level": "4",
+    "author": "Paul Bourke"
   },
   "levy": {
     "axiom": "F",
@@ -219,7 +352,18 @@
       "F": "-F++F-"
     },
     "angle": "45",
-    "length_factor": "1"
+    "length_factor": "1",
+    "max_Level": "10",
+    "author": "Paul Bourke"
+  },
+  "levy_curve": {
+    "axiom": "F++F++F++F",
+    "rules": {
+      "F": "-F++F-"
+    },
+    "angle": "45",
+    "length_factor": "1",
+    "max_Level": "10"
   },
   "mango_leaf": {
     "axiom": "Y---Y",
@@ -228,7 +372,41 @@
       "Y": "f-F+X+F-fY"
     },
     "angle": "60",
-    "length_factor": "1"
+    "length_factor": "1",
+    "max_Level": "5",
+    "author": "Paul Bourke"
+  },
+  "maze": {
+    "axiom": "F+F+F",
+    "rules": {
+      "F": "F+FF-F"
+    },
+    "angle": "120",
+    "length_factor": "1",
+    "max_Level": "3",
+    "author": "William McWorter"
+  },
+  "maze_fractal": {
+    "axiom": "X",
+    "rules": {
+      "X": "FY+FYFY-FY",
+      "Y": "FX-FXFX+FX"
+    },
+    "angle": "120",
+    "length_factor": "1",
+    "max_Level": "3",
+    "author": "William McWorter"
+  },
+  "moore": {
+    "axiom": "X",
+    "rules": {
+      "X": "FX+FX+FXFYFX+FXFY-FY-FY-",
+      "Y": "+FX+FX+FXFY-FYFXFY-FY-FY"
+    },
+    "angle": "90",
+    "length_factor": "1",
+    "max_Level": "3",
+    "author": "William McWorter"
   },
   "peano": {
     "axiom": "X",
@@ -237,7 +415,20 @@
       "Y": "YFXFY-F-XFYFX+F+YFXFY"
     },
     "angle": "90",
-    "length_factor": "1"
+    "length_factor": "1",
+    "max_Level": "3",
+    "author": "Paul Bourke"
+  },
+  "peano_c": {
+    "axiom": "X",
+    "rules": {
+      "X": "FX-FY-FX+FY+FX+FY+FX+FY+FX-FY-FX-FY-FX-FY-FX+FY+FX",
+      "Y": "FY"
+    },
+    "angle": "45",
+    "length_factor": "1",
+    "max_Level": "2",
+    "author": "Gary Teachout"
   },
   "pentaplexity": {
     "axiom": "F++F++F++F++F",
@@ -245,7 +436,82 @@
       "F": "F++F++F+++++F-F++F"
     },
     "angle": "36",
-    "length_factor": "1"
+    "length_factor": "1",
+    "max_Level": "4",
+    "author": "Paul Bourke"
+  },
+  "pentadentrite": {
+    "axiom": "F-F-F-F-F",
+    "rules": {
+      "F": "F-F-F++F+F-F"
+    },
+    "angle": "72",
+    "length_factor": "1",
+    "max_Level": "4",
+    "author": ""
+  },
+  "pentant": {
+    "axiom": "X-X-X-X-X",
+    "rules": {
+      "X": "FX-FX-FX+FY+FY+FX-FX",
+      "Y": "FY+FY-FX-FX-FY+FY+FY"
+    },
+    "angle": "72",
+    "length_factor": "1",
+    "max_Level": "4",
+    "author": "William McWorter"
+  },
+  "pentl": {
+    "axiom": "F-F-F-F-F",
+    "rules": {
+      "F": "F-F-F++F+F-F"
+    },
+    "angle": "72",
+    "length_factor": "1",
+    "max_Level": "4",
+    "author": "William McWorter"
+  },
+  "pentigree": {
+    "axiom": "F-F-F-F-F",
+    "rules": {
+      "F": "F-F++F+F-F-F"
+    },
+    "angle": "72",
+    "length_factor": "1",
+    "max_Level": "4",
+    "author": "William McWorter"
+  },
+  "penrose_tiling": {
+    "axiom": "[X]++[X]++[X]++[X]++[X]",
+    "rules": {
+      "W": "YF++ZF----XF[-YF----WF]++",
+      "X": "+YF--ZF[---WF--XF]+",
+      "Y": "-WF++XF[+++YF++ZF]-",
+      "Z": "--YF++++WF[+ZF++++XF]--XF"
+    },
+    "angle": "36",
+    "length_factor": "1",
+    "max_Level": "4"
+  },
+  "phyllotaxis": {
+    "axiom": "F(1)",
+    "rules": {
+      "F(n)": "+[f(n^0.5)J]F(n+1)"
+    },
+    "angle": "137.3",
+    "length_factor": "1",
+    "max_Level": "12",
+    "author": ""
+  },
+  "rounded_star": {
+    "axiom": "F",
+    "rules": {
+      "F": "F++F"
+    },
+    "angle": "77",
+    "length_factor": "1",
+    "max_Level": "8",
+    "author": ""
   },
   "quadratic_gosper": {
     "axiom": "-YF",
@@ -254,7 +520,9 @@
       "Y": "+FXFX-YF-YF+FX+FXYF+FX-YFYF-FX-YF+FXYFYF-FX-YFFX+FX+YF-YF-FX+FX+YFY"
     },
     "angle": "90",
-    "length_factor": "1"
+    "length_factor": "1",
+    "max_Level": "2",
+    "author": "Paul Bourke"
   },
   "quadratic_koch_island": {
     "axiom": "F+F+F+F",
@@ -262,7 +530,9 @@
       "F": "F+F-F-FFF+F+F-F"
     },
     "angle": "90",
-    "length_factor": "1"
+    "length_factor": "1",
+    "max_Level": "2",
+    "author": "Paul Bourke"
   },
   "quadratic_koch_island2": {
     "axiom": "X+X+X+X+X+X+X+X",
@@ -271,7 +541,9 @@
       "Y": "-FX+YFYF++YF+FX--FX-YF"
     },
     "angle": "45",
-    "length_factor": "1"
+    "length_factor": "1",
+    "max_Level": "2",
+    "author": "Hasan Hosam"
   },
   "quadratic_snowflake1": {
     "axiom": "F",
@@ -279,7 +551,9 @@
       "F": "F-F+F+F-F"
     },
     "angle": "90",
-    "length_factor": "1"
+    "length_factor": "1",
+    "max_Level": "3",
+    "author": "Paul Bourke"
   },
   "quadratic_snowflake2": {
     "axiom": "FF+FF+FF+FF",
@@ -287,7 +561,9 @@
       "F": "F+F-F-F+F"
     },
     "angle": "90",
-    "length_factor": "1"
+    "length_factor": "1",
+    "max_Level": "3",
+    "author": "Hasan Hosam"
   },
   "koch_snowflake": {
     "axiom": "F++F++F",
@@ -295,7 +571,9 @@
       "F": "F-F++F-F"
     },
     "angle": "60",
-    "length_factor": "1"
+    "length_factor": "1",
+    "max_Level": "3",
+    "author": "Paul Bourke"
   },
   "rings": {
     "axiom": "F+F+F+F",
@@ -303,7 +581,20 @@
       "F": "FF+F+F+F+F+F-F"
     },
     "angle": "90",
-    "length_factor": "1"
+    "length_factor": "1",
+    "max_Level": "3",
+    "author": "Paul Bourke"
+  },
+  "sierpinsk": {
+    "axiom": "L--F--L--F",
+    "rules": {
+      "L": "+R-F-R+",
+      "R": " -L+F+L-"
+    },
+    "angle": "45",
+    "length_factor": "1",
+    "max_Level": "3",
+    "author": "William McWorter"
   },
   "snake_kolam": {
     "axiom": "F+XF+F+XF",
@@ -311,7 +602,9 @@
       "X": "X{F-F-F}+XF+F+X{F-F-F}+X"
     },
     "angle": "90",
-    "length_factor": "1"
+    "length_factor": "1",
+    "max_Level": "5",
+    "author": "Paul Bourke"
   },
   "skierpinski": {
     "axiom": "F--XF--F--XF",
@@ -319,7 +612,9 @@
       "X": "XF+F+XF--F--XF+F+X"
     },
     "angle": "45",
-    "length_factor": "1"
+    "length_factor": "1",
+    "max_Level": "3",
+    "author": "Paul Bourke"
   },
   "skierpinski_arrowhead": {
     "axiom": "YF",
@@ -328,7 +623,30 @@
       "Y": "XF-YF-X"
     },
     "angle": "60",
-    "length_factor": "1"
+    "length_factor": "1",
+    "max_Level": "3",
+    "author": "Paul Bourke"
+  },
+  "skierpinski_carpet": {
+    "axiom": "F",
+    "rules": {
+      "X": "FFF[+FFF+FFF+FFF]"
+    },
+    "angle": "90",
+    "length_factor": "1",
+    "max_Level": "3",
+    "author": ""
+  },
+  "skierpinski_carpet2": {
+    "axiom": "F",
+    "rules": {
+      "X": "F+F-F-F-f+F+F+F-F",
+      "f": "fff"
+    },
+    "angle": "90",
+    "length_factor": "1",
+    "max_Level": "3",
+    "author": ""
   },
   "square_skierpinski": {
     "axiom": "F+XF+F+XF",
@@ -336,7 +654,9 @@
       "X": "XF-F+F-XF+F+XF-F+F-X"
     },
     "angle": "90",
-    "length_factor": "1"
+    "length_factor": "1",
+    "max_Level": "2",
+    "author": "Paul Bourke"
   },
   "sticks": {
     "axiom": "X",
@@ -345,7 +665,19 @@
       "X": "F[+X]F[-X]+X"
     },
     "angle": "20",
-    "length_factor": "1"
+    "length_factor": "1",
+    "max_Level": "5",
+    "author": "Paul Bourke"
+  },
+  "terdragon": {
+    "axiom": "F",
+    "rules": {
+      "F": "F+F-F"
+    },
+    "angle": "120",
+    "length_factor": "1",
+    "max_Level": "3",
+    "author": "William McWorter"
   },
   "tiles": {
     "axiom": "F+F+F+F",
@@ -353,7 +685,19 @@
       "F": "{FF}+F-F+F+FF"
     },
     "angle": "90",
-    "length_factor": "1"
+    "length_factor": "1",
+    "max_Level": "3",
+    "author": "Paul Bourke"
+  },
+  "tiling1": {
+    "axiom": "X",
+    "rules": {
+      "X": " F-F-F+F+FX++F-F-F+F+FX--F-F-F+F+FX"
+    },
+    "angle": "60",
+    "length_factor": "1",
+    "max_Level": "3",
+    "author": "William McWorter"
   },
   "tree": {
     "axiom": "VZFFF",
@@ -362,10 +706,13 @@
       "W": "+X[-W]Z",
       "X": "-W[+X]Z",
       "Y": "YZ",
-      "Z": "[-FFF][+FFF]F"
+      "Z": "[-FFF][+FFF]F",
+      "author": ""
     },
     "angle": "20",
-    "length_factor": "1"
+    "length_factor": "1",
+    "max_Level": "10",
+    "author": ""
   },
   "triangle": {
     "axiom": "F+F+F",
@@ -373,7 +720,9 @@
       "F": "F-F+F"
     },
     "angle": "120",
-    "length_factor": "1"
+    "length_factor": "1",
+    "max_Level": "5",
+    "author": "Paul Bourke"
   },
   "weed": {
     "axiom": "F",
@@ -383,6 +732,8 @@
       "Y": "-FX"
     },
     "angle": "22.5",
-    "length_factor": "1"
+    "length_factor": "1",
+    "max_Level": "5",
+    "author": "Paul Bourke"
   }
 }

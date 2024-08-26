@@ -95,4 +95,12 @@ You can find example sketches [here](https://editor.p5js.org/kfahn/collections/B
 
 - [L-system](https://en.wikipedia.org/wiki/L-system)
 - [LSystemCreator](https://anuraghazra.dev/LSystemCreator/)
+- [L-system-generator](https://onlinetools.com/math/l-system-generator)
+- [](https://codepen.io/mittense/pen/XemxRN)
+- [LSystemPlot](https://resources.wolframcloud.com/FunctionRepository/resources/LSystemPlot/)
 - [Principles of L-Systems](https://www.houdinikitchen.net/wp-content/uploads/2019/12/L-systems.pdf)
+- [Penrose Rhomb](https://tilings.math.uni-bielefeld.de/substitution/penrose-rhomb/)
+- [l-system-to-generate-the-penrose-p3-tiling](https://computergraphics.stackexchange.com/questions/13903/l-system-to-generate-the-penrose-p3-tiling)
+- [Penrose](https://processing.org/examples/penrosetile.html)
+- [more-l-system-fractal-fun](http://a-d-c.ca/more-l-system-fractal-fun/#page-content)
+-[l-systems](https://fedimser.github.io/l-systems.html)
