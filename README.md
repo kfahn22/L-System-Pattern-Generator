@@ -12,9 +12,13 @@ Daniel Shiffman recently recleased a [Coding Challenge](https://thecodingtrain.c
 
 <p align="center"><img src="assets/double-dragon.jpg" alt="Dragon rule-set with gear" width="500px"></p>
 
-Since many of the shapes are a function of parameters that can be altered, I added some sliders to experiment with different rule-set/shape curve combinations and was able to generate some fun patterns. I have discovered that both the Hilbert Peano curve relesets can generate some nice backgrounds.
+Since many of the shapes are a function of parameters that can be altered, I added sliders to experiment with different rule-set/shape curve combinations. I have discovered that both the Hilbert and Peano curve rule-sets can be used to generate some nice backgrounds.
+
+Hilbert curve rule-set with gear curve (purple background) and ADH23a ruleset with bicorn shape:
 
 <p align="center"><img src="assets/hillbert-ADH23a.jpg" alt="Hilbert ruleset with ADH23a design" width="500px"></p>
+
+Peano curve rule-set with superellipse and rounded cross:
 
 <p align="center"><img src="assets/peano-rounded-cross.jpg" alt="Peano rule-set with rounded cross" width="500px"></p>
 
