@@ -12,15 +12,11 @@ Daniel Shiffman recently recleased a [Coding Challenge](https://thecodingtrain.c
 
 <p align="center"><img src="assets/double-dragon.jpg" alt="Dragon rule-set with gear" width="500px"></p>
 
-Since many of the shapes are a function of parameters that can be altered, I added some sliders to experiment with different rule-set/shape curve combinations and was able to generate some fun patterns. For example, I used the [supershape](https://thecodingtrain.com/challenges/23-2d-supershapes) in the crystal rule-set and the Krishna's anklet rule-set yielding very different patterns.
+Since many of the shapes are a function of parameters that can be altered, I added some sliders to experiment with different rule-set/shape curve combinations and was able to generate some fun patterns. I have discovered that both the Hilbert Peano curve relesets can generate some nice backgrounds.
 
-### Crystal rule-set
+<p align="center"><img src="assets/hillbert-ADH23a.jpg" alt="Hilbert ruleset with ADH23a design" width="500px"></p>
 
-<p align="center"><img src="assets/crystal-supershape.jpg" alt="Crystal pattern with supershape" width="500px"></p>
-
-### Krishna's Anklet rule-set
-
-<p align="center"><img src="assets/krisha-anklet-supershape.jpg" alt="Crystal pattern with supershape" width="500px"></p>
+<p align="center"><img src="assets/peano-rounded-cross.jpg" alt="Peano rule-set with rounded cross" width="500px"></p>
 
 Sometimes when you insert a shape into a rule-set, the result is quite different from the typical visualization. One example is inserting the cassini curve into the Hilbert rule-set. I am not sure that many people would look at this image and realize how it was generated.
 
@@ -73,7 +69,7 @@ You can find example sketches [here](https://editor.p5js.org/kfahn/collections/B
   </tr>
   <tr>
       <td align="center"><a href=""> <img class="img" src="assets/peano-recursive-circles.jpg" alt="Peano ruleset background with recursive circles" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Peano ruleset background with recursive circles</b></sub></a></td>
-      <td align="center"><a href=""> <img class="img" src="assets/peano-rounded-cross.jpg" alt="Peano ruleset background with rounded cross" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Peano ruleset background with rounded cross</b></sub></a></td>
+      <td align="center"><a href=""> <img class="img" src="assets/hillbert-circular.jpg" alt="Hilbert ruleset background with circular ruleset" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Hilbert ruleset background with circular ruleset</b></sub></a></td>
        </tr>
   
     
