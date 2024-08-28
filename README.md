@@ -12,7 +12,11 @@ Daniel Shiffman recently recleased a [Coding Challenge](https://thecodingtrain.c
 
 <p align="center"><img src="assets/double-dragon.jpg" alt="Dragon rule-set with gear" width="500px"></p>
 
-Since many of the shapes are a function of parameters that can be altered, I added sliders to experiment with different rule-set/shape curve combinations. I have discovered that both the Hilbert and Peano curve rule-sets can be used to generate some nice backgrounds.
+Since many of the shapes are a function of parameters that can be altered, I added sliders to experiment with different rule-set/shape curve combinations. Sometimes when you insert a shape into a rule-set, the result is quite different from the typical visualization. One example is inserting the cassini curve into the Hilbert rule-set. I am not sure that many people would look at this image and realize how it was generated.
+
+<p align="center"><img src="assets/hillbert-cassini.jpg" alt="Hillbert rule-set with cassini oval" width="500px"></p>
+
+I have discovered that both the Hilbert and Peano curve rule-sets can be used to generate some nice backgrounds. Here are two examples.
 
 Hilbert curve rule-set with gear curve (purple background) and ADH23a ruleset with bicorn shape:
 
@@ -21,10 +25,6 @@ Hilbert curve rule-set with gear curve (purple background) and ADH23a ruleset wi
 Peano curve rule-set with superellipse and rounded cross:
 
 <p align="center"><img src="assets/peano-rounded-cross.jpg" alt="Peano rule-set with rounded cross" width="500px"></p>
-
-Sometimes when you insert a shape into a rule-set, the result is quite different from the typical visualization. One example is inserting the cassini curve into the Hilbert rule-set. I am not sure that many people would look at this image and realize how it was generated.
-
-<p align="center"><img src="assets/hillbert-cassini.jpg" alt="Hillbert rule-set with cassini oval" width="500px"></p>
 
 ## Fractal Trees
 
