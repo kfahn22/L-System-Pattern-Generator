@@ -63,8 +63,34 @@ class Shape {
     }
   }
 
-  // https://mathworld.wolfram.com/CassiniOvals.html
+  // Butterfly curve equation from http://paulbourke.net/geometry/butterfly/
+  butterfly() {
+    for (let theta = 0; theta < 8 * PI; theta += 0.05) {
+      let r =
+        pow(e, sin(theta)) -
+        2 * cos(4 * theta) +
+        pow(sin((2 * theta - PI) / 24), 5);
+      const x = this.r * r * cos(theta);
+      const y = -this.r * r * sin(theta);
+      this.points.push(createVector(x, y));
+    }
+  }
 
+  // https://mathworld.wolfram.com/topics/PlaneCurves.html
+  cannibus() {
+    for (let theta = 0; theta < PI; theta += 0.01) {
+      let r =
+        (1 + (9 / 10) * cos(8 * theta)) *
+        (1 + (1 / 10) * cos(24 * theta)) *
+        (9 / 10 + (1 / 10) * cos(200 * theta)) *
+        (1 + sin(theta));
+      const x = this.r * r * cos(theta);
+      const y = -this.r * r * sin(theta);
+      this.points.push(createVector(x, y));
+    }
+  }
+
+  // https://mathworld.wolfram.com/CassiniOvals.html
   cassiniOval() {
     for (let theta = 0; theta < TWO_PI; theta += 0.05) {
       let root = sqrt(pow(this.b / this.a, 4) - pow(sin(2 * theta), 2));
@@ -115,6 +141,21 @@ class Shape {
       let t = map(i, 0, numPoints, -maxT, maxT);
       let x = this.n + this.r * this.fresnelC(t);
       let y = this.n + this.r * this.fresnelS(t);
+      this.points.push(createVector(x, y));
+    }
+  }
+
+  // https://mathworld.wolfram.com/Cranioid.html
+  craniod() {
+    let p = 0.75;
+    let q = 0.75;
+    for (let theta = 0; theta < TWO_PI; theta += 0.05) {
+      let r =
+        this.a * sin(theta) +
+        this.b * sqrt(1 - p * pow(cos(theta), 2)) +
+        this.m * sqrt(1 - q * pow(cos(theta), 2));
+      let x = this.r * r * cos(theta);
+      let y = this.r * r * sin(theta);
       this.points.push(createVector(x, y));
     }
   }
@@ -182,6 +223,15 @@ class Shape {
     }
   }
 
+  hersheyKiss() {
+    for (let theta = -PI / 2; theta < (3 / 2) * PI; theta += 0.1) {
+      let r = 1;
+      let x = this.r * r * sin(theta);
+      let y = ((this.r * pow(r, 2)) / 2) * (theta + sin(theta) * cos(theta));
+      this.points.push(createVector(x, y));
+    }
+  }
+
   // https://mathcurve.com/courbes2d.gb/bouche/bouche.shtml
   // This one isn't working now??
   kissCurve() {
@@ -209,6 +259,27 @@ class Shape {
     this.points.push(createVector(0, 0));
     this.points.push(createVector(2 * this.r, 0));
   }
+
+  lissajous() {
+    for (let theta = -2 * PI; theta <= 2 * PI; theta += 0.01) {
+      let x = this.r * sin(this.a * theta + this.m) + 1;
+      let y = this.r * sin(this.b * theta);
+      this.points.push(createVector(x, y));
+    }
+  }
+
+  // https://mathworld.wolfram.com/Ophiuride.html
+
+  ophiuride() {
+    for (let theta = (-PI * 1) / 2; theta < (PI * 1) / 2; theta += 0.05) {
+      let r = (this.b * sin(theta) - this.a * cos(theta)) * tan(theta);
+      let x = this.r * r * cos(theta);
+      let y = this.r * r * sin(theta);
+      this.points.push(createVector(x, y));
+    }
+  }
+
+  // https://mathcurve.com/courbes2d.gb/deltoid/deltoid.shtml
 
   quadrifolium() {
     let a = 1;
@@ -248,6 +319,27 @@ class Shape {
       let r = this.a + cos(k * theta);
       let x = this.r * r * cos(theta);
       let y = this.r * r * sin(theta);
+      this.points.push(createVector(x, y));
+    }
+  }
+
+  // https://mathcurve.com/courbes2d.gb/archimede/archimede.shtml
+
+  // n = 1 Archimedian Spiral
+  // n = -1 Hyperbolic Spiral
+  // n = 1/2 Fermat spiral
+  // n = -1/2 Lituus spiral
+  // n = 2 Galilean spiral
+
+  spiral() {
+    let dir = -1;
+    let c = 5; // adjust to extend line
+    let n = -1 / 2;
+    let maxRot = 4;
+    for (let theta = 0; theta < maxRot * PI; theta += 0.1) {
+      let r = dir * this.a * pow(theta, n);
+      let x = 0.5 * this.r * r * cos(theta) - c;
+      let y = 0.5 * this.r * r * sin(theta) + c;
       this.points.push(createVector(x, y));
     }
   }
@@ -303,6 +395,29 @@ class Shape {
     for (let theta = 0; theta < TWO_PI; theta += 0.1) {
       let x = this.r * cos(theta);
       let y = this.r * sin(theta) * pow(sin(theta / 2), n);
+      this.points.push(createVector(x, y));
+    }
+  }
+
+  // Not working??
+  // showWord() {
+  //   push();
+  //   translate(this.x, this.y);
+  //   rotate(this.angle);
+  //   textSize(this.r);
+  //   textAlign(CENTER, CENTER);
+  //  // text("LOVE", this.x, this.y);
+  //   text("LOVE", 0, 0);
+  //   pop();
+  // }
+
+  // https://mathcurve.com/courbes2d.gb/abdank/abdank.shtml
+
+  zigzag() {
+    for (let theta = -PI / 2; theta < (3 / 2) * PI; theta += 0.1) {
+      let r = 1;
+      let x = this.r * r * sin(theta);
+      let y = ((this.r * pow(r, 2)) / 2) * (theta + sin(theta) * cos(theta));
       this.points.push(createVector(x, y));
     }
   }

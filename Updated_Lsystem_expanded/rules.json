@@ -59,6 +59,16 @@
     "max_Level": "3",
     "author": "Anthony Hammer"
   },
+  "ADH258a": {
+    "axiom": "F++F++F+++F--F--F",
+    "rules": {
+      "F": "FF++F++F++FFF"
+    },
+    "angle": "60",
+    "length_factor": "1",
+    "max_Level": "3",
+    "author": "Anthony Hammer"
+  },
   "board": {
     "axiom": "F+F+F+F",
     "rules": {
@@ -130,6 +140,26 @@
     "angle": "30",
     "length_factor": "1",
     "max_Level": "1",
+    "author": ""
+  },
+  "circular2": {
+    "axiom": "F",
+    "rules": {
+      "F": "F+F+F+F+F+F+F+F+F+F+F+F+F+F+F+F+F+F"
+    },
+    "angle": "20",
+    "length_factor": "1.33",
+    "max_Level": "1",
+    "author": ""
+  },
+  "cesaro": {
+    "axiom": "F",
+    "rules": {
+      "F": "F-F++F-F"
+    },
+    "angle": "85",
+    "length_factor": "1",
+    "max_Level": "6",
     "author": ""
   },
   "cross": {
@@ -236,6 +266,17 @@
     "max_Level": "1",
     "author": "Kathy McGuiness"
   },
+  "hexagonal_gosper": {
+    "axiom": "XF",
+    "rules": {
+      "X": "X+YF++YF-FX--FXFX-YF+",
+      "Y": "-FX+YFYF++YF+FX--FX-Y"
+    },
+    "angle": "60",
+    "length_factor": "1",
+    "max_Level": "3",
+    "author": "Paul Bourke"
+  },
   "hilbert": {
     "axiom": "X",
     "rules": {
@@ -246,6 +287,17 @@
     "length_factor": "1",
     "max_Level": "5",
     "author": "Paul Bourke"
+  },
+  "hex_7b": {
+    "axiom": "X",
+    "rules": {
+      "X": "-F++F-X-F--F+Y---F--F+Y+F++F-X+++F++F-X-F++F-X+++F--F+Y--",
+      "Y": "+F++F-X-F--F+Y+F--F+Y---F--F+Y---F++F-X+++F++F-X+++F--F+Y"
+    },
+    "angle": "30",
+    "length_factor": "1",
+    "max_Level": "3",
+    "author": "Gary Teachout"
   },
   "island_curve": {
     "axiom": "F-F-F-F",
@@ -305,6 +357,16 @@
     "max_Level": "8",
     "author": "Paul Bourke"
   },
+  "levy": {
+    "axiom": "F",
+    "rules": {
+      "F": "-F++F-"
+    },
+    "angle": "45",
+    "length_factor": "1",
+    "max_Level": "10",
+    "author": "Paul Bourke"
+  },
   "levy_curve": {
     "axiom": "F++F++F++F",
     "rules": {
@@ -324,6 +386,16 @@
     "length_factor": "1",
     "max_Level": "5",
     "author": "Paul Bourke"
+  },
+  "maze": {
+    "axiom": "F+F+F",
+    "rules": {
+      "F": "F+FF-F"
+    },
+    "angle": "120",
+    "length_factor": "1",
+    "max_Level": "5",
+    "author": "William McWorter"
   },
   "notched_square": {
     "axiom": "X*X*X*X*X*X",
@@ -382,6 +454,16 @@
     "rules": {
       "X": "FX-FX-FX+FY+FY+FX-FX",
       "Y": "FY+FY-FX-FX-FY+FY+FY"
+    },
+    "angle": "72",
+    "length_factor": "1",
+    "max_Level": "4",
+    "author": "William McWorter"
+  },
+  "pentl": {
+    "axiom": "F-F-F-F-F",
+    "rules": {
+      "F": "F-F-F++F+F-F"
     },
     "angle": "72",
     "length_factor": "1",
@@ -471,6 +553,16 @@
     "max_Level": "3",
     "author": ""
   },
+  "quadratic_snowflake1": {
+    "axiom": "F",
+    "rules": {
+      "F": "F-F+F+F-F"
+    },
+    "angle": "90",
+    "length_factor": "1",
+    "max_Level": "3",
+    "author": "Paul Bourke"
+  },
   "quadratic_snowflake2": {
     "axiom": "FF+FF+FF+FF",
     "rules": {
@@ -491,6 +583,17 @@
     "max_Level": "3",
     "author": "Paul Bourke"
   },
+  "sierpinsk": {
+    "axiom": "L--F--L--F",
+    "rules": {
+      "L": "+R-F-R+",
+      "R": " -L+F+L-"
+    },
+    "angle": "45",
+    "length_factor": "1",
+    "max_Level": "3",
+    "author": "William McWorter"
+  },
   "snake_kolam": {
     "axiom": "F+XF+F+XF",
     "rules": {
@@ -507,6 +610,17 @@
       "X": "XF+F+XF--F--XF+F+X"
     },
     "angle": "45",
+    "length_factor": "1",
+    "max_Level": "3",
+    "author": "Paul Bourke"
+  },
+  "skierpinski_arrowhead": {
+    "axiom": "YF",
+    "rules": {
+      "X": "YF+XF+Y",
+      "Y": "XF-YF-X"
+    },
+    "angle": "60",
     "length_factor": "1",
     "max_Level": "3",
     "author": "Paul Bourke"
@@ -541,6 +655,16 @@
     "length_factor": "1",
     "max_Level": "5",
     "author": "Paul Bourke"
+  },
+  "terdragon": {
+    "axiom": "F",
+    "rules": {
+      "F": "F+F-F"
+    },
+    "angle": "120",
+    "length_factor": "1",
+    "max_Level": "12",
+    "author": "William McWorter"
   },
   "tiles": {
     "axiom": "F+F+F+F",

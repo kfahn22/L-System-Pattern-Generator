@@ -545,12 +545,15 @@ function addRuleDropdown(posx, posy, choice) {
     "none",
     "ADH231a",
     "ADH256a",
+    "ADH258a",
     "board",
     "board2",
     "box",
+    "cesaro",
     "recursive_circles",
     "recursive_circles2",
     "circular",
+    "circular2",
     "cross",
     "crystal",
     "doily",
@@ -560,6 +563,8 @@ function addRuleDropdown(posx, posy, choice) {
     "fern2",
     "fern3",
     "flower",
+    "hexagonal_gosper",
+    "hex_7b",
     "hilbert",
     "island_curve",
     "kolam",
@@ -567,28 +572,38 @@ function addRuleDropdown(posx, posy, choice) {
     "koch_snowflake",
     "krishna_anklet",
     "leaf",
+    "levy",
     "levy_curve",
+    "maze",
     "mango_leaf",
-    "notched_square",
     "peano",
     "peano_c",
     "penrose_tiling",
     "pentant",
+    "pentl",
     "pentigree",
     "pentaplexity",
     "pentadentrite",
+    "phyllotaxis",
     "quadratic_gosper",
     "quadratic_koch_island",
+    "quadratic_koch_island2",
+    "quadratic_snowflake1",
     "quadratic_snowflake2",
     "rings",
     "rounded_star",
     "rounded_cross",
+    "sierpinsk",
     "snake_kolam",
     "skierpinski",
+    "snowflake",
     "square_skierpinski",
+    "skierpinski_arrowhead",
     "skierpinski_carpet",
     "sticks",
+    "terdragon",
     "tiles",
+    "tiling1",
     "torn_square",
     "tree",
     "triangle",
@@ -616,6 +631,9 @@ function pickRule(currentFractal) {
     case "ADH256a":
       currentFractal = lsystem.ADH256a;
       break;
+    case "ADH258a":
+      currentFractal = lsystem.ADH258a;
+      break;
     case "board":
       currentFractal = lsystem.board;
       break;
@@ -624,6 +642,9 @@ function pickRule(currentFractal) {
       break;
     case "box":
       currentFractal = lsystem.box;
+      break;
+    case "cesaro":
+      currentFractal = lsystem.cesaro;
       break;
     case "recursive_circles":
       currentFractal = lsystem.recursive_circles;
@@ -634,11 +655,17 @@ function pickRule(currentFractal) {
     case "circular":
       currentFractal = lsystem.circular;
       break;
+    case "circular2":
+      currentFractal = lsystem.circular;
+      break;
     case "cross":
       currentFractal = lsystem.cross;
       break;
     case "crystal":
       currentFractal = lsystem.crystal;
+      break;
+    case "diamond":
+      currentFractal = lsystem.diamond;
       break;
     case "doily":
       currentFractal = lsystem.doily;
@@ -661,6 +688,12 @@ function pickRule(currentFractal) {
     case "flower":
       currentFractal = lsystem.flower;
       break;
+    case "hexagonal_gosper":
+      currentFractal = lsystem.hexagonal_gosper;
+      break;
+    case "hex_7b":
+      currentFractal = lsystem.hex_7b;
+      break;
     case "island_curve":
       currentFractal = lsystem.island_curve;
       break;
@@ -681,6 +714,9 @@ function pickRule(currentFractal) {
       break;
     case "leaf":
       currentFractal = lsystem.leaf;
+      break;
+    case "levy":
+      currentFractal = lsystem.levy;
       break;
     case "levy_curve":
       currentFractal = lsystem.levy_curve;
@@ -712,8 +748,14 @@ function pickRule(currentFractal) {
     case "pentant":
       currentFractal = lsystem.pentant;
       break;
+    case "pentl":
+      currentFractal = lsystem.pentl;
+      break;
     case "pentigree":
       currentFractal = lsystem.pentigree;
+      break;
+    case "phyllotaxis":
+      currentFractal = lsystem.phyllotaxis;
       break;
     case "quadratic_gosper":
       currentFractal = lsystem.quadratic_gosper;
@@ -723,6 +765,9 @@ function pickRule(currentFractal) {
       break;
     case "quadratic_koch_island2":
       currentFractal = lsystem.quadratic_koch_island2;
+      break;
+    case "quadratic_snowflake1":
+      currentFractal = lsystem.quadratic_snowflake1;
       break;
     case "quadratic_snowflake2":
       currentFractal = lsystem.quadratic_snowflake2;
@@ -742,11 +787,20 @@ function pickRule(currentFractal) {
     case "rounded_star":
       currentFractal = lsystem.rounded_star;
       break;
+    case "sierpinsk":
+      currentFractal = lsystem.sierpinsk;
+      break;
     case "skierpinski":
       currentFractal = lsystem.skierpinski;
       break;
+    case "skierpinski_arrowhead":
+      currentFractal = lsystem.skierpinski_arrowhead;
+      break;
     case "skierpinski_carpet":
       currentFractal = lsystem.skierpinski_carpet;
+      break;
+    case "snowflake":
+      currentFractal = lsystem.snowflake;
       break;
     case "square_skierpinski":
       currentFractal = lsystem.square_skierpinski;
@@ -754,8 +808,14 @@ function pickRule(currentFractal) {
     case "sticks":
       currentFractal = lsystem.sticks;
       break;
+    case "terdragon":
+      currentFractal = lsystem.terdragon;
+      break;
     case "tiles":
       currentFractal = lsystem.tiles;
+      break;
+    case "tiling1":
+      currentFractal = lsystem.tiling1;
       break;
     case "tree":
       currentFractal = lsystem.tree;
@@ -774,17 +834,25 @@ function addShapesDropdown(px, py, choice) {
   let shapeOptions = [
     "archimedes",
     "astroid",
+    "atom",
     "bicorn",
+    "butterfly",
+    "cannibus",
     "cassini",
     "ceva",
+    "craniod",
     "cornu",
     "cross",
     "deltoid",
     "eight",
     "gear",
     "heart",
+    "lissajous",
+    "hersheyKiss",
     "kiss",
+    "knot",
     "line",
+    "ophiuride",
     "quadrifolium",
     "quadrilateral",
     "rose",
@@ -793,6 +861,7 @@ function addShapesDropdown(px, py, choice) {
     "spiral",
     "tear",
     "word",
+    "zigzag",
   ];
 
   shapeDropdown = createSelect();
@@ -834,8 +903,17 @@ function pickShape(selected) {
       addMessage = true;
       message = "The astroid is a f(a).";
       break;
+    case "atom":
+      selectedShape.atom();
+      break;
     case "bicorn":
       selectedShape.bicorn();
+      break;
+    case "butterfly":
+      selectedShape.butterfly();
+      break;
+    case "cannibus":
+      selectedShape.cannibus();
       break;
     case "cassini":
       // 1, 1.25 peanut shaped/
@@ -852,6 +930,12 @@ function pickShape(selected) {
       addMessage = true;
       selectedShape.cornuSpiral();
       message = "The cornu spiral is f(a), a ~ [0.5, 2]";
+      break;
+    case "craniod":
+      // angle PI/2;
+      selectedShape.craniod();
+      addMessage = true;
+      message = "The craniod curve is a f(a, b, m).";
       break;
     case "cross":
       // 1 quadrifolium
@@ -876,13 +960,24 @@ function pickShape(selected) {
       selectedShape.heart();
       addMessage = false;
       break;
+    case "knot":
+      selectedShape.knot();
+      break;
     case "kiss":
       selectedShape.kissCurve();
       addMessage = true;
       message = "The kiss curve is a f(a, b).";
       break;
+    case "hersheyKiss":
+      selectedShape.hersheyKiss();
+      break;
     case "line":
       selectedShape.showLine();
+      break;
+    case "lissajous":
+      selectedShape.lissajous();
+      addMessage = true;
+      message = "The lissajous curve is a f(a, b, m).";
       break;
     case "quadrifolium":
       selectedShape.quadrifolium();
@@ -891,6 +986,23 @@ function pickShape(selected) {
       selectedShape.quadrilaterial();
       addMessage = true;
       message = "The quadrilaterial curve is a f(m).";
+      break;
+    case "rose":
+      // a > 0 levels hole in middle
+      selectedShape.rose();
+      addMessage = true;
+      message = "The rose curve is a f(a, b, n).";
+      break;
+    case "ophiuride":
+      // a > 0 levels hole in middle
+      selectedShape.ophiuride();
+      addMessage = true;
+      message = "The ophiuride curve is a f(a).";
+      break;
+    case "spiral":
+      selectedShape.spiral();
+      addMessage = true;
+      message = "The spiral curve is a f(a).";
       break;
     case "superellipse":
       selectedShape.superellipse();
@@ -916,6 +1028,9 @@ function pickShape(selected) {
       textAlign(CENTER, CENTER);
       text("IS ALL YOU NEED", 0, 0);
       pop();
+      break;
+    case "zigzag":
+      selectedShape.zigzag();
       break;
   }
   return message;
