@@ -58,7 +58,7 @@ You can find example sketches [here](https://editor.p5js.org/kfahn/collections/B
     margin-right: auto;" width="500" /><br /><sub><b><br/>Mango leaf with astroid shape</b></sub></a></td>
     </tr>
     <tr>
-     <td align="center"><a href=""> <img class="img" src="assets/anklet-quadrifolium.jpg" alt="Krishna's anklet with quadrifolium curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Krishna's anklet with quadrifolium curve</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/doily-cornu-spiral.jpg" alt="Doily rule-set with cornu spiral" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Doily rule-set with cornu spiral</b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="assets/square-skierpinkski-lissajous.jpg" alt="Square skierpinski with lissajous curve" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Square skierpinski with lissajous curve</b></sub></a></td>
