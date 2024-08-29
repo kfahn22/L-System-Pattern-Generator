@@ -97,4 +97,7 @@ You can find example sketches [here](https://editor.p5js.org/kfahn/collections/B
 - [Penrose](https://processing.org/examples/penrosetile.html)
 - [Principles of L-Systems](https://www.houdinikitchen.net/wp-content/uploads/2019/12/L-systems.pdf)
 - [Penrose Rhomb](https://tilings.math.uni-bielefeld.de/substitution/penrose-rhomb/)
+- [What-is-the-l-system-be-to-generate-an-penrose-p3-tiling](https://stackoverflow.com/questions/77946512/what-is-the-l-system-be-to-generate-an-penrose-p3-tiling)
+- [l-systems-and-penrose-p3-in-inkscape](https://thebrickinthesky.wordpress.com/2013/03/17/l-systems-and-penrose-p3-in-inkscape/)
 - [more-l-system-fractal-fun](http://a-d-c.ca/more-l-system-fractal-fun/#page-content)
+-[is-there-an-l-system-for-aperiodic-tilings-of-the-plane-with-the-hat-monotile](https://mathoverflow.net/questions/444513/is-there-an-l-system-for-aperiodic-tilings-of-the-plane-with-the-hat-monotile)

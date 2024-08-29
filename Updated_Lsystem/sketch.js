@@ -58,7 +58,11 @@ let deleteSecondFractal; // Whether to add a second fractal
 // whether the shapes are filled or stroke
 let fillShape0;
 let fillShape1;
-let bkcolor; // background white (true) or black (false)
+
+// Checkboxes for background color
+// let blackBackground; // background black? (true or false)
+// let whiteBackground; // background white? (true or false)
+// let colorBackground; // background comes from 1st palette (true) or 3nd palette (false)
 
 // Drop downs to select rule, pattern, and colors
 let shapeDropdown0;
@@ -67,6 +71,7 @@ let ruleDropdown0;
 let ruleDropdown1;
 let paletteDropdown0;
 let paletteDropdown1;
+let backgroundDropdown;
 let url;
 let url0;
 let url1;
@@ -89,6 +94,11 @@ let addMessage;
 let palette;
 let currentPalette;
 let x;
+
+// Checkbox if you want to know where the fractal starts to determine optimal placement
+let showCircle;
+
+// Preload the L-system rules
 function preload() {
   loadJSON("rules.json", getRules);
 }
@@ -145,7 +155,7 @@ function setup() {
   // Add sliders for second fractal
   if (deleteSecondFractal.checked() === false) {
     [sliders1, sliderLabels1] = addSliders(
-      x + 650,
+      x + 625,
       "second",
       0.5,
       0.5,
@@ -164,9 +174,9 @@ function setup() {
       1,
       1
     );
-    ruleDropdown1 = addRuleDropdown(x + 430, 5, "dragon2");
-    shapeDropdown1 = addShapesDropdown(x + 430, 50, "gear");
-    paletteDropdown1 = addPalettes(x + 430, 95, "orange");
+    ruleDropdown1 = addRuleDropdown(x + 450, 5, "dragon2");
+    shapeDropdown1 = addShapesDropdown(x + 450, 50, "gear");
+    paletteDropdown1 = addPalettes(x + 450, 95, "orange");
 
     message1 = addFractal(
       sliders1,
@@ -195,6 +205,7 @@ function draw() {
   noLoop();
 }
 
+// Adds a message if the choosen shape is a function of one of the shape parameters
 function addShapeMessage(message0, message1) {
   addMessage = true;
   let message = null;
@@ -592,8 +603,6 @@ function addRuleDropdown(posx, posy, choice) {
     "notched_square",
     "peano",
     "peano_c",
-    "penrose_tiling",
-    "pentant",
     "pentigree",
     "pentaplexity",
     "pentadentrite",
@@ -720,17 +729,11 @@ function pickRule(currentFractal) {
     case "peano_c":
       currentFractal = lsystem.peano_c;
       break;
-    case "penrose_tiling":
-      currentFractal = lsystem.penrose_tiling;
-      break;
     case "pentaplexity":
       currentFractal = lsystem.pentaplexity;
       break;
     case "pentadentrite":
       currentFractal = lsystem.pentadentrite;
-      break;
-    case "pentant":
-      currentFractal = lsystem.pentant;
       break;
     case "pentigree":
       currentFractal = lsystem.pentigree;
@@ -1026,11 +1029,12 @@ function reset() {
   message1 = null;
 
   // Update Variables
-  if (bkcolor.checked() === true) {
-    background(255);
-  } else {
-    background(0);
-  }
+  // if (bkcolor.checked() === true) {
+  //   background(255);
+  // } else {
+  //   background(0);
+  // }
+  addBackgroundColor();
 
   push();
   message0 = addValidFractal(
@@ -1063,6 +1067,14 @@ function reset() {
     p.hide();
   }
   p2 = addShapeMessage(message0, message1);
+
+  if (showCircle.checked() === true) {
+    push();
+    translate(width * wadj, height * hadj);
+    fill(255, 0, 0);
+    circle(0, 0, 20);
+    pop();
+  }
 }
 
 // Limits added to level for certain fractals to prevent sketch from freezing!
@@ -1133,29 +1145,29 @@ function addControls(pos) {
   resetButton.mousePressed(reset);
 
   // Checkbox to add a second fractal
-  deleteSecondFractal = createCheckbox("Delete second fractal", false);
-  deleteSecondFractal.position(pos, 90);
+  deleteSecondFractal = createCheckbox("Delete fractal 2", false);
+  deleteSecondFractal.position(pos + 60, 65);
   deleteSecondFractal.style("color", "white");
 
   // Checkbox to determine whether shapes are filled
   fillShape0 = createCheckbox("Fill fractal 1 shapes", false);
-  fillShape0.position(pos, 65);
+  fillShape0.position(pos + 60, 90);
   fillShape0.style("color", "white");
   fillShape1 = createCheckbox("Fill fractal 2 shapes", false);
-  fillShape1.position(pos, 115);
+  fillShape1.position(pos + 60, 115);
   fillShape1.style("color", "white");
 
-  bkcolor = createCheckbox("Background", false);
-  bkcolor.position(pos, 40);
-  bkcolor.style("color", "white");
+  let backgroundColorP = createP("Background Color");
+  backgroundColorP.position(pos - 90, 25);
+  backgroundColorP.style("color", "white");
+  backgroundDropdown = addPalettes(pos - 90, 70, "black");
 
-  if (bkcolor.checked() === true) {
-    //background(255);
-    let palette = paletteDropdown0.value();
-    background(random(palette));
-  } else {
-    background(0);
-  }
+  showCircle = createCheckbox("Show start", false);
+  showCircle.position(pos + 60, 40);
+  showCircle.style("color", "white");
+
+  // Have to add background color after palettes are added
+  addBackgroundColor();
 }
 
 // Function to save the canvas as an image when 's' key is pressed
@@ -1195,6 +1207,12 @@ function adjustFill(palette, sw, a, fillShape) {
     strokeWeight(sw);
     stroke(c);
   }
+}
+
+function addBackgroundColor() {
+  selectPalette(backgroundDropdown.value());
+  palette = createPaletteFromURL(url);
+  background(random(palette));
 }
 
 function addText() {

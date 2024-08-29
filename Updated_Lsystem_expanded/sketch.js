@@ -576,6 +576,7 @@ function addRuleDropdown(posx, posy, choice) {
     "levy_curve",
     "maze",
     "mango_leaf",
+    "monotile",
     "peano",
     "peano_c",
     "penrose_tiling",
@@ -726,6 +727,9 @@ function pickRule(currentFractal) {
       break;
     case "maze":
       currentFractal = lsystem.maze;
+      break;
+    case "monotile":
+      currentFractal = lsystem.monotile;
       break;
     case "notched_square":
       currentFractal = lsystem.notched_square;

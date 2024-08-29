@@ -377,17 +377,6 @@
     "max_Level": "4",
     "author": ""
   },
-  "pentant": {
-    "axiom": "X-X-X-X-X",
-    "rules": {
-      "X": "FX-FX-FX+FY+FY+FX-FX",
-      "Y": "FY+FY-FX-FX-FY+FY+FY"
-    },
-    "angle": "72",
-    "length_factor": "1",
-    "max_Level": "4",
-    "author": "William McWorter"
-  },
   "pentigree": {
     "axiom": "F-F-F-F-F",
     "rules": {
@@ -397,18 +386,6 @@
     "length_factor": "1",
     "max_Level": "4",
     "author": "William McWorter"
-  },
-  "penrose_tiling": {
-    "axiom": "[X]++[X]++[X]++[X]++[X]",
-    "rules": {
-      "W": "YF++ZF----XF[-YF----WF]++",
-      "X": "+YF--ZF[---WF--XF]+",
-      "Y": "-WF++XF[+++YF++ZF]-",
-      "Z": "--YF++++WF[+ZF++++XF]--XF"
-    },
-    "angle": "36",
-    "length_factor": "1",
-    "max_Level": "4"
   },
   "rings": {
     "axiom": "F+F+F+F",
@@ -428,7 +405,7 @@
     "angle": "30",
     "length_factor": "1",
     "max_Level": "1",
-    "author": "Kathy McGuiness"
+    "author": ""
   },
   "rounded_star": {
     "axiom": "F",

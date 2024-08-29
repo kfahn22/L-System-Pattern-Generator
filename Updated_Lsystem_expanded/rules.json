@@ -288,17 +288,7 @@
     "max_Level": "5",
     "author": "Paul Bourke"
   },
-  "hex_7b": {
-    "axiom": "X",
-    "rules": {
-      "X": "-F++F-X-F--F+Y---F--F+Y+F++F-X+++F++F-X-F++F-X+++F--F+Y--",
-      "Y": "+F++F-X-F--F+Y+F--F+Y---F--F+Y---F++F-X+++F++F-X+++F--F+Y"
-    },
-    "angle": "30",
-    "length_factor": "1",
-    "max_Level": "3",
-    "author": "Gary Teachout"
-  },
+ 
   "island_curve": {
     "axiom": "F-F-F-F",
     "rules": {
@@ -397,6 +387,7 @@
     "max_Level": "5",
     "author": "William McWorter"
   },
+ 
   "notched_square": {
     "axiom": "X*X*X*X*X*X",
     "rules": {
@@ -479,18 +470,6 @@
     "length_factor": "1",
     "max_Level": "4",
     "author": "William McWorter"
-  },
-  "penrose_tiling": {
-    "axiom": "[X]++[X]++[X]++[X]++[X]",
-    "rules": {
-      "W": "YF++ZF----XF[-YF----WF]++",
-      "X": "+YF--ZF[---WF--XF]+",
-      "Y": "-WF++XF[+++YF++ZF]-",
-      "Z": "--YF++++WF[+ZF++++XF]--XF"
-    },
-    "angle": "36",
-    "length_factor": "1",
-    "max_Level": "4"
   },
   "rings": {
     "axiom": "F+F+F+F",
