@@ -14,7 +14,7 @@
     margin-right: auto;" width="500" /><br /><sub><b><br/>Rounded Star with cornu spiral</b></sub></a></td>
     </tr>
     <tr>
-     <td align="center"><a href=""> <img class="img" src="assets/square-skierspinski.jpg" alt="Square skierpinski with cornu spiral" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Recursive circles with cornu spiral</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/square-skierspinski.jpg" alt="Square skierpinski with cornu spiral" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Square skierpinski with cornu spiral</b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="assets/kolam-cornu.jpg" alt="Kolam with cornu spiral" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Kolam with cornu spiral</b></sub></a></td>
