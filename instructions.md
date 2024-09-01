@@ -2,7 +2,7 @@
 
 There are multiple sliders and three sets of dropdowns for each visualization. (While the majority of the rule-sets render fractals, a few just render multiple copies of the shape in interesting ways.)
 
-This code as the sliders for the first L-system, setting the translation, fractal level to 5, the grid length to 20, strokeweight to 2, alpha to 145, of the scale of the shape to 1/2 of the grid size. The L-system rotation are both set to zero.  The remaining numbers are the shape parameters.
+This code as the sliders for the first L-system, setting the translation, fractal level to 5, the grid length to 20, strokeweight to 2, alpha to 145, of the scale of the shape to 1/2 of the grid size. The L-system rotation are both set to zero. The remaining numbers are the shape parameters.
 
 `[sliders0, sliderLabels0] = addSliders(
     10,
@@ -27,15 +27,15 @@ This code as the sliders for the first L-system, setting the translation, fracta
 
 The next lines add the three dropdowns for the first L-system, setting the Hilbert curve as the fractal, the gear curve as the shape, and the color palette to raspberry.
 
-  `ruleDropdown0 = addRuleDropdown(x, 5, "hilbert");`  
-  `shapeDropdown0 = addShapesDropdown(x, 50, "gear");`  
-  `paletteDropdown0 = addPalettes(x, 95, "raspberry");`
+`ruleDropdown0 = addRuleDropdown(x, 5, "hilbert");`  
+ `shapeDropdown0 = addShapesDropdown(x, 50, "gear");`  
+ `paletteDropdown0 = addPalettes(x, 95, "raspberry");`
 
 <p align="center"><img src="assets/basic_patterns/hilbert-gear-raspberrry.jpg" alt="Hilbert curve with gear curve" width="500px"></p>
 
 ## The Rule-sets
 
-The rulesets can be found in the rules.json file. The majority of the rule-sets were written by Paule Bourke. When known, I have added the author as part of the data in the json file. Another thing to note is that I was having an issue with the sketch freezing with certain fractal patterns, so I imposed some (somewhat arbitrary) contraints on the fractal level. The maxLevel field can be edited as desired.
+The rulesets can be found in the rules.json file. The majority of the rule-sets were written by Paule Bourke. When known, I have added the author as part of the data in the json file. Another thing to note is that I was having an issue with the sketch freezing with certain fractal patterns, so I imposed some (somewhat arbitrary) contraints on the fractal level. I have added alerts when the level is above the maxLevel I have set for the ruleset, and it is automatically constrained at the maxLevel. Of course, the maxLevel field can be edited as desired.
 
 The fractals start at different points on the canvas, and therefore need different translations. The images below show the L-systems with the starting point indicated by the red circle. If you switch fractals and don't see anything, it is most likely because the fractal needs to be translated in either the x or y direction.
 
@@ -157,7 +157,9 @@ If you choose the line and have fill checked, nothing will appear.
 
 ## Shapes
 
-The shape code can be found in the shapes.js file. While most of the shapes are closed, the spirals are by nature "open." There are therefore two different functions in the Shapes class to render the shape -- a show() and an openShow(). I have also added messaging about the shape curves which appears when the shape is selected if it is a function of the shape parameters (a, b, m, n, n1, n2, n3).
+The shape code can be found in the shapes.js file. While most of the shapes are closed, the spirals are by nature "open." There are therefore two different functions in the Shapes class to render the shape -- a show() and an openShow(). I have also added messaging about the shape curves which appears when the shape is selected if it is a function of the shape parameters (a, b, m, n, n1, n2, n3). For example, if the supershape is selected, this message appears:
+
+The supershape curve is a f(a, b, m, n, n1, n2, n3).
 
 ## 🌄 Shape Images
 
@@ -223,9 +225,8 @@ There is an larger number of shapes in the Update_Lsystem_expanded file.
 
 I have utiliized [https://supercolorpalette.com](supercolorpalette) to add the color palettes. For consistency, I have added two "dummy" palettes with all white and black, as well as a gray palette. You can easily add more palettes by using the the supercolorpalette generator. Once you are happy with your colors, copy the url, and add it to the code in the selectPalette function (line 344). Remember to add the name of the color to the addPalettes dropdown or it will not appear in the paletteDropdown.
 
-## Pointers
+## Tips
 
 The Hilbert and Peano curve rule-sets have generated the best backgrounds for me. I have found it generally best to stick to simple color palettes and use a fill with a lower alpha. My favorite backgrounds are created with the gear curve and supershape.
-
 
 One downside of creating a generic shape class is that the parameters are not, in general, optimized for specific shapes. If you choose a shape and the scale is completely off, try editing either the shapeScale or the shape parameters. The ones to try first are a and b.
