@@ -25,7 +25,7 @@ This code as the sliders for the first L-system, setting the translation, fracta
     1
   );`
 
-These lines add the three dropdowns for the first L-system, setting the Hilbert curve as the fractal, the gear curve as the shape, and the color palette as raspberry.
+The next lines add the three dropdowns for the first L-system, setting the Hilbert curve as the fractal, the gear curve as the shape, and the color palette to raspberry.
 
   `ruleDropdown0 = addRuleDropdown(x, 5, "hilbert");`  
   `shapeDropdown0 = addShapesDropdown(x, 50, "gear");`  
@@ -37,7 +37,7 @@ These lines add the three dropdowns for the first L-system, setting the Hilbert 
 
 The rulesets can be found in the rules.json file. The majority of the rule-sets were written by Paule Bourke. When known, I have added the author as part of the data in the json file. Another thing to note is that I was having an issue with the sketch freezing with certain fractal patterns, so I imposed some (somewhat arbitrary) contraints on the fractal level. The maxLevel field can be edited as desired.
 
-The fractals start at different points on the canvas, and therefore need different translations. If you switch fractals and don't see anything, it is most likely because the fractal needs to be translated up in the y position (which corresponds to decreasing adjy).
+The fractals start at different points on the canvas, and therefore need different translations. The images below show the L-systems with the starting point indicated by the red circle. If you switch fractals and don't see anything, it is most likely because the fractal needs to be translated in either the x or y direction.
 
 ## 🌄 Rule-set Images
 
