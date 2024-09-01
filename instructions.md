@@ -1,6 +1,8 @@
-# Instructions
+# Instructions - WIP
 
-There are three sets of sliders for each visualization. (While the majority of the rule-sets render fractals, a few just render multiple copies of the shape in interesting ways.)
+There are multiple sliders and three sets of dropdowns for each visualization. (While the majority of the rule-sets render fractals, a few just render multiple copies of the shape in interesting ways.)
+
+This code as the sliders for the first L-system, setting the translation, fractal level to 5, the grid length to 20, strokeweight to 2, alpha to 145, of the scale of the shape to 1/2 of the grid size. The L-system rotation are both set to zero.  The remaining numbers are the shape parameters.
 
 `[sliders0, sliderLabels0] = addSliders(
     10,
@@ -21,10 +23,15 @@ There are three sets of sliders for each visualization. (While the majority of t
     1,
     1,
     1
-  );
-  ruleDropdown0 = addRuleDropdown(x, 5, "hilbert");
-  shapeDropdown0 = addShapesDropdown(x, 50, "gear");
-  paletteDropdown0 = addPalettes(x, 95, "raspberry");`
+  );`
+
+These lines add the three dropdowns for the first L-system, setting the Hilbert curve as the fractal, the gear curve as the shape, and the color palette as raspberry.
+
+  `ruleDropdown0 = addRuleDropdown(x, 5, "hilbert");`  
+  `shapeDropdown0 = addShapesDropdown(x, 50, "gear");`  
+  `paletteDropdown0 = addPalettes(x, 95, "raspberry");`
+
+<p align="center"><img src="assets/basic_patterns/krishna-anklet-gear.jpg" alt="Hilbert curve with gear curve" width="500px"></p>
 
 ## The Rule-sets
 
