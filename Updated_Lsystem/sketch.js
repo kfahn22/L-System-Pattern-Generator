@@ -357,12 +357,10 @@ function addPalettes(posx, posy, choice) {
 function selectPalette(selected) {
   switch (selected) {
     case "white":
-      url =
-        "https://supercolorpalette.com/?scp=G0-hsl-FFFFFF-FFFFFF-FFFFFF-FFFFFF-FFFFFF-FFFFFF-FFFFFF";
+      url = "https://supercolorpalette.com/?scp=G0-hsl-FFFFFF";
       break;
     case "black":
-      url =
-        "https://supercolorpalette.com/?scp=G0-hsl-000000-000000-000000-000000-000000";
+      url = "https://supercolorpalette.com/?scp=G0-hsl-000000";
       break;
     case "gray":
       url =
@@ -1154,7 +1152,7 @@ function addControls(pos) {
   resetButton.mousePressed(reset);
 
   // Checkbox to add a second fractal
-  deleteSecondFractal = createCheckbox("Delete fractal 2", false);
+  deleteSecondFractal = createCheckbox("Delete L-system 2", false);
   deleteSecondFractal.position(pos + 60, 65);
   deleteSecondFractal.style("color", "white");
 

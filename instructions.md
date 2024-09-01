@@ -39,6 +39,8 @@ The rulesets can be found in the rules.json file. The majority of the rule-sets 
 
 The fractals start at different points on the canvas, and therefore need different translations. The images below show the L-systems with the starting point indicated by the red circle. If you switch fractals and don't see anything, it is most likely because the fractal needs to be translated in either the x or y direction.
 
+By default, two L-systems are rendered. You can remove the second one by checking the "Delete L-system 2" check-box.
+
 ## 🌄 Rule-set Images
 
 <!-- IMAGE-LIST:START - Do not remove or modify this section -->
@@ -151,10 +153,6 @@ The fractals start at different points on the canvas, and therefore need differe
 
 <!-- IMAGE-LIST:END -->
 
-You can remove the second fractal by checking the "Delete second fractal" box.
-
-If you choose the line and have fill checked, nothing will appear.
-
 ## Shapes
 
 The shape code can be found in the shapes.js file. While most of the shapes are closed, the spirals are by nature "open." There are therefore two different functions in the Shapes class to render the shape -- a show() and an openShow(). I have also added messaging about the shape curves which appears when the shape is selected if it is a function of the shape parameters (a, b, m, n, n1, n2, n3). For example, if the supershape is selected, this message appears:
@@ -223,10 +221,12 @@ There is an larger number of shapes in the Update_Lsystem_expanded file.
 
 ## Palettes
 
-I have utiliized [https://supercolorpalette.com](supercolorpalette) to add the color palettes. For consistency, I have added two "dummy" palettes with all white and black, as well as a gray palette. You can easily add more palettes by using the the supercolorpalette generator. Once you are happy with your colors, copy the url, and add it to the code in the selectPalette function (line 344). Remember to add the name of the color to the addPalettes dropdown or it will not appear in the paletteDropdown.
+I have utiliized [https://supercolorpalette.com](supercolorpalette) to add the color palettes. For consistency, I have added two "dummy" palettes with white and black, as well as a gray palette. You can easily add more palettes by using the the supercolorpalette generator. Once you are happy with your colors, copy the url, and add it to the code in the selectPalette function (line 344). Remember to add the name of the color to the addPalettes dropdown or it will not appear in the paletteDropdown.
 
 ## Tips
 
-The Hilbert and Peano curve rule-sets have generated the best backgrounds for me. I have found it generally best to stick to simple color palettes and use a fill with a lower alpha. My favorite backgrounds are created with the gear curve and supershape.
+- The Hilbert and Peano curve rule-sets have generated the best backgrounds for me. I have found it generally best to stick to simple color palettes and use a fill with a lower alpha. My favorite backgrounds are created with the gear curve and supershape.
 
-One downside of creating a generic shape class is that the parameters are not, in general, optimized for specific shapes. If you choose a shape and the scale is completely off, try editing either the shapeScale or the shape parameters. The ones to try first are a and b.
+- One downside of creating a generic shape class is that the parameters are not, in general, optimized for specific shapes. If you choose a shape and the scale is completely off, try editing either the shapeScale or the shape parameters. The ones to try first are a and b.
+
+- If you choose the line and have fill checked, nothing will appear.
