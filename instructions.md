@@ -217,7 +217,7 @@ The supershape curve is a f(a, b, m, n, n1, n2, n3).
 
 <!-- IMAGE-LIST:END -->
 
-There is an larger number of shapes in the Update_Lsystem_expanded file.
+There are a larger number of shapes in the Update_Lsystem_expanded file.
 
 ## Palettes
 
