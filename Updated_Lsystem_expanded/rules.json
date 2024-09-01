@@ -288,7 +288,7 @@
     "max_Level": "5",
     "author": "Paul Bourke"
   },
- 
+
   "island_curve": {
     "axiom": "F-F-F-F",
     "rules": {
@@ -387,7 +387,7 @@
     "max_Level": "5",
     "author": "William McWorter"
   },
- 
+
   "notched_square": {
     "axiom": "X*X*X*X*X*X",
     "rules": {

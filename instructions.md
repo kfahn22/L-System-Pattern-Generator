@@ -1,0 +1,166 @@
+# Instructions
+
+There are three sets of sliders for each visualization. (While the majority of the rule-sets render fractals, a few just render multiple copies of the shape in interesting ways.)
+
+`[sliders0, sliderLabels0] = addSliders(
+    10,
+    "first",
+    0.0,
+    1.0,
+    5,
+    20,
+    2,
+    145,
+    0.5,
+    0,
+    0,
+    1.5,
+    2.5,
+    6,
+    1,
+    1,
+    1,
+    1
+  );
+  ruleDropdown0 = addRuleDropdown(x, 5, "hilbert");
+  shapeDropdown0 = addShapesDropdown(x, 50, "gear");
+  paletteDropdown0 = addPalettes(x, 95, "raspberry");`
+
+## The Rule-sets
+
+The rulesets can be found in the rules.json file. The majority of the rule-sets were written by Paule Bourke. When known, I have added the author as part of the data in the json file. Another thing to note is that I was having an issue with the sketch freezing with certain fractal patterns, so I imposed some (somewhat arbitrary) contraints on the fractal level. The maxLevel field can be edited as desired.
+
+The fractals start at different points on the canvas, and therefore need different translations. If you switch fractals and don't see anything, it is most likely because the fractal needs to be translated up in the y position (which corresponds to decreasing adjy).
+
+## 🌄 Rule-set Images
+
+<!-- IMAGE-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+   <tr>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/ADH231a.jpg" alt="ADH231a Rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>ADH231a Rule-set</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/ADH256a.jpg" alt="ADH256a Rule-set" style=" display: block;
+    margin-left: auto;
+    margin-right: auto;" width="300" /><br /><sub><b><br/>ADH256a Rule-set</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/board.jpg" alt="Board rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Board rule-set</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/box.jpg" alt="Box Rule-set" style=" display: block;
+    margin-left: auto;
+    margin-right: auto;" width="300" /><br /><sub><b><br/>Box Rule-set</b></sub></a></td>
+    </tr>
+    <tr>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/cross.jpg" alt="Cross Rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Cross Rule-set</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/doily.jpg" alt="Doily Rule-set" style=" display: block;
+    margin-left: auto;
+    margin-right: auto;" width="300" /><br /><sub><b><br/>Doily Rule-set</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/dragon.jpg" alt="Dragon rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Dragon rule-set</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/fern.jpg" alt="Fern Rule-set" style=" display: block;
+    margin-left: auto;
+    margin-right: auto;" width="300" /><br /><sub><b><br/>Fern Rule-set</b></sub></a></td>
+    </tr>
+    <tr>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/fern2.jpg" alt="Fern2 Rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Fern2 Rule-set</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/fern3.jpg" alt="Fern3 Rule-set" style=" display: block;
+    margin-left: auto;
+    margin-right: auto;" width="300" /><br /><sub><b><br/>Fern3 Rule-set</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/hilbert.jpg" alt="Dragon rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Hilbert rule-set</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/island.jpg" alt="Island Rule-set" style=" display: block;
+    margin-left: auto;
+    margin-right: auto;" width="300" /><br /><sub><b><br/>Island Rule-set</b></sub></a></td>
+    </tr>
+    <tr>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/koch_curve.jpg" alt="Koch curve Rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Koch curve Rule-set</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/koch_snowflake.jpg" alt="Koch snowflake Rule-set" style=" display: block;
+    margin-left: auto;
+    margin-right: auto;" width="300" /><br /><sub><b><br/>Koch snowflake Rule-set</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/kolam.jpg" alt="Kolam rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Kolam  rule-set</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/leaf.jpg" alt="Leaf Rule-set" style=" display: block;
+    margin-left: auto;
+    margin-right: auto;" width="300" /><br /><sub><b><br/>Leaf Rule-set</b></sub></a></td>
+    </tr>
+    <tr>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/levy.jpg" alt="Levy curve Rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Levy curve Rule-set</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/mango.jpg" alt="Mango leaf Rule-set" style=" display: block;
+    margin-left: auto;
+    margin-right: auto;" width="300" /><br /><sub><b><br/>Mango leaf Rule-set</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/peano-c.jpg" alt="Peano-c rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Peano-c  rule-set</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/peano.jpg" alt="Peano Rule-set" style=" display: block;
+    margin-left: auto;
+    margin-right: auto;" width="300" /><br /><sub><b><br/>Peano Rule-set</b></sub></a></td>
+    </tr>
+    <tr>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/pendatrite.jpg" alt="Levy curve Rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Levy curve Rule-set</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/pentigree.jpg" alt="Mango leaf Rule-set" style=" display: block;
+    margin-left: auto;
+    margin-right: auto;" width="300" /><br /><sub><b><br/>Mango leaf Rule-set</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/pentiplexity.jpg" alt="Pentiplexity rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Pentiplexity Rule-set</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/quad_gosper.jpg" alt="Quadratic Gosper Rule-set" style=" display: block;
+    margin-left: auto;
+    margin-right: auto;" width="300" /><br /><sub><b><br/>Quadratic Gosper Rule-set</b></sub></a></td>
+    </tr>
+     <tr>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/quad_koch_island.jpg" alt="Quadratic koch island Rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Quadratic koch island Rule-set</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/quad_snowflake2.jpg" alt="Quadratic Snowflake Rule-set Rule-set" style=" display: block;
+    margin-left: auto;
+    margin-right: auto;" width="300" /><br /><sub><b><br/>Quadratic Snowflake Rule-set</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/recursive_circles.jpg" alt="Recursive circles rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Recursive circles Rule-set</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/recursive_circles2.jpg" alt="Recursive circles 2 Rule-set" style=" display: block;
+    margin-left: auto;
+    margin-right: auto;" width="300" /><br /><sub><b><br/>Recursive circles 2 Rule-set</b></sub></a></td>
+    </tr>
+     <tr>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/rings.jpg" alt="Rings Rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Rings Rule-set</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/rounded_star.jpg" alt="Rounded Star Rule-set Rule-set" style=" display: block;
+    margin-left: auto;
+    margin-right: auto;" width="300" /><br /><sub><b><br/>Rounded Star Rule-set</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/skeirpinski_carpet.jpg" alt="Skierpinski carpet rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Skierpinski carpet Rule-set</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/skierpinski.jpg" alt="Skierpinski Rule-set" style=" display: block;
+    margin-left: auto;
+    margin-right: auto;" width="300" /><br /><sub><b><br/>Skierpinski  Rule-set</b></sub></a></td>
+    </tr>
+     <tr>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/snake_kolam.jpg" alt="Rings Rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Rings Rule-set</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/square_skierpinski.jpg" alt="Rounded Star Rule-set Rule-set" style=" display: block;
+    margin-left: auto;
+    margin-right: auto;" width="300" /><br /><sub><b><br/>Rounded Star Rule-set</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/sticks.jpg" alt="Sticks rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Sticks  Rule-set</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/tiles.jpg" alt="Tiles Rule-set" style=" display: block;
+    margin-left: auto;
+    margin-right: auto;" width="300" /><br /><sub><b><br/>Tiles  Rule-set</b></sub></a></td>
+    </tr>
+     <tr>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/torn_square.jpg" alt="Torn Square Rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Torn Square Rule-set</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/tree.jpg" alt="Tree Rule-set Rule-set" style=" display: block;
+    margin-left: auto;
+    margin-right: auto;" width="300" /><br /><sub><b><br/>Tree Rule-set</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/triangles.jpg" alt="Triangles rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Triangles Rule-set</b></sub></a></td>
+    </tr>
+ </tbody>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- IMAGE-LIST:END -->
+
+You can remove the second fractal by checking the "Delete second fractal" box.
+
+If you choose the line and have fill checked, nothing will appear.
+
+## Shapes
+
+The shape code can be found in the shapes.js file. While most of the shapes are closed, the spirals are by nature "open." There are therefore two different functions in the Shapes class to render the shape -- a show() and an openShow(). I have also added messaging about the shape curves which appears when the shape is selected if it is a function of the shape parameters (a, b, m, n, n1, n2, n3).
+
+There is an larger number of shapes in the Update_Lsystem_expanded file.
+
+## Palettes
+
+I have utiliized [https://supercolorpalette.com](supercolorpalette) to add the color palettes. For consistency, I have added two "dummy" palettes with all white and black, as well as a gray palette. You can easily add more palettes by using the the supercolorpalette generator. Once you are happy with your colors, copy the url, and add it to the code in the selectPalette function (line 344). Remember to add the name of the color to the addPalettes dropdown or it will not appear in the paletteDropdown.
+
+## Pointers
+
+The Hilbert and Peano curve rule-sets have generated the best backgrounds for me. I have found it generally best to stick to simple color palettes and use a fill with a lower alpha. My favorite backgrounds are created with the gear curve and supershape.
+
+
+One downside of creating a generic shape class is that the parameters are not, in general, optimized for specific shapes. If you choose a shape and the scale is completely off, try editing either the shapeScale or the shape parameters. The ones to try first are a and b.

@@ -274,9 +274,11 @@ function addFractal(
     }
     turtle(palette, sliders, shapeDropdown, fillShape);
     pop();
+    if (ruleDropdown0.value() === "penrose_tiling") {
+      length = length * 0.5;
+    }
   }
   return shapeMessage;
-  //return [shapeMessage, ruleMessage];
 }
 
 // Helper functions to convert the url string to the palette array from chatGPT
@@ -462,7 +464,7 @@ function addSliders(
   sliderLabels[2] = createP("Level:");
 
   // length
-  mySliders[3] = createSlider(5, 150, length, 1);
+  mySliders[3] = createSlider(10, 400, length, 10);
   sliderLabels[3] = createP("Step length:");
 
   // strokeweight
@@ -576,16 +578,13 @@ function addRuleDropdown(posx, posy, choice) {
     "levy_curve",
     "maze",
     "mango_leaf",
-    "monotile",
     "peano",
     "peano_c",
-    "penrose_tiling",
     "pentant",
     "pentl",
     "pentigree",
     "pentaplexity",
     "pentadentrite",
-    "phyllotaxis",
     "quadratic_gosper",
     "quadratic_koch_island",
     "quadratic_koch_island2",
@@ -728,9 +727,6 @@ function pickRule(currentFractal) {
     case "maze":
       currentFractal = lsystem.maze;
       break;
-    case "monotile":
-      currentFractal = lsystem.monotile;
-      break;
     case "notched_square":
       currentFractal = lsystem.notched_square;
       break;
@@ -739,9 +735,6 @@ function pickRule(currentFractal) {
       break;
     case "peano_c":
       currentFractal = lsystem.peano_c;
-      break;
-    case "penrose_tiling":
-      currentFractal = lsystem.penrose_tiling;
       break;
     case "pentaplexity":
       currentFractal = lsystem.pentaplexity;
@@ -757,9 +750,6 @@ function pickRule(currentFractal) {
       break;
     case "pentigree":
       currentFractal = lsystem.pentigree;
-      break;
-    case "phyllotaxis":
-      currentFractal = lsystem.phyllotaxis;
       break;
     case "quadratic_gosper":
       currentFractal = lsystem.quadratic_gosper;
