@@ -288,7 +288,7 @@ class Shape {
   }
 
   supershape() {
-    for (let theta = 0; theta <= TWO_PI; theta += 0.05) {
+    for (let theta = 0; theta <= TWO_PI; theta += 0.025) {
       let r = this.superformula(theta);
       let x = this.r * r * cos(theta);
       let y = this.r * r * sin(theta);
