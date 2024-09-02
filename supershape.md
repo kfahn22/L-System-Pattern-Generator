@@ -1,12 +1,6 @@
 # Supershape
 
-These images were all created with the supershape, which is the most versatile of the curves. It also has the most parameters. Here are some basic rules of thumb on how to change to parameters to yield different shapes.
-
-m determines the number of sides
-m = 0 => circle
-m = 4 => square
-The parameters a (x direction) and b (y direction) scale the shape.
-The parameters n1 (both x and y directions), n2 (y direction), and n3 (x direction) affect the curviture of the shape. A number < 1 leads to a concave shape (bowed-in), while a number > 1 leads to a convex shape (bowed-outward).
+These images were all created with the supershape, which is the most versatile of the curves. It also has the most parameters. The parameter m determines the number of sides, with m=0 resulting in a circle and m = 4 yielding a roundish square. The best way to figure out how the parameters effect the shape is to set the rule-set to "none" and play around with the parameters.
 
 ## 🌄 Changing the Supershape Parameters
 
