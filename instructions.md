@@ -129,10 +129,10 @@ By default, two L-systems are rendered. You can remove the second one by checkin
     margin-right: auto;" width="300" /><br /><sub><b><br/>Skierpinski  Rule-set</b></sub></a></td>
     </tr>
      <tr>
-     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/snake_kolam.jpg" alt="Rings Rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Rings Rule-set</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/square_skierpinski.jpg" alt="Rounded Star Rule-set Rule-set" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/snake_kolam.jpg" alt="Snake kolam Rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Snake kolam Rule-set</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/square_skierpinski.jpg" alt="Square skeirpinski Rule-set Rule-set" style=" display: block;
     margin-left: auto;
-    margin-right: auto;" width="300" /><br /><sub><b><br/>Rounded Star Rule-set</b></sub></a></td>
+    margin-right: auto;" width="300" /><br /><sub><b><br/>Square skeirpinski Rule-set Rule-set</b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/sticks.jpg" alt="Sticks rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Sticks  Rule-set</b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/tiles.jpg" alt="Tiles Rule-set" style=" display: block;
     margin-left: auto;
