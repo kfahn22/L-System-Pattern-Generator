@@ -263,7 +263,7 @@ class Shape {
   }
 
   superellipse() {
-    for (let theta = 0; theta < TWO_PI; theta += 0.1) {
+    for (let theta = 0; theta < TWO_PI; theta += 0.05) {
       let na = 2 / this.n;
       let x = this.r * pow(abs(cos(theta)), na) * this.a * this.sgn(cos(theta));
       let y = this.r * pow(abs(sin(theta)), na) * this.b * this.sgn(sin(theta));
@@ -288,7 +288,7 @@ class Shape {
   }
 
   supershape() {
-    for (let theta = 0; theta <= TWO_PI; theta += 0.025) {
+    for (let theta = 0; theta <= TWO_PI; theta += 0.05) {
       let r = this.superformula(theta);
       let x = this.r * r * cos(theta);
       let y = this.r * r * sin(theta);

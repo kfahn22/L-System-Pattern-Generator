@@ -526,11 +526,11 @@ function addSliders(
   sliderLabels[8] = createP("Rotate shape:");
 
   // a
-  mySliders[9] = createSlider(0, 10, a, 0.25);
+  mySliders[9] = createSlider(0, 10, a, 0.05);
   sliderLabels[9] = createP("a:");
 
   // b
-  mySliders[10] = createSlider(0, 10, b, 0.25);
+  mySliders[10] = createSlider(0, 10, b, 0.05);
   sliderLabels[10] = createP("b: ");
 
   // m
@@ -542,15 +542,15 @@ function addSliders(
   sliderLabels[12] = createP("n: ");
 
   // n1
-  mySliders[13] = createSlider(0.25, 2, n1, 0.25);
+  mySliders[13] = createSlider(0.25, 5, n1, 0.05);
   sliderLabels[13] = createP("n1: ");
 
   // n2
-  mySliders[14] = createSlider(0.25, 2, n2, 0.25);
+  mySliders[14] = createSlider(0.25, 2, n2, 0.05);
   sliderLabels[14] = createP("n2: ");
 
   // n3
-  mySliders[15] = createSlider(0.25, 2, n3, 0.25);
+  mySliders[15] = createSlider(0.25, 2, n3, 0.05);
   sliderLabels[15] = createP("n3: ");
 
   for (let i = 0; i < mySliders.length; i++) {
