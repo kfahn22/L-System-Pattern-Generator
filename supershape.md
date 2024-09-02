@@ -11,9 +11,9 @@ These images were all created with the supershape, which is the most versatile o
   <tbody>
    <tr>
      <td align="center"><a href=""> <img class="img" src="assets/shape_images/supershape-m2.jpg" alt="Supershape with m = 2" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Supershape with m = 2</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="assets/shape_images/supershape-m8.jpg" alt="Supershape with m = 8" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="assets/shape_images/supershape-m6.jpg" alt="Supershape with m = 6" style=" display: block;
     margin-left: auto;
-    margin-right: auto;" width="500" /><br /><sub><b><br/>Supershape with m = 8</b></sub></a></td>
+    margin-right: auto;" width="500" /><br /><sub><b><br/>Supershape with m = 6</b></sub></a></td>
     </tr>
     <tr>
      <td align="center"><a href=""> <img class="img" src="assets/shape_images/supershape-adjust-n1.jpg" alt="Supershape with m = 8, n1 =4" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Supershape with m = 8, n1 =4</b></sub></a></td>
