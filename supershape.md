@@ -61,7 +61,7 @@ Note that the second row, the images were created with all most identical parame
     </tr>
      <tr>
      <td align="center"><a href=""> <img class="img" src="assets/ADH231a-supershape.jpg" alt="ADH231a ruleset with supershape, a = 0.9, b = 2.5, m = 8" style="vertical-align:top;" width="500" /><br /><sub><b><br/>ADH231a ruleset with supershape, a=0.9, b=2.5, m=8, n1=n2=n3=1;</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="assets/hilbert-supershape1.jpg" alt="ADH231a ruleset with supershape, a=b=n1=n2=n3=1, m = 3" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="assets/ADH231a-supershape1.jpg" alt="ADH231a ruleset with supershape, a=b=n1=n2=n3=1, m = 3" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>ADH231a ruleset with supershape, a=b=n1=n2=n3=1, m = 3</b></sub></a></td>
     </tr>
