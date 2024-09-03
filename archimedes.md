@@ -30,7 +30,7 @@ archimedesSpiral() {
      <td align="center"><a href=""> <img class="img" src="assets/ADH231a-archimedes.jpg" alt="ADH231a ruleset with archimedes spiral" style="vertical-align:top;" width="500" /><br /><sub><b><br/>ADH231a ruleset with archimedes spiral</b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="assets/rounded-star-archimedes.jpg" alt="Rounded-star ruleset with archimedes spiral" style=" display: block;
     margin-left: auto;
-    margin-right: auto;" width="500" /><br /><sub><b><br/>Krishna anklet with astroid</b></sub></a></td>
+    margin-right: auto;" width="500" /><br /><sub><b><br/>Rounded-star ruleset with archimedes spiral</b></sub></a></td>
     </tr>
     <tr>
      <td align="center"><a href=""> <img class="img" src="assets/dragons-archimedes.jpg" alt="Two dragon curves with the archimedes spiral" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Two dragon curves with the archimedes spiral</b></sub></a></td>
