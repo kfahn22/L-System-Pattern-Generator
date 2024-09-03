@@ -1,5 +1,23 @@
 # Astroid
 
+<p align="center"><img src="assets/shape_images/astroid.jpg" alt="kiss curve" width="300px"></p>
+
+Code:
+
+```JavaScript
+astroid() {
+    for (let theta = 0; theta < TWO_PI; theta += 0.05) {
+      let x = this.r * this.a * pow(cos(theta), 3);
+      let y = this.r * this.a * pow(sin(theta), 3);
+      this.points.push(createVector(x, y));
+    }
+}
+```
+
+Sources:
+[Mathcurve - astroid](https://mathcurve.com/courbes2d.gb/astroid/astroid.shtml)
+[Mathword - Astroid](https://mathworld.wolfram.com/Astroid.html)
+
 ## 🌄 Gallery
 
 <!-- IMAGE-LIST:START - Do not remove or modify this section -->

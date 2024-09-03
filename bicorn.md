@@ -1,5 +1,21 @@
 # Bicorn Curve
 
+<p align="center"><img src="assets/shape_images/astroid.jpg" alt="kiss curve" width="300px"></p>
+
+Code:
+
+```JavaScript
+bicorn() {
+    for (let theta = 0; theta < TWO_PI; theta += 0.05) {
+      let x = this.r * sin(theta);
+      let y = (this.r * pow(cos(theta), 2)) / (2 + cos(theta));
+      this.points.push(createVector(x, y));
+    }
+}
+```
+
+[Source](https://mathcurve.com/courbes2d.gb/bicorne/bicorne.shtml)
+
 ## 🌄 Gallery
 
 <!-- IMAGE-LIST:START - Do not remove or modify this section -->

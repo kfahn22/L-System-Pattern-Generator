@@ -1,6 +1,6 @@
 # Supershape
 
-These images were all created with the supershape, which is the most versatile of the curves. It also has the most parameters. The parameter m determines the number of sides, with m=0 resulting in a circle and m = 4 yielding a roundish square. The best way to figure out how the parameters effect the shape is to set the rule-set to "none" and play around with the parameters.
+These images were all created with the supershape, which is the most versatile of the curves. It also has the most parameters. The parameter m determines the number of sides, with m=0 resulting in a circle and m = 4 yielding a roundish square. The best way to figure out how the parameters effect the shape is to set the rule-set to "none" and play around with the parameters. To learn more about the supershape curve, I recommend watch Daniel Shiffman's [Supershape Coding Challenge](https://thecodingtrain.com/challenges/23-2d-supershapes). You can also find more information about the supershape and how the parameters affect the shape on [Paul Bourke's website](https://paulbourke.net/geometry/supershape/).
 
 ## 🌄 Changing the Supershape Parameters
 
@@ -20,10 +20,7 @@ These images were all created with the supershape, which is the most versatile o
      <td align="center"><a href=""> <img class="img" src="assets/shape_images/supershape-adjust-a-b.jpg" alt="Supershape with m = 8, a = 1.25, b = 1.05" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Supershape with m = 8, a = 1.25, b = 1.05</b></sub></a></td>
-    </tr>
-    
-  
-    
+    </tr>  
  </tbody>
 </table>
 
@@ -33,6 +30,33 @@ These images were all created with the supershape, which is the most versatile o
 <!-- IMAGE-LIST:END -->
 
 Note that the second row, the images were created with all most identical parameters--only the color changed. Due to the color variation in the palette in the first image, you can see the individual shapes, while in the second image they blend in and are almost indestinguishable. In the third row, the ADH231a ruleset was used, but the parameters were changed (and the shapes were filled in second image)yielding completely different patterns.
+
+Code:
+
+```JavaScript
+superformula(theta) {
+    let part1 = (1 / this.a) * cos((theta * this.m) / 4);
+    part1 = abs(part1);
+    part1 = pow(part1, this.n2);
+    let part2 = (1 / this.b) * sin((theta * this.m) / 4);
+    part2 = abs(part2);
+    part2 = pow(part2, this.n3);
+    let part3 = pow(part1 + part2, 1 / this.n1);
+    if (part3 === 0) {
+      return 0;
+    }
+    return 1 / part3;
+}
+
+supershape() {
+    for (let theta = 0; theta <= TWO_PI; theta += 0.05) {
+      let r = this.superformula(theta);
+      let x = this.r * r * cos(theta);
+      let y = this.r * r * sin(theta);
+      this.points.push(createVector(x, y));
+    }
+}
+```
 
 ## 🌄 Gallery
 
@@ -59,7 +83,6 @@ Note that the second row, the images were created with all most identical parame
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>ADH231a ruleset with supershape, a=b=n1=n2=n3=1, m = 3</b></sub></a></td>
     </tr>
-  
     
  </tbody>
 </table>
