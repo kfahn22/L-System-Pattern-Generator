@@ -4,7 +4,7 @@
 
 Code:
 
-````hyperbolicTan(theta) {
+```hyperbolicTan(theta) {
     let l = pow(e, 2 * theta);
     return (l - 1) / (l + 1);
   }
@@ -54,4 +54,3 @@ Sources:
 <!-- prettier-ignore-end -->
 
 <!-- IMAGE-LIST:END -->
-````
