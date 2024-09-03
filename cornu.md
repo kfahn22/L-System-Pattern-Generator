@@ -4,7 +4,7 @@
 
 Code:
 
-````fresnelC(t) {
+```fresnelC(t) {
     let sum = 0;
     let n = 50;
     let dt = t / n;
