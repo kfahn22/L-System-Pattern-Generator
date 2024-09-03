@@ -2,7 +2,7 @@
 
 <p align="center"><img src="assets/shape_images/kiss.jpg" alt="kiss curve" width="500px"></p>
 
-[Source](https://mathcurve.com/courbes2d.gb/bouche/bouche.shtml)
+Code:
 
 ```kissCurve() {
     for (let theta = 0; theta < TWO_PI; theta += 0.05) {
