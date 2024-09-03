@@ -183,7 +183,6 @@ class Shape {
   }
 
   // https://mathcurve.com/courbes2d.gb/bouche/bouche.shtml
-  // This one isn't working now??
   kissCurve() {
     for (let theta = 0; theta < TWO_PI; theta += 0.05) {
       let x = this.a * this.r * cos(theta);
