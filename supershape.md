@@ -29,8 +29,6 @@ These images were all created with the supershape, which is the most versatile o
 
 <!-- IMAGE-LIST:END -->
 
-Note that the second row, the images were created with all most identical parameters--only the color changed. Due to the color variation in the palette in the first image, you can see the individual shapes, while in the second image they blend in and are almost indestinguishable. In the third row, the ADH231a ruleset was used, but the parameters were changed (and the shapes were filled in second image)yielding completely different patterns.
-
 Code:
 
 ```JavaScript
@@ -57,6 +55,8 @@ supershape() {
     }
 }
 ```
+
+One of the fun things about creative coding is that small changes can lead to very different visualizations. For example, in the second row the images were created with all most identical parameters--only the color changed. Due to the color variation in the palette in the first image, you can see the individual shapes, while in the second image they blend in and are almost indestinguishable. In the third row, the ADH231a ruleset was used, but the parameters were changed (and the shapes were filled in second image)yielding completely different patterns.
 
 ## 🌄 Gallery
 
