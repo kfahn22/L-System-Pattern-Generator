@@ -18,7 +18,8 @@ gear() {
       let y = this.r * r * cos(theta);
       this.points.push(createVector(x, y));
     }
-}```
+}
+```
 
 Sources:
 
@@ -44,9 +45,6 @@ Sources:
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Recursive circles 2 with gear curve</b></sub></a></td>
     </tr>
-
-
-
  </tbody>
 </table>
 

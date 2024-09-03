@@ -41,7 +41,7 @@ cornuSpiral() {
 Sources:
 
 - [Mathcurve - cornu spiral](https://mathcurve.com/courbes2d.gb/cornu/cornu.shtml)
-- [Virtual Math Museum - clothoid]https://virtualmathmuseum.org/Curves/clothoid/kappaCurve.html
+- [Virtual Math Museum - clothoid](https://virtualmathmuseum.org/Curves/clothoid/kappaCurve.html)
 
 ## 🌄 Gallery
 
