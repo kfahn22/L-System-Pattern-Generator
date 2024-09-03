@@ -4,13 +4,14 @@
 
 Code:
 
-```kissCurve() {
+```JavaScript
+kissCurve() {
     for (let theta = 0; theta < TWO_PI; theta += 0.05) {
       let x = this.a * this.r * cos(theta);
       let y = this.b * this.r * pow(sin(theta), 3);
       this.points.push(createVector(x, y));
     }
-  }
+}
 ```
 
 [Source](https://mathcurve.com/courbes2d.gb/bouche/bouche.shtml)

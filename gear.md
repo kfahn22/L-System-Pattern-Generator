@@ -4,10 +4,11 @@
 
 Code:
 
-```hyperbolicTan(theta) {
+```JavaScript
+hyperbolicTan(theta) {
     let l = pow(e, 2 * theta);
     return (l - 1) / (l + 1);
-  }
+}
 
 gear() {
     for (let theta = 0; theta < 2 * PI; theta += 0.05) {

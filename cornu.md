@@ -4,7 +4,8 @@
 
 Code:
 
-```fresnelC(t) {
+```JavaScript
+fresnelC(t) {
     let sum = 0;
     let n = 50;
     let dt = t / n;

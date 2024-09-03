@@ -4,21 +4,22 @@ To learn mroe about the superellipse, I recommend watching Daniel Shiffman's [Co
 
 <p align="center"><img src="assets/shape_images/superellipse.jpg" alt="superellipse" width="500px"></p>
 
-```sgn(val) {
+```JavaScript
+sgn(val) {
     if (val == 0) {
       return 0;
     }
     return val / abs(val);
-  }
+}
 
-  superellipse() {
+superellipse() {
     for (let theta = 0; theta < TWO_PI; theta += 0.05) {
       let na = 2 / this.n;
       let x = this.r * pow(abs(cos(theta)), na) * this.a * this.sgn(cos(theta));
       let y = this.r * pow(abs(sin(theta)), na) * this.b * this.sgn(sin(theta));
       this.points.push(createVector(x, y));
     }
-  }
+}
 ```
 
 ## 🌄 Gallery
