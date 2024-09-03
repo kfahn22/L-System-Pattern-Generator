@@ -1,6 +1,6 @@
 # Gear Curve
 
-<p align="center"><img src="assets/shape_images/gear.jpg" alt="kiss curve" width="300px"></p>
+<p align="center"><img src="assets/shape_images/gear.jpg" alt="gear curve" width="300px"></p>
 
 Code:
 

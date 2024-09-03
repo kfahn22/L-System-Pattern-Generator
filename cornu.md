@@ -1,6 +1,6 @@
 # Cornu Spiral
 
-<p align="center"><img src="assets/shape_images/cornu.jpg" alt="kiss curve" width="500px"></p>
+<p align="center"><img src="assets/shape_images/cornu.jpg" alt="cornu spiral" width="500px"></p>
 
 Code:
 
