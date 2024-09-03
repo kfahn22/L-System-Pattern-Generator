@@ -127,6 +127,7 @@ class Shape {
       this.points.push(createVector(x, y));
     }
   }
+  
   // https://mathcurve.com/courbes2d.gb/deltoid/deltoid.shtml
 
   deltoid() {
