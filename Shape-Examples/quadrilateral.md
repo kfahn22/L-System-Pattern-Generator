@@ -1,4 +1,4 @@
-# Tear Curve
+# Quadrilateral Curve
 
 <p align="center"><img src="../assets/shape_images/quadrilateral.jpg" alt="quadrilateral" width="300px"></p>
 
