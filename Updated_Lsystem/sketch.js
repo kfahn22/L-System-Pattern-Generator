@@ -97,6 +97,7 @@ let x;
 
 // Checkbox if you want to know where the fractal starts to determine optimal placement
 let showCircle;
+let addGrain;
 
 // Preload the L-system rules
 function preload() {
@@ -117,6 +118,10 @@ function setup() {
   // Add Buttons and checkboxes
   addControls(x + 225);
 
+  // Add p5grain library
+  // Adding grain is set to false, enable with the checkbox
+  // https://github.com/meezwhite/p5.grain
+  p5grain.setup();
   // Add sliders and dropdowns for first fractal
   // addSliders(pos, idName, wadj, hadj, level, length, strokeweight, alpha, scale, rotate, rotateShape, a, b, m, n, n1, n2, n3)
   [sliders0, sliderLabels0] = addSliders(
@@ -1172,6 +1177,16 @@ function addControls(pos) {
   showCircle = createCheckbox("Show start", false);
   showCircle.position(pos + 60, 40);
   showCircle.style("color", "white");
+
+  // Whether to add P5 Grain library
+  // Will slow down the render so I recommend keeping to false most of the time
+  addGrain = createCheckbox("Add grain", false);
+  addGrain.position(pos - 90, 100);
+  addGrain.style("color", "white");
+
+  if (addGrain.checked() == true) {
+    applyChromaticGrain(42);
+  }
 
   // Have to add background color after palettes are added
   addBackgroundColor();
