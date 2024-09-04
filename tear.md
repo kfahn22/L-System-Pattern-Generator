@@ -25,7 +25,7 @@ tearDrop() {
 <table>
   <tbody>
    <tr>
-     <td align="center"><a href=""> <img class="img" src="aassets/snake-kolam-tear.jpg" alt="Snake kolam with tear curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Snake kolam with tear curve</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/snake-kolam-tear.jpg" alt="Snake kolam with tear curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Snake kolam with tear curve</b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="assets/two-levy-tear.jpg" alt="Two levy curves with tear curve" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Two levy curves with tear curve</b></sub></a></td>
