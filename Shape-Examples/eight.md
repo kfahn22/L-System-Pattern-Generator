@@ -1,6 +1,6 @@
 # Eight Curve
 
-<p align="center"><img src="assets/shape_images/eight.jpg" alt="eight" width="300px"></p>
+<p align="center"><img src="../assets/shape_images/eight.jpg" alt="eight" width="300px"></p>
 
 Code:
 
@@ -25,14 +25,14 @@ eight() {
 <table>
   <tbody>
    <tr>
-     <td align="center"><a href=""> <img class="img" src="assets/rounded-star-eight.jpg" alt="Rounded star ruleset with eight curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Rounded star ruleset with eight curve</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="assets/hilbert-eight.jpg" alt="Hilbert curve with eight curve" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="../assets/rounded-star-eight.jpg" alt="Rounded star ruleset with eight curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Rounded star ruleset with eight curve</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="../assets/hilbert-eight.jpg" alt="Hilbert curve with eight curve" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Hilbert curve with eight curve</b></sub></a></td>
     </tr>
     <tr>
-     <td align="center"><a href=""> <img class="img" src="assets/krishna-anklet-eight.jpg" alt="Krishna anklet with eight curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Krishna anklet with eight curve</b></sub></a></td>
-    <td align="center"><a href=""> <img class="img" src="assets/box-eight.jpg" alt="Box ruleset with eight curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Box ruleset with eight curve</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="../assets/krishna-anklet-eight.jpg" alt="Krishna anklet with eight curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Krishna anklet with eight curve</b></sub></a></td>
+    <td align="center"><a href=""> <img class="img" src="../assets/box-eight.jpg" alt="Box ruleset with eight curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Box ruleset with eight curve</b></sub></a></td>
  </tbody>
 </table>
 

@@ -1,6 +1,6 @@
 # Archimedes Spiral
 
-<p align="center"><img src="assets/shape_images/archimedes.jpg" alt="archimedes spiral" width="300px"></p>
+<p align="center"><img src="../assets/shape_images/archimedes.jpg" alt="archimedes spiral" width="300px"></p>
 
 Code:
 
@@ -27,14 +27,14 @@ archimedesSpiral() {
 <table>
   <tbody>
    <tr>
-     <td align="center"><a href=""> <img class="img" src="assets/ADH231a-archimedes.jpg" alt="ADH231a ruleset with archimedes spiral" style="vertical-align:top;" width="500" /><br /><sub><b><br/>ADH231a ruleset with archimedes spiral</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="assets/rounded-star-archimedes.jpg" alt="Rounded-star ruleset with archimedes spiral" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="../assets/ADH231a-archimedes.jpg" alt="ADH231a ruleset with archimedes spiral" style="vertical-align:top;" width="500" /><br /><sub><b><br/>ADH231a ruleset with archimedes spiral</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="../assets/rounded-star-archimedes.jpg" alt="Rounded-star ruleset with archimedes spiral" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Rounded-star ruleset with archimedes spiral</b></sub></a></td>
     </tr>
     <tr>
-     <td align="center"><a href=""> <img class="img" src="assets/dragons-archimedes.jpg" alt="Two dragon curves with the archimedes spiral" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Two dragon curves with the archimedes spiral</b></sub></a></td>
-    <td align="center"><a href=""> <img class="img" src="assets/hilbert-archimedes.jpg" alt="Hilbert curve with the archimedes spiral" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Hilbert curve with the archimedes spiral</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="../assets/dragons-archimedes.jpg" alt="Two dragon curves with the archimedes spiral" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Two dragon curves with the archimedes spiral</b></sub></a></td>
+    <td align="center"><a href=""> <img class="img" src="../assets/hilbert-archimedes.jpg" alt="Hilbert curve with the archimedes spiral" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Hilbert curve with the archimedes spiral</b></sub></a></td>
  </tbody>
 </table>
 

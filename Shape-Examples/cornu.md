@@ -1,6 +1,6 @@
 # Cornu Spiral
 
-<p align="center"><img src="assets/shape_images/cornu.jpg" alt="cornu spiral" width="300px"></p>
+<p align="center"><img src="../assets/shape_images/cornu.jpg" alt="cornu spiral" width="300px"></p>
 
 Code:
 
@@ -52,14 +52,14 @@ Sources:
 <table>
   <tbody>
    <tr>
-     <td align="center"><a href=""> <img class="img" src="assets/cornu-recursive-circles2.jpg" alt="Recursive circles with cornu spiral" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Recursive circles with cornu spiral</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="assets/rounded-star-cornu.jpg" alt="Rounded Star with cornu spiral" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="../assets/cornu-recursive-circles2.jpg" alt="Recursive circles with cornu spiral" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Recursive circles with cornu spiral</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="../assets/rounded-star-cornu.jpg" alt="Rounded Star with cornu spiral" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Rounded Star with cornu spiral</b></sub></a></td>
     </tr>
     <tr>
-     <td align="center"><a href=""> <img class="img" src="assets/square-skierspinski.jpg" alt="Square skierpinski with cornu spiral" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Square skierpinski with cornu spiral</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="assets/basic_patterns/hillbert-cornu.jpg" alt="Hilbert curve with cornu spiral" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="../assets/square-skierspinski.jpg" alt="Square skierpinski with cornu spiral" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Square skierpinski with cornu spiral</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="../assets/basic_patterns/hillbert-cornu.jpg" alt="Hilbert curve with cornu spiral" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Hilbert curve with cornu spiral</b></sub></a></td>
     </tr>
