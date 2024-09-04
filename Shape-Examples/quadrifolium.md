@@ -15,7 +15,7 @@ quadrifolium() {
   }
 ```
 
-[Source](https://mathcurve.com/courbes2d.gb/bouche/bouche.shtml)
+[Source](https://mathcurve.com/courbes2d.gb/trefle/trefle.shtml)
 
 ## 🌄 Gallery
 
