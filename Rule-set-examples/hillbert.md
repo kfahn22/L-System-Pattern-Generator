@@ -15,7 +15,7 @@ Ruleset
     "length_factor": "1",
     "max_Level": "5",
     "author": "Paul Bourke"
-  }
+}
 ```
 
 ## 🌄 Gallery
