@@ -1,4 +1,4 @@
-# Crystal
+# Crystal Ruleset
 
 <p align="center"><img src="../assets/rule-set-images/crystal.jpg" alt="crystal" width="300px"></p>
 
@@ -32,7 +32,7 @@ Ruleset
     </tr>
     <tr>
      <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/crystal-supershape.jpg" alt="" style="vertical-align:top;" width="500" /><br /><sub><b><br/></b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/crystal-supershape.jpg" alt="" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/crystal-supershape2.jpg" alt="" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/></b></sub></a></td>
 </tr>
