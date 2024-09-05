@@ -123,7 +123,7 @@ By default, two L-systems are rendered. You can remove the second one by checkin
      <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/rounded_star.jpg" alt="Rounded Star Rule-set Rule-set" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="300" /><br /><sub><b><br/>Rounded Star Rule-set</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/skeirpinski_carpet.jpg" alt="Skierpinski carpet rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Skierpinski carpet Rule-set</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/skierpinski_carpet.jpg" alt="Skierpinski carpet rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Skierpinski carpet Rule-set</b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/skierpinski.jpg" alt="Skierpinski Rule-set" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="300" /><br /><sub><b><br/>Skierpinski  Rule-set</b></sub></a></td>
