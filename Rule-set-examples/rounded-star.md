@@ -17,7 +17,7 @@ Ruleset
   }
 ```
 
-I have increased the scale to 1.05, decreased the alpha, and set level to 6 for most of these images.
+I have increased the scale to 1.15, set the alpha fairly low, and set level to 6 for most of these images.
 
 ## 🌄 Gallery
 
