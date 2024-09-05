@@ -98,6 +98,7 @@ let x;
 // Checkbox if you want to know where the fractal starts to determine optimal placement
 let showCircle;
 let addGrain;
+let addCircles;
 
 // Preload the L-system rules
 function preload() {
@@ -1087,6 +1088,13 @@ function reset() {
     circle(0, 0, 20);
     pop();
   }
+
+  if (addGrain.checked() == true) {
+    applyChromaticGrain(42);
+  }
+  if (addCircles.checked() == true) {
+    addRandomCircles(80);
+  }
 }
 
 // Limits added to level for certain fractals to prevent sketch from freezing!
@@ -1184,9 +1192,10 @@ function addControls(pos) {
   addGrain.position(pos - 90, 100);
   addGrain.style("color", "white");
 
-  if (addGrain.checked() == true) {
-    applyChromaticGrain(42);
-  }
+  // Add artistic style with random circles
+  addCircles = createCheckbox("Add circles", false);
+  addCircles.position(pos - 90, 125);
+  addCircles.style("color", "white");
 
   // Have to add background color after palettes are added
   addBackgroundColor();
@@ -1245,4 +1254,14 @@ function addText() {
   textSize(2 * s);
   text("IS ALL YOU NEED", 0, 0);
   pop();
+}
+
+function addRandomCircles(numCircles) {
+  push();
+  fill(220, 220, 220, 180);
+  noStroke();
+ for (let i = 0; i < numCircles; i++) {
+  circle(random(width-20), random(height-20), random(4));
+ }
+ pop();
 }
