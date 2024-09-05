@@ -26,7 +26,7 @@ Ruleset
   <tbody>
     <tr>
      <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/skierpinski-heart.jpg" alt="" style="vertical-align:top;" width="500" /><br /><sub><b><br/></b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/skeirpinski-gear.jpg" alt="" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/skierpinski-quadrilateral.jpg" alt="" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/></b></sub></a></td>
     </tr>
