@@ -1,4 +1,4 @@
-# Cross Ruleset
+# Levy Ruleset
 
 <p align="center"><img src="../assets/rule-set-images/levy.jpg" alt="levy" width="300px"></p>
 
