@@ -24,14 +24,14 @@ kissCurve() {
 <table>
   <tbody>
    <tr>
-     <td align="center"><a href=""> <img class="img" src="../assets/ADH231a-kiss.jpg" alt="ADH231a ruleset with kiss curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>ADH231a ruleset with kiss curve, a = 3.85, n = 2.5</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="../assets/hilbert-kiss.jpg" alt="Hilbert rulesset with kiss curve" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/ADH231a-kiss.jpg" alt="ADH231a ruleset with kiss curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>ADH231a ruleset with kiss curve, a = 3.85, n = 2.5</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/hilbert-kiss.jpg" alt="Hilbert rulesset with kiss curve" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Hilbert rulesset with kiss curve</b></sub></a></td>
     </tr>
     <tr>
-     <td align="center"><a href=""> <img class="img" src="../assets/rounded-cross-kiss.jpg" alt="Rounded cross ruleset with kiss curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Rounded cross ruleset with kiss curve</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="../assets/box-kiss.jpg" alt="Box rule-set with kiss curve" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/rounded-cross-kiss.jpg" alt="Rounded cross ruleset with kiss curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Rounded cross ruleset with kiss curve</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/box-kiss.jpg" alt="Box rule-set with kiss curve" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Box  rule-set with kiss curve</b></sub></a></td>
     </tr>

@@ -24,14 +24,14 @@ malteseCross() {
 <table>
   <tbody>
    <tr>
-     <td align="center"><a href=""> <img class="img" src="../assets/box-cross.jpg" alt="Box ruleset with cross curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Box ruleset with cross curve</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="../assets/recursive-circles-cross.jpg" alt="Recursive circles with cross" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/box-cross.jpg" alt="Box ruleset with cross curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Box ruleset with cross curve</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/recursive-circles-cross.jpg" alt="Recursive circles with cross" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Two Recursive circle rulesets with cross</b></sub></a></td>
     </tr>
     <tr>
-     <td align="center"><a href=""> <img class="img" src="../assets/peano-curve-cross.jpg" alt="Peano curve with cross" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Peano curve with cross, a = 2.4, b = 1.4</b></sub></a></td>
-    <td align="center"><a href=""> <img class="img" src="../assets/rounded-star-cross.jpg" alt="Round star with cross curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Round star with cross curve, a = 2, b = 2.5</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/peano-curve-cross.jpg" alt="Peano curve with cross" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Peano curve with cross, a = 2.4, b = 1.4</b></sub></a></td>
+    <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/rounded-star-cross.jpg" alt="Round star with cross curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Round star with cross curve, a = 2, b = 2.5</b></sub></a></td>
  </tbody>
 </table>
 

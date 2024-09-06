@@ -25,14 +25,14 @@ deltoid() {
 <table>
   <tbody>
    <tr>
-     <td align="center"><a href=""> <img class="img" src="../assets/kolam-deltoid.jpg" alt="Kolam ruleset with deltoid curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Kolam ruleset with deltoid curve</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="../assets/triangles-deltoid.jpg" alt="Two triangle rulesets with deltoid curve" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/kolam-deltoid.jpg" alt="Kolam ruleset with deltoid curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Kolam ruleset with deltoid curve</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/triangles-deltoid.jpg" alt="Two triangle rulesets with deltoid curve" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Two triangle rulesets with deltoid curve</b></sub></a></td>
     </tr>
     <tr>
-     <td align="center"><a href=""> <img class="img" src="../assets/hilbert-deltoid.jpg" alt="Hilbert ruleset with deltoid curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Hilbert ruleset with deltoid curve</b></sub></a></td>
-    <td align="center"><a href=""> <img class="img" src="../assets/box-deltoid.jpg" alt="Box ruleset with deltoid curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Box ruleset with deltoid curve</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/hilbert-deltoid.jpg" alt="Hilbert ruleset with deltoid curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Hilbert ruleset with deltoid curve</b></sub></a></td>
+    <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/box-deltoid.jpg" alt="Box ruleset with deltoid curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Box ruleset with deltoid curve</b></sub></a></td>
  </tbody>
 </table>
 

@@ -25,14 +25,14 @@ quadrifolium() {
 <table>
   <tbody>
    <tr>
-     <td align="center"><a href=""> <img class="img" src="../assets/ADH231a-quadrifolium.jpg" alt="ADH231a ruleset with quadrifolium curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>ADH231a ruleset with quadrifolium curve</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="../assets/kolam-quadrifolium.jpg" alt="Kolam rulesset with quadrifolium curve" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/ADH231a-quadrifolium.jpg" alt="ADH231a ruleset with quadrifolium curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>ADH231a ruleset with quadrifolium curve</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/kolam-quadrifolium.jpg" alt="Kolam rulesset with quadrifolium curve" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Kolam rulesset with quadrifolium curve</b></sub></a></td>
     </tr>
     <tr>
-     <td align="center"><a href=""> <img class="img" src="../assets/mango-leaf-quadrifolium.jpg" alt="Mango leaf ruleset with quadrifolium curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Mango leaf ruleset with quadrifolium curve</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="../assets/hilbert-quadrifolium.jpg" alt="Hilbert rule-set with quadrifolium curve" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/mango-leaf-quadrifolium.jpg" alt="Mango leaf ruleset with quadrifolium curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Mango leaf ruleset with quadrifolium curve</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/hilbert-quadrifolium.jpg" alt="Hilbert rule-set with quadrifolium curve" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Box  rule-set with kiss curve</b></sub></a></td>
     </tr>

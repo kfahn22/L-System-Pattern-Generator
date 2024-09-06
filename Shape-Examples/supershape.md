@@ -64,20 +64,20 @@ One of the fun things about creative coding is that small changes can lead to ve
 <table>
   <tbody>
    <tr>
-     <td align="center"><a href=""> <img class="img" src="assets/krisha-anklet-supershape.jpg" alt="Krishna anklet with supershape curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Krishna anklet with supershape curve</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="../assets/pentaplexity-supershape.jpg" alt="Pentaplexity with supershape" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="a../ssets/Ruleset-shape-examples/krisha-anklet-supershape.jpg" alt="Krishna anklet with supershape curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Krishna anklet with supershape curve</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/pentaplexity-supershape.jpg" alt="Pentaplexity with supershape" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Pentaplexity with supershape</b></sub></a></td>
     </tr>
     <tr>
-     <td align="center"><a href=""> <img class="img" src="../assets/hilbert-supershape1.jpg" alt="Hilbert curve with supershape" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Hilbert curve with supershape</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="../assets/hilbert-supershape2.jpg" alt="Hilbert curve with supershape" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/hilbert-supershape1.jpg" alt="Hilbert curve with supershape" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Hilbert curve with supershape</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/hilbert-supershape2.jpg" alt="Hilbert curve with supershape" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Hilbert curve with supershape</b></sub></a></td>
     </tr>
      <tr>
-     <td align="center"><a href=""> <img class="img" src="../assets/ADH231a-supershape.jpg" alt="ADH231a ruleset with supershape, a = 0.9, b = 2.5, m = 8" style="vertical-align:top;" width="500" /><br /><sub><b><br/>ADH231a ruleset with supershape, a=0.9, b=2.5, m=8, n1=n2=n3=1;</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="../assets/ADH231a-supershape1.jpg" alt="ADH231a ruleset with supershape, a=b=n1=n2=n3=1, m = 3" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/ADH231a-supershape.jpg" alt="ADH231a ruleset with supershape, a = 0.9, b = 2.5, m = 8" style="vertical-align:top;" width="500" /><br /><sub><b><br/>ADH231a ruleset with supershape, a=0.9, b=2.5, m=8, n1=n2=n3=1;</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/ADH231a-supershape1.jpg" alt="ADH231a ruleset with supershape, a=b=n1=n2=n3=1, m = 3" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>ADH231a ruleset with supershape, a=b=n1=n2=n3=1, m = 3</b></sub></a></td>
     </tr>

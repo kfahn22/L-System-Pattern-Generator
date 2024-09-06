@@ -22,14 +22,14 @@ quadrilaterial() {
 <table>
   <tbody>
    <tr>
-     <td align="center"><a href=""> <img class="img" src="../assets/peano-quadrilateral.jpg" alt="Peano ruleset with quadrilateral curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Peano ruleset with quadrilateral curve</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="../assets/adh231a-quadrilateral.jpg" alt="ADH231a ruleset with quadrilateral curve" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/peano-quadrilateral.jpg" alt="Peano ruleset with quadrilateral curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Peano ruleset with quadrilateral curve</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/adh231a-quadrilateral.jpg" alt="ADH231a ruleset with quadrilateral curve" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>ADH231a ruleset with quadrilateral curve</b></sub></a></td>
     </tr>
     <tr>
-     <td align="center"><a href=""> <img class="img" src="../assets/hilbert-quadrilateral.jpg" alt="Hilbert ruleset with quadrilateral curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Hilbert ruleset with quadrilateral curve</b></sub></a></td>
-    <td align="center"><a href=""> <img class="img" src="../assets/skierpinski-carpet-quadrilateral.jpg" alt="Hilbert ruleset with quadrilateral curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Skierpinski carpet with quadrilateral curve</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/hilbert-quadrilateral.jpg" alt="Hilbert ruleset with quadrilateral curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Hilbert ruleset with quadrilateral curve</b></sub></a></td>
+    <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/skierpinski-carpet-quadrilateral.jpg" alt="Hilbert ruleset with quadrilateral curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Skierpinski carpet with quadrilateral curve</b></sub></a></td>
  </tbody>
 </table>
 
