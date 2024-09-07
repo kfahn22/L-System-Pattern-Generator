@@ -20,17 +20,17 @@ I have discovered that both the Hilbert and Peano curve rule-sets can be used to
 
 Hilbert curve rule-set with gear curve (purple background) and ADH23a ruleset with bicorn shape:
 
-<p align="center"><img src="assets/hillbert-ADH23a.jpg" alt="Hilbert ruleset with ADH23a design" width="500px"></p>
+<p align="center"><img src="../assets/Ruleset-shape-examples/hillbert-ADH23a.jpg" alt="Hilbert ruleset with ADH23a design" width="500px"></p>
 
 Peano curve rule-set with superellipse and rounded cross:
 
-<p align="center"><img src="assets/peano-rounded-cross.jpg" alt="Peano rule-set with rounded cross" width="500px"></p>
+<p align="center"><img src="../assets/Ruleset-shape-examples/peano-rounded-cross.jpg" alt="Peano rule-set with rounded cross" width="500px"></p>
 
 ## Fractal Trees
 
 Of course, one of the original applications for L-systems is creating realistic looking trees. I think adding a shape to the rule-set can improve the look of the trees. For example, here is a tree rendered with the zig-zag curve.
 
-<p align="center"><img src="assets/tree-zig-zag.jpg" alt="Tree rule-set with zig-zag curve" width="500px"></p>
+<p align="center"><img src="../assets/Ruleset-shape-examples/tree-zig-zag.jpg" alt="Tree rule-set with zig-zag curve" width="500px"></p>
 
 ## Palettes
 
@@ -46,34 +46,34 @@ You can find example sketches [here](https://editor.p5js.org/kfahn/collections/B
 <table>
   <tbody>
    <tr>
-     <td align="center"><a href=""> <img class="img" src="assets/dragon-astroid-filled.jpg" alt="Dragon curve with astroid" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Dragon curve with astroid</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="assets/dragon-archimedes-spiral.jpg" alt="Dragon rule-set with archimedes spiral" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/dragon-astroid-filled.jpg" alt="Dragon curve with astroid" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Dragon curve with astroid</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/dragon-archimedes-spiral.jpg" alt="Dragon rule-set with archimedes spiral" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Dragon rule-set with archimedes spiral</b></sub></a></td>
     </tr>
     <tr>
-     <td align="center"><a href=""> <img class="img" src="assets/krishna-anklet-gear.jpg" alt="Krishna's Anklet rule-set with gear curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Krishna's Anklet rule-set with gear curve</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="assets/mango-astroid.jpg" alt="Mango leaf filled with astroid shape" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/krishna-anklet-gear.jpg" alt="Krishna's Anklet rule-set with gear curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Krishna's Anklet rule-set with gear curve</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="../Ruleset-shape-examples/assets/mango-astroid.jpg" alt="Mango leaf filled with astroid shape" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Mango leaf with astroid shape</b></sub></a></td>
     </tr>
     <tr>
-     <td align="center"><a href=""> <img class="img" src="assets/doily-cornu-spiral.jpg" alt="Doily rule-set with cornu spiral" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Doily rule-set with cornu spiral</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="assets/square-skierpinkski-lissajous.jpg" alt="Square skierpinski with lissajous curve" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/doily-cornu-spiral.jpg" alt="Doily rule-set with cornu spiral" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Doily rule-set with cornu spiral</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/square-skierpinkski-lissajous.jpg" alt="Square skierpinski with lissajous curve" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Square skierpinski with lissajous curve</b></sub></a></td>
 </tr>
 <tr>
-      <td align="center"><a href=""> <img class="img" src="assets/crystal-rose.jpg" alt="Crystal rule-set with rose curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Crystal rule-set with rose curve</b></sub></a></td>
-      <td align="center"><a href=""> <img class="img" src="assets/crystal-ceva.jpg" alt="Crystal rule-set with ceva curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Crystal rule-set with ceva curve</b></sub></a></td>
+      <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/crystal-rose.jpg" alt="Crystal rule-set with rose curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Crystal rule-set with rose curve</b></sub></a></td>
+      <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/crystal-ceva.jpg" alt="Crystal rule-set with ceva curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Crystal rule-set with ceva curve</b></sub></a></td>
        </tr>
     <tr>
-       <td align="center"><a href=""> <img class="img" src="assets/snake-kolam-kiss.jpg" alt="Snake kolam rule set with kiss curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Snake kolam rule set with kiss curve</b></sub></a></td>
-       <td align="center"><a href=""> <img class="img" src="assets/krisha-anklet-supershape.jpg" alt="Krisna anklet with the supershape" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Krisna anklet with the supershape</b></sub></a></td>
+       <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/snake-kolam-kiss.jpg" alt="Snake kolam rule set with kiss curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Snake kolam rule set with kiss curve</b></sub></a></td>
+       <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/krisha-anklet-supershape.jpg" alt="Krisna anklet with the supershape" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Krisna anklet with the supershape</b></sub></a></td>
   </tr>
   <tr>
-      <td align="center"><a href=""> <img class="img" src="assets/peano-recursive-circles.jpg" alt="Peano ruleset background with recursive circles" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Peano ruleset background with recursive circles</b></sub></a></td>
-      <td align="center"><a href=""> <img class="img" src="assets/hillbert-circular.jpg" alt="Hilbert ruleset background with circular ruleset" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Hilbert ruleset background with circular ruleset</b></sub></a></td>
+      <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/peano-recursive-circles.jpg" alt="Peano ruleset background with recursive circles" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Peano ruleset background with recursive circles</b></sub></a></td>
+      <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/hillbert-circular.jpg" alt="Hilbert ruleset background with circular ruleset" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Hilbert ruleset background with circular ruleset</b></sub></a></td>
        </tr>
   
     
