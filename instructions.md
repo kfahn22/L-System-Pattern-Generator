@@ -54,16 +54,16 @@ By default, two L-systems are rendered. You can remove the second one by checkin
     margin-left: auto;
     margin-right: auto;" width="300" /><br /><sub><b><br/>ADH256a Rule-set</b></sub></a></td>
      <td align="center"><a href="Rule-set-examples/board.md"> <img class="img" src="assets/rule-set-images/board.jpg" alt="Board rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Board rule-set</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/box.jpg" alt="Box Rule-set" style=" display: block;
+     <td align="center"><a href="Rule-set-examples/box.md"> <img class="img" src="assets/rule-set-images/box.jpg" alt="Box Rule-set" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="300" /><br /><sub><b><br/>Box Rule-set</b></sub></a></td>
     </tr>
     <tr>
      <td align="center"><a href="Rule-set-examples/cross.md"> <img class="img" src="assets/rule-set-images/cross.jpg" alt="Cross Rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Cross Rule-set</b></sub></a></td>
-     <td align="center"><a href="Rule-set-examples/dragon.md"> <img class="img" src="assets/rule-set-images/doily.jpg" alt="Doily Rule-set" style=" display: block;
+     <td align="center"><a href="Rule-set-examples/doily.md"> <img class="img" src="assets/rule-set-images/doily.jpg" alt="Doily Rule-set" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="300" /><br /><sub><b><br/>Doily Rule-set</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/dragon.jpg" alt="Dragon rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Dragon rule-set</b></sub></a></td>
+     <td align="center"><a href="Rule-set-examples/dragon.md"> <img class="img" src="assets/rule-set-images/dragon.jpg" alt="Dragon rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Dragon rule-set</b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/fern.jpg" alt="Fern Rule-set" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="300" /><br /><sub><b><br/>Fern Rule-set</b></sub></a></td>
