@@ -1,6 +1,6 @@
 # Quadratic Snowflake Ruleset
 
-<p align="center"><img src="../assets/rule-set-images/quad_snowflake.jpg" alt="Quadratic snowflake" width="300px"></p>
+<p align="center"><img src="../assets/rule-set-images/quad_snowflake2.jpg" alt="Quadratic snowflake" width="300px"></p>
 
 Ruleset
 
