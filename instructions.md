@@ -79,7 +79,7 @@ By default, two L-systems are rendered. You can remove the second one by checkin
     margin-right: auto;" width="300" /><br /><sub><b><br/>Island Rule-set</b></sub></a></td>
     </tr>
     <tr>
-     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/koch_curve.jpg" alt="Koch curve Rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Koch curve Rule-set</b></sub></a></td>
+     <td align="center"><a href="Rule-set-examples/koch_curve.md"> <img class="img" src="assets/rule-set-images/koch_curve.jpg" alt="Koch curve Rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Koch curve Rule-set</b></sub></a></td>
      <td align="center"><a href="Rule-set-examples/koch_snowflake.md"> <img class="img" src="assets/rule-set-images/koch_snowflake.jpg" alt="Koch snowflake Rule-set" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="300" /><br /><sub><b><br/>Koch snowflake Rule-set</b></sub></a></td>
