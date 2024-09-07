@@ -1260,8 +1260,8 @@ function addRandomCircles(numCircles) {
   push();
   fill(220, 220, 220, 180);
   noStroke();
- for (let i = 0; i < numCircles; i++) {
-  circle(random(width-20), random(height-20), random(4));
- }
- pop();
+  for (let i = 0; i < numCircles; i++) {
+    circle(random(width - 20), random(height - 20), random(4));
+  }
+  pop();
 }
