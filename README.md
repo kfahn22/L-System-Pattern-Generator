@@ -14,7 +14,7 @@ Daniel Shiffman recently recleased a [Coding Challenge](https://thecodingtrain.c
 
 Since many of the shapes are a function of parameters that can be altered, I added sliders to experiment with different rule-set/shape curve combinations. Sometimes when you insert a shape into a rule-set, the result is quite different from the typical visualization. One example is inserting the cassini curve into the Hilbert rule-set. I am not sure that many people would look at this image and realize how it was generated.
 
-<p align="center"><img src="assets/hillbert-cassini.jpg" alt="Hillbert rule-set with cassini oval" width="500px"></p>
+<p align="center"><img src="assets/Ruleset-shape-examples/hillbert-cassini.jpg" alt="Hillbert rule-set with cassini oval" width="500px"></p>
 
 I have discovered that both the Hilbert and Peano curve rule-sets can be used to generate some nice backgrounds. Here are two examples.
 
@@ -46,19 +46,19 @@ You can find example sketches [here](https://editor.p5js.org/kfahn/collections/B
 <table>
   <tbody>
    <tr>
-     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/dragon-astroid-filled.jpg" alt="Dragon curve with astroid" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Dragon curve with astroid</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/dragon-archimedes-spiral.jpg" alt="Dragon rule-set with archimedes spiral" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/dragon1-astroid-filled.jpg" alt="Dragon curve with astroid" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Dragon curve with astroid</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/double-dragon.jpg" alt="Dragon rule-set with archimedes spiral" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Dragon rule-set with archimedes spiral</b></sub></a></td>
     </tr>
     <tr>
      <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/krishna-anklet-gear.jpg" alt="Krishna's Anklet rule-set with gear curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Krishna's Anklet rule-set with gear curve</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="../Ruleset-shape-examples/assets/mango-astroid.jpg" alt="Mango leaf filled with astroid shape" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/mango-astroid.jpg" alt="Mango leaf filled with astroid shape" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Mango leaf with astroid shape</b></sub></a></td>
     </tr>
     <tr>
-     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/doily-cornu-spiral.jpg" alt="Doily rule-set with cornu spiral" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Doily rule-set with cornu spiral</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/doily-deltoid.jpg" alt="Doily rule-set with cornu spiral" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Doily rule-set with cornu spiral</b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/square-skierpinkski-lissajous.jpg" alt="Square skierpinski with lissajous curve" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Square skierpinski with lissajous curve</b></sub></a></td>
