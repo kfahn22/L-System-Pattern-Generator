@@ -99,10 +99,10 @@ By default, two L-systems are rendered. You can remove the second one by checkin
     margin-right: auto;" width="300" /><br /><sub><b><br/>Peano Rule-set</b></sub></a></td>
     </tr>
     <tr>
-     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/pendatrite.jpg" alt="Levy curve Rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Levy curve Rule-set</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/pentigree.jpg" alt="Mango leaf Rule-set" style=" display: block;
+     <td align="center"><a href="Rule-set-examples/pentadentrite.md"> <img class="img" src="assets/rule-set-images/pentadentrite.jpg" alt="Pentadentrite curve Rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Pentadentrite curve Rule-set</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/pentigree.jpg" alt="Pentigree Rule-set" style=" display: block;
     margin-left: auto;
-    margin-right: auto;" width="300" /><br /><sub><b><br/>Mango leaf Rule-set</b></sub></a></td>
+    margin-right: auto;" width="300" /><br /><sub><b><br/>Pentigree Rule-set</b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/pentaplexity.jpg" alt="Pentaplexity rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Pentaplexity Rule-set</b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/quad_gosper.jpg" alt="Quadratic Gosper Rule-set" style=" display: block;
     margin-left: auto;
