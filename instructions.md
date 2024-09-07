@@ -93,8 +93,8 @@ By default, two L-systems are rendered. You can remove the second one by checkin
      <td align="center"><a href="Rule-set-examples/mango-leaf.md"> <img class="img" src="assets/rule-set-images/mango.jpg" alt="Mango leaf Rule-set" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="300" /><br /><sub><b><br/>Mango leaf Rule-set</b></sub></a></td>
-     <td align="center"><a href="Rule-set-examples/peano.md"> <img class="img" src="assets/rule-set-images/peano-c.jpg" alt="Peano-c rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Peano-c  rule-set</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/peano.jpg" alt="Peano Rule-set" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/peano-c.jpg" alt="Peano-c rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Peano-c  rule-set</b></sub></a></td>
+     <td align="center"><a href="Rule-set-examples/peano.md"> <img class="img" src="assets/rule-set-images/peano.jpg" alt="Peano Rule-set" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="300" /><br /><sub><b><br/>Peano Rule-set</b></sub></a></td>
     </tr>
@@ -110,7 +110,7 @@ By default, two L-systems are rendered. You can remove the second one by checkin
     </tr>
      <tr>
      <td align="center"><a href="Rule-set-examples/quadratic_koch_island.md"> <img class="img" src="assets/rule-set-images/quad_koch_island.jpg" alt="Quadratic koch island Rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Quadratic koch island Rule-set</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/quad_snowflake2.jpg" alt="Quadratic Snowflake Rule-set Rule-set" style=" display: block;
+     <td align="center"><a href="Rule-set-examples/quadratic_snowflake.md"> <img class="img" src="assets/rule-set-images/quad_snowflake2.jpg" alt="Quadratic Snowflake Rule-set Rule-set" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="300" /><br /><sub><b><br/>Quadratic Snowflake Rule-set</b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="assets/rule-set-images/recursive_circles.jpg" alt="Recursive circles rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Recursive circles Rule-set</b></sub></a></td>
