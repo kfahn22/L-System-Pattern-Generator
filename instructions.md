@@ -155,7 +155,25 @@ By default, two L-systems are rendered. You can remove the second one by checkin
 
 ## Shapes
 
-The shape code can be found in the shapes.js file. While most of the shapes are closed, the spirals are by nature "open." There are therefore two different functions in the Shapes class to render the shape -- a show() and an openShow(). I have also added messaging about the shape curves which appears when the shape is selected if it is a function of the shape parameters (a, b, m, n, n1, n2, n3). For example, if the supershape is selected, this message appears:
+The shape code can be found in the shapes.js file. The pickShape function adds a new Shape and then a switch statement is used to select the specific shape choosen by the user.
+
+```JavaScript
+selectedShape = new Shape(
+    0,
+    0,
+    length * shapeScale,
+    a,
+    b,
+    m,
+    n,
+    n1,
+    n2,
+    n3,
+    shapeAngle
+);
+```
+
+While most of the shapes are closed, the spirals are by nature "open." There are therefore two different functions in the Shapes class to render the shape -- a show() and an openShow(). I have also added messaging about the shape curves which appears when the shape is selected if it is a function of the shape parameters (a, b, m, n, n1, n2, n3). For example, if the supershape is selected, this message appears:
 
 The supershape curve is a f(a, b, m, n, n1, n2, n3).
 
@@ -177,7 +195,7 @@ The supershape curve is a f(a, b, m, n, n1, n2, n3).
     margin-right: auto;" width="300" /><br /><sub><b><br/>Cassini oval</b></sub></a></td>
     </tr>
     <tr>
-     <td align="center"><a href=""> <img class="img" src="assets/shape_images/ceva.jpg" alt="Ceva" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Ceva</b></sub></a></td>
+     <td align="center"><a href="Shape-Examples/ceva.md"> <img class="img" src="assets/shape_images/ceva.jpg" alt="Ceva" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Ceva</b></sub></a></td>
      <td align="center"><a href="Shape-Examples/cornu.md"> <img class="img" src="assets/shape_images/cornu.jpg" alt="Cornu spiral" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="300" /><br /><sub><b><br/>Cornu Spiral</b></sub></a></td>
