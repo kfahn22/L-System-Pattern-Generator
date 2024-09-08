@@ -345,7 +345,8 @@ function addPalettes(posx, posy, choice) {
     "primary",
     "sunny",
     "orange_green",
-    "picture",
+    "navy",
+    //"picture",
   ];
 
   paletteDropdown = createSelect();
@@ -464,10 +465,14 @@ function selectPalette(selected) {
       url =
         "https://supercolorpalette.com/?scp=G0-hsl-BF1FFF-9C24FF-7B29FF-5B2EFF-3D33FF-384FFF-3D74FF-4297FF-47B9FF-4DD8FF";
       break;
-    case "picture":
+    case "navy":
       url =
-        "https://supercolorpalette.com/?scp=G0-hsl-9ca227-af5125-98b7c5-eae0c1-765938";
+        "https://supercolorpalette.com/?scp=G0-hsl-240184-1C0193-1101A2-0401B2-010EC1-0120D0-0135DF-014CEF";
       break;
+    // case "picture":
+    //   url =
+    //     "https://supercolorpalette.com/?scp=G0-hsl-9ca227-af5125-98b7c5-eae0c1-765938";
+    //   break;
   }
 }
 
@@ -632,6 +637,7 @@ function addRuleDropdown(posx, posy, choice) {
     "skierpinski_carpet",
     "sticks",
     "tiles",
+    "tiles2",
     "torn_square",
     "tree",
     "triangle",
@@ -792,6 +798,9 @@ function pickRule(currentFractal) {
       currentFractal = lsystem.sticks;
       break;
     case "tiles":
+      currentFractal = lsystem.tiles;
+      break;
+    case "tiles2":
       currentFractal = lsystem.tiles;
       break;
     case "tree":
