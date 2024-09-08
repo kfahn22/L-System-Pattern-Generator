@@ -33,7 +33,7 @@ Sources:
     </tr>
     <tr>
      <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/dd-astroid.jpg" alt="Two dragon curves with astroid" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Two dragon curves with astroid</b></sub></a></td>
-    <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/dragon-astroid-filled.jpg" alt="Dragon curve with astroid" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Dragon curve with astroid</b></sub></a></td>
+    <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/dragon1-astroid-filled.jpg" alt="Dragon curve with astroid" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Dragon curve with astroid</b></sub></a></td>
  </tbody>
 </table>
 
