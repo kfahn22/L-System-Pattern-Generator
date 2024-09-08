@@ -11,7 +11,7 @@
   <tbody>
    <tr>
      <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/peano-cassini2.jpg" alt="Peano ruleset with cassini oval" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Peano with cassini oval, a = 0.7, b =0.9</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/peano-cassini-3.jpg" alt="Peano rulesset with cassini oval" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/peano-cassini-3.jpg" alt="Peano rule-set with cassini oval" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Peano ruleset with cassini oval</b></sub></a></td>
     </tr>
