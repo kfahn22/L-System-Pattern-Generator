@@ -47,7 +47,7 @@ You can find example sketches [here](https://editor.p5js.org/kfahn/collections/B
   <tbody>
    <tr>
      <td align="center"><a href=""> <img class="img" src="assets/Ruleset-shape-examples/dragon1-astroid-filled.jpg" alt="Dragon curve with astroid" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Dragon curve with astroid</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="assets/Ruleset-shape-examples/double-dragon.jpg" alt="Dragon rule-set with archimedes spiral" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="assets/Ruleset-shape-examples/dragons-archimedes.jpg" alt="Dragon rule-set with archimedes spiral" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Dragon rule-set with archimedes spiral</b></sub></a></td>
     </tr>
@@ -58,14 +58,14 @@ You can find example sketches [here](https://editor.p5js.org/kfahn/collections/B
     margin-right: auto;" width="500" /><br /><sub><b><br/>Mango leaf with astroid shape</b></sub></a></td>
     </tr>
     <tr>
-     <td align="center"><a href=""> <img class="img" src="assets/Ruleset-shape-examples/doily-deltoid.jpg" alt="Doily rule-set with cornu spiral" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Doily rule-set with cornu spiral</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/Ruleset-shape-examples/doily-deltoid.jpg" alt="Doily rule-set with cornu spiral" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Doily rule-set with deltoid spiral</b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="assets/Ruleset-shape-examples/square-skierpinkski-lissajous.jpg" alt="Square skierpinski with lissajous curve" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Square skierpinski with lissajous curve</b></sub></a></td>
 </tr>
 <tr>
       <td align="center"><a href=""> <img class="img" src="assets/Ruleset-shape-examples/crystal-rose.jpg" alt="Crystal rule-set with rose curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Crystal rule-set with rose curve</b></sub></a></td>
-      <td align="center"><a href=""> <img class="img" src="assets/Ruleset-shape-examples/crystal-ceva.jpg" alt="Crystal rule-set with ceva curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Crystal rule-set with ceva curve</b></sub></a></td>
+      <td align="center"><a href=""> <img class="img" src="assets/Ruleset-shape-examples/box-ceva.jpg" alt="Box rule-set with ceva curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Box rule-set with ceva curve</b></sub></a></td>
        </tr>
     <tr>
        <td align="center"><a href=""> <img class="img" src="assets/Ruleset-shape-examples/snake-kolam-kiss.jpg" alt="Snake kolam rule set with kiss curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Snake kolam rule set with kiss curve</b></sub></a></td>
