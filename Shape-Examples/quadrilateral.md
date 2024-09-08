@@ -29,7 +29,7 @@ quadrilaterial() {
     </tr>
     <tr>
      <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/hilbert-quadrilateral.jpg" alt="Hilbert ruleset with quadrilateral curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Hilbert ruleset with quadrilateral curve</b></sub></a></td>
-    <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/skierpinski-carpet-quadrilateral.jpg" alt="Hilbert ruleset with quadrilateral curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Skierpinski carpet with quadrilateral curve</b></sub></a></td>
+    <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/koch-snowflake-quadrilateral.jpg" alt="Koch snowflake ruleset with quadrilateral curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Koch snowflake ruleset with quadrilateral curve</b></sub></a></td>
  </tbody>
 </table>
 

@@ -64,7 +64,7 @@ One of the fun things about creative coding is that small changes can lead to ve
 <table>
   <tbody>
    <tr>
-     <td align="center"><a href=""> <img class="img" src="a../ssets/Ruleset-shape-examples/krisha-anklet-supershape.jpg" alt="Krishna anklet with supershape curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Krishna anklet with supershape curve</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/krisha-anklet-supershape.jpg" alt="Krishna anklet with supershape curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Krishna anklet with supershape curve</b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/pentaplexity-supershape.jpg" alt="Pentaplexity with supershape" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Pentaplexity with supershape</b></sub></a></td>
