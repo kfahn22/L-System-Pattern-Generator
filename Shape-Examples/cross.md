@@ -25,7 +25,7 @@ malteseCross() {
   <tbody>
    <tr>
      <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/box-cross.jpg" alt="Box ruleset with cross curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Box ruleset with cross curve</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/recursive-circles-cross.jpg" alt="Recursive circles with cross" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/cross-cross.jpg" alt="Recursive circles with cross" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Two Recursive circle rulesets with cross</b></sub></a></td>
     </tr>
