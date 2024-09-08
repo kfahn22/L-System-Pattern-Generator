@@ -59,7 +59,7 @@ Sources:
     </tr>
     <tr>
      <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/square-skierspinski.jpg" alt="Square skierpinski with cornu spiral" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Square skierpinski with cornu spiral</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/basic_patterns/hillbert-cornu.jpg" alt="Hilbert curve with cornu spiral" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="../assets/basic_patterns/hillbert-cornu.jpg" alt="Hilbert curve with cornu spiral" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Hilbert curve with cornu spiral</b></sub></a></td>
     </tr>
