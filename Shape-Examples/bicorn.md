@@ -1,6 +1,6 @@
 # Bicorn Curve
 
-<p align="center"><img src="../assets/shape_images/astroid.jpg" alt="bicorn" width="300px"></p>
+<p align="center"><img src="../assets/shape_images/bicorn.jpg" alt="bicorn" width="300px"></p>
 
 Code:
 
