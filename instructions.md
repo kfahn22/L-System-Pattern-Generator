@@ -35,7 +35,9 @@ The next lines add the three dropdowns for the first L-system, setting the Hilbe
 
 ## The Rule-sets
 
-The rulesets can be found in the rules.json file. The majority of the rule-sets were written by Paule Bourke. When known, I have added the author as part of the data in the json file. Another thing to note is that I was having an issue with the sketch freezing with certain fractal patterns, so I imposed some (somewhat arbitrary) contraints on the fractal level. I have added alerts when the level is above the maxLevel I have set for the ruleset, and it is automatically constrained at the maxLevel. Of course, the maxLevel field can be edited as desired.
+The rulesets can be found in the rules.json file. The majority of the rule-sets were written by [Paul Bourke](https://paulbourke.net/fractals/lsys/). I found another very nice resource on rulesets by Dmytro Fedoriaka [here](https://fedimser.github.io/l-systems.html). When known, I have added the author as part of the data in the json file.  
+
+Another thing to note is that I was having an issue with the sketch freezing with certain fractal patterns, so I imposed some (somewhat arbitrary) contraints on the fractal level. I have added alerts when the level is above the maxLevel I have set for the ruleset, and it is automatically constrained at the maxLevel. Of course, the maxLevel field can be edited as desired.
 
 The fractals start at different points on the canvas, and therefore need different translations. The images below show the L-systems with the starting point indicated by the red circle. If you switch fractals and don't see anything, it is most likely because the fractal needs to be translated in either the x or y direction.
 
