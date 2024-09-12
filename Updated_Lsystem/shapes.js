@@ -26,10 +26,26 @@ class Shape {
   archimedesSpiral() {
     let a = 0.1;
     let dir = -1;
-    for (let theta = 0; theta < 4 * PI; theta += 0.1) {
+    for (let theta = 0; theta < 4 * PI; theta += 0.05) {
       let r = dir * a * pow(theta, this.n);
       let x = this.r * r * cos(theta);
       let y = this.r * r * sin(theta);
+      this.points.push(createVector(x, y));
+    }
+  }
+
+  arc() {
+    for (let theta = 0; theta < 1.5 * PI; theta += 0.05) {
+      let x = this.r * cos(theta);
+      let y = this.r * sin(theta);
+      this.points.push(createVector(x, y));
+    }
+  }
+
+  half_arc() {
+    for (let theta = 0; theta < PI; theta += 0.05) {
+      let x = this.r * cos(theta);
+      let y = this.r * sin(theta);
       this.points.push(createVector(x, y));
     }
   }
@@ -80,6 +96,19 @@ class Shape {
       let y = this.r * sin(3 * theta);
       this.points.push(createVector(x, y));
     }
+  }
+
+  circle() {
+    for (let theta = 0; theta < TWO_PI; theta += 0.05) {
+      let x = this.r * cos(theta);
+      let y = this.r * sin(theta);
+      this.points.push(createVector(x, y));
+    }
+    // push();
+    // translate(this.x, this.y);
+    // rotate(this.angle);
+    // circle(0, 0, length / 2);
+    // pop();
   }
 
   // https://mathcurve.com/courbes2d.gb/cornu/cornu.shtml

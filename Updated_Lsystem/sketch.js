@@ -7,11 +7,8 @@
 
 // You can find additional information about code at https://github.com/kfahn22/L-System-Pattern-Generator
 
-// let level; // fractal level
-// let length; // step length
 let axiom;
 let sentence;
-//let angle; // angle of fractal rotation
 let rules = {};
 let fractals = {};
 let currentFractal0;
@@ -52,29 +49,23 @@ let n1, n2, n3;
 // Buttons and checkboxes
 let resetButton; // Reset both fractals
 
-let deleteSecondFractal; // Whether to add a second fractal
+let addSecondFractal; // Whether to add a second fractal
 
 // Color variables
 // whether the shapes are filled or stroke
 let fillShape0;
 let fillShape1;
+let addStroke0;
+let addStroke1;
 
-// Checkboxes for background color
-// let blackBackground; // background black? (true or false)
-// let whiteBackground; // background white? (true or false)
-// let colorBackground; // background comes from 1st palette (true) or 3nd palette (false)
-
-// Drop downs to select rule, pattern, and colors
-let shapeDropdown0;
-let shapeDropdown1;
-let ruleDropdown0;
-let ruleDropdown1;
-let paletteDropdown0;
-let paletteDropdown1;
+// Dropdowns to select rule, shapes, and colors
+let lsystem0 = [];
+let lsystem1 = [];
+let secondAdded = false;
 let backgroundDropdown;
-let url;
-let url0;
-let url1;
+let fillURL;
+let strokeURL;
+let backgroundURL;
 
 // Paragraph adding warning if level gets too high
 let p;
@@ -91,14 +82,16 @@ let message1 = null;
 let addMessage;
 
 // Color palette variables
-let palette;
-let currentPalette;
+let fillPalette;
+let strokePalette;
+let backgroundColorPalette;
 let x;
 
 // Checkbox if you want to know where the fractal starts to determine optimal placement
 let showCircle;
 let addGrain;
 let addCircles;
+let fillGradient0;
 
 // Preload the L-system rules
 function preload() {
@@ -112,10 +105,7 @@ function setup() {
   let myDiv = createDiv("");
   myDiv.position(355, 60);
   myDiv.size(550, 150);
-  // myDiv.style("color", "white");
-  // myDiv.html(
-  //   "If you change the fractal pattern, you will most likely need to adjust its position on the canvas (Translate w, h). Some of the shapes can be adjusted using (some of) the shape parameters (a, b, m, n, n1, n2, n3)."
-  // );
+
   // Add Buttons and checkboxes
   addControls(x + 225);
 
@@ -123,8 +113,7 @@ function setup() {
   // Adding grain is set to false, enable with the checkbox
   // https://github.com/meezwhite/p5.grain
   p5grain.setup();
-  // Add sliders and dropdowns for first fractal
-  // addSliders(pos, idName, wadj, hadj, level, length, strokeweight, alpha, scale, rotate, rotateShape, a, b, m, n, n1, n2, n3)
+
   [sliders0, sliderLabels0] = addSliders(
     10,
     "first",
@@ -145,21 +134,21 @@ function setup() {
     1,
     1
   );
-  ruleDropdown0 = addRuleDropdown(x, 5, "dragon2");
-  shapeDropdown0 = addShapesDropdown(x, 50, "gear");
-  paletteDropdown0 = addPalettes(x, 95, "purple");
 
-  // Add fractal
+  lsystem0 = addLsystemDropdowns(x, "dragon2", "gear", "blue", "purple");
+
   message0 = addFractal(
     sliders0,
-    ruleDropdown0,
-    shapeDropdown0,
-    paletteDropdown0,
-    fillShape0
+    lsystem0[0], //ruleDropdown0
+    lsystem0[1], //shapeDropdown0,
+    lsystem0[2], //fillDropdown0,
+    lsystem0[3], //strokeDropdown0,
+    fillShape0,
+    addStroke0
   );
 
   // Add sliders for second fractal
-  if (deleteSecondFractal.checked() === false) {
+  if (addSecondFractal.checked() === true) {
     [sliders1, sliderLabels1] = addSliders(
       x + 625,
       "second",
@@ -180,16 +169,23 @@ function setup() {
       1,
       1
     );
-    ruleDropdown1 = addRuleDropdown(x + 450, 5, "dragon2");
-    shapeDropdown1 = addShapesDropdown(x + 450, 50, "gear");
-    paletteDropdown1 = addPalettes(x + 450, 95, "orange");
+    let lsystem1 = addLsystemDropdowns(
+      x,
+      "dragon2",
+      "gear",
+      "orange",
+      "orange"
+    );
+    secondAdded = true;
 
     message1 = addFractal(
       sliders1,
-      ruleDropdown1,
-      shapeDropdown1,
-      paletteDropdown1,
-      fillShape1
+      lsystem1[0], //ruleDropdown1
+      lsystem1[1], //shapeDropdown1,
+      lsystem1[2], //fillDropdown1,
+      lsystem1[3], //strokeDropdown1,
+      fillShape1,
+      addStroke1
     );
   }
 
@@ -209,6 +205,18 @@ function setup() {
 
 function draw() {
   noLoop();
+}
+
+function addLsystemDropdowns(x, lsystem, shape, fillColor, strokeColor) {
+  ruleDropdown = addRuleDropdown(x, 5, lsystem);
+  shapeDropdown = addShapesDropdown(x, 35, shape);
+  strokeDropdown = addPalettes(x, 80, strokeColor);
+  strokeLabel = createP("Stroke color");
+  strokeLabel.position(x, 45);
+  fillDropdown = addPalettes(x, 120, fillColor);
+  fillLabel = createP("Fill color");
+  fillLabel.position(x, 85);
+  return [ruleDropdown, shapeDropdown, fillDropdown, strokeDropdown];
 }
 
 // Adds a message if the choosen shape is a function of one of the shape parameters
@@ -244,8 +252,10 @@ function addFractal(
   sliders,
   ruleDropdown,
   shapeDropdown,
-  paletteDropdown,
-  fillShape
+  fillDropdown,
+  strokeDropdown,
+  fillShape,
+  addStroke
 ) {
   wadj = sliders[0].value();
   hadj = sliders[1].value();
@@ -265,11 +275,20 @@ function addFractal(
   n3 = sliders[15].value();
 
   // Get color palette
-  selectPalette(paletteDropdown.value());
-  //url = selectPalette(paletteDropdown.value());
-  palette = createPaletteFromURL(url);
-
-  adjustFill(palette, sw, currentAlpha, fillShape); //sw, currentAlpha);
+  fillURL = selectPalette(fillDropdown.value());
+  strokeURL = selectPalette(strokeDropdown.value());
+  let fillPalette = createPaletteFromURL(fillURL);
+  let strokePalette = createPaletteFromURL(strokeURL);
+  adjustFill(
+    fillPalette,
+    strokePalette,
+    addStroke,
+    sw,
+    currentAlpha,
+    fillShape,
+    length,
+    shapeScale
+  );
 
   let fractal = ruleDropdown.value();
   push();
@@ -283,13 +302,27 @@ function addFractal(
     for (let i = 0; i < level; i++) {
       generate();
     }
-    turtle(palette, sliders, shapeDropdown, fillShape);
+    turtle(
+      fillPalette,
+      stropePalette,
+      addStroke,
+      sliders,
+      shapeDropdown,
+      fillShape
+    );
     pop();
   } else {
     for (let i = 0; i < maxLevel; i++) {
       generate();
     }
-    turtle(palette, sliders, shapeDropdown, fillShape);
+    turtle(
+      fillPalette,
+      strokePalette,
+      addStroke,
+      sliders,
+      shapeDropdown,
+      fillShape
+    );
     pop();
   }
   return shapeMessage;
@@ -362,6 +395,7 @@ function addPalettes(posx, posy, choice) {
 
 // Add urls with color palettes
 function selectPalette(selected) {
+  let url;
   switch (selected) {
     case "white":
       url = "https://supercolorpalette.com/?scp=G0-hsl-FFFFFF";
@@ -469,11 +503,8 @@ function selectPalette(selected) {
       url =
         "https://supercolorpalette.com/?scp=G0-hsl-240184-1C0193-1101A2-0401B2-010EC1-0120D0-0135DF-014CEF";
       break;
-    // case "picture":
-    //   url =
-    //     "https://supercolorpalette.com/?scp=G0-hsl-9ca227-af5125-98b7c5-eae0c1-765938";
-    //   break;
   }
+  return url;
 }
 
 function addSliders(
@@ -818,6 +849,10 @@ function pickRule(currentFractal) {
 
 function addShapesDropdown(px, py, choice) {
   let shapeOptions = [
+    "line",
+    "circle",
+    "arc",
+    "half_arc",
     "archimedes",
     "astroid",
     "bicorn",
@@ -830,7 +865,6 @@ function addShapesDropdown(px, py, choice) {
     "gear",
     "heart",
     "kiss",
-    "line",
     "quadrifolium",
     "quadrilateral",
     "superellipse",
@@ -868,6 +902,18 @@ function pickShape(selected) {
   addMessage = false;
   let message = null;
   switch (selected) {
+    case "line":
+      selectedShape.showLine();
+      break;
+    case "circle":
+      selectedShape.circle();
+      break;
+    case "arc":
+      selectedShape.arc();
+      break;
+    case "half_arc":
+      selectedShape.half_arc();
+      break;
     case "archimedes":
       selectedShape.archimedesSpiral();
       addMessage = true;
@@ -924,9 +970,6 @@ function pickShape(selected) {
       selectedShape.kissCurve();
       addMessage = true;
       message = "The kiss curve is a f(a, b).";
-      break;
-    case "line":
-      selectedShape.showLine();
       break;
     case "quadrifolium":
       selectedShape.quadrifolium();
@@ -985,13 +1028,27 @@ function generate() {
   sentence = nextSentence;
 }
 
-function turtle(palette, sliders, shapeDropdown, fillShape) {
+function turtle(
+  fillPalette,
+  strokePalette,
+  addStroke,
+  sliders,
+  shapeDropdown,
+  fillShape
+) {
   for (let i = 0; i < sentence.length; i++) {
     let current = sentence.charAt(i);
     let sw = sliders[4].value();
     let a = sliders[5].value();
-    let openShapes = ["archimedes", "cornu", "spiral", "zigzig"];
-    adjustFill(palette, sw, a, fillShape);
+    let openShapes = [
+      "half_arc",
+      "arc",
+      "archimedes",
+      "cornu",
+      "spiral",
+      "zigzig",
+    ];
+    adjustFill(fillPalette, strokePalette, addStroke, sw, a, fillShape);
     if (current === "F") {
       if (selectedShape) {
         {
@@ -1036,47 +1093,76 @@ function turtle(palette, sliders, shapeDropdown, fillShape) {
       beginShape();
     } else if (current == "}") {
       noStroke();
-      fill(random(palette));
+      fill(random(fillPalette));
       endShape();
     }
   }
 }
 
+function addSecondLsystem() {
+  [sliders1, sliderLabels1] = addSliders(
+    x + 625,
+    "second",
+    0.5,
+    0.5,
+    12,
+    20,
+    2,
+    200,
+    0.5,
+    -180,
+    0,
+    2,
+    2.5,
+    6,
+    1,
+    1,
+    1,
+    1
+  );
+  lsystem1 = addLsystemDropdowns(
+    x + 450,
+    "dragon2",
+    "gear",
+    "orange",
+    "orange"
+  );
+  secondAdded = true;
+}
+
 function reset() {
-  // addWarning = false;
-  // warning = "";
   p.hide();
-  //p2.hide();
   message0 = null;
   message1 = null;
 
-  // Update Variables
-  // if (bkcolor.checked() === true) {
-  //   background(255);
-  // } else {
-  //   background(0);
-  // }
   addBackgroundColor();
 
   push();
   message0 = addValidFractal(
     sliders0,
     sliderLabels0,
-    ruleDropdown0,
-    shapeDropdown0,
-    paletteDropdown0,
-    fillShape0
+    lsystem0[0], //ruleDropdown0
+    lsystem0[1], //shapeDropdown0,
+    lsystem0[2], //fillDropdown0,
+    lsystem0[3], //strokeDropdown0,
+    fillShape0,
+    addStroke0
   );
   pop();
-  if (deleteSecondFractal.checked() === false) {
+  if (addSecondFractal.checked() === true) {
+    if (secondAdded === false) {
+      addSecondLsystem();
+    }
     push();
     message1 = addValidFractal(
       sliders1,
       sliderLabels1,
-      ruleDropdown1,
-      shapeDropdown1,
-      paletteDropdown1,
-      fillShape1
+      lsystem1[0], //ruleDropdown1
+      lsystem1[1], //shapeDropdown1,
+      lsystem1[2], //fillDropdown1,
+      lsystem1[3], //strokeDropdown1,
+      fillShape1,
+      addStroke1
     );
     pop();
   }
@@ -1112,8 +1198,10 @@ function addValidFractal(
   sliderLabels,
   ruleDropdown,
   shapeDropdown,
-  paletteDropdown,
-  fillShape
+  fillDropdown,
+  strokeDropdown,
+  fillShape,
+  addStroke
 ) {
   addWarning = false;
   warning = "";
@@ -1136,16 +1224,27 @@ function addValidFractal(
   n2 = sliders[14].value();
   n3 = sliders[15].value();
 
-  selectPalette(paletteDropdown.value());
-  palette = createPaletteFromURL(url);
-  adjustFill(palette, sw, currentAlpha, fillShape);
+  fillURL = selectPalette(fillDropdown.value());
+  strokeURL = selectPalette(strokeDropdown.value());
+  let fillPalette = createPaletteFromURL(fillURL);
+  let strokePalette = createPaletteFromURL(strokeURL);
+  //console.log(palette, strokePalette)
+  adjustFill(
+    fillPalette,
+    strokePalette,
+    addStroke,
+    sw,
+    currentAlpha,
+    fillShape,
+    length,
+    shapeScale
+  );
   let message = pickShape(shapeDropdown.value());
   translate(width * wadj, height * hadj);
   rotate(angle);
   // pickRule() must be after rotate(angle) for rotation to work properly
   let currentFractal = ruleDropdown.value();
   pickRule(currentFractal);
-  //let max = maxLevel;
   if (level > maxLevel) {
     warning =
       "The level cannot be greater " + `${maxLevel}` + " with this rule-set.";
@@ -1153,13 +1252,27 @@ function addValidFractal(
     for (let i = 0; i < maxLevel; i++) {
       generate();
     }
-    turtle(palette, sliders, shapeDropdown, fillShape);
+    turtle(
+      fillPalette,
+      strokePalette,
+      addStroke,
+      sliders,
+      shapeDropdown,
+      fillShape
+    );
     sliderLabels[2].html("Level: " + `${maxLevel}`);
   } else {
     for (let i = 0; i < level; i++) {
       generate();
     }
-    turtle(palette, sliders, shapeDropdown, fillShape);
+    turtle(
+      fillPalette,
+      strokePalette,
+      addStroke,
+      sliders,
+      shapeDropdown,
+      fillShape
+    );
     sliderLabels[2].html("Level: " + `${level}`);
   }
   updateLabels(sliders, sliderLabels);
@@ -1174,36 +1287,47 @@ function addControls(pos) {
   resetButton.mousePressed(reset);
 
   // Checkbox to add a second fractal
-  deleteSecondFractal = createCheckbox("Delete L-system 2", false);
-  deleteSecondFractal.position(pos + 60, 65);
-  deleteSecondFractal.style("color", "white");
+  addSecondFractal = createCheckbox("Add L-system 2", false);
+  addSecondFractal.position(pos + 60, 50);
+  addSecondFractal.style("color", "white");
 
   // Checkbox to determine whether shapes are filled
-  fillShape0 = createCheckbox("Fill fractal 1 shapes", false);
-  fillShape0.position(pos + 60, 90);
+  fillShape0 = createCheckbox("Fill L-system 1 shapes", false);
+  fillShape0.position(pos + 60, 70);
   fillShape0.style("color", "white");
-  fillShape1 = createCheckbox("Fill fractal 2 shapes", false);
-  fillShape1.position(pos + 60, 115);
+  fillShape1 = createCheckbox("Fill L-system 2 shapes", false);
+  fillShape1.position(pos + 60, 90);
   fillShape1.style("color", "white");
 
-  let backgroundColorP = createP("Background Color");
-  backgroundColorP.position(pos - 90, 25);
-  backgroundColorP.style("color", "white");
-  backgroundDropdown = addPalettes(pos - 90, 70, "black");
+  fillGradient0 = createCheckbox("Add gradient fill", false);
+  fillGradient0.position(pos + 60, 150);
+  fillGradient0.style("color", "white");
+
+  addStroke0 = createCheckbox("Add stroke L-system 1", true);
+  addStroke0.position(pos + 60, 110);
+  addStroke0.style("color", "white");
+  addStroke1 = createCheckbox("Add stroke L-system 2", true);
+  addStroke1.position(pos + 60, 130);
+  addStroke1.style("color", "white");
+
+  backgroundColorPalette = createP("Background");
+  backgroundColorPalette.position(pos - 60, 20);
+  backgroundColorPalette.style("color", "white");
+  backgroundDropdown = addPalettes(pos - 60, 60, "black");
 
   showCircle = createCheckbox("Show start", false);
-  showCircle.position(pos + 60, 40);
+  showCircle.position(pos + 60, 30);
   showCircle.style("color", "white");
 
   // Whether to add P5 Grain library
   // Will slow down the render so I recommend keeping to false most of the time
   addGrain = createCheckbox("Add grain", false);
-  addGrain.position(pos - 90, 100);
+  addGrain.position(pos - 60, 90);
   addGrain.style("color", "white");
 
   // Add artistic style with random circles
   addCircles = createCheckbox("Add circles", false);
-  addCircles.position(pos - 90, 125);
+  addCircles.position(pos - 60, 115);
   addCircles.style("color", "white");
 
   // Have to add background color after palettes are added
@@ -1213,7 +1337,7 @@ function addControls(pos) {
 // Function to save the canvas as an image when 's' key is pressed
 function keyPressed() {
   if (key === "s" || key === "S") {
-    save("rules/img.jpg");
+    save("img.jpg");
   }
 }
 
@@ -1236,23 +1360,39 @@ function updateLabels(sliders, sliderLabels) {
   sliderLabels[15].html("n3: " + sliders[15].value());
 }
 
-function adjustFill(palette, sw, a, fillShape) {
-  let c = random(palette);
-  c[3] = a;
-  if (fillShape.checked() === true) {
-    noStroke();
-    fill(c);
-  } else {
+function adjustFill(
+  fillPalette,
+  strokePalette,
+  addStroke,
+  sw,
+  a,
+  fillShape,
+  length,
+  shapeScale
+) {
+  let fp = random(fillPalette);
+  let sp = random(strokePalette);
+  fp[3] = a;
+  sp[3] = a;
+  if (fillShape.checked() === true && addStroke.checked() === true) {
+    strokeWeight(sw);
+    stroke(sp);
+    fill(fp);
+  } else if (fillShape.checked() === false && addStroke.checked() === true) {
     noFill();
     strokeWeight(sw);
-    stroke(c);
+    stroke(sp);
+  } else if (fillShape.checked() === true && addStroke.checked() === false) {
+    strokeWeight(sw);
+    noStroke();
+    fill(fp);
   }
 }
 
 function addBackgroundColor() {
-  selectPalette(backgroundDropdown.value());
-  palette = createPaletteFromURL(url);
-  background(palette[0]);
+  let backgroundURL = selectPalette(backgroundDropdown.value());
+  backgroundColorPalette = createPaletteFromURL(backgroundURL);
+  background(backgroundColorPalette[0]);
 }
 
 function addText() {
