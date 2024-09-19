@@ -13,7 +13,7 @@ class addWord {
     textSize(this.r);
     textAlign(CENTER, CENTER);
     //text("404", this.x, this.y);
-     text("LOVE", this.x, this.y);
+    text("LOVE", this.x, this.y);
     pop();
   }
 }

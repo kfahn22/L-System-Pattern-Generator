@@ -73,7 +73,7 @@ class Shape {
 
   box() {
     this.points.push(createVector(0, 0));
-    this.points.push(createVector(2*this.r, 0));
+    this.points.push(createVector(2 * this.r, 0));
     this.points.push(createVector(2 * this.r, 2 * this.r));
     this.points.push(createVector(0, 2 * this.r));
   }

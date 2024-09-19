@@ -379,7 +379,6 @@ function addPalettes(posx, posy, choice) {
     "sunny",
     "orange_green",
     "navy",
-    //"picture",
   ];
 
   paletteDropdown = createSelect();
@@ -531,7 +530,7 @@ function addSliders(
   let sliderLabels = [];
 
   // wadj
-  mySliders[0] = createSlider(-0.05, 1.05, wadj, 0.025);
+  mySliders[0] = createSlider(-0.05, 1.05, wadj, 0.01);
   sliderLabels[0] = createP("Translate x:");
 
   // hadj
@@ -850,9 +849,8 @@ function pickRule(currentFractal) {
 function addShapesDropdown(px, py, choice) {
   let shapeOptions = [
     "line",
-    "circle",
+    "square",
     "arc",
-    "half_arc",
     "archimedes",
     "astroid",
     "bicorn",
@@ -905,14 +903,13 @@ function pickShape(selected) {
     case "line":
       selectedShape.showLine();
       break;
-    case "circle":
-      selectedShape.circle();
+    case "square":
+      selectedShape.box();
       break;
     case "arc":
       selectedShape.arc();
-      break;
-    case "half_arc":
-      selectedShape.half_arc();
+      addMessage = true;
+      message = "Arc is a f(a), a = 2 yields a circle";
       break;
     case "archimedes":
       selectedShape.archimedesSpiral();
