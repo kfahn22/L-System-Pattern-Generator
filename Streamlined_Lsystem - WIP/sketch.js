@@ -30,9 +30,9 @@ let shapeDropdown;
 // Colors
 let currentStrokePalette;
 let currentFillPalette;
-let currentBackgroundColor = [0, 0, 0, 255];
-let currentFillColor = [0, 0, 255, 255];
-let currentStrokeColor = [0, 255, 255, 255];
+let currentBackgroundColor;
+let currentFillColor;
+let currentStrokeColor;
 
 let selectedShape;
 let sliderGroup0; // object
@@ -70,23 +70,8 @@ function setup() {
   background(currentBackgroundPalette[0]);
 
   // Instantiate the shape UI
-  shape_ui = new ShapeUI(
-    10,
-    250,
-    currentStrokePalette,
-    currentFillPalette,
-    fillShape0,
-    addStroke0
-  );
-  shapeDropdown = shape_ui.dropdown;
-  shape_ui.selectShape();
-  selectedShape = shape_ui.shape;
-
-  p2 = addShapeMessage(shape_ui.message);
-
-  sliders0 = shape_ui.sliders;
-  shapeValues0 = shape_ui.values;
-  sliderGroup0 = shape_ui.sliderGroup;
+  addShapeUI();
+  setShape();
 
   ruleDropdown0 = new RuleDropdown(750, 50, data, currentRule);
   ruledropdown = ruleDropdown0.dropdown;
@@ -107,27 +92,7 @@ function setup() {
   sw = shapeValues0[4];
   currentAlpha = shapeValues0[5];
 
-  turtle0 = new Turtle(
-    sentence,
-    length,
-    angle,
-    lf,
-    sw,
-    currentAlpha,
-    currentStrokePalette,
-    currentFillPalette,
-    fillShape0,
-    addStroke0,
-    shape_ui
-  );
-
-  push();
-  translate(width * wadj, height * hadj);
-  for (let i = 0; i < level; i++) {
-    turtle0.generate();
-  }
-  turtle0.turtle();
-  pop();
+  addTurtle();
 
   // Add function to handle changes in sliders
   handleInput();
@@ -154,9 +119,7 @@ function reset() {
   background(currentBackgroundPalette[0]);
 
   // Update shape
-  shapeValues0 = sliderGroup0.getValues();
-  shape_ui.selectShape();
-  p2 = addShapeMessage(shape_ui.message);
+  setShape();
 
   // Update ruleset
   ruleDropdown0.selectRule();
@@ -174,6 +137,49 @@ function reset() {
   sw = shapeValues0[4];
   currentAlpha = shapeValues0[5];
 
+  addTurtle();
+}
+
+function addShapeUI() {
+  shape_ui = new ShapeUI(
+    10,
+    250,
+    currentStrokePalette,
+    currentFillPalette,
+    fillShape0,
+    addStroke0
+  );
+  shapeDropdown = shape_ui.dropdown;
+  sliderGroup0 = shape_ui.sliderGroup;
+  sliders0 = shape_ui.sliders;
+}
+
+function setShape() {
+  shapeValues0 = sliderGroup0.getValues();
+  shape_ui.selectShape();
+  p2 = addShapeMessage(shape_ui.message);
+}
+
+function addShapeMessage(message0) {
+  addMessage = true;
+  let message = null;
+  if (message0 != null) {
+    message = message0;
+  } else addMessage = false;
+
+  let p2 = createP(message);
+  p2.position(500, 10);
+  p2.addClass("p");
+
+  if (addMessage) {
+    p2.show();
+  } else {
+    p2.hide();
+  }
+  return p2;
+}
+
+function addTurtle() {
   turtle0 = new Turtle(
     sentence,
     length,
@@ -195,25 +201,6 @@ function reset() {
   }
   turtle0.turtle();
   pop();
-}
-
-function addShapeMessage(message0) {
-  addMessage = true;
-  let message = null;
-  if (message0 != null) {
-    message = message0;
-  } else addMessage = false;
-
-  let p2 = createP(message);
-  p2.position(500, 10);
-  p2.addClass("p");
-
-  if (addMessage) {
-    p2.show();
-  } else {
-    p2.hide();
-  }
-  return p2;
 }
 
 function addColorPaletteDropdowns() {
