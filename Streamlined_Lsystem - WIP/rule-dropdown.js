@@ -1,5 +1,4 @@
 class RuleDropdown {
-  //constructor(posx, posy, lsystem, defaultChoice, onChangeCallback) {
   constructor(posx, posy, lsystem, defaultChoice) {
     // Create the dropdown element
     this.posx = posx;
@@ -7,6 +6,7 @@ class RuleDropdown {
     this.lsystem = lsystem;
     this.currentFractal = defaultChoice;
     this.dropdown = createSelect();
+    //this.selected = defaultChoice;
     this.dropdown.position(this.posx, this.posy);
     this.axiom = "";
     this.rules = "";
@@ -69,42 +69,14 @@ class RuleDropdown {
 
     // Add options to the dropdown
     this.optionsArray.forEach((option) => this.dropdown.option(option));
-
-    // Set the default selected option
-    if (this.defaultChoice) {
-      this.dropdown.selected(this.defaultChoice);
-    }
-
-    // Set the callback for when the selection changes
-    // if (onChangeCallback) {
-    //   this.dropdown.changed(onChangeCallback);
-    //   console.log(this.dropdown.value);
-    // }
+    this.dropdown.selected(defaultChoice)
   }
 
   // Called when a ruleset is selected from the dropdown
   selectRule() {
-    //let ruleName = this.dropdown.value();
-    // this.pickRule(ruleName);
     this.currentFractal = this.dropdown.value();
     this.pickRule();
   }
-  // // Handle the dropdown selection change
-  // handleChange() {
-  //   // Get the selected value
-  //   let selected = this.dropdown.value();
-
-  //   // Get the ruleset based on the selected value
-  //   let ruleset = this.pickRule(selected);
-
-  //   // Convert the URL to a palette array
-  //   //let palette = this.createPaletteFromURL(url);
-
-  //   // Call the user's onChange callback with the palette array
-  //   // if (this.onChangeCallback) {
-  //   //   this.onChangeCallback(ruleset);
-  //   // }
-  // }
 
   pickRule() {
     switch (this.currentFractal) {
@@ -265,7 +237,6 @@ class RuleDropdown {
         this.currentFractal = this.lsystem.triangle;
         break;
     }
-    //this.setRule();
   }
 
   setRule() {
@@ -277,9 +248,4 @@ class RuleDropdown {
     this.sentence = this.axiom;
     return [this.rules, this.angle, this.lf, this.maxLevel, this.sentence];
   }
-
-  // // Return the dropdown element if needed
-  // getElement() {
-  //   return this.dropdown;
-  // }
 }

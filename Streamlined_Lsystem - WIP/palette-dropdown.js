@@ -1,7 +1,5 @@
 class PaletteDropdown {
   constructor(posx, posy, defaultChoice) {
-    //constructor(posx, posy, defaultChoice, onChangeCallback) {
-    // constructor(posx, posy, optionsArray, defaultChoice, onChangeCallback) {
     // Create the dropdown element
     this.dropdown = createSelect();
     this.dropdown.position(posx, posy);
