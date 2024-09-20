@@ -18,7 +18,7 @@ class Turtle {
     this.values = values;
     this.ruleset = ruleset;
     this.ruleset.selectRule();
-    this.lsystemValues = this.ruleset.setRule(); //lsystemValues;
+    this.lsystemValues = this.ruleset.setRule();
     this.rules = this.lsystemValues[0];
     this.angle = this.lsystemValues[1];
     this.lf = this.lsystemValues[2];
@@ -28,7 +28,6 @@ class Turtle {
   }
 
   generate() {
-    //console.log(this.rules)
     let nextSentence = "";
     for (let i = 0; i < this.sentence.length; i++) {
       let current = this.sentence.charAt(i);
@@ -47,13 +46,30 @@ class Turtle {
     this.sentence = nextSentence;
   }
 
-  turtle() {
+  turtle(strokePalette, fillPalette) {
     let length = this.values[3];
-    this.adjustFill();
+
     for (let i = 0; i < this.sentence.length; i++) {
       let current = this.sentence.charAt(i);
       if (current === "F") {
-        this.showShape();
+        console.log(this.shapename)
+        let openShapes = [
+          "Arc",
+          "Archimedes Spiral",
+          "Cornu Spiral"
+        ];
+        push();
+        //translate(0, 0);
+        // Draw the shape on the canvas
+        if (openShapes.includes(this.shapename)) {
+          noFill();
+          random(strokePalette);
+          this.shape.openShow();
+        } else {
+          this.adjustFill(strokePalette, fillPalette);
+          this.shape.show();
+        }
+        pop();
         translate(length, 0);
       } else if (current === "f") {
         translate(length, 0);
@@ -93,7 +109,7 @@ class Turtle {
     }
   }
 
-  addLsystem() {
+  addLsystem(strokePalette, fillPalette) {
     let wadj = this.values[0];
     let hadj = this.values[1];
     let level = this.values[2];
@@ -109,12 +125,12 @@ class Turtle {
       for (let i = 0; i < this.maxLevel; i++) {
         this.generate();
       }
-      this.turtle();
+      this.turtle(strokePalette, fillPalette);
     } else {
       for (let i = 0; i < level; i++) {
         this.generate();
       }
-      this.turtle();
+      this.turtle(strokePalette, fillPalette);
     }
     pop();
   }
@@ -129,20 +145,20 @@ class Turtle {
       // "spiral",
       // "zigzig",
     ];
-    push();
-    translate(0, 0);
+    //push();
+    //translate(0, 0);
     // Draw the shape on the canvas
     if (openShapes.includes(this.shapename)) {
       this.shape.openShow();
     } else {
       this.shape.show();
     }
-    pop();
+    //pop();
   }
 
-  adjustFill() {
-    let fp = random(this.fillPalette);
-    let sp = random(this.strokePalette);
+  adjustFill(fillPalette, strokePalette) {
+    let fp = random(fillPalette);
+    let sp = random(strokePalette);
     let sw = this.values[4];
     let a = this.values[5];
     fp[3] = a;

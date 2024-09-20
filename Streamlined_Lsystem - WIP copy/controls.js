@@ -1,5 +1,13 @@
 class AddControls {
   constructor(posSliders, posDropdown, data, shapeChoice, ruleChoice) {
+    // Instantiate palette dropdowns
+    this.backgroundDropdown = new PaletteDropdown(300, 50, "black");
+    this.backgrounddropdown = this.backgroundDropdown.dropdown;
+    this.strokeDropdown = new PaletteDropdown(600, 50, "blue");
+    this.strokedropdown = this.strokeDropdown.dropdown;
+    this.fillDropdown = new PaletteDropdown(450, 50, "purple");
+    this.filldropdown = this.fillDropdown.dropdown;
+
     // Create an instance of the SliderGroup class
     this.sliderGroup = new SliderGroup(
       posSliders,
@@ -23,7 +31,6 @@ class AddControls {
     );
     this.sliders = this.sliderGroup.sliders;
     this.values = this.sliderGroup.getValues();
-    //this.sliderGroup.updateLabels();
     this.shape_ui = new ShapeUI(posDropdown, shapeChoice, this.values);
     this.shapeMessage = this.shape_ui.message;
     this.addMessage = this.shape_ui.addMessage;
@@ -32,15 +39,34 @@ class AddControls {
     this.ruleset.selectRule();
     this.lsystemValues = this.ruleset.setRule();
     this.rulesetDropdown = this.ruleset.dropdown;
-    // this.rules = this.lsystemValues[0];
-    // this.angle = this.lsystemValues[1];
-    // this.lf = this.lsystemValues[2];
-    // this.maxLevel = this.lsystemValues[3];
-    // this.sentence = this.lsystemValues[4];
-    // this.warning = null;
+  }
+
+  setPalettes() {
+    this.backgroundDropdown.setPalette();
+    this.strokeDropdown.setPalette();
+    this.fillDropdown.setPalette();
+    return [
+      this.backgroundDropdown.palette,
+      this.strokeDropdown.palette,
+      this.fillDropdown.palette,
+    ];
   }
 
   returnDropdowns() {
-    return [this.shapeDropdown, this.rulesetDropdown];
+    return [
+      this.backgrounddropdown,
+      this.strokedropdown,
+      this.filldropdown,
+      this.shapeDropdown,
+      this.rulesetDropdown,
+    ];
+  }
+
+  returnColorPalettes() {
+    return [
+      this.backgroundDropdown.palette,
+      this.strokeDropdown.palette,
+      this.fillDropdown.palette,
+    ];
   }
 }

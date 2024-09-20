@@ -1,25 +1,11 @@
 // https://editor.p5js.org/kfahn/sketches/dlekolbSx
 
-let backgroundDropdown0;
-let backgrounddropdown;
-let fillDropdown0;
-let filldropdown;
-let strokedropdown;
-let strokeDropdown0;
-
 // Lsystem variables
 let data;
-let lsystem0;
-let wadj, hadj; // translation variations
-let level;
-let length; // grid length
-
-let sw; // strokeWeight
-let currentAlpha;
-
-let ruleDropdown0; // object
-let ruleDropdown;
-let shapeDropdown;
+//let lsystem0;
+// let wadj, hadj; // translation variations
+// let level;
+// let length; // grid length
 
 // Colors
 let currentStrokePalette;
@@ -29,11 +15,11 @@ let currentFillColor;
 let currentStrokeColor;
 
 let selectedShape;
-let sliderGroup0; // object
-let sliders0 = []; // Array to store slider references
-let shapeValues0 = []; // Array to store shape values
-
-let sliderChanged;
+//let sliderGroup0; // object
+let sliders = []; // Array to store slider references
+//let shapeValues = []; // Array to store shape values
+let dropdowns = [];
+let palettes = [];
 let sliderGroup;
 
 let currentShape = "Gear";
@@ -48,12 +34,11 @@ let p2; // shape messages
 // Buttons/checkboxes
 let controls;
 let resetButton;
-let fillShape0;
-let addStroke0;
+let fillShape;
+let addStroke;
 
-let turtle0;
+let turtle;
 let shape_ui;
-let shapeValues;
 let lsystemValues;
 
 // Preload the L-system rules
@@ -73,15 +58,13 @@ function setup() {
 }
 
 function handleInput() {
-  for (let s of sliders0) {
+  for (let s of sliders) {
     s.input(reset);
   }
 
-  shapeDropdown.changed(reset);
-  ruleDropdown.changed(reset);
-  filldropdown.changed(reset);
-  strokedropdown.changed(reset);
-  backgrounddropdown.changed(reset);
+  for (let d of dropdowns) {
+    d.changed(reset);
+  }
 }
 
 function reset() {
@@ -92,71 +75,78 @@ function reset() {
 }
 
 function addSystem() {
-  // Add color palette dropdowns
-  addColorPaletteDropdowns();
-  setColorPalettes();
-  background(currentBackgroundPalette[0]);
-
   // Add sliders and shape/rule dropdowns
   controls = new AddControls(10, 250, data, currentShape, currentRule);
+
+  dropdowns = controls.returnDropdowns();
+
+  // Retrieve color palettes
+  controls.setPalettes();
+  palettes = controls.returnColorPalettes();
+  let currentBackgroundPalette = palettes[0];
+  let currentStrokePalette = palettes[1];
+  let currentFillPalette = palettes[2];
+  background(currentBackgroundPalette[0]);
+
   sliderGroup = controls.sliderGroup;
   sliderGroup.updateLabels();
   let values = sliderGroup.getValues();
-  sliders0 = sliderGroup.sliders;
+  sliders = sliderGroup.sliders;
 
   // Rretrieve shape values
   shape_ui = controls.shape_ui;
-  shapeDropdown = controls.shapeDropdown;
   shape_ui.selectShape(values);
   p2 = addShapeMessage(shape_ui.message);
 
   // Retrieve ruleset values
-  ruleDropdown = controls.rulesetDropdown;
   let ruleset = controls.ruleset;
 
+  //console.log(fillShape, addStroke)
   //Add turtle
-  turtle0 = new Turtle(
+  turtle = new Turtle(
     currentStrokePalette,
     currentFillPalette,
-    fillShape0,
-    addStroke0,
+    fillShape,
+    addStroke,
     shape_ui,
     values,
     ruleset
   );
 
-  turtle0.addLsystem();
-  warning = turtle0.warning;
+  turtle.addLsystem(currentStrokePalette, currentFillPalette);
+  warning = turtle.warning;
   addRuleWarning();
 }
 
 function setSystemVariables() {
-  setColorPalettes();
+  controls.setPalettes();
+  palettes = controls.returnColorPalettes();
+  let currentBackgroundPalette = palettes[0];
+  let currentStrokePalette = palettes[1];
+  let currentFillPalette = palettes[2];
   background(currentBackgroundPalette[0]);
 
   let values = sliderGroup.getValues();
   sliderGroup.updateLabels();
-  //console.log(values);
 
   shape_ui.selectShape(values);
   p2 = addShapeMessage(shape_ui.message);
 
   let ruleset = controls.ruleset;
-  //console.log(ruleset)
 
   //Add turtle
-  turtle0 = new Turtle(
+  turtle = new Turtle(
     currentStrokePalette,
     currentFillPalette,
-    fillShape0,
-    addStroke0,
+    fillShape,
+    addStroke,
     shape_ui,
     values,
     ruleset
   );
 
-  turtle0.addLsystem();
-  warning = turtle0.warning;
+  turtle.addLsystem(currentStrokePalette, currentFillPalette);
+  warning = turtle.warning;
   addRuleWarning();
 }
 
@@ -179,61 +169,32 @@ function addShapeMessage(message0) {
   return p2;
 }
 
-function addColorPaletteDropdowns() {
-  // Instantiate the color dropdowns
-  backgroundDropdown0 = new PaletteDropdown(300, 50, "black");
-  fillDropdown0 = new PaletteDropdown(450, 50, "blue");
-  strokeDropdown0 = new PaletteDropdown(600, 50, "blue");
-}
-
-function setColorPalettes() {
-  backgroundDropdown0.setPalette();
-  backgrounddropdown = backgroundDropdown0.dropdown;
-  currentBackgroundPalette = backgroundDropdown0.palette;
-
-  fillDropdown0.setPalette();
-  filldropdown = fillDropdown0.dropdown;
-  currentFillPalette = fillDropdown0.palette;
-
-  strokeDropdown0.setPalette();
-  strokedropdown = strokeDropdown0.dropdown;
-  currentStrokePalette = strokeDropdown0.palette;
-
-  currentFillColor = random(currentFillPalette);
-  currentStrokeColor = random(currentStrokePalette);
-}
-
 function addControls(pos) {
-  controls = new AddControls(10, 250, data, currentShape, currentRule);
-  sliders0 = controls.sliders;
-  shapeDropdown = controls.shapeDropdown;
-  ruleDropdown = controls.rulesetDropdown;
-
   // Add a reset button for both fractals
   resetButton = createButton("Reset");
   resetButton.position(pos, 150);
   resetButton.mousePressed(reset);
 
   // Checkbox to determine whether shapes are filled
-  fillShape0 = createCheckbox("Fill L-system 1 shapes", false);
-  fillShape0.position(pos, 200);
-  fillShape0.style("color", "white");
+  fillShape = createCheckbox("Fill L-system 1 shapes", false);
+  fillShape.position(pos, 200);
+  fillShape.style("color", "white");
 
   // Checkbox to determine whether shapes have stroke
-  addStroke0 = createCheckbox("Add stroke L-system 1", true);
-  addStroke0.position(pos, 250);
-  addStroke0.style("color", "white");
+  addStroke = createCheckbox("Add stroke L-system 1", true);
+  addStroke.position(pos, 250);
+  addStroke.style("color", "white");
 }
 
-function addText() {
-  push();
-  let s = length * shapeScale;
-  translate(width / 2, height / 2);
-  fill(random(palette));
-  textSize(2 * s);
-  text("IS ALL YOU NEED", 0, 0);
-  pop();
-}
+// function addText() {
+//   push();
+//   let s = length * shapeScale;
+//   translate(width / 2, height / 2);
+//   fill(random(palette));
+//   textSize(2 * s);
+//   text("IS ALL YOU NEED", 0, 0);
+//   pop();
+// }
 
 function addRuleWarning() {
   p = createP(warning);
