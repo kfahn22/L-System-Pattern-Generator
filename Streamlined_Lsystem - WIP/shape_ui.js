@@ -1,47 +1,12 @@
 class ShapeUI {
-  constructor(
-    posSliders,
-    posDropdown,
-    strokePalette,
-    fillPalette,
-    fillShape,
-    addStroke
-  ) {
-    this.posSliders = posSliders; // Position for the dropdown
-    this.posDropdown = posDropdown;
-    this.strokePalette = strokePalette;
-    this.fillPalette = fillPalette;
-    this.fillShape = fillShape;
-    this.addStroke = addStroke;
-    this.choice = "Gear";
+  constructor(posDropdown, choice, values) {
+    this.choice = choice;
+    this.values = values;
+    this.shape = null;
     this.message = null;
     this.addMessage = false;
-    // Create an instance of the SliderGroup class
-    this.sliderGroup = new SliderGroup(
-      posSliders,
-      "sliderSet1",
-      0.5,
-      0.5,
-      2,
-      20,
-      2,
-      150,
-      0.5,
-      0,
-      0,
-      1,
-      1,
-      6,
-      1,
-      1,
-      1,
-      1
-    );
-    this.sliders = this.sliderGroup.sliders;
-    this.values = this.sliderGroup.getValues();
-    this.shape = null;
     this.dropdown = createSelect(); // Create a select element
-    this.dropdown.position(this.posDropdown, 10); // Position the dropdown
+    this.dropdown.position(posDropdown, 50); // Position the dropdown
     this.setupDropdown(); // Initialize dropdown with options
   }
 
@@ -76,39 +41,24 @@ class ShapeUI {
     // Add shape options to the dropdown
     shapes.forEach((shape) => this.dropdown.option(shape));
     this.dropdown.selected(this.choice);
-
-    // Add change event listener to the dropdown
-    //this.dropdown.changed(() => this.selectShape());
-  }
-
-  // Called when a shape is selected from the dropdown
-  selectShape() {
-    //const shapeName = this.dropdown.value();
-    // Get values from sliders
-    this.values = this.sliderGroup.getValues();
-    this.sliderGroup.reset();
-    this.createShape();
   }
 
   // sliders - wadj,hadj,level,length,strokeweight, shapeAlpha,sc,rot,rotateShape,a,b,m,n,n1,n2, n3
   // Create a shape based on the selected option
-  createShape() {
-    // Clear the canvas and reset shapes
+  selectShape(values) {
     let shapeName = this.dropdown.value();
-    let r = this.values[3] * this.values[6]; // gridlength * shapeScale
+    let r = values[3] * values[6]; // gridlength * shapeScale
     // Create a new Shape object with necessary parameters
     this.shape = new Shape(
-      0, // x
-      0, // y
-      r, // this.values[3], // r
-      this.values[9], // a
-      this.values[10], // b
-      this.values[11], // m
-      this.values[12], // n
-      this.values[13], // n1
-      this.values[14], // n2
-      this.values[15], // n3
-      this.values[8] // rotateShape
+      r, 
+      values[9], // a
+      values[10], // b
+      values[11], // m
+      values[12], // n
+      values[13], // n1
+      values[14], // n2
+      values[15], // n3
+      values[8] // rotateShape
     );
 
     this.shape.points = []; // Clear any existing points
@@ -208,59 +158,6 @@ class ShapeUI {
         break;
       default:
         break;
-    }
-  }
-
-  showShape(strokePalette, fillPalette) {
-    //this.adjustFill(strokePalette, fillPalette);
-    let shapeName = this.dropdown.value();
-    let openShapes = [
-      // "half_arc",
-      "Arc",
-      "Archimedes Spiral",
-      "Cornu Spiral",
-      // "spiral",
-      // "zigzig",
-    ];
-    push();
-    translate(0, 0);
-    // Draw the shape on the canvas
-    if (openShapes.includes(shapeName)) {
-      this.shape.openShow();
-    } else {
-      this.shape.show();
-    }
-    pop();
-  }
-
-  adjustFill(fillPalette, strokePalette) {
-    let fp = random(fillPalette);
-    let sp = random(strokePalette);
-    let sw = this.values[4];
-    let a = this.values[5];
-    fp[3] = a;
-    sp[3] = a;
-    if (
-      this.fillShape.checked() === true &&
-      this.addStroke.checked() === true
-    ) {
-      strokeWeight(sw);
-      stroke(sp);
-      fill(fp);
-    } else if (
-      this.fillShape.checked() === false &&
-      this.addStroke.checked() === true
-    ) {
-      noFill();
-      strokeWeight(sw);
-      stroke(sp);
-    } else if (
-      this.fillShape.checked() === true &&
-      this.addStroke.checked() === false
-    ) {
-      strokeWeight(sw);
-      noStroke();
-      fill(fp);
     }
   }
 }

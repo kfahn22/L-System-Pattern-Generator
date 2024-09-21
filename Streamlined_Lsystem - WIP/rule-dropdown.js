@@ -6,7 +6,6 @@ class RuleDropdown {
     this.lsystem = lsystem;
     this.currentFractal = defaultChoice;
     this.dropdown = createSelect();
-    //this.selected = defaultChoice;
     this.dropdown.position(this.posx, this.posy);
     this.axiom = "";
     this.rules = "";

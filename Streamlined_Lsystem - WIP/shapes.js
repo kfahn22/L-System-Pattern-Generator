@@ -1,9 +1,7 @@
 const e = 2.71828;
 
 class Shape {
-  constructor(x, y, r, a, b, m, n, n1, n2, n3, angle) {
-    this.x = x;
-    this.y = y;
+  constructor(r, a, b, m, n, n1, n2, n3, angle) {
     this.r = r;
     this.a = a;
     this.b = b;
@@ -322,7 +320,6 @@ class Shape {
 
   show() {
     push();
-    translate(this.x, this.y);
     rotate(this.angle);
     beginShape();
     for (let p of this.points) {
@@ -334,7 +331,6 @@ class Shape {
 
   openShow() {
     push();
-    translate(this.x, this.y);
     rotate(this.angle);
     beginShape();
     for (let p of this.points) {

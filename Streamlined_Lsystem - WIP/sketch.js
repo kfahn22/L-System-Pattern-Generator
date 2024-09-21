@@ -1,61 +1,23 @@
-// https://editor.p5js.org/kfahn/sketches/dlekolbSx
+// https://editor.p5js.org/kfahn/sketches/eJ37jUEeU
 
-let backgroundDropdown0;
-let backgrounddropdown;
-let fillDropdown0;
-let filldropdown;
-let strokedropdown;
-let strokeDropdown0;
-
-// Lsystem variables
+// Lsystem data from rules.json
 let data;
-let lsystem0;
-let axiom;
-let sentence;
-let rules = {};
-let angle;
-let lf;
-let maxLevel;
 
-let wadj, hadj; // translation variations
-let level;
-let length; // grid length
-let sw; // strokeWeight
-let currentAlpha;
+// Control variables
+let controls;
+let sliderGroup;
+let sliders = []; // Array to store slider references
+let dropdowns = []; // Array to store dropdowns
+let shape_ui;
 
-let ruleDropdown0; // object
-let ruledropdown;
-let shapeDropdown;
-
-// Colors
-let currentStrokePalette;
-let currentFillPalette;
-let currentBackgroundColor;
-let currentFillColor;
-let currentStrokeColor;
-
-let selectedShape;
-let sliderGroup0; // object
-let sliders0 = []; // Array to store slider references
-let shapeValues0 = []; // Array to store shape values
-
-let sliderChanged;
-
-let currentShape = "astroid";
-let currentRule = "dragon1";
-
-let addMessage;
-let addWarning;
-let warning;
-let p; // level warning
-let p2; // shape messages
+// Message variables
+let ruleWarning; // Warning if level gets too high
+let shapeMessage; // Shape message re parameters to choosen shape
 
 // Buttons/checkboxes
 let resetButton;
-let fillShape0;
-let addStroke0;
-
-let turtle0;
+let fillShape;
+let addStroke;
 
 // Preload the L-system rules
 function preload() {
@@ -63,217 +25,91 @@ function preload() {
 }
 
 function setup() {
-  canvas = createCanvas(400, 400);
-  canvas.position(300, 100);
+  canvas = createCanvas(600, 600);
+  canvas.position(250, 200);
 
-  addControls(750);
-
-  addSystem();
-  setSystemVariables();
-  // p = createP(warning);
-  // p.position(250, 75);
-  // p.addClass("p");
-
-  // if (!addWarning) {
-  //   p.hide();
-  // }
-
-  // Add function to handle changes in sliders
-  handleInput();
+  controls = addLsystem("Gear", "dragon2");
 }
 
-function handleInput() {
-  for (let s of sliders0) {
+function handleInput(sliders, dropdowns, resetButton) {
+  for (let s of sliders) {
     s.input(reset);
   }
-  shapeDropdown.changed(reset);
-  ruledropdown.changed(reset);
-  filldropdown.changed(reset);
-  strokedropdown.changed(reset);
-  backgrounddropdown.changed(reset);
+
+  for (let d of dropdowns) {
+    d.changed(reset);
+  }
+  resetButton.mousePressed(reset);
 }
 
 function reset() {
   clear();
-  p.hide();
-  p2.hide();
-  handleInput();
-  setSystemVariables();
+  shapeMessage.hide();
+  ruleWarning.hide();
+  setSystemVariables(controls);
 }
 
-function addSystem() {
-  // Add color palette dropdowns
-  addColorPaletteDropdowns();
-
-  // Instantiate the shape UI
-  addShapeUI();
-
-  // Add rule dropdown
-  ruleDropdown0 = new RuleDropdown(750, 50, data, currentRule);
-  ruledropdown = ruleDropdown0.dropdown;
+function addLsystem(currentShape, currentRule) {
+  let controls = new AddControls(10, 250, 250, data, currentShape, currentRule);
+  [dropdowns, resetButton, sliderGroup, sliders, shape, ui] =
+    addControls(controls);
+  setSystemVariables(controls);
+  // Add function to handle changes in sliders
+  handleInput(sliders, dropdowns, resetButton);
+  return controls;
 }
 
-function setSystemVariables() {
-  setColorPalettes();
+function addControls(controls) {
+  dropdowns = controls.returnDropdowns();
+  resetButton = controls.returnButtons();
+  [fillShape, addStroke] = controls.returnCheckboxes();
+  sliderGroup = controls.sliderGroup;
+  sliders = sliderGroup.sliders;
+  shape_ui = controls.shape_ui;
+  return [dropdowns, resetButton, sliderGroup, sliders, shape_ui];
+}
+
+function setSystemVariables(controls) {
+  controls.setPalettes();
+  [currentBackgroundPalette, currentStrokePalette, currentFillPalette] =
+    controls.returnColorPalettes();
   background(currentBackgroundPalette[0]);
-  setShape();
-  setRule();
-  addTurtle();
-  addRuleWarning();
+
+  let values = sliderGroup.getValues();
+  sliderGroup.updateLabels();
+  shape_ui.selectShape(values);
+
+  let ruleset = controls.ruleset;
+
+  //Add turtle system
+  let turtle = new Turtle(fillShape, addStroke, shape_ui, values, ruleset);
+  turtle.addLsystem(currentStrokePalette, currentFillPalette);
+
+  // Add messages for shape parameters and rule level
+  addMessages(shape_ui.message, turtle.warning, turtle.addWarning);
 }
 
-function addShapeUI() {
-  shape_ui = new ShapeUI(
-    10,
-    250,
-    currentStrokePalette,
-    currentFillPalette,
-    fillShape0,
-    addStroke0
-  );
-  shapeDropdown = shape_ui.dropdown;
-  sliderGroup0 = shape_ui.sliderGroup;
-  sliders0 = shape_ui.sliders;
-}
-
-function setShape() {
-  shapeValues0 = sliderGroup0.getValues();
-  shape_ui.selectShape();
-  p2 = addShapeMessage(shape_ui.message);
-  wadj = shapeValues0[0];
-  hadj = shapeValues0[1];
-  level = shapeValues0[2];
-  length = shapeValues0[3];
-  sw = shapeValues0[4];
-  currentAlpha = shapeValues0[5];
-}
-
-function setRule() {
-  ruleDropdown0.selectRule();
-  lsystem0 = ruleDropdown0.setRule();
-
-  // Retrieve values
-  rules = lsystem0[0];
-  angle = lsystem0[1];
-  lf = lsystem0[2];
-  maxLevel = lsystem0[3];
-  sentence = lsystem0[4];
-}
-
-function addShapeMessage(message0) {
-  addMessage = true;
+function addMessages(newMessage, warning, addWarning) {
+  let addMessage = true;
   let message = null;
-  if (message0 != null) {
-    message = message0;
+  if (newMessage != null) {
+    message = newMessage;
   } else addMessage = false;
 
-  let p2 = createP(message);
-  p2.position(500, 10);
-  p2.addClass("p");
+  shapeMessage = createP(message);
+  shapeMessage.position(600, 10);
+  shapeMessage.addClass("p");
 
   if (addMessage) {
-    p2.show();
+    shapeMessage.show();
   } else {
-    p2.hide();
+    shapeMessage.hide();
   }
-  return p2;
-}
-
-function addTurtle() {
-  addWarning = false;
-  warning = "";
-
-  turtle0 = new Turtle(
-    sentence,
-    length,
-    angle,
-    lf,
-    sw,
-    currentAlpha,
-    currentStrokePalette,
-    currentFillPalette,
-    fillShape0,
-    addStroke0,
-    shape_ui
-  );
-
-  push()
-  translate(width * wadj, height * hadj);
-  if (level > maxLevel) {
-    warning =
-      "The level cannot be greater " + `${maxLevel}` + " with this rule-set.";
-    addWarning = true;
-    
-    for (let i = 0; i < maxLevel; i++) {
-      turtle0.generate();
-    }
-    turtle0.turtle();
-  } else {
-    for (let i = 0; i < level; i++) {
-      turtle0.generate();
-    }
-    turtle0.turtle();
-  }
-  pop();
-}
-
-function addColorPaletteDropdowns() {
-  // Instantiate the color dropdowns
-  backgroundDropdown0 = new PaletteDropdown(300, 50, "black");
-  fillDropdown0 = new PaletteDropdown(450, 50, "blue");
-  strokeDropdown0 = new PaletteDropdown(600, 50, "blue");
-}
-
-function setColorPalettes() {
-  backgroundDropdown0.setPalette();
-  backgrounddropdown = backgroundDropdown0.dropdown;
-  currentBackgroundPalette = backgroundDropdown0.palette;
-
-  fillDropdown0.setPalette();
-  filldropdown = fillDropdown0.dropdown;
-  currentFillPalette = fillDropdown0.palette;
-
-  strokeDropdown0.setPalette();
-  strokedropdown = strokeDropdown0.dropdown;
-  currentStrokePalette = strokeDropdown0.palette;
-
-  currentFillColor = random(currentFillPalette);
-  currentStrokeColor = random(currentStrokePalette);
-}
-
-function addControls(pos) {
-  // Add a reset button for both fractals
-  resetButton = createButton("Reset");
-  resetButton.position(pos, 150);
-  resetButton.mousePressed(reset);
-
-  // Checkbox to determine whether shapes are filled
-  fillShape0 = createCheckbox("Fill L-system 1 shapes", false);
-  fillShape0.position(pos, 200);
-  fillShape0.style("color", "white");
-
-  // Checkbox to determine whether shapes have stroke
-  addStroke0 = createCheckbox("Add stroke L-system 1", true);
-  addStroke0.position(pos, 250);
-  addStroke0.style("color", "white");
-}
-
-function addText() {
-  push();
-  let s = length * shapeScale;
-  translate(width / 2, height / 2);
-  fill(random(palette));
-  textSize(2 * s);
-  text("IS ALL YOU NEED", 0, 0);
-  pop();
-}
-
-function addRuleWarning() {
-  p = createP(warning);
-  p.position(250, 75);
-  p.addClass("p");
+  ruleWarning = createP(warning);
+  ruleWarning.position(600, 50);
+  ruleWarning.addClass("p");
 
   if (!addWarning) {
-    p.hide();
+    ruleWarning.hide();
   }
 }

@@ -1,16 +1,43 @@
 class Turtle {
-  constructor(sentence, length, angle, lf, sw, alpha, strokePalette, fillPalette, fillShape, addStroke, shape_ui) {
-    this.sentence = sentence;
-    this.strokePalette = strokePalette;
-    this.fillPalette = fillPalette;
-    this.sw = sw;
-    this.alpha = alpha;
-    this.length = length;
-    this.angle = angle;
-    this.lf = lf;
+  constructor(
+    fillShape,
+    addStroke,
+    shape_ui,
+    values,
+    ruleset
+  ) {
     this.fillShape = fillShape;
     this.addStroke = addStroke;
     this.shape_ui = shape_ui;
+    this.shape = this.shape_ui.shape;
+    this.shapename = this.shape_ui.dropdown.value();
+    this.values = values;
+    this.wadj = this.values[0];
+    this.hadj = this.values[1];
+    this.level = this.values[2];
+    this.length = this.values[3];
+    this.sw = this.values[4];
+    this.a = this.values[5];
+    this.shapeScale = this.values[6];
+    this.fractalAngle = this.values[7];
+    this.shapeAngle = this.values[8];
+    this.a = this.values[9];
+    this.b = this.values[10];
+    this.m = this.values[11];
+    this.n = this.values[12];
+    this.n1 = this.values[13];
+    this.n2 = this.values[14];
+    this.n3 = this.values[15];
+    this.ruleset = ruleset;
+    this.ruleset.selectRule();
+    this.lsystemValues = this.ruleset.setRule();
+    this.rules = this.lsystemValues[0];
+    this.angle = this.lsystemValues[1];
+    this.lf = this.lsystemValues[2];
+    this.maxLevel = this.lsystemValues[3];
+    this.sentence = this.lsystemValues[4];
+    this.addWarning = false;
+    this.warning = null;
   }
 
   generate() {
@@ -18,10 +45,10 @@ class Turtle {
     for (let i = 0; i < this.sentence.length; i++) {
       let current = this.sentence.charAt(i);
       let found = false;
-      for (let key in rules) {
+      for (let key in this.rules) {
         if (current === key) {
           found = true;
-          nextSentence += rules[key];
+          nextSentence += this.rules[key];
           break;
         }
       }
@@ -32,12 +59,18 @@ class Turtle {
     this.sentence = nextSentence;
   }
 
-  turtle() {
-    this.adjustFill()
+  turtle(strokePalette, fillPalette) {
     for (let i = 0; i < this.sentence.length; i++) {
       let current = this.sentence.charAt(i);
       if (current === "F") {
-        this.shape_ui.showShape();
+        let openShapes = ["Arc", "Archimedes Spiral", "Cornu Spiral"];
+        this.adjustFill(strokePalette, fillPalette);
+        // Draw the shape on the canvas
+        if (openShapes.includes(this.shapename)) {
+          this.shape.openShow();
+        } else {
+          this.shape.show();
+        }
         translate(this.length, 0);
       } else if (current === "f") {
         translate(this.length, 0);
@@ -51,13 +84,14 @@ class Turtle {
         pop();
       } else if (current == ">") {
         push();
-        this.length = this.length * this.lf;
-        //pickShape(shapeDropdown.value());
+        this.values[3] = this.values[3] * this.lf;
+        //console.log(this.values)
+        this.shape_ui.selectShape(this.values);
         pop();
       } else if (current == "<") {
         push();
-        length = length / lf;
-        // pickShape(shapeDropdown.value());
+        this.values[3] = this.values[3] / this.lf;
+        this.shape_ui.selectShape(this.values);
         pop();
       } else if (current == "(") {
         this.angle -= radians(0.1);
@@ -71,24 +105,48 @@ class Turtle {
         beginShape();
       } else if (current == "}") {
         noStroke();
-        fill(random(this.fillPalette));
+        fill(random(fillPalette));
         endShape();
       }
     }
   }
 
-  adjustFill() {
-    let fp = random(this.fillPalette);
-    let sp = random(this.strokePalette);
-    // let sw = 2;//this.values[4];
-    // let a = 150;//this.values[5];
-    fp[3] = this.alpha;
-    sp[3] = this.alpha;
+  addLsystem(strokePalette, fillPalette) {
+    push();
+    translate(width * this.wadj, height * this.hadj);
+    rotate(this.fractalAngle);
+    if (this.level > this.maxLevel) {
+      this.warning =
+        "The level cannot be greater " +
+        `${this.maxLevel}` +
+        " with this rule-set.";
+      this.addWarning = true;
+
+      for (let i = 0; i < this.maxLevel; i++) {
+        this.generate();
+      }
+      this.turtle(strokePalette, fillPalette);
+    } else {
+      for (let i = 0; i < this.level; i++) {
+        this.generate();
+      }
+      this.turtle(strokePalette, fillPalette);
+    }
+    pop();
+  }
+
+  adjustFill(strokePalette, fillPalette) {
+    let sp = random(strokePalette);
+    let fp = random(fillPalette);
+    let sw = this.values[4];
+    let a = this.values[5];
+    fp[3] = a;
+    sp[3] = a;
     if (
       this.fillShape.checked() === true &&
       this.addStroke.checked() === true
     ) {
-      strokeWeight(this.sw);
+      strokeWeight(sw);
       stroke(sp);
       fill(fp);
     } else if (
@@ -96,15 +154,25 @@ class Turtle {
       this.addStroke.checked() === true
     ) {
       noFill();
-      strokeWeight(this.sw);
+      strokeWeight(sw);
       stroke(sp);
     } else if (
       this.fillShape.checked() === true &&
       this.addStroke.checked() === false
     ) {
-      strokeWeight(this.sw);
+      strokeWeight(sw);
       noStroke();
       fill(fp);
     }
+  }
+
+  addText(fillPalette) {
+    push();
+    let s = this.length * this.shapeScale;
+    translate(width / 2, height / 2);
+    fill(random(fillpalette));
+    textSize(2 * s);
+    text("IS ALL YOU NEED", 0, 0);
+    pop();
   }
 }

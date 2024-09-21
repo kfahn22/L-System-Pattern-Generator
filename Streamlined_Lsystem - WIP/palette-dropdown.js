@@ -1,5 +1,5 @@
 class PaletteDropdown {
-  constructor(posx, posy, defaultChoice) {
+  constructor(posx, posy, defaultChoice, label) {
     // Create the dropdown element
     this.dropdown = createSelect();
     this.dropdown.position(posx, posy);
@@ -34,10 +34,15 @@ class PaletteDropdown {
       "orange_green",
       "navy",
     ];
-    this.palette = null;
+    this.palette;
 
     // Add options to the dropdown
     this.optionsArray.forEach((option) => this.dropdown.option(option));
+    // Create label
+    this.label = createP(label);
+    this.label.position(posx, posy - 35);
+
+    this.label.style("color", "white");
 
     // Set the default selected option
     if (defaultChoice) {
@@ -99,6 +104,9 @@ class PaletteDropdown {
         url =
           "https://supercolorpalette.com/?scp=G0-hsl-118823-13961B-17A314-25B116-36BF18-49CC19-5EDA1B-75E421";
         break;
+      // case "blue":
+      //   url = "https://supercolorpalette.com/?scp=G0-hsl-2A1FFF"; //-242BFF-2942FF-2E58FF-336DFF-3881FF";
+      //   break;
       case "purple":
         url =
           "https://supercolorpalette.com/?scp=G0-hsl-8B1FFF-961FFF-A11FFF-AD1FFF-B81FFF-C31FFF";
@@ -191,8 +199,8 @@ class PaletteDropdown {
     return [r, g, b, a];
   }
 
-  // Return the dropdown element if needed
-  getElement() {
-    return this.dropdown;
-  }
+  // // Return the dropdown element if needed
+  // getElement() {
+  //   return this.dropdown;
+  // }
 }
