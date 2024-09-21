@@ -16,8 +16,10 @@ let shapeMessage; // Shape message re parameters to choosen shape
 
 // Buttons/checkboxes
 let resetButton;
-let fillShape;
-let addStroke;
+let fillShape; // Boolean, default false
+let addStroke; // Boolean, defualt true
+// https://github.com/meezwhite/p5.grain
+let addGrain; // Boolean, default false
 
 // Preload the L-system rules
 function preload() {
@@ -27,6 +29,7 @@ function preload() {
 function setup() {
   canvas = createCanvas(600, 600);
   canvas.position(250, 200);
+  p5grain.setup();
 
   controls = addLsystem("Gear", "dragon2");
 }
@@ -62,7 +65,7 @@ function addLsystem(currentShape, currentRule) {
 function addControls(controls) {
   dropdowns = controls.returnDropdowns();
   resetButton = controls.returnButtons();
-  [fillShape, addStroke] = controls.returnCheckboxes();
+  [fillShape, addStroke, addGrain] = controls.returnCheckboxes();
   sliderGroup = controls.sliderGroup;
   sliders = sliderGroup.sliders;
   shape_ui = controls.shape_ui;
@@ -85,6 +88,9 @@ function setSystemVariables(controls) {
   let turtle = new Turtle(fillShape, addStroke, shape_ui, values, ruleset);
   turtle.addLsystem(currentStrokePalette, currentFillPalette);
 
+  if (addGrain.checked() == true) {
+    applyChromaticGrain(42);
+  }
   // Add messages for shape parameters and rule level
   addMessages(shape_ui.message, turtle.warning, turtle.addWarning);
 }

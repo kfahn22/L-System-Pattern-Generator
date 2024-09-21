@@ -1,13 +1,17 @@
 class AddControls {
   constructor(posSliders, posDropdown, posButtons, data, shapeChoice, ruleChoice) {
     // Instantiate palette dropdowns
-    this.backgroundDropdown = new PaletteDropdown(450, 30, "black", "Background Color");
+    this.backgroundDropdown = new PaletteDropdown(
+      450,
+      30,
+      "black",
+      "Background Color"
+    );
     this.backgrounddropdown = this.backgroundDropdown.dropdown;
     this.strokeDropdown = new PaletteDropdown(450, 80, "blue", "Stroke Color");
     this.strokedropdown = this.strokeDropdown.dropdown;
     this.fillDropdown = new PaletteDropdown(450, 130, "purple", "Fill Color");
     this.filldropdown = this.fillDropdown.dropdown;
-
     // Create an instance of the SliderGroup class
     this.sliderGroup = new SliderGroup(
       posSliders,
@@ -41,14 +45,19 @@ class AddControls {
     this.rulesetDropdown = this.ruleset.dropdown;
     // checkbox for filling shape
     this.fillShape = createCheckbox("Fill L-system 1 shapes", false);
+    this.resetButton = createButton("Reset");
+    this.resetButton.position(posButtons, 90);
     this.fillShape.position(posButtons, 120);
     this.fillShape.style("color", "white");
     // Checkbox to determine whether shapes have stroke
     this.addStroke = createCheckbox("Add stroke L-system 1", true);
     this.addStroke.position(posButtons, 150);
     this.addStroke.style("color", "white");
-    this.resetButton = createButton("Reset");
-    this.resetButton.position(posButtons, 90);
+    // Whether to add P5 Grain library
+    // Will slow down the render so I recommend keeping to false most of the time
+    this.addGrain = createCheckbox("Add grain", false);
+    this.addGrain.position(posButtons, 180);
+    this.addGrain.style("color", "white");
   }
 
   setPalettes() {
@@ -85,6 +94,6 @@ class AddControls {
   }
 
   returnCheckboxes() {
-    return [this.fillShape, this.addStroke];
+    return [this.fillShape, this.addStroke, this.addGrain];
   }
 }

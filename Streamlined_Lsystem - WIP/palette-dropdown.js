@@ -104,9 +104,6 @@ class PaletteDropdown {
         url =
           "https://supercolorpalette.com/?scp=G0-hsl-118823-13961B-17A314-25B116-36BF18-49CC19-5EDA1B-75E421";
         break;
-      // case "blue":
-      //   url = "https://supercolorpalette.com/?scp=G0-hsl-2A1FFF"; //-242BFF-2942FF-2E58FF-336DFF-3881FF";
-      //   break;
       case "purple":
         url =
           "https://supercolorpalette.com/?scp=G0-hsl-8B1FFF-961FFF-A11FFF-AD1FFF-B81FFF-C31FFF";
@@ -198,9 +195,4 @@ class PaletteDropdown {
     let a = 255;
     return [r, g, b, a];
   }
-
-  // // Return the dropdown element if needed
-  // getElement() {
-  //   return this.dropdown;
-  // }
 }

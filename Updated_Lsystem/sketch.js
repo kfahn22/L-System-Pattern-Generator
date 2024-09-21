@@ -1322,11 +1322,6 @@ function addControls(pos) {
   addGrain.position(pos - 60, 90);
   addGrain.style("color", "white");
 
-  // Add artistic style with random circles
-  addCircles = createCheckbox("Add circles", false);
-  addCircles.position(pos - 60, 115);
-  addCircles.style("color", "white");
-
   // Have to add background color after palettes are added
   addBackgroundColor();
 }
@@ -1399,15 +1394,5 @@ function addText() {
   fill(random(palette));
   textSize(2 * s);
   text("IS ALL YOU NEED", 0, 0);
-  pop();
-}
-
-function addRandomCircles(numCircles) {
-  push();
-  fill(220, 220, 220, 180);
-  noStroke();
-  for (let i = 0; i < numCircles; i++) {
-    circle(random(width - 20), random(height - 20), random(4));
-  }
   pop();
 }

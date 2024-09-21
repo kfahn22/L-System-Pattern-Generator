@@ -1,11 +1,5 @@
 class Turtle {
-  constructor(
-    fillShape,
-    addStroke,
-    shape_ui,
-    values,
-    ruleset
-  ) {
+  constructor(fillShape, addStroke, shape_ui, values, ruleset) {
     this.fillShape = fillShape;
     this.addStroke = addStroke;
     this.shape_ui = shape_ui;
@@ -19,8 +13,8 @@ class Turtle {
     this.sw = this.values[4];
     this.a = this.values[5];
     this.shapeScale = this.values[6];
-    this.fractalAngle = this.values[7];
-    this.shapeAngle = this.values[8];
+    this.fractalAngle = radians(this.values[7]);
+    this.shapeAngle = radians(this.values[8]);
     this.a = this.values[9];
     this.b = this.values[10];
     this.m = this.values[11];
