@@ -69,10 +69,16 @@ class RuleDropdown {
   }
 
   // Called when a ruleset is selected from the dropdown
-  selectRule() {
-    this.currentFractal = this.dropdown.value();
+  selectRule(choice) {
+    console.log(choice)
+    //console.log(this.dropdown.value())
+    this.currentFractal = choice;//this.dropdown.value();
     this.pickRule();
   }
+
+  // updateCurrentFractal(choice) {
+  //   this.currentFractal = choice;
+  // }
 
   pickRule() {
     switch (this.currentFractal) {

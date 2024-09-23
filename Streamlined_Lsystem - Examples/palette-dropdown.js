@@ -51,9 +51,9 @@ class PaletteDropdown {
   }
 
   // Handle the dropdown selection change
-  setPalette() {
+  setPalette(choice) {
     // Get the selected value
-    this.selected = this.dropdown.value();
+    this.selected = choice;//this.dropdown.value();
 
     // Get the URL based on the selected value
     let url = this.getPaletteUrl(this.selected);

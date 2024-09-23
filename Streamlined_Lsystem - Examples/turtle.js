@@ -1,35 +1,21 @@
 class Turtle {
-  constructor(fillShape, addStroke, shape_ui, values, ruleset) {
-    this.fillShape = fillShape;
-    this.addStroke = addStroke;
+  constructor(shape_ui, values, shapeValues, ruleset, fillShape, addStroke) {
     this.shape_ui = shape_ui;
     this.shape = this.shape_ui.shape;
-    this.shapename = this.shape_ui.dropdown.value();
     this.values = values;
-    this.wadj = this.values[0];
-    this.hadj = this.values[1];
-    this.level = this.values[2];
-    this.length = this.values[3];
-    this.sw = this.values[4];
-    this.a = this.values[5];
-    this.shapeScale = this.values[6];
-    this.fractalAngle = radians(this.values[7]);
-    this.shapeAngle = radians(this.values[8]);
-    this.a = this.values[9];
-    this.b = this.values[10];
-    this.m = this.values[11];
-    this.n = this.values[12];
-    this.n1 = this.values[13];
-    this.n2 = this.values[14];
-    this.n3 = this.values[15];
+    this.shapeValues = shapeValues;
+    this.shapename = this.values[1];//this.shape_ui.dropdown.value();
+    this.length = this.values[14];
     this.ruleset = ruleset;
-    this.ruleset.selectRule();
+    this.ruleset.selectRule(this.values[0]);
     this.lsystemValues = this.ruleset.setRule();
     this.rules = this.lsystemValues[0];
     this.angle = this.lsystemValues[1];
     this.lf = this.lsystemValues[2];
     this.maxLevel = this.lsystemValues[3];
     this.sentence = this.lsystemValues[4];
+    this.fillShape = fillShape;
+    this.addStroke = addStroke;
     this.addWarning = false;
     this.warning = null;
   }
@@ -54,7 +40,7 @@ class Turtle {
   }
 
   turtle(strokePalette, fillPalette) {
-    let length = this.values[3];
+    let length = this.values[14];
     for (let i = 0; i < this.sentence.length; i++) {
       let current = this.sentence.charAt(i);
       if (current === "F") {
@@ -79,14 +65,13 @@ class Turtle {
         pop();
       } else if (current == ">") {
         push();
-        this.values[3] = this.values[3] * this.lf;
-        //console.log(this.values)
-        this.shape_ui.selectShape(this.values);
+        this.values[15] = this.values[15] * this.lf;
+        this.shape_ui.selectShape(this.shapeValues);
         pop();
       } else if (current == "<") {
         push();
-        this.values[3] = this.values[3] / this.lf;
-        this.shape_ui.selectShape(this.values);
+        this.values[15] = this.values[15] / this.lf;
+        this.shape_ui.selectShape(this.shapeValues);
         pop();
       } else if (current == "(") {
         this.angle -= radians(0.1);
@@ -107,10 +92,15 @@ class Turtle {
   }
 
   addLsystem(strokePalette, fillPalette) {
+    
+    let wadj = this.values[8];
+    let hadj = this.values[9];
+    let level = this.values[10];
+    let fractalAngle = this.values[13];
     push();
-    translate(width * this.wadj, height * this.hadj);
-    rotate(this.fractalAngle);
-    if (this.level > this.maxLevel) {
+    translate(width * wadj, height * hadj);
+    rotate(fractalAngle);
+    if (level > this.maxLevel) {
       this.warning =
         "The level cannot be greater " +
         `${this.maxLevel}` +
@@ -122,7 +112,7 @@ class Turtle {
       }
       this.turtle(strokePalette, fillPalette);
     } else {
-      for (let i = 0; i < this.level; i++) {
+      for (let i = 0; i < level; i++) {
         this.generate();
       }
       this.turtle(strokePalette, fillPalette);
@@ -133,28 +123,19 @@ class Turtle {
   adjustFill(strokePalette, fillPalette) {
     let sp = random(strokePalette);
     let fp = random(fillPalette);
-    let sw = this.values[4];
-    let a = this.values[5];
+    let sw = this.values[11];
+    let a = this.values[12];
     fp[3] = a;
     sp[3] = a;
-    if (
-      this.fillShape.checked() === true &&
-      this.addStroke.checked() === true
-    ) {
+    if (this.fillShape === true && this.addStroke === true) {
       strokeWeight(sw);
       stroke(sp);
       fill(fp);
-    } else if (
-      this.fillShape.checked() === false &&
-      this.addStroke.checked() === true
-    ) {
+    } else if (this.fillShape === false && this.addStroke === true) {
       noFill();
       strokeWeight(sw);
       stroke(sp);
-    } else if (
-      this.fillShape.checked() === true &&
-      this.addStroke.checked() === false
-    ) {
+    } else if (this.fillShape === true && this.addStroke === false) {
       strokeWeight(sw);
       noStroke();
       fill(fp);
@@ -163,7 +144,9 @@ class Turtle {
 
   addText(fillPalette) {
     push();
-    let s = this.length * this.shapeScale;
+    let length = this.values[15];
+    let shapeScale = this.values[16];
+    let s = length * shapeScale;
     translate(width / 2, height / 2);
     fill(random(fillpalette));
     textSize(2 * s);
