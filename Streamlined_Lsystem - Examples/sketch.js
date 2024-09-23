@@ -108,7 +108,8 @@ function setSystemVariables(exampleValues) {
   let systemValues = exampleValues.slice(0, 15)
   // Retrieve values from json data for shape (a, b, m, n, n1, n2, n3)
   let shapeValues = exampleValues.slice(-10);
-  shape_ui.selectShape(shapeValues);
+
+  shape_ui.selectShape(exampleValues[1], shapeValues);
 
   console.log(exampleValues[0])
   let ruleset = controls.ruleset;
