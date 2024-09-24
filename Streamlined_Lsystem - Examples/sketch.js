@@ -7,8 +7,8 @@ let rulesetData;
 let exampleData;
 let exampleDropdown; // object
 let exampledropdown; // instance
-//let exampleChoice = "Dragon1 with Gear Curve";
-let exampleChoice = "ADH231a with Astroid Curve";
+
+let exampleChoice = "Krishna Anklet with Gear Curve";
 
 // Control variables
 let controls;
@@ -106,12 +106,11 @@ function setSystemVariables(exampleValues) {
 
   // Retrieve values from json data for system 
   let systemValues = exampleValues.slice(0, 15)
-  // Retrieve values from json data for shape (a, b, m, n, n1, n2, n3)
+  // Retrieve values from json data for shape (a, b, m, n, n1, n2, n3, shapeAngle)
   let shapeValues = exampleValues.slice(-10);
-
+  console.log(shapeValues)
   shape_ui.selectShape(exampleValues[1], shapeValues);
 
-  console.log(exampleValues[0])
   let ruleset = controls.ruleset;
 
   //Add turtle system

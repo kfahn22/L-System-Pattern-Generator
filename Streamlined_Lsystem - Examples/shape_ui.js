@@ -1,7 +1,7 @@
 class ShapeUI {
   constructor(posDropdown, choice) {
     this.choice = choice;
-   // this.values = values;
+    // this.values = values;
     this.shape = null;
     this.message = null;
     this.addMessage = false;
@@ -49,7 +49,7 @@ class ShapeUI {
     let r = values[0] * values[1]; // gridlength * shapeScale
     // Create a new Shape object with necessary parameters
     this.shape = new Shape(
-      r, 
+      r,
       values[2], // a
       values[3], // b
       values[4], // m

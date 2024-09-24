@@ -9,10 +9,18 @@ class ExampleDropdown {
     this.dropdown.position(this.posx, this.posy);
     this.dropdown.addClass("dropdown");
     this.optionsArray = [
-      "Dragon1 with Gear Curve",
       "ADH231a with Astroid Curve",
-      "Doily with Supershape",
+      "ADH231a with Supershape Curve",
+      "Box with Ceva",
+      "Doily with Supershape Curve",
+      "Dragon2 with Gear Curve",
+      "Dragon1 with Astroid Curve",
+      "Koch snowflake with Kiss curve",
+      "Koch snowflake with Quadrilateral",
+      "Krishna Anklet with Gear Curve",
       "Rounded Star with Cornu Spiral",
+      "Skierpinski with Gear curve",
+      "Snake kolam with Tear curve",
     ];
 
     // Add options to the dropdown
@@ -28,36 +36,43 @@ class ExampleDropdown {
 
   pickExample() {
     switch (this.currentExample) {
-      case "Dragon1 with Gear Curve":
-        this.currentExample = this.data.Dragon1_with_Gear_Curve;
-        break;
       case "ADH231a with Astroid Curve":
         this.currentExample = this.data.ADH231a_with_Astroid_Curve;
         break;
-      case "Doily with Supershape":
+      case "ADH231a with Supershape Curve":
+        this.currentExample = this.data.ADH231a_with_Supershape_Curve;
+        break;
+      case "Box with Ceva":
+        this.currentExample = this.data.Box_with_Ceva;
+        break;
+      case "Dragon2 with Gear Curve":
+        this.currentExample = this.data.Dragon2_with_Gear_Curve;
+        break;
+      case "Dragon1 with Astroid Curve":
+        this.currentExample = this.data.Dragon1_with_Astroid_Curve;
+        break;
+      case "Doily with Supershape Curve":
         this.currentExample = this.data.Doily_with_supershape;
+        break;
+      case "Koch snowflake with Kiss curve":
+        this.currentExample = this.data.Koch_snowflake_with_Kiss_curve;
+        break;
+      case "Koch snowflake with Quadrilateral":
+        this.currentExample = this.data.Koch_snowflake_with_Quadrilateral;
+        break;
+      case "Krishna Anklet with Gear Curve":
+        this.currentExample = this.data.Krishna_Anklet_with_Gear_Curve;
         break;
       case "Rounded Star with Cornu Spiral":
         this.currentExample = this.data.Rounded_Star_with_Cornu_Spiral;
         break;
-      // case "board2":
-      //   this.currentExample = this.lsystem.board2;
-      //   break;
-      // case "box":
-      //   this.currentFractal = this.lsystem.box;
-      //   break;
-      // case "recursive_circles":
-      //   this.currentFractal = this.lsystem.recursive_circles;
-      //   break;
-      // // case "recursive_circles2":
-      // //   this.currentFractal = this.lsystem.recursive_circles2;
-      // //   break;
-      // case "circular":
-      //   this.currentFractal = this.lsystem.circular;
-      //   break;
-      // case "cross":
-      //   this.currentFractal = this.lsystem.cross;
-      //   break;
+      case "Skierpinski with Gear curve":
+        this.currentExample = this.data.Skierpinski_with_Gear_curve;
+        break;
+      case "Snake kolam with Tear curve":
+        this.currentExample = this.data.Snake_kolam_with_Tear_curve;
+        break;
+
       // case "crystal":
       //   this.currentFractal = this.lsystem.crystal;
       //   break;
@@ -237,7 +252,7 @@ class ExampleDropdown {
       n1,
       n2,
       n3,
-      shapeAngle
+      shapeAngle,
     ];
   }
 }
