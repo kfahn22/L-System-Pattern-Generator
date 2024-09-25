@@ -141,6 +141,8 @@ class ShapeUI {
         break;
       case "Rose":
         this.shape.rose();
+        this.addMessage = true;
+        this.message = "The rose curve is a f(a, b, n).";
         break;
       case "Superellipse":
         this.shape.superellipse();

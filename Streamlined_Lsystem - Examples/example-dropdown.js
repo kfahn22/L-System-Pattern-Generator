@@ -9,18 +9,24 @@ class ExampleDropdown {
     this.dropdown.position(this.posx, this.posy);
     this.dropdown.addClass("dropdown");
     this.optionsArray = [
+      "ADH231a with Archimedes Spiral",
       "ADH231a with Astroid Curve",
       "ADH231a with Supershape Curve",
       "Box with Ceva",
+      "Crystal with Maltese Cross",
+      "Crystal with Supershape",
       "Doily with Supershape Curve",
       "Dragon2 with Gear Curve",
       "Dragon1 with Astroid Curve",
       "Koch snowflake with Bicorn curve",
       "Koch snowflake with Kiss curve",
       "Koch snowflake with Quadrilateral",
+      "Kolam with Deltoid",
       "Kolam with Gear Curve",
-      "Background Krishna Anklet with Gear Curve",
+      "Krishna Anklet with Gear Curve (Background)",
       "Krishna Anklet with Gear Curve",
+      "Mango Leaf with Gear Curve",
+      "Mango Leaf with Rose",
       "Peano with Cassini Oval",
       "Peano with Quadrilateral Curve",
       "Quadratic gosper with Kiss curve",
@@ -28,6 +34,7 @@ class ExampleDropdown {
       "Skierpinski with Gear curve",
       "Skierpinski carpet with Supershape",
       "Snake kolam with Tear curve",
+      "Square Skierpinski with Cornu Spiral",
     ];
 
     // Add options to the dropdown
@@ -43,6 +50,9 @@ class ExampleDropdown {
 
   pickExample() {
     switch (this.currentExample) {
+      case "ADH231a with Archimedes Spiral":
+        this.currentExample = this.data.ADH231a_with_Archimedes_Spiral;
+        break;
       case "ADH231a with Astroid Curve":
         this.currentExample = this.data.ADH231a_with_Astroid_Curve;
         break;
@@ -51,6 +61,12 @@ class ExampleDropdown {
         break;
       case "Box with Ceva":
         this.currentExample = this.data.Box_with_Ceva;
+        break;
+      case "Crystal with Maltese Cross":
+        this.currentExample = this.data.Crystal_with_Maltese_Cross;
+        break;
+      case "Crystal with Supershape":
+        this.currentExample = this.data.Crystal_with_Supershape;
         break;
       case "Dragon2 with Gear Curve":
         this.currentExample = this.data.Dragon2_with_Gear_Curve;
@@ -73,12 +89,21 @@ class ExampleDropdown {
       case "Kolam with Gear Curve":
         this.currentExample = this.data.Kolam_with_Gear_Curve;
         break;
+      case "Kolam with Deltoid":
+        this.currentExample = this.data.Kolam_with_Deltoid;
+        break;
       case "Krishna Anklet with Gear Curve":
         this.currentExample = this.data.Krishna_Anklet_with_Gear_Curve;
         break;
-      case "Background Krishna Anklet with Gear Curve":
+      case "Krishna Anklet with Gear Curve (Background)":
         this.currentExample =
           this.data.Background_Krishna_Anklet_with_Gear_Curve;
+        break;
+      case "Mango Leaf with Gear Curve":
+        this.currentExample = this.data.Mango_Leaf_with_Gear_Curve;
+        break;
+      case "Mango Leaf with Rose":
+        this.currentExample = this.data.Mango_Leaf_with_Rose_Curve;
         break;
       case "Peano with Cassini Oval":
         this.currentExample = this.data.Peano_with_Cassini_Oval;
@@ -101,19 +126,10 @@ class ExampleDropdown {
       case "Snake kolam with Tear curve":
         this.currentExample = this.data.Snake_kolam_with_Tear_curve;
         break;
+      case "Square Skierpinski with Cornu Spiral":
+        this.currentExample = this.data.Square_Skierpinski_with_Cornu_Spiral;
+        break;
 
-      // case "fern2":
-      //   this.currentFractal = this.lsystem.fern2;
-      //   break;
-      // case "fern3":
-      //   this.currentFractal = this.lsystem.fern3;
-      //   break;
-      // // case "flower":
-      // //   currentFractal = this.lsystem.flower;
-      // //   break;
-      // case "island_curve":
-      //   this.currentFractal = this.lsystem.island_curve;
-      //   break;
       // case "hilbert":
       //   this.currentFractal = this.lsystem.hilbert;
       //   break;

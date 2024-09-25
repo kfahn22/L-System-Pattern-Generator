@@ -8,7 +8,7 @@ let exampleData;
 let exampleDropdown; // object
 let exampledropdown; // instance
 
-let exampleChoice = "Box with Ceva";
+let exampleChoice = "Kolam with Deltoid";
 
 // Control variables
 let controls;
