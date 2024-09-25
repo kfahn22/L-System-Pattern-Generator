@@ -15,11 +15,18 @@ class ExampleDropdown {
       "Doily with Supershape Curve",
       "Dragon2 with Gear Curve",
       "Dragon1 with Astroid Curve",
+      "Koch snowflake with Bicorn curve",
       "Koch snowflake with Kiss curve",
       "Koch snowflake with Quadrilateral",
+      "Kolam with Gear Curve",
+      "Background Krishna Anklet with Gear Curve",
       "Krishna Anklet with Gear Curve",
+      "Peano with Cassini Oval",
+      "Peano with Quadrilateral Curve",
+      "Quadratic gosper with Kiss curve",
       "Rounded Star with Cornu Spiral",
       "Skierpinski with Gear curve",
+      "Skierpinski carpet with Supershape",
       "Snake kolam with Tear curve",
     ];
 
@@ -54,14 +61,33 @@ class ExampleDropdown {
       case "Doily with Supershape Curve":
         this.currentExample = this.data.Doily_with_supershape;
         break;
+      case "Koch snowflake with Bicorn curve":
+        this.currentExample = this.data.Koch_snowflake_with_Bicorn_curve;
+        break;
       case "Koch snowflake with Kiss curve":
         this.currentExample = this.data.Koch_snowflake_with_Kiss_curve;
         break;
       case "Koch snowflake with Quadrilateral":
         this.currentExample = this.data.Koch_snowflake_with_Quadrilateral;
         break;
+      case "Kolam with Gear Curve":
+        this.currentExample = this.data.Kolam_with_Gear_Curve;
+        break;
       case "Krishna Anklet with Gear Curve":
         this.currentExample = this.data.Krishna_Anklet_with_Gear_Curve;
+        break;
+      case "Background Krishna Anklet with Gear Curve":
+        this.currentExample =
+          this.data.Background_Krishna_Anklet_with_Gear_Curve;
+        break;
+      case "Peano with Cassini Oval":
+        this.currentExample = this.data.Peano_with_Cassini_Oval;
+        break;
+      case "Peano with Quadrilateral Curve":
+        this.currentExample = this.data.Peano_with_Quadrilateral_Curve;
+        break;
+      case "Quadratic gosper with Kiss curve":
+        this.currentExample = this.data.Quadratic_gosper_with_Kiss_curve;
         break;
       case "Rounded Star with Cornu Spiral":
         this.currentExample = this.data.Rounded_Star_with_Cornu_Spiral;
@@ -69,25 +95,13 @@ class ExampleDropdown {
       case "Skierpinski with Gear curve":
         this.currentExample = this.data.Skierpinski_with_Gear_curve;
         break;
+      case "Skierpinski carpet with Supershape":
+        this.currentExample = this.data.Skierpinski_carpet_with_Supershape;
+        break;
       case "Snake kolam with Tear curve":
         this.currentExample = this.data.Snake_kolam_with_Tear_curve;
         break;
 
-      // case "crystal":
-      //   this.currentFractal = this.lsystem.crystal;
-      //   break;
-      // case "doily":
-      //   this.currentFractal = this.lsystem.doily;
-      //   break;
-      // case "dragon1":
-      //   this.currentFractal = this.lsystem.dragon1;
-      //   break;
-      // case "dragon2":
-      //   this.currentFractal = this.lsystem.dragon2;
-      //   break;
-      // case "fern":
-      //   this.currentFractal = this.lsystem.fern;
-      //   break;
       // case "fern2":
       //   this.currentFractal = this.lsystem.fern2;
       //   break;
@@ -203,31 +217,32 @@ class ExampleDropdown {
   }
 
   setExample() {
-    //console.log(this.currentExample);
     let ruleset = this.currentExample.ruleset; // 0
     let shape = this.currentExample.shape; // 1
-    let wadj = this.currentExample.wadj; // 2
-    let hadj = this.currentExample.hadj; // 3
-    let level = this.currentExample.level; //4
-    let length = this.currentExample.length; // 5
-    let sw = this.currentExample.strokeWeight; // 6
-    let alpha = this.currentExample.alpha; // 7
-    let shapeScale = this.currentExample.shapeScale; // 8
-    let fractalAngle = radians(this.currentExample.fractal_angle); //9
-    let shapeAngle = radians(this.currentExample.shape_angle); // 10
-    let a = this.currentExample.a; // 11
-    let b = this.currentExample.b; // 12
-    let m = this.currentExample.m; // 13
-    let n = this.currentExample.n; // 14
-    let n1 = this.currentExample.n1; // 15
-    let n2 = this.currentExample.n2; // 16
-    let n3 = this.currentExample.n3; // 17
-    let backgroundColor = this.currentExample.background_color; // 18
-    let strokePalette = this.currentExample.stroke_palette; // 19
-    let fillPalette = this.currentExample.fill_palette; // 20
-    let fillShape = this.currentExample.fill_shape;
-    let addStroke = this.currentExample.add_stroke;
-    let addGrain = this.currentExample.add_grain;
+    let backgroundColor = this.currentExample.background_color; // 2
+    let strokePalette = this.currentExample.stroke_palette; // 3
+    let fillPalette = this.currentExample.fill_palette; // 4
+    let fillShape = this.currentExample.fill_shape; // 5
+    let addStroke = this.currentExample.add_stroke; // 6
+    let addGrain = this.currentExample.add_grain; // 7
+    let wadj = this.currentExample.wadj; // 8
+    let hadj = this.currentExample.hadj; // 9
+    let level = this.currentExample.level; // 10
+    let sw = this.currentExample.strokeWeight; // 11
+    let strokeAlpha = this.currentExample.strokeAlpha; // 12
+    let fillAlpha = this.currentExample.fillAlpha; // 13
+    let fractalAngle = radians(this.currentExample.fractal_angle); //14
+    let length = this.currentExample.length; // 15
+    let shapeScale = this.currentExample.shapeScale; // 16
+    let a = this.currentExample.a; // 17
+    let b = this.currentExample.b; // 18
+    let m = this.currentExample.m; // 19
+    let n = this.currentExample.n; // 20
+    let n1 = this.currentExample.n1; // 21
+    let n2 = this.currentExample.n2; // 22
+    let n3 = this.currentExample.n3; // 23
+    let shapeAngle = radians(this.currentExample.shape_angle); // 24
+
     return [
       ruleset,
       shape,
@@ -241,7 +256,8 @@ class ExampleDropdown {
       hadj,
       level,
       sw,
-      alpha,
+      strokeAlpha,
+      fillAlpha,
       fractalAngle,
       length,
       shapeScale,

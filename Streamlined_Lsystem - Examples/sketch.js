@@ -8,7 +8,7 @@ let exampleData;
 let exampleDropdown; // object
 let exampledropdown; // instance
 
-let exampleChoice = "Krishna Anklet with Gear Curve";
+let exampleChoice = "Box with Ceva";
 
 // Control variables
 let controls;
@@ -40,15 +40,9 @@ function setup() {
   canvas = createCanvas(600, 600);
   canvas.position(250, 200);
   p5grain.setup();
-  exampleDropdown = new ExampleDropdown(
-    700,
-    10,
-    exampleData,
-    exampleChoice
-  );
+  exampleDropdown = new ExampleDropdown(700, 10, exampleData, exampleChoice);
   exampledropdown = exampleDropdown.dropdown;
   dropdowns.push(exampleDropdown.dropdown);
-  //exampleDropdown.selectExample();
   controls = addLsystem();
 }
 
@@ -71,7 +65,7 @@ function reset() {
 function addLsystem() {
   exampleDropdown.selectExample();
   let exampleValues = exampleDropdown.setExample();
-  let systemValues = exampleValues.slice(0, 15);
+  //let systemValues = exampleValues.slice(0, 16);
   //let shapeValues = exampleValues.slice(-9);
   controls = new AddControls(10, rulesetData, exampleValues);
   [dropdowns, resetButton, shape_ui] = addControls();
@@ -83,49 +77,56 @@ function addLsystem() {
 
 function addControls() {
   let otherdropdowns = controls.returnDropdowns();
-  for (d of otherdropdowns)
- { dropdowns.push(d);}
- //console.log(dropdowns)
+  for (d of otherdropdowns) {
+    dropdowns.push(d);
+  }
+
   resetButton = controls.returnButtons();
   [fillShape, addStroke, addGrain] = controls.returnCheckboxes();
-  //console.log(fillShape, addStroke, addGrain)
+
   shape_ui = controls.shape_ui;
   return [dropdowns, resetButton, shape_ui];
 }
 
 function setSystemVariables(exampleValues) {
-
   controls.setPalettes(exampleValues[2], exampleValues[3], exampleValues[4]);
-  
+
   [currentBackgroundPalette, currentStrokePalette, currentFillPalette] =
     controls.returnColorPalettes();
-    console.log(currentStrokePalette)
+
   background(currentBackgroundPalette[0]);
   fillShape = exampleValues[5];
   addStroke = exampleValues[6];
+  addGrain = exampleValues[7];
 
-  // Retrieve values from json data for system 
-  let systemValues = exampleValues.slice(0, 15)
+  // Retrieve values from json data for system
+  let systemValues = exampleValues.slice(0, 16);
+
   // Retrieve values from json data for shape (a, b, m, n, n1, n2, n3, shapeAngle)
   let shapeValues = exampleValues.slice(-10);
-  console.log(shapeValues)
+
   shape_ui.selectShape(exampleValues[1], shapeValues);
 
   let ruleset = controls.ruleset;
 
   //Add turtle system
-   let turtle = new Turtle(
-     shape_ui,
-     systemValues,
-     shapeValues,
-     ruleset,
-     fillShape,
-     addStroke
-   );
-  
-  turtle.addLsystem(currentStrokePalette, currentFillPalette, fillShape, addStroke);
-//if (addGrain == true) {
-    if (addGrain.checked() == true) {
+  let turtle = new Turtle(
+    shape_ui,
+    systemValues,
+    shapeValues,
+    ruleset,
+    fillShape,
+    addStroke
+  );
+
+  turtle.addLsystem(
+    currentStrokePalette,
+    currentFillPalette,
+    fillShape,
+    addStroke
+  );
+  //if (addGrain == true) {
+  if (addGrain == true) {
     applyChromaticGrain(42);
   }
   // Add messages for shape parameters and rule level

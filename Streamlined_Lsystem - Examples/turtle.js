@@ -4,8 +4,7 @@ class Turtle {
     this.shape = this.shape_ui.shape;
     this.values = values;
     this.shapeValues = shapeValues;
-    this.shapename = this.values[1];//this.shape_ui.dropdown.value();
-    this.length = this.values[14];
+    this.shapename = this.values[1];
     this.ruleset = ruleset;
     this.ruleset.selectRule(this.values[0]);
     this.lsystemValues = this.ruleset.setRule();
@@ -40,7 +39,7 @@ class Turtle {
   }
 
   turtle(strokePalette, fillPalette) {
-    let length = this.values[14];
+    let length = this.values[15];
     for (let i = 0; i < this.sentence.length; i++) {
       let current = this.sentence.charAt(i);
       if (current === "F") {
@@ -92,11 +91,11 @@ class Turtle {
   }
 
   addLsystem(strokePalette, fillPalette) {
-    
+    console.log(this.values)
     let wadj = this.values[8];
     let hadj = this.values[9];
     let level = this.values[10];
-    let fractalAngle = this.values[13];
+    let fractalAngle = this.values[14];
     push();
     translate(width * wadj, height * hadj);
     rotate(fractalAngle);
@@ -124,9 +123,9 @@ class Turtle {
     let sp = random(strokePalette);
     let fp = random(fillPalette);
     let sw = this.values[11];
-    let a = this.values[12];
-    fp[3] = a;
-    sp[3] = a;
+    // Update alpha values
+    sp[3] = this.values[12]; // strokeAlpha
+    fp[3] = this.values[13]; // fillAlpha
     if (this.fillShape === true && this.addStroke === true) {
       strokeWeight(sw);
       stroke(sp);
@@ -144,8 +143,8 @@ class Turtle {
 
   addText(fillPalette) {
     push();
-    let length = this.values[15];
-    let shapeScale = this.values[16];
+    let length = this.values[14];
+    let shapeScale = this.values[15];
     let s = length * shapeScale;
     translate(width / 2, height / 2);
     fill(random(fillpalette));

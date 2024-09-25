@@ -96,8 +96,7 @@ class PaletteDropdown {
           "https://supercolorpalette.com/?scp=G0-hsl-2A1FFF-242BFF-2942FF-2E58FF-336DFF-3881FF";
         break;
       case "rose":
-        url =
-          "https://supercolorpalette.com/?scp=G0-hsl-C99CC4";
+        url = "https://supercolorpalette.com/?scp=G0-hsl-C99CC4";
         break;
       case "rosePalette":
         url =
@@ -139,11 +138,11 @@ class PaletteDropdown {
           "https://supercolorpalette.com/?scp=G0-hsl-118823-13961B-17A314-25B116-36BF18-49CC19-5EDA1B-75E421";
         break;
       case "purple":
-        url =
-          "https://supercolorpalette.com/?scp=G0-hsl-8B1FFF-961FFF-A11FFF-AD1FFF-B81FFF-C31FFF";
+        url = "https://supercolorpalette.com/?scp=G0-hsl-8B1FFF";
         break;
       case "purplePalette":
-        url = "https://supercolorpalette.com/?scp=G0-hsl-8B1FFF";
+        url =
+          "https://supercolorpalette.com/?scp=G0-hsl-8B1FFF-961FFF-A11FFF-AD1FFF-B81FFF-C31FFF";
         break;
       case "raspberry":
         url = "https://supercolorpalette.com/?scp=G0-hsl-FF1FE9";
