@@ -12,6 +12,7 @@ let exampleOptions = [
   "ADH231a with Archimedes Spiral",
   "ADH231a with Astroid Curve",
   "ADH231a with Supershape Curve",
+  "ADH256a with Kiss Curve",
   "Box with Ceva",
   "Crystal with Maltese Cross",
   "Crystal with Supershape",
@@ -34,6 +35,8 @@ let exampleOptions = [
   "Mango Leaf with Rose",
   "Peano with Cassini Oval",
   "Peano with Quadrilateral Curve",
+  "Pentaplexity with Gear Curve",
+  "Pentaplexity with Supershape Curve",
   "Quadratic gosper with Kiss curve",
   "Rounded Star with Cornu Spiral",
   "Skierpinski with Gear curve",
@@ -76,7 +79,7 @@ function setup() {
     700,
     10,
     exampleData,
-    exampleOptions[9]
+    exampleOptions[3]
   );
   exampledropdown = exampleDropdown.dropdown;
   dropdowns.push(exampleDropdown.dropdown);

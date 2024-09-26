@@ -12,6 +12,7 @@ class ExampleDropdown {
       "ADH231a with Archimedes Spiral",
       "ADH231a with Astroid Curve",
       "ADH231a with Supershape Curve",
+      "ADH256a with Kiss Curve",
       "Box with Ceva",
       "Crystal with Maltese Cross",
       "Crystal with Supershape",
@@ -34,6 +35,8 @@ class ExampleDropdown {
       "Mango Leaf with Rose",
       "Peano with Cassini Oval",
       "Peano with Quadrilateral Curve",
+      "Pentaplexity with Gear Curve",
+      "Pentaplexity with Supershape Curve",
       "Quadratic gosper with Kiss curve",
       "Rounded Star with Cornu Spiral",
       "Skierpinski with Gear curve",
@@ -63,6 +66,9 @@ class ExampleDropdown {
         break;
       case "ADH231a with Supershape Curve":
         this.currentExample = this.data.ADH231a_with_Supershape_Curve;
+        break;
+      case "ADH256a with Kiss Curve":
+        this.currentExample = this.data.ADH256a_with_Kiss_Curve;
         break;
       case "Box with Ceva":
         this.currentExample = this.data.Box_with_Ceva;
@@ -131,6 +137,12 @@ class ExampleDropdown {
       case "Peano with Quadrilateral Curve":
         this.currentExample = this.data.Peano_with_Quadrilateral_Curve;
         break;
+      case "Pentaplexity with Gear Curve":
+        this.currentExample = this.data.Pentaplexity_with_Gear_Curve;
+        break;
+      case "Pentaplexity with Supershape Curve":
+        this.currentExample = this.data.Pentaplexity_with_Supershape_Curve;
+        break;
       case "Quadratic gosper with Kiss curve":
         this.currentExample = this.data.Quadratic_gosper_with_Kiss_curve;
         break;
@@ -150,12 +162,6 @@ class ExampleDropdown {
         this.currentExample = this.data.Square_Skierpinski_with_Cornu_Spiral;
         break;
 
-      // case "kolam":
-      //   this.currentFractal = this.lsystem.kolam;
-      //   break;
-      // case "krishna_anklet":
-      //   this.currentFractal = this.lsystem.krishna_anklet;
-      //   break;
       // case "koch_curve":
       //   this.currentFractal = this.lsystem.koch_curve;
       //   break;
