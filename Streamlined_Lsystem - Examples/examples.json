@@ -216,7 +216,6 @@
     "n3": 1,
     "shape_angle": 0
   },
-
   "Doily_with_supershape": {
     "ruleset": "doily",
     "shape": "Supershape",
@@ -325,6 +324,33 @@
     "n3": 1,
     "shape_angle": 30
   },
+  "Kolam_with_Ceva_Curve": {
+    "ruleset": "kolam",
+    "shape": "Ceva",
+    "background_color": "black",
+    "stroke_palette": "red",
+    "fill_palette": "bluePalette",
+    "fill_shape": true,
+    "add_stroke": true,
+    "add_grain": true,
+    "wadj": 0.5,
+    "hadj": 0.75,
+    "level": 2,
+    "strokeWeight": 3,
+    "strokeAlpha": 200,
+    "fillAlpha": 150,
+    "fractal_angle": 0,
+    "length": 60,
+    "shapeScale": 0.5,
+    "a": 1.5,
+    "b": 0.75,
+    "m": 6,
+    "n": 1,
+    "n1": 1,
+    "n2": 1,
+    "n3": 1,
+    "shape_angle": -45
+  },
   "Kolam_with_Gear_Curve": {
     "ruleset": "kolam",
     "shape": "Gear",
@@ -369,7 +395,7 @@
     "fillAlpha": 150,
     "fractal_angle": 0,
     "length": 20,
-    "shapeScale": 0.50,
+    "shapeScale": 0.5,
     "a": 1.5,
     "b": 0.75,
     "m": 6,
@@ -529,7 +555,7 @@
     "strokeWeight": 2,
     "strokeAlpha": 255,
     "fillAlpha": 150,
-    "fractal_angle": -45,
+    "fractal_angle": 0,
     "length": 22,
     "shapeScale": 1.15,
     "a": 2,
@@ -544,7 +570,7 @@
   "Quadratic_gosper_with_Kiss_curve": {
     "ruleset": "quadratic_gosper",
     "shape": "Kiss Curve",
-    "background_color": "black",
+    "background_color": "blue",
     "stroke_palette": "white",
     "fill_palette": "blue_yellow",
     "fill_shape": true,
@@ -555,7 +581,7 @@
     "level": 1,
     "strokeWeight": 4,
     "strokeAlpha": 255,
-    "fillAlpha": 150,
+    "fillAlpha": 180,
     "fractal_angle": 0,
     "length": 75,
     "shapeScale": 0.5,
@@ -566,7 +592,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
-    "shape_angle": 45
+    "shape_angle": -45
   },
   "Rounded_Star_with_Cornu_Spiral": {
     "ruleset": "rounded_star",

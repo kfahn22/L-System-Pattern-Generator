@@ -21,6 +21,7 @@ class ExampleDropdown {
       "Koch snowflake with Bicorn curve",
       "Koch snowflake with Kiss curve",
       "Koch snowflake with Quadrilateral",
+      "Kolam with Ceva",
       "Kolam with Deltoid",
       "Kolam with Gear Curve",
       "Krishna Anklet with Gear Curve (Background)",
@@ -85,6 +86,9 @@ class ExampleDropdown {
         break;
       case "Koch snowflake with Quadrilateral":
         this.currentExample = this.data.Koch_snowflake_with_Quadrilateral;
+        break;
+      case "Kolam with Ceva":
+        this.currentExample = this.data.Kolam_with_Ceva_Curve;
         break;
       case "Kolam with Gear Curve":
         this.currentExample = this.data.Kolam_with_Gear_Curve;

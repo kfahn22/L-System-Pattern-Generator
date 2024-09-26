@@ -8,7 +8,33 @@ let exampleData;
 let exampleDropdown; // object
 let exampledropdown; // instance
 
-let exampleChoice = "Kolam with Deltoid";
+let exampleOptions = [ "ADH231a with Archimedes Spiral",
+      "ADH231a with Astroid Curve",
+      "ADH231a with Supershape Curve",
+      "Box with Ceva",
+      "Crystal with Maltese Cross",
+      "Crystal with Supershape",
+      "Doily with Supershape Curve",
+      "Dragon2 with Gear Curve",
+      "Dragon1 with Astroid Curve",
+      "Koch snowflake with Bicorn curve",
+      "Koch snowflake with Kiss curve",
+      "Koch snowflake with Quadrilateral",
+      "Kolam with Ceva",
+      "Kolam with Deltoid",
+      "Kolam with Gear Curve",
+      "Krishna Anklet with Gear Curve (Background)",
+      "Krishna Anklet with Gear Curve",
+      "Mango Leaf with Gear Curve",
+      "Mango Leaf with Rose",
+      "Peano with Cassini Oval",
+      "Peano with Quadrilateral Curve",
+      "Quadratic gosper with Kiss curve",
+      "Rounded Star with Cornu Spiral",
+      "Skierpinski with Gear curve",
+      "Skierpinski carpet with Supershape",
+      "Snake kolam with Tear curve",
+      "Square Skierpinski with Cornu Spiral"];
 
 // Control variables
 let controls;
@@ -40,7 +66,7 @@ function setup() {
   canvas = createCanvas(600, 600);
   canvas.position(250, 200);
   p5grain.setup();
-  exampleDropdown = new ExampleDropdown(700, 10, exampleData, exampleChoice);
+  exampleDropdown = new ExampleDropdown(700, 10, exampleData, exampleOptions[21]);
   exampledropdown = exampleDropdown.dropdown;
   dropdowns.push(exampleDropdown.dropdown);
   controls = addLsystem();
@@ -65,10 +91,8 @@ function reset() {
 function addLsystem() {
   exampleDropdown.selectExample();
   let exampleValues = exampleDropdown.setExample();
-  //let systemValues = exampleValues.slice(0, 16);
-  //let shapeValues = exampleValues.slice(-9);
   controls = new AddControls(10, rulesetData, exampleValues);
-  [dropdowns, resetButton, shape_ui] = addControls();
+  [dropdowns, resetButton] = addControls();
   setSystemVariables(exampleValues);
   // Add function to handle changes in sliders
   handleInput(dropdowns, resetButton);
@@ -80,12 +104,10 @@ function addControls() {
   for (d of otherdropdowns) {
     dropdowns.push(d);
   }
-
   resetButton = controls.returnButtons();
   [fillShape, addStroke, addGrain] = controls.returnCheckboxes();
 
-  shape_ui = controls.shape_ui;
-  return [dropdowns, resetButton, shape_ui];
+  return [dropdowns, resetButton];
 }
 
 function setSystemVariables(exampleValues) {
@@ -95,37 +117,23 @@ function setSystemVariables(exampleValues) {
     controls.returnColorPalettes();
 
   background(currentBackgroundPalette[0]);
-  fillShape = exampleValues[5];
-  addStroke = exampleValues[6];
-  addGrain = exampleValues[7];
-
-  // Retrieve values from json data for system
-  let systemValues = exampleValues.slice(0, 16);
-
-  // Retrieve values from json data for shape (a, b, m, n, n1, n2, n3, shapeAngle)
-  let shapeValues = exampleValues.slice(-10);
-
-  shape_ui.selectShape(exampleValues[1], shapeValues);
 
   let ruleset = controls.ruleset;
+  let shape_ui = controls.shape_ui;
 
   //Add turtle system
   let turtle = new Turtle(
+    exampleValues,
     shape_ui,
-    systemValues,
-    shapeValues,
     ruleset,
-    fillShape,
-    addStroke
+    currentStrokePalette,
+    currentFillPalette
   );
 
-  turtle.addLsystem(
-    currentStrokePalette,
-    currentFillPalette,
-    fillShape,
-    addStroke
-  );
-  //if (addGrain == true) {
+  turtle.addLsystem();
+
+  addGrain = exampleValues[7];
+  
   if (addGrain == true) {
     applyChromaticGrain(42);
   }
