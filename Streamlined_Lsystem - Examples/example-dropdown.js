@@ -15,6 +15,10 @@ class ExampleDropdown {
       "Box with Ceva",
       "Crystal with Maltese Cross",
       "Crystal with Supershape",
+      "Hilbert Curve with Eight Curve",
+      "Hilbert Curve with Gear Curve",
+      "Hilbert Curve with Kiss Curve",
+      "Hilbert Curve with Quadrifolium Curve",
       "Doily with Supershape Curve",
       "Dragon2 with Gear Curve",
       "Dragon1 with Astroid Curve",
@@ -78,6 +82,18 @@ class ExampleDropdown {
       case "Doily with Supershape Curve":
         this.currentExample = this.data.Doily_with_supershape;
         break;
+      case "Hilbert Curve with Eight Curve":
+        this.currentExample = this.data.Hilbert_Curve_with_Eight_Curve;
+        break;
+      case "Hilbert Curve with Gear Curve":
+        this.currentExample = this.data.Hilbert_Curve_with_Gear_Curve;
+        break;
+      case "Hilbert Curve with Kiss Curve":
+        this.currentExample = this.data.Hilbert_Curve_with_Kiss_Curve;
+        break;
+      case "Hilbert Curve with Quadrifolium Curve":
+        this.currentExample = this.data.Hilbert_Curve_with_Quadrifolium_Curve;
+        break;
       case "Koch snowflake with Bicorn curve":
         this.currentExample = this.data.Koch_snowflake_with_Bicorn_curve;
         break;
@@ -134,9 +150,6 @@ class ExampleDropdown {
         this.currentExample = this.data.Square_Skierpinski_with_Cornu_Spiral;
         break;
 
-      // case "hilbert":
-      //   this.currentFractal = this.lsystem.hilbert;
-      //   break;
       // case "kolam":
       //   this.currentFractal = this.lsystem.kolam;
       //   break;

@@ -8,33 +8,39 @@ let exampleData;
 let exampleDropdown; // object
 let exampledropdown; // instance
 
-let exampleOptions = [ "ADH231a with Archimedes Spiral",
-      "ADH231a with Astroid Curve",
-      "ADH231a with Supershape Curve",
-      "Box with Ceva",
-      "Crystal with Maltese Cross",
-      "Crystal with Supershape",
-      "Doily with Supershape Curve",
-      "Dragon2 with Gear Curve",
-      "Dragon1 with Astroid Curve",
-      "Koch snowflake with Bicorn curve",
-      "Koch snowflake with Kiss curve",
-      "Koch snowflake with Quadrilateral",
-      "Kolam with Ceva",
-      "Kolam with Deltoid",
-      "Kolam with Gear Curve",
-      "Krishna Anklet with Gear Curve (Background)",
-      "Krishna Anklet with Gear Curve",
-      "Mango Leaf with Gear Curve",
-      "Mango Leaf with Rose",
-      "Peano with Cassini Oval",
-      "Peano with Quadrilateral Curve",
-      "Quadratic gosper with Kiss curve",
-      "Rounded Star with Cornu Spiral",
-      "Skierpinski with Gear curve",
-      "Skierpinski carpet with Supershape",
-      "Snake kolam with Tear curve",
-      "Square Skierpinski with Cornu Spiral"];
+let exampleOptions = [
+  "ADH231a with Archimedes Spiral",
+  "ADH231a with Astroid Curve",
+  "ADH231a with Supershape Curve",
+  "Box with Ceva",
+  "Crystal with Maltese Cross",
+  "Crystal with Supershape",
+  "Hilbert Curve with Eight Curve",
+  "Hilbert Curve with Gear Curve",
+  "Hilbert Curve with Kiss Curve",
+  "Hilbert Curve with Quadrifolium Curve",
+  "Doily with Supershape Curve",
+  "Dragon2 with Gear Curve",
+  "Dragon1 with Astroid Curve",
+  "Koch snowflake with Bicorn curve",
+  "Koch snowflake with Kiss curve",
+  "Koch snowflake with Quadrilateral",
+  "Kolam with Ceva",
+  "Kolam with Deltoid",
+  "Kolam with Gear Curve",
+  "Krishna Anklet with Gear Curve (Background)",
+  "Krishna Anklet with Gear Curve",
+  "Mango Leaf with Gear Curve",
+  "Mango Leaf with Rose",
+  "Peano with Cassini Oval",
+  "Peano with Quadrilateral Curve",
+  "Quadratic gosper with Kiss curve",
+  "Rounded Star with Cornu Spiral",
+  "Skierpinski with Gear curve",
+  "Skierpinski carpet with Supershape",
+  "Snake kolam with Tear curve",
+  "Square Skierpinski with Cornu Spiral",
+];
 
 // Control variables
 let controls;
@@ -66,7 +72,12 @@ function setup() {
   canvas = createCanvas(600, 600);
   canvas.position(250, 200);
   p5grain.setup();
-  exampleDropdown = new ExampleDropdown(700, 10, exampleData, exampleOptions[21]);
+  exampleDropdown = new ExampleDropdown(
+    700,
+    10,
+    exampleData,
+    exampleOptions[9]
+  );
   exampledropdown = exampleDropdown.dropdown;
   dropdowns.push(exampleDropdown.dropdown);
   controls = addLsystem();
@@ -133,7 +144,7 @@ function setSystemVariables(exampleValues) {
   turtle.addLsystem();
 
   addGrain = exampleValues[7];
-  
+
   if (addGrain == true) {
     applyChromaticGrain(42);
   }
