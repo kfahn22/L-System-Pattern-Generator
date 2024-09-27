@@ -48,7 +48,7 @@ class RuleDropdown {
       "pentadentrite",
       "quadratic_gosper",
       "quadratic_koch_island",
-      "quadratic_snowflake2",
+      "quadratic_snowflake",
       "rings",
       "rounded_star",
       "snake_kolam",
@@ -70,7 +70,7 @@ class RuleDropdown {
 
   // Called when a ruleset is selected from the dropdown
   selectRule(choice) {
-    console.log(choice);
+    //console.log(choice);
     this.currentFractal = choice; //this.dropdown.value();
     this.pickRule();
   }
@@ -188,8 +188,8 @@ class RuleDropdown {
       case "quadratic_koch_island2":
         this.currentFractal = this.lsystem.quadratic_koch_island2;
         break;
-      case "quadratic_snowflake2":
-        this.currentFractal = this.lsystem.quadratic_snowflake2;
+      case "quadratic_snowflake":
+        this.currentFractal = this.lsystem.quadratic_snowflake;
         break;
       case "rings":
         this.currentFractal = this.lsystem.rings;

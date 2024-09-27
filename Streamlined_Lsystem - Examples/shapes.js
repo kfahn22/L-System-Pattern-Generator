@@ -170,7 +170,7 @@ class Shape {
   }
 
   gear() {
-    for (let theta = 0; theta < 2 * PI; theta += 0.05) {
+    for (let theta = 0; theta < 2 * PI; theta += 0.025) {
       let r =
         this.a +
         (1 / this.b) * this.hyperbolicTan(this.b * sin(this.m * theta));

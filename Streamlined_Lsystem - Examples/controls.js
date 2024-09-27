@@ -27,12 +27,7 @@ class AddControls {
     this.shapeMessage = this.shape_ui.message;
     this.addMessage = this.shape_ui.addMessage;
     this.shapeDropdown = this.shape_ui.dropdown;
-    this.ruleset = new RuleDropdown(
-      250,
-      10,
-      rulesetData,
-      this.values[0]
-    );
+    this.ruleset = new RuleDropdown(250, 10, rulesetData, this.values[0]);
     // this.ruleset.selectRule(this.values[0]);
     // this.lsystemValues = this.ruleset.setRule();
     this.rulesetDropdown = this.ruleset.dropdown;
@@ -54,6 +49,7 @@ class AddControls {
     this.showExample = createCheckbox("Display examples", true);
     this.showExample.position(posButtons, 200);
     this.showExample.style("color", "white");
+    this.colorMode = null;
   }
 
   setPalettes(bkgroundChoice, strokeChoice, fillChoice) {
@@ -67,6 +63,38 @@ class AddControls {
     ];
   }
 
+  setColorMode() {
+    let colorMode = null;
+    if (this.values[6] === true && this.values[5] === false) {
+      colorMode = 0;
+    } else if (this.values[6] === false && this.values[5] === true) {
+      colorMode = 1;
+    } else if (this.values[6] === true && this.values[5] === true) {
+      colorMode = 2;
+    }
+    //console.log(this.values[5], this.values[6], colorMode)
+    return colorMode;
+  }
+
+  // setColorMode() {
+  //   if (this.values[6] == true && this.values[5] == false) {
+  //     this.colorMode = 0;
+  //   } else if (this.values[6] == false && this.values[5] == true) {
+  //     this.colorMode = 1;
+  //   } else if (this.values[6] == true && this.values[5] == true) {
+  //     this.colorMode = 2;
+  //   }
+  //   //console.log(this.colorMode)
+  // }
+
+  // returnColorPalettes() {
+  //   return [
+  //     this.backgroundDropdown.palette,
+  //     this.strokeDropdown.palette,
+  //     this.fillDropdown.palette,
+  //   ];
+  // }
+
   returnDropdowns() {
     return [
       this.backgrounddropdown,
@@ -74,14 +102,6 @@ class AddControls {
       this.filldropdown,
       this.shapeDropdown,
       this.rulesetDropdown,
-    ];
-  }
-
-  returnColorPalettes() {
-    return [
-      this.backgroundDropdown.palette,
-      this.strokeDropdown.palette,
-      this.fillDropdown.palette,
     ];
   }
 

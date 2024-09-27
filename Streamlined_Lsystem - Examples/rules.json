@@ -449,7 +449,7 @@
     "max_Level": "3",
     "author": ""
   },
-  "quadratic_snowflake2": {
+  "quadratic_snowflake": {
     "axiom": "FF+FF+FF+FF",
     "rules": {
       "F": "F+F-F-F+F"

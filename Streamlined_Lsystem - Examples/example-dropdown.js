@@ -38,6 +38,7 @@ class ExampleDropdown {
       "Pentaplexity with Gear Curve",
       "Pentaplexity with Supershape Curve",
       "Quadratic gosper with Kiss curve",
+      "Quadratic Snowflake with Quadrifolium curve",
       "Rounded Star with Cornu Spiral",
       "Skierpinski with Gear curve",
       "Skierpinski carpet with Supershape",
@@ -146,6 +147,9 @@ class ExampleDropdown {
       case "Quadratic gosper with Kiss curve":
         this.currentExample = this.data.Quadratic_gosper_with_Kiss_curve;
         break;
+      case "Quadratic Snowflake with Quadrifolium curve":
+        this.currentExample = this.data.Quadratic_snowflake_with_Quadrifolium_curve;
+        break;
       case "Rounded Star with Cornu Spiral":
         this.currentExample = this.data.Rounded_Star_with_Cornu_Spiral;
         break;
@@ -162,9 +166,6 @@ class ExampleDropdown {
         this.currentExample = this.data.Square_Skierpinski_with_Cornu_Spiral;
         break;
 
-      // case "koch_curve":
-      //   this.currentFractal = this.lsystem.koch_curve;
-      //   break;
       // case "koch_snowflake":
       //   this.currentFractal = this.lsystem.koch_snowflake;
       //   break;

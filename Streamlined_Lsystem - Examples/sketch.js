@@ -38,6 +38,7 @@ let exampleOptions = [
   "Pentaplexity with Gear Curve",
   "Pentaplexity with Supershape Curve",
   "Quadratic gosper with Kiss curve",
+  "Quadratic Snowflake with Quadrifolium curve",
   "Rounded Star with Cornu Spiral",
   "Skierpinski with Gear curve",
   "Skierpinski carpet with Supershape",
@@ -79,7 +80,7 @@ function setup() {
     700,
     10,
     exampleData,
-    exampleOptions[3]
+    exampleOptions[1]
   );
   exampledropdown = exampleDropdown.dropdown;
   dropdowns.push(exampleDropdown.dropdown);
@@ -99,6 +100,7 @@ function reset() {
   ruleWarning.hide();
   exampleDropdown.selectExample();
   let exampleValues = exampleDropdown.setExample();
+  //console.log(exampleValues)
   setSystemVariables(exampleValues);
 }
 
@@ -125,15 +127,24 @@ function addControls() {
 }
 
 function setSystemVariables(exampleValues) {
-  controls.setPalettes(exampleValues[2], exampleValues[3], exampleValues[4]);
-
   [currentBackgroundPalette, currentStrokePalette, currentFillPalette] =
-    controls.returnColorPalettes();
+    controls.setPalettes(exampleValues[2], exampleValues[3], exampleValues[4]);
 
   background(currentBackgroundPalette[0]);
 
   let ruleset = controls.ruleset;
   let shape_ui = controls.shape_ui;
+ // let colorMode = controls.setColorMode();
+
+  let colorMode;
+  if (exampleValues[6] === true && exampleValues[5] === false) {
+    colorMode = 0;
+  } else if (exampleValues[6] === false && exampleValues[5] === true) {
+    colorMode = 1;
+  } else if (exampleValues[6] === true && exampleValues[5] === true) {
+    colorMode = 2;
+  }
+  //console.log(exampleValues[5], exampleValues[6], colorMode);
 
   //Add turtle system
   let turtle = new Turtle(
@@ -141,10 +152,16 @@ function setSystemVariables(exampleValues) {
     shape_ui,
     ruleset,
     currentStrokePalette,
-    currentFillPalette
+    currentFillPalette,
+    colorMode
   );
 
-  turtle.addLsystem();
+  // When both stroke and fill are choosen, render is best if they are added sequencially
+  if (colorMode == 0 || colorMode == 1) {
+    turtle.addLsystem(colorMode);
+  } else if (colorMode == 2) {
+    turtle.addLsystemStrokeFill();
+  }
 
   addGrain = exampleValues[7];
 
