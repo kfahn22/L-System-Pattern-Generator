@@ -5,7 +5,8 @@ class Turtle {
     ruleset,
     strokePalette,
     fillPalette,
-    colorMode
+    colorMode,
+    images
   ) {
     // Refer to the example-dropdown.js file setExample() function for variables in values array
     this.values = values;
@@ -34,6 +35,7 @@ class Turtle {
     this.colorMode = colorMode;
     this.addWarning = false;
     this.warning = null;
+    this.images = images;
   }
 
   generate() {
@@ -61,10 +63,14 @@ class Turtle {
     for (let i = 0; i < this.sentence.length; i++) {
       let current = this.sentence.charAt(i);
       this.adjustFill(colorMode);
+      let openShapes = ["Arc", "Archimedes Spiral", "Cornu Spiral"];
       if (current === "F") {
-        let openShapes = ["Arc", "Archimedes Spiral", "Cornu Spiral"];
-        // Draw the shape on the canvas
-        if (openShapes.includes(this.shapeName)) {
+        // Draw the shape/word on the canvas
+        if (this.shapeName == "Word") {
+          this.shape.showWord();
+        } else if (this.shapeName == "Image") {
+          this.shape.showImage(this.images);
+        } else if (openShapes.includes(this.shapeName)) {
           this.shape.openShow();
         } else {
           this.shape.show();
@@ -81,15 +87,19 @@ class Turtle {
       } else if (current == "]") {
         pop();
       } else if (current == ">") {
-        push();
-        this.values[15] = this.values[15] * this.lf;
-        this.shape_ui.selectShape(this.shapeValues);
-        pop();
+        if (this.shapeName != "Image" && this.shapeName != "Text") {
+          push();
+          this.values[15] = this.values[15] * this.lf;
+          this.shape_ui.selectShape(this.shapeValues);
+          pop();
+        }
       } else if (current == "<") {
-        push();
-        this.values[15] = this.values[15] / this.lf;
-        this.shape_ui.selectShape(this.shapeValues);
-        pop();
+        if (this.shapeName != "Image" && this.shapeName != "Text") {
+          push();
+          this.values[15] = this.values[15] / this.lf;
+          this.shape_ui.selectShape(this.shapeValues);
+          pop();
+        }
       } else if (current == "(") {
         this.angle -= radians(0.1);
       } else if (current == ")") {
@@ -186,6 +196,9 @@ class Turtle {
       }
       pop();
     }
+    if (this.shapeName == "Word") {
+      this.addText();
+    }
   }
 
   adjustFill(colorMode) {
@@ -216,13 +229,12 @@ class Turtle {
   // Haven't reimplemented this yet
   addText() {
     push();
-    let length = this.values[14];
-    let shapeScale = this.values[15];
-    let s = length * shapeScale;
     translate(width / 2, height / 2);
+    noStroke();
     fill(random(this.fillPalette));
-    textSize(2 * s);
-    text("IS ALL YOU NEED", 0, 0);
+    textSize(17);
+    textAlign(CENTER, CENTER);
+    text("TODAY IS A GOOD DAY!", 0, 0);
     pop();
   }
 }

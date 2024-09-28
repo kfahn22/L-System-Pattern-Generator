@@ -15,6 +15,7 @@ let exampleOptions = [
   "ADH256a with Superellipse",
   "ADH256a with Kiss Curve",
   "Box with Ceva",
+  "Crystal with Image",
   "Crystal with Maltese Cross",
   "Crystal with Supershape",
   "Doily with Bicorn Curve",
@@ -30,6 +31,7 @@ let exampleOptions = [
   "Koch snowflake with Kiss curve",
   "Koch snowflake with Quadrilateral",
   "Koch snowflake with Supershape",
+  "Koch snowflake with Word",
   "Kolam with Ceva",
   "Kolam with Deltoid",
   "Kolam with Gear Curve",
@@ -56,6 +58,7 @@ let sliderGroup;
 let sliders = []; // Array to store slider references
 let dropdowns = []; // Array to store dropdowns
 let shape_ui;
+let images = [];
 
 // Message variables
 let ruleWarning; // Warning if level gets too high
@@ -73,6 +76,10 @@ let showExamples; // Boolean, default true
 function preload() {
   rulesetData = loadJSON("rules.json");
   exampleData = loadJSON("examples.json");
+  for (let i = 0; i < 10; i++) {
+    const path = "images/flowers";
+    images[i] = loadImage(`${path}/${i}.png`);
+  }
 }
 
 function setup() {
@@ -83,7 +90,7 @@ function setup() {
     250,
     10,
     exampleData,
-    exampleOptions[20]
+    exampleOptions[6]
   );
   exampledropdown = exampleDropdown.dropdown;
   dropdowns.push(exampleDropdown.dropdown);
@@ -107,10 +114,9 @@ function reset() {
   ruleWarning.hide();
   exampleDropdown.selectExample();
   let exampleValues = exampleDropdown.setExample();
-  
+
   if (showExamples.checked() == true) {
     setSystemVariables(exampleValues);
-    
   } else {
     // Need to get palette/alpha values
     let values = [];
@@ -148,7 +154,8 @@ function addControls() {
     dropdowns.push(d);
   }
   resetButton = controls.returnButtons();
-  [fillShape, addStroke, addP5Grain, showExamples] = controls.returnCheckboxes();
+  [fillShape, addStroke, addP5Grain, showExamples] =
+    controls.returnCheckboxes();
   sliderGroup = controls.sliderGroup;
   sliders = sliderGroup.sliders;
   return [dropdowns, resetButton, sliderGroup, sliders];
@@ -175,6 +182,7 @@ function setSystemVariables(exampleValues) {
   }
   //console.log(colorMode);
 
+  //console.log(images[0])
   //Add turtle system
   let turtle = new Turtle(
     exampleValues,
@@ -182,7 +190,8 @@ function setSystemVariables(exampleValues) {
     ruleset,
     currentStrokePalette,
     currentFillPalette,
-    colorMode
+    colorMode,
+    images
   );
 
   // When both stroke and fill are choosen, render is best if they are added sequencially
@@ -191,9 +200,7 @@ function setSystemVariables(exampleValues) {
   } else if (colorMode == 2) {
     turtle.addLsystemStrokeFill();
   }
-  //console.log(exampleValues[7])
-  //addp5Grain = exampleValues[7];
-addP5Grain.checked(exampleValues[7]);
+  addP5Grain.checked(exampleValues[7]);
 
   if (exampleValues[7] == true) {
     applyChromaticGrain(42);

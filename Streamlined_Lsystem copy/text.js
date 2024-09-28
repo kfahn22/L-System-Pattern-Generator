@@ -7,13 +7,14 @@ class AddWord {
   }
 
   show() {
+    let options = ["HEALTHY", "SAFE", "LOVED", "SAVED", "ACTIVE", "EDUCATED", "FRIENDS"];
     push();
     translate(this.x, this.y);
     rotate(this.angle);
     textSize(this.r);
     textAlign(CENTER, CENTER);
     //text("404", this.x, this.y);
-    text("LOVE", this.x, this.y);
+    text(random(options), this.x, this.y);
     pop();
   }
 }

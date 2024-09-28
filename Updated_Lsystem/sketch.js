@@ -991,7 +991,7 @@ function pickShape(selected) {
       selectedShape.tearDrop();
       break;
     case "word":
-      selectedShape = new addWord(0, 0, length * shapeScale, shapeAngle);
+      selectedShape = new AddWord(0, 0, length * shapeScale, shapeAngle);
       push();
       translate(width / 2, height / 2);
       noStroke();
