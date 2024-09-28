@@ -15,6 +15,7 @@ class ExampleDropdown {
       "ADH256a with Superellipse",
       "ADH256a with Kiss Curve",
       "Box with Ceva",
+      "Crystal with Image",
       "Crystal with Maltese Cross",
       "Crystal with Supershape",
       "Doily with Supershape Curve",
@@ -30,6 +31,7 @@ class ExampleDropdown {
       "Koch snowflake with Kiss curve",
       "Koch snowflake with Quadrilateral",
       "Koch snowflake with Supershape",
+      "Koch snowflake with Word",
       "Kolam with Ceva",
       "Kolam with Deltoid",
       "Kolam with Gear Curve",
@@ -84,6 +86,9 @@ class ExampleDropdown {
       case "Crystal with Maltese Cross":
         this.currentExample = this.data.Crystal_with_Maltese_Cross;
         break;
+      case "Crystal with Image":
+        this.currentExample = this.data.Crystal_with_Image;
+        break;
       case "Crystal with Supershape":
         this.currentExample = this.data.Crystal_with_Supershape;
         break;
@@ -125,6 +130,9 @@ class ExampleDropdown {
         break;
       case "Koch snowflake with Supershape":
         this.currentExample = this.data.Koch_snowflake_with_Supershape;
+        break;
+      case "Koch snowflake with Word":
+        this.currentExample = this.data.Koch_snowflake_with_Word;
         break;
       case "Kolam with Ceva":
         this.currentExample = this.data.Kolam_with_Ceva_Curve;

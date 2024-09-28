@@ -329,6 +329,15 @@ class Shape {
     pop();
   }
 
+  showImage(images) {
+    let i = floor(random(10));
+    let img = images[i]
+    push();
+    rotate(this.angle)
+    image(img, 0, 0, this.r, this.r);
+    pop();
+  }
+
   openShow() {
     push();
     rotate(this.angle);
@@ -337,6 +346,26 @@ class Shape {
       vertex(p.x, p.y);
     }
     endShape();
+    pop();
+  }
+
+  showWord() {
+    let options = [
+      "FAMILY",
+      "FRIENDS",
+      "HEALTH",
+      "SAFETY",
+      "LOVED",
+      "SAVED",
+      "EDUCATION",
+      "PEACE",
+      "PURPOSE"
+    ];
+    push();
+    rotate(this.angle);
+    textSize(this.r*0.5);
+    textAlign(CENTER, CENTER);
+    text(random(options), 0, 0);
     pop();
   }
 }

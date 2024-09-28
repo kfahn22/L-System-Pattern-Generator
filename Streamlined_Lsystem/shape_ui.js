@@ -26,6 +26,7 @@ class ShapeUI {
       "Deltoid",
       "Eight",
       "Gear",
+      "Image",
       "Heart",
       "Kiss Curve",
       "Knot",
@@ -36,6 +37,7 @@ class ShapeUI {
       "Superellipse",
       "Supershape",
       "Tear Drop",
+      "Word",
     ];
 
     // Add shape options to the dropdown
@@ -101,6 +103,7 @@ class ShapeUI {
         this.addMessage = true;
         this.message = "The cornu spiral is f(a), a ~ [0.5, 2]";
         break;
+
       case "Maltese Cross":
         this.shape.malteseCross();
         this.addMessage = true;
@@ -116,6 +119,8 @@ class ShapeUI {
         this.shape.gear();
         this.addMessage = true;
         this.message = "The gear curve is a f(a, b, m).";
+        break;
+      case "Image":
         break;
       case "Heart":
         this.shape.heart();
@@ -156,6 +161,8 @@ class ShapeUI {
         break;
       case "Tear Drop":
         this.shape.tearDrop();
+        break;
+      case "Word":
         break;
       default:
         break;
