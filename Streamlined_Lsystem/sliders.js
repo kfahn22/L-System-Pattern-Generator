@@ -5,19 +5,20 @@ class SliderGroup {
     wadj,
     hadj,
     level,
+    sw,
+    strokeAlpha,
+    fillAlpha,
+    fractalAngle,
     length,
-    strokeweight,
-    shapeAlpha,
-    sc,
-    rot,
-    rotateShape,
+    shapeScale,
     a,
     b,
     m,
     n,
     n1,
     n2,
-    n3
+    n3,
+    shapeAngle
   ) {
     // Initialize arrays for sliders and labels
     this.sliders = [];
@@ -35,24 +36,24 @@ class SliderGroup {
         label: "Translate y:",
       },
       { min: 0, max: 13, value: level, step: 1, label: "Level:" },
-      { min: 5, max: 200, value: length, step: 1, label: "Step length:" },
       {
         min: 0.1,
         max: 8,
-        value: strokeweight,
+        value: sw,
         step: 0.1,
         label: "StrokeWeight:",
       },
-      { min: 100, max: 255, value: shapeAlpha, step: 5, label: "Alpha:" },
-      { min: 0.15, max: 1.15, value: sc, step: 0.05, label: "Scale:" },
-      { min: -180, max: 180, value: rot, step: 5, label: "Rotate fractal:" },
+      { min: 100, max: 255, value: strokeAlpha, step: 5, label: "Stroke Alpha:" },
+      { min: 100, max: 255, value: fillAlpha, step: 5, label: "Fill Alpha:" },
       {
         min: -180,
         max: 180,
-        value: rotateShape,
-        step: 1,
-        label: "Rotate shape:",
+        value: fractalAngle,
+        step: 5,
+        label: "Rotate fractal:",
       },
+      { min: 5, max: 200, value: length, step: 1, label: "Step length:" },
+      { min: 0.15, max: 1.15, value: shapeScale, step: 0.05, label: "Shape scale:" },
       { min: 0, max: 10, value: a, step: 0.05, label: "a:" },
       { min: 0, max: 10, value: b, step: 0.05, label: "b:" },
       { min: 0, max: 10, value: m, step: 1, label: "m:" },
@@ -60,6 +61,13 @@ class SliderGroup {
       { min: 0.25, max: 5, value: n1, step: 0.05, label: "n1:" },
       { min: 0.25, max: 2, value: n2, step: 0.05, label: "n2:" },
       { min: 0.25, max: 2, value: n3, step: 0.05, label: "n3:" },
+      {
+        min: -180,
+        max: 180,
+        value: shapeAngle,
+        step: 1,
+        label: "Rotate shape:",
+      },
     ];
 
     // Create sliders and labels

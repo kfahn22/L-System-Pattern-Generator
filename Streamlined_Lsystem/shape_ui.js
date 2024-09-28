@@ -1,12 +1,12 @@
 class ShapeUI {
-  constructor(posDropdown, choice, values) {
+  constructor(posDropdown, choice) {
     this.choice = choice;
-    this.values = values;
+    // this.values = values;
     this.shape = null;
     this.message = null;
     this.addMessage = false;
     this.dropdown = createSelect(); // Create a select element
-    this.dropdown.position(posDropdown, 50); // Position the dropdown
+    this.dropdown.position(posDropdown, 90); // Position the dropdown
     this.setupDropdown(); // Initialize dropdown with options
   }
 
@@ -45,20 +45,19 @@ class ShapeUI {
 
   // sliders - wadj,hadj,level,length,strokeweight, shapeAlpha,sc,rot,rotateShape,a,b,m,n,n1,n2, n3
   // Create a shape based on the selected option
-  selectShape(values) {
-    let shapeName = this.dropdown.value();
-    let r = values[3] * values[6]; // gridlength * shapeScale
+  selectShape(shapeName, values) {
+    let r = values[0] * values[1]; // gridlength * shapeScale
     // Create a new Shape object with necessary parameters
     this.shape = new Shape(
-      r, 
-      values[9], // a
-      values[10], // b
-      values[11], // m
-      values[12], // n
-      values[13], // n1
-      values[14], // n2
-      values[15], // n3
-      values[8] // rotateShape
+      r,
+      values[2], // a
+      values[3], // b
+      values[4], // m
+      values[5], // n
+      values[6], // n1
+      values[7], // n2
+      values[8], // n3
+      values[9] // rotateShape
     );
 
     this.shape.points = []; // Clear any existing points
@@ -142,6 +141,8 @@ class ShapeUI {
         break;
       case "Rose":
         this.shape.rose();
+        this.addMessage = true;
+        this.message = "The rose curve is a f(a, b, n).";
         break;
       case "Superellipse":
         this.shape.superellipse();
@@ -151,7 +152,7 @@ class ShapeUI {
       case "Supershape":
         this.shape.supershape();
         this.addMessage = true;
-        this.message = "The supershape curve is a f(a, b, m, n, n1, n2, n3).";
+        this.message = "The supershape curve is a f(a, b, m, n1, n2, n3).";
         break;
       case "Tear Drop":
         this.shape.tearDrop();

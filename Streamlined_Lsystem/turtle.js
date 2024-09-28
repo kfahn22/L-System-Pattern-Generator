@@ -37,6 +37,7 @@ class Turtle {
   }
 
   generate() {
+    //console.log(this.lsystemValues)
     let nextSentence = "";
     for (let i = 0; i < this.sentence.length; i++) {
       let current = this.sentence.charAt(i);
@@ -111,7 +112,6 @@ class Turtle {
     let wadj = this.values[8];
     let hadj = this.values[9];
     let level = this.values[10];
-    console.log(level);
     let fractalAngle = this.values[14];
     push();
     translate(width * wadj, height * hadj);
@@ -134,7 +134,7 @@ class Turtle {
   }
 
   addLsystem(colorMode) {
-    console.log(this.values);
+    //console.log(this.values);
     let wadj = this.values[8];
     let hadj = this.values[9];
     let level = this.values[10];

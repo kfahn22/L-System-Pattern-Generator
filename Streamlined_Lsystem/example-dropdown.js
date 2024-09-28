@@ -16,13 +16,15 @@ class ExampleDropdown {
       "Box with Ceva",
       "Crystal with Maltese Cross",
       "Crystal with Supershape",
+      "Doily with Supershape Curve",
+      "Doily with Bicorn Curve",
+      "Dragon2 with Gear Curve",
+      "Dragon2 with Cornu Spiral",
+      "Dragon1 with Astroid Curve",
       "Hilbert Curve with Eight Curve",
       "Hilbert Curve with Gear Curve",
       "Hilbert Curve with Kiss Curve",
       "Hilbert Curve with Quadrifolium Curve",
-      "Doily with Supershape Curve",
-      "Dragon2 with Gear Curve",
-      "Dragon1 with Astroid Curve",
       "Koch snowflake with Bicorn curve",
       "Koch snowflake with Kiss curve",
       "Koch snowflake with Quadrilateral",
@@ -83,8 +85,14 @@ class ExampleDropdown {
       case "Dragon2 with Gear Curve":
         this.currentExample = this.data.Dragon2_with_Gear_Curve;
         break;
+      case "Dragon2 with Cornu Spiral":
+        this.currentExample = this.data.Dragon2_with_Cornu_Spiral;
+        break;
       case "Dragon1 with Astroid Curve":
         this.currentExample = this.data.Dragon1_with_Astroid_Curve;
+        break;
+      case "Doily with Bicorn Curve":
+        this.currentExample = this.data.Doily_with_Bicorn;
         break;
       case "Doily with Supershape Curve":
         this.currentExample = this.data.Doily_with_supershape;
@@ -148,7 +156,8 @@ class ExampleDropdown {
         this.currentExample = this.data.Quadratic_gosper_with_Kiss_curve;
         break;
       case "Quadratic Snowflake with Quadrifolium curve":
-        this.currentExample = this.data.Quadratic_snowflake_with_Quadrifolium_curve;
+        this.currentExample =
+          this.data.Quadratic_snowflake_with_Quadrifolium_curve;
         break;
       case "Rounded Star with Cornu Spiral":
         this.currentExample = this.data.Rounded_Star_with_Cornu_Spiral;
@@ -262,9 +271,9 @@ class ExampleDropdown {
     let backgroundColor = this.currentExample.background_color; // 2
     let strokePalette = this.currentExample.stroke_palette; // 3
     let fillPalette = this.currentExample.fill_palette; // 4
-    let fillShape = this.currentExample.fill_shape; // 5
-    let addStroke = this.currentExample.add_stroke; // 6
-    let addGrain = this.currentExample.add_grain; // 7
+    let addStroke = this.currentExample.add_stroke; // 5
+    let fillShape = this.currentExample.fill_shape; // 6
+    let addp5Grain = this.currentExample.add_grain; // 7
     let wadj = this.currentExample.wadj; // 8
     let hadj = this.currentExample.hadj; // 9
     let level = this.currentExample.level; // 10
@@ -289,9 +298,9 @@ class ExampleDropdown {
       backgroundColor,
       strokePalette,
       fillPalette,
-      fillShape,
       addStroke,
-      addGrain,
+      fillShape,
+      addp5Grain,
       wadj,
       hadj,
       level,

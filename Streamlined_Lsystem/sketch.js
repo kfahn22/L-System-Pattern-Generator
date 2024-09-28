@@ -16,13 +16,15 @@ let exampleOptions = [
   "Box with Ceva",
   "Crystal with Maltese Cross",
   "Crystal with Supershape",
+  "Doily with Bicorn Curve",
+  "Doily with Supershape Curve",
+  "Dragon2 with Gear Curve",
+  "Dragon2 with Cornu Spiral",
+  "Dragon1 with Astroid Curve",
   "Hilbert Curve with Eight Curve",
   "Hilbert Curve with Gear Curve",
   "Hilbert Curve with Kiss Curve",
   "Hilbert Curve with Quadrifolium Curve",
-  "Doily with Supershape Curve",
-  "Dragon2 with Gear Curve",
-  "Dragon1 with Astroid Curve",
   "Koch snowflake with Bicorn curve",
   "Koch snowflake with Kiss curve",
   "Koch snowflake with Quadrilateral",
@@ -61,10 +63,9 @@ let shapeMessage; // Shape message re parameters to choosen shape
 let resetButton;
 let fillShape; // Boolean, default false
 let addStroke; // Boolean, default true
-let showExample; // Boolean, default true
-
 // https://github.com/meezwhite/p5.grain
-let addGrain; // Boolean, default false
+let addP5Grain; // Boolean, default false
+let showExamples; // Boolean, default true
 
 // Preload the L-system rulesets and example data
 function preload() {
@@ -77,21 +78,25 @@ function setup() {
   canvas.position(250, 200);
   p5grain.setup();
   exampleDropdown = new ExampleDropdown(
-    700,
+    250,
     10,
     exampleData,
-    exampleOptions[1]
+    exampleOptions[7]
   );
   exampledropdown = exampleDropdown.dropdown;
   dropdowns.push(exampleDropdown.dropdown);
   controls = addLsystem();
 }
 
-function handleInput(dropdowns, resetButton) {
+function handleInput(dropdowns, resetButton, sliders) {
   for (let d of dropdowns) {
     d.changed(reset);
   }
+  for (let s of sliders) {
+    s.input(reset);
+  }
   resetButton.mousePressed(reset);
+  showExamples.changed(reset);
 }
 
 function reset() {
@@ -100,18 +105,38 @@ function reset() {
   ruleWarning.hide();
   exampleDropdown.selectExample();
   let exampleValues = exampleDropdown.setExample();
-  //console.log(exampleValues)
-  setSystemVariables(exampleValues);
+  
+  if (showExamples.checked() == true) {
+    setSystemVariables(exampleValues);
+    
+  } else {
+    // Need to get palette/alpha values
+    let values = [];
+    //
+    // Add ruleset, shape, palettes dropdown values
+    for (let i = 1; i < dropdowns.length; i++) {
+      values.push(dropdowns[i].selected());
+    }
+    values.push(addStroke.checked());
+    values.push(fillShape.checked());
+    values.push(addP5Grain.checked());
+    let sliderValues = sliderGroup.getValues();
+    for (s of sliderValues) {
+      values.push(s);
+    }
+    sliderGroup.updateLabels();
+    setSystemVariables(values);
+  }
 }
 
 function addLsystem() {
   exampleDropdown.selectExample();
   let exampleValues = exampleDropdown.setExample();
-  controls = new AddControls(10, rulesetData, exampleValues);
+  controls = new AddControls(750, rulesetData, exampleValues);
   [dropdowns, resetButton] = addControls();
   setSystemVariables(exampleValues);
   // Add function to handle changes in sliders
-  handleInput(dropdowns, resetButton);
+  handleInput(dropdowns, resetButton, sliders);
   return controls;
 }
 
@@ -121,30 +146,32 @@ function addControls() {
     dropdowns.push(d);
   }
   resetButton = controls.returnButtons();
-  [fillShape, addStroke, addGrain] = controls.returnCheckboxes();
-
-  return [dropdowns, resetButton];
+  [fillShape, addStroke, addP5Grain, showExamples] = controls.returnCheckboxes();
+  sliderGroup = controls.sliderGroup;
+  sliders = sliderGroup.sliders;
+  return [dropdowns, resetButton, sliderGroup, sliders];
 }
 
 function setSystemVariables(exampleValues) {
-  [currentBackgroundPalette, currentStrokePalette, currentFillPalette] =
+  let [currentBackgroundPalette, currentStrokePalette, currentFillPalette] =
     controls.setPalettes(exampleValues[2], exampleValues[3], exampleValues[4]);
 
   background(currentBackgroundPalette[0]);
 
   let ruleset = controls.ruleset;
+
   let shape_ui = controls.shape_ui;
- // let colorMode = controls.setColorMode();
+  // let colorMode = controls.setColorMode();
 
   let colorMode;
-  if (exampleValues[6] === true && exampleValues[5] === false) {
+  if (exampleValues[5] === true && exampleValues[6] === false) {
     colorMode = 0;
-  } else if (exampleValues[6] === false && exampleValues[5] === true) {
+  } else if (exampleValues[5] === false && exampleValues[6] === true) {
     colorMode = 1;
-  } else if (exampleValues[6] === true && exampleValues[5] === true) {
+  } else if (exampleValues[5] === true && exampleValues[6] === true) {
     colorMode = 2;
   }
-  //console.log(exampleValues[5], exampleValues[6], colorMode);
+  //console.log(colorMode);
 
   //Add turtle system
   let turtle = new Turtle(
@@ -162,10 +189,11 @@ function setSystemVariables(exampleValues) {
   } else if (colorMode == 2) {
     turtle.addLsystemStrokeFill();
   }
+  //console.log(exampleValues[7])
+  //addp5Grain = exampleValues[7];
+addP5Grain.checked(exampleValues[7]);
 
-  addGrain = exampleValues[7];
-
-  if (addGrain == true) {
+  if (exampleValues[7] == true) {
     applyChromaticGrain(42);
   }
   // Add messages for shape parameters and rule level
@@ -180,7 +208,7 @@ function addMessages(newMessage, warning, addWarning) {
   } else addMessage = false;
 
   shapeMessage = createP(message);
-  shapeMessage.position(600, 10);
+  shapeMessage.position(250, 110);
   shapeMessage.addClass("p");
 
   if (addMessage) {
@@ -189,7 +217,7 @@ function addMessages(newMessage, warning, addWarning) {
     shapeMessage.hide();
   }
   ruleWarning = createP(warning);
-  ruleWarning.position(600, 50);
+  ruleWarning.position(250, 130);
   ruleWarning.addClass("p");
 
   if (!addWarning) {
