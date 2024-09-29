@@ -1,0 +1,55 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #595959;
+  color: #fff;
+}
+canvas {
+  display: block;
+}
+
+/* .p {
+  color: #00ff00;
+ font-size: 18px;
+} */
+
+/* https://www.w3schools.com/howto/howto_js_rangeslider.asp */
+.slider {
+  /* -webkit-appearance: none; */
+  width: 200px;
+  height: 15px;
+  border-radius: 10px;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+#first {
+  background: #9253a1;
+}
+
+#second {
+  background: #2b42a6;
+}
+
+/* https://www.w3schools.com/css/css_dropdowns.asp#:~:text=Wrap%20a%20element%20around,(using%20position%3Aabsolute%20). */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
