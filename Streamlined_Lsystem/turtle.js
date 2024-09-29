@@ -28,8 +28,8 @@ class Turtle {
     // Palettes variables
     this.strokePalette = strokePalette;
     this.fillPalette = fillPalette;
-    this.fillShape = this.values[5];
-    this.addStroke = this.values[6];
+    this.addStroke = this.values[5];
+    this.fillShape = this.values[6];
     this.colorMode = colorMode;
     this.addWarning = false;
     this.warning = null;
@@ -176,15 +176,15 @@ class Turtle {
   }
 
   levelWarning(colorMode) {
-      this.warning =
-        "The level cannot be greater " +
-        `${this.maxLevel}` +
-        " with this rule-set.";
-      this.addWarning = true;
-      for (let i = 0; i < this.maxLevel; i++) {
-        this.generate();
-      }
-      this.turtle(colorMode);
+    this.warning =
+      "The level cannot be greater " +
+      `${this.maxLevel}` +
+      " with this rule-set.";
+    this.addWarning = true;
+    for (let i = 0; i < this.maxLevel; i++) {
+      this.generate();
+    }
+    this.turtle(colorMode);
   }
 
   adjustFill(colorMode) {

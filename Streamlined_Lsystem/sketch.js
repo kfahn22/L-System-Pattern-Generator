@@ -70,7 +70,7 @@ let shapeMessage; // Shape message re parameters to choosen shape
 let resetButton;
 // addStroke , fillShape , addP5Grain (default false), showExamples (default true)
 // https://github.com/meezwhite/p5.grain
-let checkBoxes; 
+let checkBoxes;
 // let fillShape; // Boolean, default false
 // let addStroke; // Boolean, default true
 
@@ -142,7 +142,7 @@ function reset() {
       values.push(s);
     }
     sliderGroup.updateLabels();
-    console.log(values)
+    console.log(values);
     setSystemVariables(values);
   }
 }
@@ -209,7 +209,7 @@ function setSystemVariables(exampleValues) {
     turtle.addLsystemStrokeFill();
   }
   // Update value of addP5Grain
-checkBoxes[2].checked(exampleValues[7]);
+  checkBoxes[2].checked(exampleValues[7]);
 
   if (exampleValues[7] == true) {
     applyChromaticGrain(42);

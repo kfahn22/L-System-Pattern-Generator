@@ -131,6 +131,6 @@ class AddControls {
   }
 
   returnCheckboxes() {
-    return [this.fillShape, this.addStroke, this.addP5Grain, this.showExample];
+    return [this.addStroke, this.fillShape, this.addP5Grain, this.showExample];
   }
 }
