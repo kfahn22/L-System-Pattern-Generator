@@ -2,6 +2,7 @@ html, body {
   margin: 0vw;
   /* padding: 2vw; */
   background-color: #000;
+  background-image: url("assets/Ruleset-shape-examples/hilbert-quadrifolium.jpg");
 }
 header{
   /* background-color: #def0ed; */
@@ -9,7 +10,7 @@ header{
   background-size: cover;
   /* height: 15vh; */
   /* margin-bottom: 5%; */
-  color: #5eb5fb;
+  color: #000;
   font-size: 100%;
 }
 
@@ -82,7 +83,7 @@ header #loops{
 
 header #train{
   background-color: #def0ed;
-  background-image: url("assets/digital_quilts/train.png");
+  background-image: url("");
   background-repeat:repeat-x;
   background-size: cover;
   height: 12vh;
