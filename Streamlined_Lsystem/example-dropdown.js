@@ -15,7 +15,6 @@ class ExampleDropdown {
       "ADH256a with Superellipse",
       "ADH256a with Kiss Curve",
       "Box with Ceva",
-
       "Crystal with Maltese Cross",
       "Crystal with Supershape",
       "Doily with Supershape Curve",

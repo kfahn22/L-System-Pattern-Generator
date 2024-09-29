@@ -92,7 +92,7 @@ function setup() {
     250,
     10,
     exampleData,
-    exampleOptions[22]
+    exampleOptions[2]
   );
   exampledropdown = exampleDropdown.dropdown;
   dropdowns.push(exampleDropdown.dropdown);
@@ -107,6 +107,9 @@ function handleInput(dropdowns, resetButton, sliders) {
     s.input(reset);
   }
   resetButton.mousePressed(reset);
+  //console.log(addStroke);
+  addStroke.changed(reset);
+  fillShape.changed(reset);
   showExamples.changed(reset);
 }
 
@@ -182,9 +185,7 @@ function setSystemVariables(exampleValues) {
   } else if (exampleValues[5] === true && exampleValues[6] === true) {
     colorMode = 2;
   }
-  //console.log(colorMode);
 
-  //console.log(images[0])
   //Add turtle system
   let turtle = new Turtle(
     exampleValues,

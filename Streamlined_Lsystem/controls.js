@@ -70,7 +70,7 @@ class AddControls {
     this.showExample = createCheckbox("Display examples", true);
     this.showExample.position(posButtons, 130);
     this.showExample.style("color", "white");
-    this.colorMode = null;
+    //this.colorMode = null;
 
     // Ensure checkboxes reflect initial values
     this.updateCheckboxes();
@@ -120,8 +120,6 @@ class AddControls {
   }
 
   updateCheckboxes() {
-    // console.log("Updating checkboxes with values:", this.values.slice(5,7));
-    console.log(this.values);
     this.addStroke.checked(false);
     this.addStroke.checked(this.values[5]);
 
