@@ -1,14 +1,14 @@
-html, body {
+html,
+body {
   margin: 0vw;
   /* padding: 2vw; */
   background-color: #000;
   /* background-repeat:repeat-x;
   background-size: cover; */
-  
 }
-header{
+header {
   /* background-color: #def0ed; */
-  background-repeat:repeat-x;
+  background-repeat: repeat-x;
   background-size: cover;
   /* height: 15vh; */
   /* margin-bottom: 5%; */
@@ -17,7 +17,7 @@ header{
 }
 
 header #index {
-  height: 20vh; 
+  height: 20vh;
   margin-bottom: 10vh;
 }
 
@@ -25,7 +25,7 @@ p {
   margin-left: auto;
   margin-right: auto;
   padding: 1vw;
-  font-size:x-large;
+  font-size: x-large;
 }
 
 div #intro {
@@ -35,9 +35,12 @@ div #intro {
 }
 
 div #bella {
+  background-color: #fff;
   width: 30vw;
   margin-top: auto;
   margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 li {
@@ -46,84 +49,54 @@ li {
 header #lsystem {
   height: 15vh;
   color: #fff;
-  background-color: black;
+  /* background-color: black; */
   background-image: url("assets/Ruleset-shape-examples/hilbert-quadrifolium.jpg");
+  background-repeat: repeat-x;
+  background-size: cover;
   font-size: 100%;
   margin-bottom: 5%;
 }
 
-header #circles{
-  height: 25vh;
-  background-image: url("assets/header/circle.png");
-  background-repeat:repeat-x;
-  background-size: cover;
-  color: #1ba1db;
-}
-
-header #tribal{
-  background-image: url("assets/digital_quilts/tribal.png");
-  background-repeat:repeat-x;
-  background-size: cover;
-  height: 18vh;
-  color: #1ba1db;
-  margin-bottom: 2%;
-  font-size: 200%;
-}
-
-header #loops{
-  background-image: url("assets/digital_quilts/loops.png");
-  background-repeat:repeat-x;
-  background-size: cover;
-  height: 18vh;
-  color: #1ba1db;
-  margin-bottom: 2%;
-  font-size: 200%;
-}
 
 /* header img {
   opacity: 0.25;
 } */
 
-header #train{
-  background-color: #def0ed;
-  background-image: url("");
-  background-repeat:repeat-x;
-  background-size: cover;
-  height: 12vh;
-  margin-bottom: 2%;
-  color: #1ba1db;
-  font-size: 300%;
-}
-
-h1{
+h1 {
   font-family: Arial, Helvetica, sans-serif;
   padding: 1%;
   font-size: 300%;
   text-align: center;
   text-transform: uppercase;
-  text-shadow: 2px 2px #0D1A44;
-  color: #FFFFFF;
+  text-shadow: 2px 2px #0d1a44;
+  color: #ffffff;
 }
 
-#circleImg, #tribalImg, #trainImg, #crossStitchImg, 
-#barbellImg, #tubeImg, #loopsImg, #mazeImg, #smallTracksImg  {
+#circleImg,
+#tribalImg,
+#trainImg,
+#crossStitchImg,
+#barbellImg,
+#tubeImg,
+#loopsImg,
+#mazeImg,
+#smallTracksImg {
   max-width: 300px;
   margin: 1vw;
 }
 
 #construction {
   font-size: 300%;
-  text-align:center;
+  text-align: center;
 }
-
 
 canvas {
   display: block;
 }
 code {
   padding: 1vw;
-  background-color: #4a9abd;
-  color: black;
+  background-color: black;
+  color: white;
   /* max-width: 500px; */
 }
 
@@ -144,7 +117,8 @@ iframe {
   margin-right: 10vw;
 }
 
-a:link, a:visited {
+a:link,
+a:visited {
   color: black;
   background-color: #fff;
   padding: 5px 10px;
@@ -153,7 +127,8 @@ a:link, a:visited {
   display: inline-block;
 }
 
-a:hover, a:active {
+a:hover,
+a:active {
   background-color: #595959;
 }
 
@@ -165,7 +140,9 @@ a:hover, a:active {
 }
 
 /*Hide nav bar for mobile devices*/
-nav .topNav {visibility:hidden  !important;}
+nav .topNav {
+  visibility: hidden !important;
+}
 
 /* Position the content inside the overlay */
 .overlay-content {
@@ -203,7 +180,8 @@ nav .topNav {visibility:hidden  !important;}
 }
 
 /* When you mouse over the navigation links, change their color */
-.overlay a:hover, .overlay a:focus {
+.overlay a:hover,
+.overlay a:focus {
   color: #5eb5fb;
   background-color: #ffffff;
 }
@@ -228,19 +206,17 @@ nav .topNav {visibility:hidden  !important;}
     color: #ffffff;
 } */
 #demo {
-
   margin-left: 2%;
   margin-right: 2%;
 }
 
 .flex-container {
-  display:flex;
+  display: flex;
   flex-direction: column;
   /*flex-direction:column;*/
   height: 88vh;
   justify-content: space-between;
 }
-
 
 .card {
   margin-top: 1%;
@@ -250,9 +226,8 @@ nav .topNav {visibility:hidden  !important;}
 }
 .card-body {
   background-color: #ffffff;
-
 }
-.card-img-top{
+.card-img-top {
   margin-left: auto !important;
   margin-right: auto !important;
   max-width: 200px;
@@ -260,7 +235,9 @@ nav .topNav {visibility:hidden  !important;}
 /* When the height of the screen is less than 450 pixels, change the font-size of
 the links and position the close button again, so they don't overlap */
 @media screen and (max-height: 450px) {
-  .overlay a {font-size: 20px}
+  .overlay a {
+    font-size: 20px;
+  }
   .overlay .closebtn {
     font-size: 40px;
     top: 15px;
@@ -268,55 +245,57 @@ the links and position the close button again, so they don't overlap */
   }
 }
 @media screen and (min-width: 600px) {
-  #ham {display:none;}
-  #about {visibility: visible !important;
-          }
-  #mobileAbout{
-          max-height: 0px;
-          visibility:hidden;
-      }
+  #ham {
+    display: none;
+  }
+  #about {
+    visibility: visible !important;
+  }
+  #mobileAbout {
+    max-height: 0px;
+    visibility: hidden;
+  }
   .topNav {
-        width: 100%;
-        text-align: center;
+    width: 100%;
+    text-align: center;
   }
 
-  
-   .topNav  a {
-        visibility: visible;
-        background-color: transparent;
-        color: #fff;
-        /* color:#1ba1db; */
-        font-weight: bold;
-        font-size: 100%;
-        text-align: center;
-        width: 9%;
-        padding: 2px;
-        text-decoration: none;
-        border: 4px solid #ffffff;
-        border-radius: 4px;
-        /* margin-top: 5%; */
-        margin-left: 2%;
-        margin-right:2%;
-        }
-    .topNav a:active {
-            color: #60fbff !important;
-            border: 4px solid #60fbff;
-        }
-    .topNav a:hover {
-        color: #30a0fc;
-        border: 4px solid #30a0fc;
-    }
-    .flex-container {
-       flex-direction:row;
-    }
-   
+  .topNav a {
+    visibility: visible;
+    background-color: transparent;
+    color: #fff;
+    /* color:#1ba1db; */
+    font-weight: bold;
+    font-size: 100%;
+    text-align: center;
+    width: 9%;
+    padding: 2px;
+    text-decoration: none;
+    border: 4px solid #ffffff;
+    border-radius: 4px;
+    /* margin-top: 5%; */
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+  .topNav a:active {
+    color: #60fbff !important;
+    border: 4px solid #60fbff;
+  }
+  .topNav a:hover {
+    color: #30a0fc;
+    border: 4px solid #30a0fc;
+  }
+  .flex-container {
+    flex-direction: row;
+  }
 }
-
 
 /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home").
  Show the link that contains should open and close the topnav (.icon) */
 @media screen and (min-width: 600px) {
-  .topnav a:not(:first-child) {display: flex;}
+  .topnav a:not(:first-child) {
+    display: flex;
+  }
   .topnav a.icon {
     display: none;
   }
@@ -333,9 +312,11 @@ This class makes the topnav look good on small screens (display the links vertic
 
 @media only screen and (min-width: 780px) {
   .flex-container {
-    flex-direction:row;
-}
-#myImg:hover {opacity: 0.7;}
+    flex-direction: row;
+  }
+  #myImg:hover {
+    opacity: 0.7;
+  }
 }
 
 /* The Modal (background) */
@@ -349,8 +330,8 @@ This class makes the topnav look good on small screens (display the links vertic
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
 }
 
 /* Modal Content (Image) */
@@ -374,14 +355,19 @@ This class makes the topnav look good on small screens (display the links vertic
 }
 
 /* Add Animation - Zoom in the Modal */
-.modal-content, #caption { 
+.modal-content,
+#caption {
   animation-name: zoom;
   animation-duration: 0.6s;
 }
 
 @keyframes zoom {
-  from {transform:scale(0)} 
-  to {transform:scale(1)}
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 /* The Close Button */
@@ -403,7 +389,7 @@ This class makes the topnav look good on small screens (display the links vertic
 }
 
 /* 100% Image Width on Smaller Screens */
-@media only screen and (max-width: 700px){
+@media only screen and (max-width: 700px) {
   .modal-content {
     width: 100%;
   }
