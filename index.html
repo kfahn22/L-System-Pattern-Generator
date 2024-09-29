@@ -1,0 +1,121 @@
+
+
+[github pages](https://kfahn22.github.io/L-System-Pattern-Generator/)
+
+
+<iframe src="https://username.github.io/repository-name/" width="800" height="600"></iframe>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>L-system Pattern Generator</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+	<header id="lsystem">
+		<h1>L-system Digital Pattern Creator</h1>
+		<nav id="myNavBar">
+			<div class="overlay" id="myNav">
+				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+				<div class="overlay-content">
+					<!-- <a href="../html/about.html" id="aboutMe">About</a> -->
+					<!-- <a href="wfc.html" id="wfc">WFC</a> -->
+					<a href="index.html" id="">L-system Pattern Creator</a>
+					<!-- <a href="tiles.html" id="tiles">Tiles</a> -->
+				</div>
+			</div>
+
+			<div class="topNav">
+				<a href="index.html" class="active" id="a0">Home</a>
+				<!-- <a href="../html/about.html">About</a> -->
+				<!-- <a href="wfc.html">WFC</a>
+				<a href="digital_quilts.html">Digital Quilts</a>
+				<a href="tiles.html">Tiles</a> -->
+			</div>
+		</nav>
+	</header>
+	<div class="container">
+		<div class="row">
+			<div id="">
+				<img src="" alt="L-system" width="300" height="300"
+					style="vertical-align:bottom;border:5px solid black">
+				<a href="streamlined.html">Pattern Creator</a>
+			</div>
+			<!-- <div id="barbellImg">
+				<img src="assets/digital_quilts/dogbone.png" alt="Dogbone" width="300" height="300"
+					style="vertical-align:bottom;border:5px solid black">
+				<a href="dogbone.html">Make Your Own</a>
+			</div>
+			<div id="tribalImg">
+				<img src="assets/digital_quilts/tribal.png" alt="Tribal" width="300" height="300"
+					style="vertical-align:bottom;border:5px solid black">
+				<a href="tribal.html">Make Your Own</a>
+			</div>
+			<div id="crossStitchImg">
+				<img src="assets/digital_quilts/crossStitch.png" alt="Cross Stitch" width="300" height="300"
+					style="vertical-align:bottom;border:5px solid black">
+				<a href="crossStitch.html">Make Your Own</a>
+			</div>
+			<div id="loopsImg">
+				<img src="assets/digital_quilts/loops.png" alt="Loops" width="300" height="300"
+					style="vertical-align:bottom;border:5px solid black">
+				<a href="loops.html">Make Your Own</a>
+			</div>
+			<div id="smallTracksImg">
+				<img src="assets/digital_quilts/smallTracks.png" alt="Train tracks" width="300" height="300"
+					style="vertical-align:bottom;border:5px solid black">
+				<a href="small_tracks.html">Make Your Own</a>
+			</div>
+			<div id="trainImg">
+				<img src="assets/digital_quilts/train.png" alt="Train tracks" width="300" height="300"
+					style="vertical-align:bottom;border:5px solid black">
+				<a href="train.html">Make Your Own</a>
+			</div>
+			<div id="tubeImg">
+				<img src="assets/digital_quilts/tubes.png" alt="Tubes" width="300" height="300"
+					style="vertical-align:bottom;border:5px solid black">
+				<a href="tubes.html">Make Your Own</a>
+			</div>
+			<div id="mazeImg">
+				<img src="assets/digital_quilts/maze.png" alt="Maze" width="300" height="300"
+					style="vertical-align:bottom;border:5px solid black">
+				<a href="maze.html">Make Your Own</a>
+			</div> -->
+		</div>
+	</div>
+</body>
+
+<script>
+	// Get the modal
+	var modal = document.getElementById("myModal");
+
+	// Get the image and insert it inside the modal - use its "alt" text as a caption
+	var img = document.getElementById("myImg");
+	var modalImg = document.getElementById("img01");
+	var captionText = document.getElementById("caption");
+	img.onclick = function () {
+		modal.style.display = "block";
+		modalImg.src = this.src;
+		captionText.innerHTML = this.alt;
+	}
+
+	// Get the <span> element that closes the modal
+	var span = document.getElementsByClassName("close")[0];
+
+	// When the user clicks on <span> (x), close the modal
+	span.onclick = function () {
+		modal.style.display = "none";
+	}
+</script>
+</body>
+
+</html>
