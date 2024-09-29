@@ -25,8 +25,6 @@ class Turtle {
     this.shapeValues = this.values.slice(-10);
     this.shape_ui.selectShape(this.shapeName, this.shapeValues);
     this.shape = this.shape_ui.shape; // Shape object
-    // Get data for shape (a, b, m, n, n1, n2, n3, shapeAngle)
-
     // Palettes variables
     this.strokePalette = strokePalette;
     this.fillPalette = fillPalette;
@@ -39,7 +37,6 @@ class Turtle {
   }
 
   generate() {
-    //console.log(this.lsystemValues)
     let nextSentence = "";
     for (let i = 0; i < this.sentence.length; i++) {
       let current = this.sentence.charAt(i);
@@ -118,6 +115,7 @@ class Turtle {
     }
   }
 
+  // When both stroke and fill are used, they are rendered separately
   addLsystemStrokeFill() {
     let wadj = this.values[8];
     let hadj = this.values[9];
@@ -126,15 +124,9 @@ class Turtle {
     push();
     translate(width * wadj, height * hadj);
     rotate(fractalAngle);
+    // I have imposed some limits on the level to keep the sketch from freezing
     if (level > this.maxLevel) {
-      this.warning =
-        "The level cannot be greater " +
-        `${this.maxLevel}` +
-        " with this rule-set.";
-      this.addWarning = true;
-      for (let i = 0; i < this.maxLevel; i++) {
-        this.generate();
-      }
+      this.levelWarning(1);
     } else {
       for (let i = 0; i < level; i++) {
         this.generate();
@@ -142,20 +134,14 @@ class Turtle {
       this.turtle(1);
     }
     pop();
-    // We need to reset sentence
+    // We need to reset sentence else the level is doubled
     this.sentence = this.lsystemValues[4];
     push();
     translate(width * wadj, height * hadj);
     rotate(fractalAngle);
+
     if (level > this.maxLevel) {
-      this.warning =
-        "The level cannot be greater " +
-        `${this.maxLevel}` +
-        " with this rule-set.";
-      this.addWarning = true;
-      for (let i = 0; i < this.maxLevel; i++) {
-        this.generate();
-      }
+      this.levelWarning(0);
     } else {
       for (let i = 0; i < level; i++) {
         this.generate();
@@ -166,28 +152,16 @@ class Turtle {
   }
 
   addLsystem(colorMode) {
-    //console.log(this.values);
     let wadj = this.values[8];
     let hadj = this.values[9];
     let level = this.values[10];
-
     let fractalAngle = this.values[14];
-    // let sentence = this.lsystemValues[4];
-
     push();
     translate(width * wadj, height * hadj);
     rotate(fractalAngle);
     if (colorMode != null) {
       if (level > this.maxLevel) {
-        this.warning =
-          "The level cannot be greater " +
-          `${this.maxLevel}` +
-          " with this rule-set.";
-        this.addWarning = true;
-        for (let i = 0; i < this.maxLevel; i++) {
-          this.generate();
-        }
-        this.turtle(colorMode);
+        this.levelWarning(colorMode);
       } else {
         for (let i = 0; i < level; i++) {
           this.generate();
@@ -199,6 +173,18 @@ class Turtle {
     if (this.shapeName == "Word") {
       this.addText();
     }
+  }
+
+  levelWarning(colorMode) {
+      this.warning =
+        "The level cannot be greater " +
+        `${this.maxLevel}` +
+        " with this rule-set.";
+      this.addWarning = true;
+      for (let i = 0; i < this.maxLevel; i++) {
+        this.generate();
+      }
+      this.turtle(colorMode);
   }
 
   adjustFill(colorMode) {

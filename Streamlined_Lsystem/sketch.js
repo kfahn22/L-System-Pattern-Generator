@@ -68,11 +68,14 @@ let shapeMessage; // Shape message re parameters to choosen shape
 
 // Buttons/checkboxes
 let resetButton;
-let fillShape; // Boolean, default false
-let addStroke; // Boolean, default true
+// addStroke , fillShape , addP5Grain (default false), showExamples (default true)
 // https://github.com/meezwhite/p5.grain
-let addP5Grain; // Boolean, default false
-let showExamples; // Boolean, default true
+let checkBoxes; 
+// let fillShape; // Boolean, default false
+// let addStroke; // Boolean, default true
+
+// let addP5Grain; // Boolean, default false
+// let showExamples; // Boolean, default true
 
 // Preload the L-system rulesets and example data
 function preload() {
@@ -106,11 +109,10 @@ function handleInput(dropdowns, resetButton, sliders) {
   for (let s of sliders) {
     s.input(reset);
   }
+  for (let c of checkBoxes) {
+    c.changed(reset);
+  }
   resetButton.mousePressed(reset);
-  //console.log(addStroke);
-  addStroke.changed(reset);
-  fillShape.changed(reset);
-  showExamples.changed(reset);
 }
 
 function reset() {
@@ -120,7 +122,8 @@ function reset() {
   exampleDropdown.selectExample();
   let exampleValues = exampleDropdown.setExample();
 
-  if (showExamples.checked() == true) {
+  if (checkBoxes[3].checked()) {
+    // if (showExamples.checked() == true) {
     setSystemVariables(exampleValues);
   } else {
     // Need to get palette/alpha values
@@ -130,14 +133,16 @@ function reset() {
     for (let i = 1; i < dropdowns.length; i++) {
       values.push(dropdowns[i].selected());
     }
-    values.push(addStroke.checked());
-    values.push(fillShape.checked());
-    values.push(addP5Grain.checked());
+    // Add values for addStroke, fillShape, and addP5Grain
+    for (let i = 0; i < 3; i++) {
+      values.push(checkBoxes[i].checked());
+    }
     let sliderValues = sliderGroup.getValues();
     for (s of sliderValues) {
       values.push(s);
     }
     sliderGroup.updateLabels();
+    console.log(values)
     setSystemVariables(values);
   }
 }
@@ -158,9 +163,9 @@ function addControls() {
   for (d of otherdropdowns) {
     dropdowns.push(d);
   }
+  // Retrieve control objects
   resetButton = controls.returnButtons();
-  [fillShape, addStroke, addP5Grain, showExamples] =
-    controls.returnCheckboxes();
+  checkBoxes = controls.returnCheckboxes();
   sliderGroup = controls.sliderGroup;
   sliders = sliderGroup.sliders;
   return [dropdowns, resetButton, sliderGroup, sliders];
@@ -203,7 +208,8 @@ function setSystemVariables(exampleValues) {
   } else if (colorMode == 2) {
     turtle.addLsystemStrokeFill();
   }
-  addP5Grain.checked(exampleValues[7]);
+  // Update value of addP5Grain
+checkBoxes[2].checked(exampleValues[7]);
 
   if (exampleValues[7] == true) {
     applyChromaticGrain(42);
