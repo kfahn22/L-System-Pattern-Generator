@@ -15,7 +15,7 @@ class ExampleDropdown {
       "ADH256a with Superellipse",
       "ADH256a with Kiss Curve",
       "Box with Ceva",
-      "Crystal with Image",
+
       "Crystal with Maltese Cross",
       "Crystal with Supershape",
       "Doily with Supershape Curve",
@@ -32,9 +32,11 @@ class ExampleDropdown {
       "Koch snowflake with Quadrilateral",
       "Koch snowflake with Supershape",
       "Koch snowflake with Word",
+      "Kolam with Butterfly",
       "Kolam with Ceva",
       "Kolam with Deltoid",
       "Kolam with Gear Curve",
+      "Kolam with Image",
       "Krishna Anklet with Gear Curve (Background)",
       "Krishna Anklet with Gear Curve",
       "Mango Leaf with Gear Curve",
@@ -86,9 +88,7 @@ class ExampleDropdown {
       case "Crystal with Maltese Cross":
         this.currentExample = this.data.Crystal_with_Maltese_Cross;
         break;
-      case "Crystal with Image":
-        this.currentExample = this.data.Crystal_with_Image;
-        break;
+
       case "Crystal with Supershape":
         this.currentExample = this.data.Crystal_with_Supershape;
         break;
@@ -134,6 +134,9 @@ class ExampleDropdown {
       case "Koch snowflake with Word":
         this.currentExample = this.data.Koch_snowflake_with_Word;
         break;
+      case "Kolam with Butterfly":
+        this.currentExample = this.data.Kolam_with_Butterfly;
+        break;
       case "Kolam with Ceva":
         this.currentExample = this.data.Kolam_with_Ceva_Curve;
         break;
@@ -142,6 +145,9 @@ class ExampleDropdown {
         break;
       case "Kolam with Deltoid":
         this.currentExample = this.data.Kolam_with_Deltoid;
+        break;
+      case "Kolam with Image":
+        this.currentExample = this.data.Kolam_with_Image;
         break;
       case "Krishna Anklet with Gear Curve":
         this.currentExample = this.data.Krishna_Anklet_with_Gear_Curve;
@@ -192,91 +198,10 @@ class ExampleDropdown {
         break;
 
       // case "koch_snowflake":
-      //   this.currentFractal = this.lsystem.koch_snowflake;
+      //   this.currentExample = this.data.koch_snowflake;
       //   break;
       // case "leaf":
-      //   this.currentFractal = this.lsystem.leaf;
-      //   break;
-      // case "levy_curve":
-      //   this.currentFractal = this.lsystem.levy_curve;
-      //   break;
-      // case "mango_leaf":
-      //   this.currentFractal = this.lsystem.mango_leaf;
-      //   break;
-      // case "maze":
-      //   this.currentFractal = this.lsystem.maze;
-      //   break;
-      // // case "notched_square":
-      // //   currentFractal = this.lsystem.notched_square;
-      // //   break;
-      // case "peano":
-      //   this.currentFractal = this.lsystem.peano;
-      //   break;
-      // case "peano_c":
-      //   this.currentFractal = this.lsystem.peano_c;
-      //   break;
-      // case "pentaplexity":
-      //   this.currentFractal = this.lsystem.pentaplexity;
-      //   break;
-      // case "pentadentrite":
-      //   this.currentFractal = this.lsystem.pentadentrite;
-      //   break;
-      // case "pentigree":
-      //   this.currentFractal = this.lsystem.pentigree;
-      //   break;
-      // case "quadratic_gosper":
-      //   this.currentFractal = this.lsystem.quadratic_gosper;
-      //   break;
-      // case "quadratic_koch_island":
-      //   this.currentFractal = this.lsystem.quadratic_koch_island;
-      //   break;
-      // case "quadratic_koch_island2":
-      //   this.currentFractal = this.lsystem.quadratic_koch_island2;
-      //   break;
-      // case "quadratic_snowflake2":
-      //   this.currentFractal = this.lsystem.quadratic_snowflake2;
-      //   break;
-      // case "rings":
-      //   this.currentFractal = this.lsystem.rings;
-      //   break;
-      // case "snake_kolam":
-      //   this.currentFractal = this.lsystem.snake_kolam;
-      //   break;
-      // case "rings":
-      //   this.currentFractal = this.lsystem.rings;
-      //   break;
-      // // case "rounded_cross":
-      // //   this.currentFractal = this.lsystem.rounded_cross;
-      // //   break;
-      // case "rounded_star":
-      //   this.currentFractal = this.lsystem.rounded_star;
-      //   break;
-      // case "skierpinski":
-      //   this.currentFractal = this.lsystem.skierpinski;
-      //   break;
-      // case "skierpinski_carpet":
-      //   this.currentFractal = this.lsystem.skierpinski_carpet;
-      //   break;
-      // case "square_skierpinski":
-      //   this.currentFractal = this.lsystem.square_skierpinski;
-      //   break;
-      // case "sticks":
-      //   this.currentFractal = this.lsystem.sticks;
-      //   break;
-      // case "tiles":
-      //   this.currentFractal = this.lsystem.tiles;
-      //   break;
-      // case "tiles2":
-      //   this.currentFractal = this.lsystem.tiles;
-      //   break;
-      // case "tree":
-      //   this.currentFractal = this.lsystem.tree;
-      //   break;
-      // case "torn_square":
-      //   this.currentFractal = this.lsystem.torn_square;
-      //   break;
-      // case "triangle":
-      //   this.currentFractal = this.lsystem.triangle;
+      //   this.currentExample = this.data.leaf;
       //   break;
     }
   }

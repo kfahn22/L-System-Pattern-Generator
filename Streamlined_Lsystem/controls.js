@@ -26,23 +26,23 @@ class AddControls {
     this.sliderGroup = new SliderGroup(
       10,
       "group 1",
-      0.5, // wadj
-      0.5, // hadj
-      3, // level
-      2, // strokeWeight
-      255, // stroke alpha
-      150, // fill alpha
-      0, // fractal angle
-      20, // length
-      0.5, // shapeScale
-      1, // a
-      1, // b
-      6, // m
-      1, // n
-      1, // n1
-      1, // n2
-      1, // n3
-      0 // shape angle
+      this.values[8], // wadj
+      this.values[9], // hadj
+      this.values[10], // level
+      this.values[11], // strokeWeight
+      this.values[12], // stroke alpha
+      this.values[13], // fill alpha
+      this.values[14], // fractal angle
+      this.values[15], // length
+      this.values[16], // shapeScale
+      this.values[17], // a
+      this.values[18], // b
+      this.values[19], // m
+      this.values[20], // n
+      this.values[21], // n1
+      this.values[22], // n2
+      this.values[23], // n3
+      this.values[24] // shape angle
     );
     this.sliders = this.sliderGroup.sliders;
     this.sliderValues = this.sliderGroup.getValues();
@@ -59,7 +59,7 @@ class AddControls {
     this.addStroke.position(posButtons, 40);
     this.addStroke.style("color", "white");
     // Checkbox to determine whether shapes are filled
-     this.fillShape = createCheckbox("Fill L-system 1 shapes", this.values[6]);
+    this.fillShape = createCheckbox("Fill L-system 1 shapes", this.values[6]);
     this.fillShape.position(posButtons, 70);
     this.fillShape.style("color", "white");
     // Whether to add P5 Grain library
@@ -97,7 +97,7 @@ class AddControls {
       // Fill, no Stroke
     } else if (this.values[5] === false && this.values[6] === true) {
       colorMode = 1;
-    //  Both stroke and fill
+      //  Both stroke and fill
     } else if (this.values[5] === true && this.values[5] === true) {
       colorMode = 2;
     }
@@ -119,10 +119,9 @@ class AddControls {
     return this.resetButton;
   }
 
-  
   updateCheckboxes() {
     // console.log("Updating checkboxes with values:", this.values.slice(5,7));
-   console.log(this.values)
+    console.log(this.values);
     this.addStroke.checked(false);
     this.addStroke.checked(this.values[5]);
 

@@ -19,6 +19,8 @@ class ShapeUI {
       "Atom",
       "Bicorn",
       "Box",
+      "Butterfly",
+      "Cannibus",
       "Cassini Oval",
       "Ceva",
       "Cornu Spiral",
@@ -89,6 +91,12 @@ class ShapeUI {
         break;
       case "Box":
         this.shape.box();
+        break;
+      case "Butterfly":
+        this.shape.butterfly();
+        break;
+      case "Cannibus":
+        this.shape.cannibus();
         break;
       case "Cassini Oval":
         this.shape.cassiniOval();

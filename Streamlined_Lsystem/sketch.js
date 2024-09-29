@@ -1,4 +1,5 @@
-// https://editor.p5js.org/kfahn/sketches/eJ37jUEeU
+// https://github.com/kfahn22/L-System-Pattern-Generator
+// https://editor.p5js.org/kfahn/sketches/6maEEOkD2
 
 // Lsystem data from rules.json
 let rulesetData;
@@ -15,7 +16,6 @@ let exampleOptions = [
   "ADH256a with Superellipse",
   "ADH256a with Kiss Curve",
   "Box with Ceva",
-  "Crystal with Image",
   "Crystal with Maltese Cross",
   "Crystal with Supershape",
   "Doily with Bicorn Curve",
@@ -32,9 +32,11 @@ let exampleOptions = [
   "Koch snowflake with Quadrilateral",
   "Koch snowflake with Supershape",
   "Koch snowflake with Word",
+  "Kolam with Butterfly",
   "Kolam with Ceva",
   "Kolam with Deltoid",
   "Kolam with Gear Curve",
+  "Kolam with Image",
   "Krishna Anklet with Gear Curve (Background)",
   "Krishna Anklet with Gear Curve",
   "Mango Leaf with Gear Curve",
@@ -90,7 +92,7 @@ function setup() {
     250,
     10,
     exampleData,
-    exampleOptions[6]
+    exampleOptions[22]
   );
   exampledropdown = exampleDropdown.dropdown;
   dropdowns.push(exampleDropdown.dropdown);

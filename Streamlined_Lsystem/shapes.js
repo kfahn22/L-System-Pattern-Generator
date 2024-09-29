@@ -76,6 +76,33 @@ class Shape {
     this.points.push(createVector(0, 2 * this.r));
   }
 
+  // Butterfly curve equation from http://paulbourke.net/geometry/butterfly/
+  butterfly() {
+    for (let theta = 0; theta < 8 * PI; theta += 0.05) {
+      let r =
+        pow(e, sin(theta)) -
+        2 * cos(4 * theta) +
+        pow(sin((2 * theta - PI) / 24), 5);
+      const x = this.r * r * cos(theta);
+      const y = -this.r * r * sin(theta);
+      this.points.push(createVector(x, y));
+    }
+  }
+
+  // https://mathworld.wolfram.com/topics/PlaneCurves.html
+  cannibus() {
+    for (let theta = 0; theta < PI; theta += 0.01) {
+      let r =
+        (1 + (9 / 10) * cos(8 * theta)) *
+        (1 + (1 / 10) * cos(24 * theta)) *
+        (9 / 10 + (1 / 10) * cos(200 * theta)) *
+        (1 + sin(theta));
+      const x = this.r * r * cos(theta);
+      const y = -this.r * r * sin(theta);
+      this.points.push(createVector(x, y));
+    }
+  }
+
   // https://mathworld.wolfram.com/CassiniOvals.html
 
   cassiniOval() {
@@ -331,9 +358,9 @@ class Shape {
 
   showImage(images) {
     let i = floor(random(10));
-    let img = images[i]
+    let img = images[i];
     push();
-    rotate(this.angle)
+    rotate(this.angle);
     image(img, 0, 0, this.r, this.r);
     pop();
   }
@@ -359,11 +386,11 @@ class Shape {
       "SAVED",
       "EDUCATION",
       "PEACE",
-      "PURPOSE"
+      "PURPOSE",
     ];
     push();
     rotate(this.angle);
-    textSize(this.r*0.5);
+    textSize(this.r * 0.5);
     textAlign(CENTER, CENTER);
     text(random(options), 0, 0);
     pop();
