@@ -1,7 +1,7 @@
 html, body {
   margin: 0vw;
   /* padding: 2vw; */
-  background-color: #1ba1db;
+  background-color: #000;
 }
 header{
   /* background-color: #def0ed; */
@@ -9,7 +9,7 @@ header{
   background-size: cover;
   /* height: 15vh; */
   /* margin-bottom: 5%; */
-  color: #1ba1db;
+  color: #5eb5fb;
   font-size: 100%;
 }
 
