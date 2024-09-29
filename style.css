@@ -1,8 +1,10 @@
 html, body {
   margin: 0vw;
   /* padding: 2vw; */
-  /* background-color: #000; */
-  background-image: url("assets/Ruleset-shape-examples/hilbert-quadrifolium.jpg");
+  background-color: #000;
+  /* background-repeat:repeat-x;
+  background-size: cover; */
+  
 }
 header{
   /* background-color: #def0ed; */
@@ -45,6 +47,7 @@ header #lsystem {
   height: 15vh;
   color: #fff;
   background-color: black;
+  background-image: url("assets/Ruleset-shape-examples/hilbert-quadrifolium.jpg");
   font-size: 100%;
   margin-bottom: 5%;
 }
