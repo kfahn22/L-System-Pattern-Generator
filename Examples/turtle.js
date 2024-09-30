@@ -20,7 +20,7 @@ class Turtle {
     this.maxLevel = this.lsystemValues[3];
     this.sentence = this.lsystemValues[4];
     // Shape data
-    this.shape_ui = shape_ui; // Shape_ui object
+    this.shape_ui = shape_ui; // Shape object
     this.shapeName = this.values[1];
     this.shapeValues = this.values.slice(-10);
     this.shape_ui.selectShape(this.shapeName, this.shapeValues);
@@ -31,8 +31,6 @@ class Turtle {
     this.addStroke = this.values[5];
     this.fillShape = this.values[6];
     this.colorMode = colorMode;
-    this.addWarning = false;
-    this.warning = null;
     this.images = images;
   }
 
@@ -124,30 +122,20 @@ class Turtle {
     push();
     translate(width * wadj, height * hadj);
     rotate(fractalAngle);
-    // I have imposed some limits on the level to keep the sketch from freezing
-    if (level > this.maxLevel) {
-      this.levelWarning(1);
-    } else {
       for (let i = 0; i < level; i++) {
         this.generate();
       }
       this.turtle(1);
-    }
     pop();
     // We need to reset sentence else the level is doubled
     this.sentence = this.lsystemValues[4];
     push();
     translate(width * wadj, height * hadj);
     rotate(fractalAngle);
-
-    if (level > this.maxLevel) {
-      this.levelWarning(0);
-    } else {
       for (let i = 0; i < level; i++) {
         this.generate();
       }
       this.turtle(0);
-    }
     pop();
   }
 
@@ -160,31 +148,15 @@ class Turtle {
     translate(width * wadj, height * hadj);
     rotate(fractalAngle);
     if (colorMode != null) {
-      if (level > this.maxLevel) {
-        this.levelWarning(colorMode);
-      } else {
         for (let i = 0; i < level; i++) {
           this.generate();
         }
         this.turtle(colorMode);
       }
       pop();
-    }
     if (this.shapeName == "Word") {
       this.addText();
     }
-  }
-
-  levelWarning(colorMode) {
-    this.warning =
-      "The level cannot be greater " +
-      `${this.maxLevel}` +
-      " with this rule-set.";
-    this.addWarning = true;
-    for (let i = 0; i < this.maxLevel; i++) {
-      this.generate();
-    }
-    this.turtle(colorMode);
   }
 
   adjustFill(colorMode) {

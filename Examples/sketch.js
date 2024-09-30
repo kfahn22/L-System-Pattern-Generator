@@ -1,4 +1,5 @@
 // https://github.com/kfahn22/L-System-Pattern-Generator
+// https://editor.p5js.org/kfahn/sketches/A4ksi8iY9j
 
 // Lsystem data from rules.json
 let rulesetData;
@@ -80,11 +81,11 @@ function setup() {
     exampleData,
     exampleOptions[2]
   );
-  let label = createP('Example Choices');
+  let label = createP("Example Choices");
   label.position(posx, posy - 40);
   exampledropdown = exampleDropdown.dropdown;
 
-  controls = addLsystem();
+  addLsystem();
 }
 
 function handleInput() {
@@ -113,7 +114,7 @@ function setSystemVariables(exampleValues) {
   background(backgroundPalette.palette[0]); // Need to get the palette, I am choosing first element in array (some choices only have one element)
 
   let ruleset = new Ruleset(rulesetData);
-  let shape_ui = new SetShape();
+  let shape_ui = new ShapeUI();
 
   let colorMode;
   if (exampleValues[5] === true && exampleValues[6] === false) {
