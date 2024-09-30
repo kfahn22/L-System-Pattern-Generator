@@ -138,11 +138,11 @@ function reset() {
       values.push(checkBoxes[i].checked());
     }
     let sliderValues = sliderGroup.getValues();
-    for (s of sliderValues) {
+    for (let s of sliderValues) {
       values.push(s);
     }
     sliderGroup.updateLabels();
-    console.log(values);
+    //console.log(values);
     setSystemVariables(values);
   }
 }

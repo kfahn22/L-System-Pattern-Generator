@@ -56,18 +56,34 @@ function reset() {
   clear();
   shapeMessage.hide();
   ruleWarning.hide();
-  controls.getValues();
-  let values = controls.values;
-  sliderGroup.updateLabels();
+  let values = updateValues();
   setSystemVariables(values);
+}
+
+function updateValues() {
+  let values = [];
+  // Add ruleset, shape, palettes dropdown values
+  for (let i = 0; i < dropdowns.length; i++) {
+    values.push(dropdowns[i].selected());
+  }
+  // Add values for addStroke, fillShape, and addP5Grain
+  for (let i = 0; i < 3; i++) {
+    values.push(checkBoxes[i].checked());
+  }
+  let sliderValues = sliderGroup.getValues();
+  for (let s of sliderValues) {
+    values.push(s);
+  }
+  sliderGroup.updateLabels();
+  console.log(values);
+  return values;
 }
 
 function addLsystem() {
   controls = new AddControls(750, rulesetData);
-  //[dropdowns, resetButton] = addControls();
   addControls();
-  controls.getValues();
-  let values = controls.values;
+
+  let values = updateValues();
   setSystemVariables(values);
   // Add function to handle changes in sliders
   handleInput(dropdowns, resetButton, sliders);
@@ -75,11 +91,8 @@ function addLsystem() {
 }
 
 function addControls() {
-  //dropdowns = controls.returnDropdowns();
-  // for (d of otherdropdowns) {
-  //   dropdowns.push(d);
-  // }
   // Retrieve control objects
+  dropdowns = controls.returnDropdowns();
   resetButton = controls.returnButtons();
   checkBoxes = controls.returnCheckboxes();
   sliderGroup = controls.sliderGroup;
@@ -88,8 +101,12 @@ function addControls() {
 }
 
 function setSystemVariables(values) {
+  console.log(values);
+  // The palette choices are aliases for urls
+  // We need to create the palette using the url - refer to the palette-dropdown.js file
+  // Use the url to set the palette
   let [currentBackgroundPalette, currentStrokePalette, currentFillPalette] =
-    controls.setPalettes();
+    controls.setPalettes(values[2], values[3], values[4]);
 
   background(currentBackgroundPalette[0]);
 
@@ -132,6 +149,8 @@ function setSystemVariables(values) {
   addMessages(shape_ui.message, turtle.warning, turtle.addWarning);
 }
 
+// This function adds a message if the choosen shape is a function of the parameters (a, b, m, n, n1, n2, n3)
+// A warning is also added if the choosen level exceeds some limits I imposed to keep the sketch from slowing down significantly or freezing 
 function addMessages(newMessage, warning, addWarning) {
   let addMessage = true;
   let message = null;

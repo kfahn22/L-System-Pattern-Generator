@@ -49,7 +49,7 @@ class AddControls {
     this.shapeMessage = this.shape_ui.message;
     this.addMessage = this.shape_ui.addMessage;
     this.shapeDropdown = this.shape_ui.dropdown;
-    this.ruleset = new RuleDropdown(250, 50, rulesetData, "none");
+    this.ruleset = new RuleDropdown(250, 50, rulesetData, "ADH231a");
     this.rulesetDropdown = this.ruleset.dropdown;
     this.resetButton = createButton("Reset");
     this.resetButton.position(posButtons, 10);
@@ -73,10 +73,10 @@ class AddControls {
     this.values = [];
   }
 
-  setPalettes() {
-    this.backgroundDropdown.setPalette(this.values[2]);
-    this.strokeDropdown.setPalette(this.values[3]);
-    this.fillDropdown.setPalette(this.values[4]);
+  setPalettes(background, stroke, fill) {
+    this.backgroundDropdown.setPalette(background);
+    this.strokeDropdown.setPalette(stroke);
+    this.fillDropdown.setPalette(fill);
     return [
       this.backgroundDropdown.palette,
       this.strokeDropdown.palette,
@@ -102,6 +102,7 @@ class AddControls {
     return colorMode;
   }
 
+  // Return instance of dropdowns
   returnDropdowns() {
     return [
       this.rulesetDropdown,
@@ -133,15 +134,18 @@ class AddControls {
 
   // Get values from dropdowns, checkboxes, and sliders
   getValues() {
-    this.values[0] = this.rulesetDropdown.selected();
-    this.values[1] = this.shape_ui.dropdown.selected();
+    this.values = [];
+    this.values[0] = this.rulesetdropdown.selected();
+    this.values[1] = this.shapedropdown.selected();
     this.values[2] = this.backgrounddropdown.selected();
     this.values[3] = this.strokedropdown.selected();
     this.values[4] = this.filldropdown.selected();
     this.values[5] = this.addStroke.checked();
     this.values[6] = this.fillShape.checked();
     this.values[7] = this.addP5Grain.checked();
-    for (let s of this.sliderValues) {
+    let sliderValues = this.sliderGroup.getValues();
+    this.sliderGroup.updateLabels();
+    for (let s of sliderValues) {
       this.values.push(s);
     }
     
