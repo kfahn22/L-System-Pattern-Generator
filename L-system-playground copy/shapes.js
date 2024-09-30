@@ -1,11 +1,11 @@
 const e = 2.71828;
 
 class Shape {
-  constructor(r, a, b, m, n, n1, n2, n3, angle) {
+  constructor(r, a, b, m, n1, n2, n3, angle) {
     this.r = r;
     this.a = a;
     this.b = b;
-    this.n = n;
+    this.m = m;
     this.n1 = n1;
     this.n2 = n2;
     this.n3 = n3;

@@ -58,11 +58,11 @@ class ShapeUI {
       values[2], // a
       values[3], // b
       values[4], // m
-      values[5], // n
-      values[6], // n1
-      values[7], // n2
-      values[8], // n3
-      values[9] // rotateShape
+      // values[5], // n
+      values[5], // n1
+      values[6], // n2
+      values[7], // n3
+      values[8] // rotateShape
     );
 
     this.shape.points = []; // Clear any existing points
@@ -72,7 +72,7 @@ class ShapeUI {
       case "Archimedes Spiral":
         this.shape.archimedesSpiral();
         this.addMessage = true;
-        this.message = "The archimedes spiral is a f(n).";
+        this.message = "The archimedes spiral is a f(m).";
         break;
       case "Arc":
         this.shape.arc();
