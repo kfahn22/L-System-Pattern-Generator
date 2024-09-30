@@ -1,77 +1,17 @@
-class RuleDropdown {
-  constructor(posx, posy, lsystem, defaultChoice) {
-    // Create the dropdown element
-    this.posx = posx;
-    this.posy = posy;
+class Ruleset {
+  constructor(lsystem) {
     this.lsystem = lsystem;
-    this.currentFractal = defaultChoice;
-    this.dropdown = createSelect();
-    this.dropdown.position(this.posx, this.posy);
     this.axiom = "";
     this.rules = "";
     this.angle = 0;
     this.maxLevel = 2;
     this.lf = 1;
     this.sentence = this.axiom;
-    this.dropdown.addClass("dropdown");
-    this.optionsArray = [
-      "none",
-      "ADH231a",
-      "ADH256a",
-      "board",
-      "board2",
-      "box",
-      "recursive_circles",
-      // "recursive_circles2",
-      "circular",
-      "cross",
-      "crystal",
-      "doily",
-      "dragon1",
-      "dragon2",
-      "fern",
-      "fern2",
-      "fern3",
-      "hilbert",
-      "island_curve",
-      "kolam",
-      "koch_curve",
-      "koch_snowflake",
-      "krishna_anklet",
-      "leaf",
-      "levy_curve",
-      "mango_leaf",
-      "peano",
-      "peano_c",
-      "pentigree",
-      "pentaplexity",
-      "pentadentrite",
-      "quadratic_gosper",
-      "quadratic_koch_island",
-      "quadratic_snowflake",
-      "rings",
-      "rounded_star",
-      "snake_kolam",
-      "skierpinski",
-      "square_skierpinski",
-      "skierpinski_carpet",
-      "sticks",
-      "tiles",
-      "tiles2",
-      "torn_square",
-      "tree",
-      "triangle",
-    ];
-
-    // Add options to the dropdown
-    this.optionsArray.forEach((option) => this.dropdown.option(option));
-    this.dropdown.selected(defaultChoice);
   }
 
-  // Called when a ruleset is selected from the dropdown
+  // Called when a ruleset is selected 
   selectRule(choice) {
-    //console.log(choice);
-    this.currentFractal = choice; //this.dropdown.value();
+    this.currentFractal = choice; 
     this.pickRule();
   }
 

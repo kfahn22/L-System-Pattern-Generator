@@ -1,51 +1,51 @@
-class ShapeUI {
-  constructor(posDropdown, choice) {
-    this.choice = choice;
+class SetShape {
+  constructor() {
+    // this.shapeName = shapeName;
     // this.values = values;
     this.shape = null;
-    this.message = null;
-    this.addMessage = false;
-    this.dropdown = createSelect(); // Create a select element
-    this.dropdown.position(posDropdown, 90); // Position the dropdown
-    this.setupDropdown(); // Initialize dropdown with options
+    // this.message = null;
+    // this.addMessage = false;
+    // this.dropdown = createSelect(); // Create a select element
+    // this.dropdown.position(posDropdown, 90); // Position the dropdown
+    // this.setupDropdown(); // Initialize dropdown with options
   }
 
   // Populate the dropdown with shape options
-  setupDropdown() {
-    const shapes = [
-      "Archimedes Spiral",
-      "Arc",
-      "Astroid",
-      "Atom",
-      "Bicorn",
-      "Box",
-      "Butterfly",
-      "Cannibus",
-      "Cassini Oval",
-      "Ceva",
-      "Cornu Spiral",
-      "Maltese Cross",
-      "Deltoid",
-      "Eight",
-      "Gear",
-      "Image",
-      "Heart",
-      "Kiss Curve",
-      "Knot",
-      "Line",
-      "Quadrifolium",
-      "Quadrilateral",
-      "Rose",
-      "Superellipse",
-      "Supershape",
-      "Tear Drop",
-      "Word",
-    ];
+  // setupDropdown() {
+  //   const shapes = [
+  //     "Archimedes Spiral",
+  //     "Arc",
+  //     "Astroid",
+  //     "Atom",
+  //     "Bicorn",
+  //     "Box",
+  //     "Butterfly",
+  //     "Cannibus",
+  //     "Cassini Oval",
+  //     "Ceva",
+  //     "Cornu Spiral",
+  //     "Maltese Cross",
+  //     "Deltoid",
+  //     "Eight",
+  //     "Gear",
+  //     "Image",
+  //     "Heart",
+  //     "Kiss Curve",
+  //     "Knot",
+  //     "Line",
+  //     "Quadrifolium",
+  //     "Quadrilateral",
+  //     "Rose",
+  //     "Superellipse",
+  //     "Supershape",
+  //     "Tear Drop",
+  //     "Word",
+  //   ];
 
-    // Add shape options to the dropdown
-    shapes.forEach((shape) => this.dropdown.option(shape));
-    this.dropdown.selected(this.choice);
-  }
+  //   // Add shape options to the dropdown
+  //   shapes.forEach((shape) => this.dropdown.option(shape));
+  //   this.dropdown.selected(this.choice);
+  //}
 
   // sliders - wadj,hadj,level,length,strokeweight, shapeAlpha,sc,rot,rotateShape,a,b,m,n,n1,n2, n3
   // Create a shape based on the selected option

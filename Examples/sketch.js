@@ -1,5 +1,4 @@
 // https://github.com/kfahn22/L-System-Pattern-Generator
-// https://editor.p5js.org/kfahn/sketches/6maEEOkD2
 
 // Lsystem data from rules.json
 let rulesetData;
@@ -55,27 +54,9 @@ let exampleOptions = [
 ];
 
 // Control variables
-let controls;
-let sliderGroup;
-let sliders = []; // Array to store slider references
-let dropdowns = []; // Array to store dropdowns
+let ruleset;
 let shape_ui;
 let images = [];
-
-// Message variables
-let ruleWarning; // Warning if level gets too high
-let shapeMessage; // Shape message re parameters to choosen shape
-
-// Buttons/checkboxes
-let resetButton;
-// addStroke , fillShape , addP5Grain (default false), showExamples (default true)
-// https://github.com/meezwhite/p5.grain
-let checkBoxes;
-// let fillShape; // Boolean, default false
-// let addStroke; // Boolean, default true
-
-// let addP5Grain; // Boolean, default false
-// let showExamples; // Boolean, default true
 
 // Preload the L-system rulesets and example data
 function preload() {
@@ -89,98 +70,50 @@ function preload() {
 
 function setup() {
   canvas = createCanvas(600, 600);
-  canvas.position(250, 200);
+  canvas.position(10, 10);
   p5grain.setup();
+  let posx = 10;
+  let posy = height + 40;
   exampleDropdown = new ExampleDropdown(
-    250,
-    10,
+    posx,
+    posy,
     exampleData,
     exampleOptions[2]
   );
+  let label = createP('Example Choices');
+  label.position(posx, posy - 40);
   exampledropdown = exampleDropdown.dropdown;
-  dropdowns.push(exampleDropdown.dropdown);
+
   controls = addLsystem();
 }
 
-function handleInput(dropdowns, resetButton, sliders) {
-  for (let d of dropdowns) {
-    d.changed(reset);
-  }
-  for (let s of sliders) {
-    s.input(reset);
-  }
-  for (let c of checkBoxes) {
-    c.changed(reset);
-  }
-  resetButton.mousePressed(reset);
+function handleInput() {
+  exampledropdown.changed(reset);
 }
 
 function reset() {
   clear();
-  shapeMessage.hide();
-  ruleWarning.hide();
   exampleDropdown.selectExample();
   let exampleValues = exampleDropdown.setExample();
-
-  if (checkBoxes[3].checked()) {
-    // if (showExamples.checked() == true) {
-    setSystemVariables(exampleValues);
-  } else {
-    // Need to get palette/alpha values
-    let values = [];
-    //
-    // Add ruleset, shape, palettes dropdown values
-    for (let i = 1; i < dropdowns.length; i++) {
-      values.push(dropdowns[i].selected());
-    }
-    // Add values for addStroke, fillShape, and addP5Grain
-    for (let i = 0; i < 3; i++) {
-      values.push(checkBoxes[i].checked());
-    }
-    let sliderValues = sliderGroup.getValues();
-    for (s of sliderValues) {
-      values.push(s);
-    }
-    sliderGroup.updateLabels();
-    console.log(values);
-    setSystemVariables(values);
-  }
+  setSystemVariables(exampleValues);
 }
 
 function addLsystem() {
   exampleDropdown.selectExample();
   let exampleValues = exampleDropdown.setExample();
-  controls = new AddControls(750, rulesetData, exampleValues);
-  [dropdowns, resetButton] = addControls();
   setSystemVariables(exampleValues);
-  // Add function to handle changes in sliders
-  handleInput(dropdowns, resetButton, sliders);
-  return controls;
-}
-
-function addControls() {
-  let otherdropdowns = controls.returnDropdowns();
-  for (d of otherdropdowns) {
-    dropdowns.push(d);
-  }
-  // Retrieve control objects
-  resetButton = controls.returnButtons();
-  checkBoxes = controls.returnCheckboxes();
-  sliderGroup = controls.sliderGroup;
-  sliders = sliderGroup.sliders;
-  return [dropdowns, resetButton, sliderGroup, sliders];
+  // Add function to handle change in choosen example
+  handleInput();
 }
 
 function setSystemVariables(exampleValues) {
-  let [currentBackgroundPalette, currentStrokePalette, currentFillPalette] =
-    controls.setPalettes(exampleValues[2], exampleValues[3], exampleValues[4]);
+  let backgroundPalette = new Palette(exampleValues[2]); // Object
+  let strokePalette = new Palette(exampleValues[3]); // Object
+  let fillPalette = new Palette(exampleValues[4]); // Object
+  background(backgroundPalette.palette[0]); // Need to get the palette, I am choosing first element in array (some choices only have one element)
 
-  background(currentBackgroundPalette[0]);
-
-  let ruleset = controls.ruleset;
-
-  let shape_ui = controls.shape_ui;
-  // let colorMode = controls.setColorMode();
+  let ruleset = new Ruleset(rulesetData);
+  let shape_ui = new SetShape();
 
   let colorMode;
   if (exampleValues[5] === true && exampleValues[6] === false) {
@@ -196,8 +129,8 @@ function setSystemVariables(exampleValues) {
     exampleValues,
     shape_ui,
     ruleset,
-    currentStrokePalette,
-    currentFillPalette,
+    strokePalette.palette,
+    fillPalette.palette,
     colorMode,
     images
   );
@@ -208,37 +141,8 @@ function setSystemVariables(exampleValues) {
   } else if (colorMode == 2) {
     turtle.addLsystemStrokeFill();
   }
-  // Update value of addP5Grain
-  checkBoxes[2].checked(exampleValues[7]);
 
   if (exampleValues[7] == true) {
     applyChromaticGrain(42);
-  }
-  // Add messages for shape parameters and rule level
-  addMessages(shape_ui.message, turtle.warning, turtle.addWarning);
-}
-
-function addMessages(newMessage, warning, addWarning) {
-  let addMessage = true;
-  let message = null;
-  if (newMessage != null) {
-    message = newMessage;
-  } else addMessage = false;
-
-  shapeMessage = createP(message);
-  shapeMessage.position(250, 110);
-  shapeMessage.addClass("p");
-
-  if (addMessage) {
-    shapeMessage.show();
-  } else {
-    shapeMessage.hide();
-  }
-  ruleWarning = createP(warning);
-  ruleWarning.position(250, 130);
-  ruleWarning.addClass("p");
-
-  if (!addWarning) {
-    ruleWarning.hide();
   }
 }

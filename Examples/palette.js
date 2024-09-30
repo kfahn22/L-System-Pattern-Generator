@@ -1,80 +1,23 @@
-class PaletteDropdown {
-  constructor(posx, posy, defaultChoice, label) {
-    // Create the dropdown element
-    this.dropdown = createSelect();
-    this.dropdown.position(posx, posy);
-    this.dropdown.addClass("dropdown");
-    this.selected = defaultChoice;
-    this.optionsArray = [
-      "white",
-      "black",
-      "gray",
-      "grayPalette",
-      "rose",
-      "rosePalette",
-      "lavender",
-      "lavenderPalette",
-      "red",
-      "redPalette",
-      "orange",
-      "orangePalette",
-      "yellow",
-      "yellowPalette",
-      "green",
-      "greenPalette",
-      "blue",
-      "bluePalette",
-      "purple",
-      "purplePalette",
-      "raspberry",
-      "raspberryPalette",
-      "purple_aqua",
-      "plant-greens",
-      "fushia_blue",
-      "fushia_multi",
-      "pink_ltblue",
-      "blue_green",
-      "blue_aqua",
-      "blue_yellow",
-      "orange_blue",
-      "purple_green",
-      "red_multi",
-      "primary",
-      "sunny",
-      "orange_green",
-    ];
-    this.palette;
-
-    // Add options to the dropdown
-    this.optionsArray.forEach((option) => this.dropdown.option(option));
-    // Create label
-    this.label = createP(label);
-    this.label.position(posx, posy - 35);
-
-    this.label.style("color", "white");
-
-    // Set the default selected option
-    if (defaultChoice) {
-      this.dropdown.selected(defaultChoice);
-    }
+class Palette {
+  constructor(choice) {
+    this.choice = choice;
+    this.palette = null;
+    this.setPalette();
   }
 
-  // Handle the dropdown selection change
-  setPalette(choice) {
-    // Get the selected value
-    this.selected = choice;//this.dropdown.value();
-
-    // Get the URL based on the selected value
-    let url = this.getPaletteUrl(this.selected);
+  // 
+  setPalette() {
+    // Get the URL based on the selected choice
+    let url = this.getPaletteUrl(this.choice);
 
     // Convert the URL to a palette array
     this.palette = this.createPaletteFromURL(url);
   }
 
   // Get the URL for the selected palette
-  getPaletteUrl() {
+  getPaletteUrl(choice) {
     let url;
-    switch (this.selected) {
+    switch (choice) {
       case "white":
         url = "https://supercolorpalette.com/?scp=G0-hsl-FFFFFF";
         break;
