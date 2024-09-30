@@ -1,12 +1,13 @@
 class ShapeUI {
-  constructor(posDropdown, choice) {
+  constructor(posx, posy, choice, label) {
     this.choice = choice;
-    // this.values = values;
     this.shape = null;
     this.message = null;
     this.addMessage = false;
     this.dropdown = createSelect(); // Create a select element
-    this.dropdown.position(posDropdown, 90); // Position the dropdown
+     this.label = createP(label);
+     this.label.position(posx, posy - 35);
+    this.dropdown.position(posx, posy); // Position the dropdown
     this.setupDropdown(); // Initialize dropdown with options
   }
 

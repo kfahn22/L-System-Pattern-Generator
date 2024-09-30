@@ -45,11 +45,11 @@ class AddControls {
     );
     this.sliders = this.sliderGroup.sliders;
     this.sliderValues = this.sliderGroup.getValues();
-    this.shape_ui = new ShapeUI(250, "Quadrilateral");
+    this.shape_ui = new ShapeUI(250, 90, "Quadrilateral", "Shape");
     this.shapeMessage = this.shape_ui.message;
     this.addMessage = this.shape_ui.addMessage;
     this.shapeDropdown = this.shape_ui.dropdown;
-    this.ruleset = new RuleDropdown(250, 50, rulesetData, "ADH231a");
+    this.ruleset = new RuleDropdown(250, 50, rulesetData, "ADH231a", "L-system Ruleset");
     this.rulesetDropdown = this.ruleset.dropdown;
     this.resetButton = createButton("Reset");
     this.resetButton.position(posButtons, 10);

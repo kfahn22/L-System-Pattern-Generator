@@ -1,5 +1,5 @@
 class RuleDropdown {
-  constructor(posx, posy, lsystem, defaultChoice) {
+  constructor(posx, posy, lsystem, defaultChoice, label) {
     // Create the dropdown element
     this.posx = posx;
     this.posy = posy;
@@ -14,6 +14,8 @@ class RuleDropdown {
     this.lf = 1;
     this.sentence = this.axiom;
     this.dropdown.addClass("dropdown");
+    this.label = createP(label);
+    this.label.position(posx, posy - 35);
     this.optionsArray = [
       "none",
       "ADH231a",
@@ -22,7 +24,6 @@ class RuleDropdown {
       "board2",
       "box",
       "recursive_circles",
-      // "recursive_circles2",
       "circular",
       "cross",
       "crystal",
@@ -98,9 +99,6 @@ class RuleDropdown {
       case "recursive_circles":
         this.currentFractal = this.lsystem.recursive_circles;
         break;
-      // case "recursive_circles2":
-      //   this.currentFractal = this.lsystem.recursive_circles2;
-      //   break;
       case "circular":
         this.currentFractal = this.lsystem.circular;
         break;

@@ -1,5 +1,5 @@
 // https://github.com/kfahn22/L-System-Pattern-Generator
-// https://editor.p5js.org/kfahn/sketches/6maEEOkD2
+// https://editor.p5js.org/kfahn/sketches/3fdOtG7WX
 
 // Lsystem data from rules.json
 let rulesetData;
@@ -150,7 +150,7 @@ function setSystemVariables(values) {
 }
 
 // This function adds a message if the choosen shape is a function of the parameters (a, b, m, n, n1, n2, n3)
-// A warning is also added if the choosen level exceeds some limits I imposed to keep the sketch from slowing down significantly or freezing 
+// A warning is also added if the choosen level exceeds some limits I imposed to keep the sketch from slowing down significantly or freezing
 function addMessages(newMessage, warning, addWarning) {
   let addMessage = true;
   let message = null;
