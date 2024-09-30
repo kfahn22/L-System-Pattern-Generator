@@ -32,7 +32,7 @@ function preload() {
 }
 
 function setup() {
-  canvas = createCanvas(600, 600);
+  canvas = createCanvas(800, 800);
   canvas.position(250, 200);
   p5grain.setup();
 

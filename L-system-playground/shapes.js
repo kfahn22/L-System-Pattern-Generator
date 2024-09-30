@@ -277,10 +277,11 @@ class Shape {
   }
 
   rose() {
-    let k = this.n / this.b;
+    let b = 1;
+    let k = this.m / b;
     for (
       let theta = 0;
-      theta < TWO_PI * this.reduceDenominator(this.n, this.b);
+      theta < TWO_PI * this.reduceDenominator(this.m, b);
       theta += 0.1
     ) {
       let r = this.a + cos(k * theta);

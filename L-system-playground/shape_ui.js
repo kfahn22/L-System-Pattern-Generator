@@ -5,8 +5,8 @@ class ShapeUI {
     this.message = null;
     this.addMessage = false;
     this.dropdown = createSelect(); // Create a select element
-     this.label = createP(label);
-     this.label.position(posx, posy - 35);
+    this.label = createP(label);
+    this.label.position(posx, posy - 35);
     this.dropdown.position(posx, posy); // Position the dropdown
     this.setupDropdown(); // Initialize dropdown with options
   }
@@ -154,9 +154,12 @@ class ShapeUI {
         this.message = "The quadrilaterial curve is a f(m).";
         break;
       case "Rose":
-        this.shape.rose();
+        // I have added a constraint on the value of b to keep the sketch from freezing
+        if (values[3] >= 1.0 && values[4] >= 1.0 && (values[4] > values[3])) {
+          this.shape.rose();
+        }
         this.addMessage = true;
-        this.message = "The rose curve is a f(a, b, n).";
+        this.message = "The rose curve is a f(a, b, m), b and m >= 1";
         break;
       case "Superellipse":
         this.shape.superellipse();

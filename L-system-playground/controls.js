@@ -25,31 +25,37 @@ class AddControls {
     this.sliderGroup = new SliderGroup(
       10,
       "group 1",
-      0.5, // wadj
+      0.03, // wadj
       0.5, // hadj
-      2, // level
-      2, // strokeWeight
-      255, // stroke alpha
+      3, // level
+      1, // strokeWeight
+      220, // stroke alpha
       150, // fill alpha
       0, // fractal angle
-      20, // length
-      0.5, // shapeScale
-      1, // a
+      0.024 * width, // length
+      0.4, // shapeScale
+      3.8, // a
       1, // b
-      6, // m
+      8, // m
       1, // n
       1, // n1
-      1, // n2
+      0.8, // n2
       1, // n3
       0 // shape angle
     );
     this.sliders = this.sliderGroup.sliders;
     this.sliderValues = this.sliderGroup.getValues();
-    this.shape_ui = new ShapeUI(250, 90, "Quadrilateral", "Shape");
+    this.shape_ui = new ShapeUI(250, 90, "Supershape", "Shape");
     this.shapeMessage = this.shape_ui.message;
     this.addMessage = this.shape_ui.addMessage;
     this.shapeDropdown = this.shape_ui.dropdown;
-    this.ruleset = new RuleDropdown(250, 50, rulesetData, "ADH231a", "L-system Ruleset");
+    this.ruleset = new RuleDropdown(
+      250,
+      35,
+      rulesetData,
+      "ADH231a",
+      "L-system Ruleset"
+    );
     this.rulesetDropdown = this.ruleset.dropdown;
     this.resetButton = createButton("Reset");
     this.resetButton.position(posButtons, 10);
@@ -148,6 +154,5 @@ class AddControls {
     for (let s of sliderValues) {
       this.values.push(s);
     }
-    
   }
 }
