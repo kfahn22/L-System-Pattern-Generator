@@ -14,10 +14,10 @@ class SliderGroup {
     a,
     b,
     m,
-    n,
     n1,
     n2,
     n3,
+    n,
     shapeAngle
   ) {
     // Initialize arrays for sliders and labels
@@ -43,7 +43,13 @@ class SliderGroup {
         step: 0.1,
         label: "StrokeWeight:",
       },
-      { min: 100, max: 255, value: strokeAlpha, step: 5, label: "Stroke Alpha:" },
+      {
+        min: 100,
+        max: 255,
+        value: strokeAlpha,
+        step: 5,
+        label: "Stroke Alpha:",
+      },
       { min: 100, max: 255, value: fillAlpha, step: 5, label: "Fill Alpha:" },
       {
         min: -180,
@@ -53,14 +59,20 @@ class SliderGroup {
         label: "Rotate fractal:",
       },
       { min: 5, max: 200, value: length, step: 1, label: "Step length:" },
-      { min: 0.15, max: 1.15, value: shapeScale, step: 0.05, label: "Shape scale:" },
-      { min: 0, max: 10, value: a, step: 0.05, label: "a:" },
+      {
+        min: 0.15,
+        max: 1.15,
+        value: shapeScale,
+        step: 0.05,
+        label: "Shape scale:",
+      },
+      { min: 0, max: 10, value: a, step: 0.01, label: "a:" },
       { min: 0, max: 20, value: b, step: 0.05, label: "b:" },
       { min: 0, max: 20, value: m, step: 1, label: "m:" },
-      { min: -1, max: 10, value: n, step: 0.5, label: "n:" },
       { min: 0.25, max: 5, value: n1, step: 0.05, label: "n1:" },
       { min: 0.25, max: 2, value: n2, step: 0.05, label: "n2:" },
       { min: 0.25, max: 2, value: n3, step: 0.05, label: "n3:" },
+      { min: -1, max: 1, value: n, step: 0.1, label: "n:" },
       {
         min: -180,
         max: 180,

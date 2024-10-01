@@ -1,35 +1,17 @@
 const e = 2.71828;
 
 class Shape {
-  constructor(r, a, b, m, n, n1, n2, n3, angle) {
+  constructor(r, a, b, m, n1, n2, n3, n, angle) {
     this.r = r;
     this.a = a;
     this.b = b;
-    this.n = n;
     this.n1 = n1;
     this.n2 = n2;
     this.n3 = n3;
     this.m = m;
+    this.n = n;
     this.angle = angle;
     this.points = [];
-  }
-
-  // https://mathcurve.com/courbes2d.gb/archimede/archimede.shtml
-
-  // n = 1 Archimedian Spiral
-  // n = -1 Hyperbolic Spiral
-  // n = 1/2 Fermat spiral
-  // n = -1/2 Lituus spiral
-  // n = 2 Galilean spiral
-  archimedesSpiral() {
-    let a = 0.1;
-    let dir = -1;
-    for (let theta = 0; theta < 4 * PI; theta += 0.05) {
-      let r = dir * a * pow(theta, this.m);
-      let x = this.r * r * cos(theta);
-      let y = this.r * r * sin(theta);
-      this.points.push(createVector(x, y));
-    }
   }
 
   arc() {
@@ -159,11 +141,17 @@ class Shape {
     }
   }
 
-  // https://mathcurve.com/courbes2d.gb/croixdemalte/croixdemalte.shtml
-  malteseCross() {
-    for (let theta = 0.1; theta < TWO_PI; theta += 0.05) {
-      let x = this.r * +cos(theta) * (pow(cos(theta), 2) - this.a);
-      let y = this.r * +this.b * sin(theta) * pow(cos(theta), 2);
+  // https://mathworld.wolfram.com/Cranioid.html
+  craniod() {
+    let p = 0.75;
+    let q = 0.75;
+    for (let theta = 0; theta < TWO_PI; theta += 0.05) {
+      let r =
+        this.a * sin(theta) +
+        this.b * sqrt(1 - p * pow(cos(theta), 2)) +
+        this.m * sqrt(1 - q * pow(cos(theta), 2));
+      let x = this.r * r * cos(theta);
+      let y = this.r * r * sin(theta);
       this.points.push(createVector(x, y));
     }
   }
@@ -248,6 +236,25 @@ class Shape {
     this.points.push(createVector(2 * this.r, 0));
   }
 
+  // https://thecodingtrain.com/challenges/116-lissajous-curve-table
+
+  lissajous() {
+    for (let theta = -2 * PI; theta <= 2 * PI; theta += 0.01) {
+      let x = this.r * sin(this.a * theta + this.m) + 1;
+      let y = this.r * sin(this.b * theta);
+      this.points.push(createVector(x, y));
+    }
+  }
+
+  // https://mathcurve.com/courbes2d.gb/croixdemalte/croixdemalte.shtml
+  malteseCross() {
+    for (let theta = 0.1; theta < TWO_PI; theta += 0.05) {
+      let x = this.r * +cos(theta) * (pow(cos(theta), 2) - this.a);
+      let y = this.r * +this.b * sin(theta) * pow(cos(theta), 2);
+      this.points.push(createVector(x, y));
+    }
+  }
+
   quadrifolium() {
     let a = 1;
     for (let theta = 0; theta < TWO_PI; theta += 0.05) {
@@ -276,7 +283,6 @@ class Shape {
     return denominator / rec(numerator, denominator);
   }
 
-  // Changing b caused the sketch to freeze, so I have set it to 1
   rose() {
     let b = 1;
     let k = this.m / b;
@@ -286,6 +292,25 @@ class Shape {
       theta += 0.1
     ) {
       let r = this.a + cos(k * theta);
+      let x = this.r * r * cos(theta);
+      let y = this.r * r * sin(theta);
+      this.points.push(createVector(x, y));
+    }
+  }
+
+  // https://mathcurve.com/courbes2d.gb/archimede/archimede.shtml
+  // https://mathcurve.com/courbes2d.gb/spirale/spirale.shtml
+  // this.n = 1 Archimedian Spiral
+  // this.n = -1 Hyperbolic Spiral
+  // this.n = 1/2 Fermat spiral
+  // this.n = -1/2 Lituus spiral
+  // this.n = 2 Galilean spiral
+  spiral() {
+    //let a = 0.1;
+    let dir = -1;
+    for (let theta = 0; theta < 4 * PI; theta += 0.05) {
+      let r = dir * this.a * pow(theta, this.n);
+      //let r = this.a * pow(theta, this.n);
       let x = this.r * r * cos(theta);
       let y = this.r * r * sin(theta);
       this.points.push(createVector(x, y));
@@ -328,7 +353,7 @@ class Shape {
   }
 
   supershape() {
-    for (let theta = 0; theta <= TWO_PI; theta += 0.025) {
+    for (let theta = 0; theta <= TWO_PI; theta += 0.05) {
       let r = this.superformula(theta);
       let x = this.r * r * cos(theta);
       let y = this.r * r * sin(theta);
@@ -343,6 +368,17 @@ class Shape {
     for (let theta = 0; theta < TWO_PI; theta += 0.1) {
       let x = this.r * cos(theta);
       let y = this.r * sin(theta) * pow(sin(theta / 2), n);
+      this.points.push(createVector(x, y));
+    }
+  }
+
+  // https://mathcurve.com/courbes2d.gb/abdank/abdank.shtml
+
+  zigzag() {
+    for (let theta = -PI / 2; theta < (3 / 2) * PI; theta += 0.1) {
+      let r = 1;
+      let x = this.r * r * sin(theta);
+      let y = ((this.r * pow(r, 2)) / 2) * (theta + sin(theta) * cos(theta));
       this.points.push(createVector(x, y));
     }
   }

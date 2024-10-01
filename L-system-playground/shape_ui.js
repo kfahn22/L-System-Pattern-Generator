@@ -14,10 +14,9 @@ class ShapeUI {
   // Populate the dropdown with shape options
   setupDropdown() {
     const shapes = [
-      "Archimedes Spiral",
       "Arc",
       "Astroid",
-      "Atom",
+      // "Atom",
       "Bicorn",
       "Box",
       "Butterfly",
@@ -25,7 +24,7 @@ class ShapeUI {
       "Cassini Oval",
       "Ceva",
       "Cornu Spiral",
-      "Maltese Cross",
+      "Craniod",
       "Deltoid",
       "Eight",
       "Gear",
@@ -34,13 +33,17 @@ class ShapeUI {
       "Kiss Curve",
       "Knot",
       "Line",
+      "Lissajous",
+      "Maltese Cross",
       "Quadrifolium",
       "Quadrilateral",
       "Rose",
+      "Spiral",
       "Superellipse",
       "Supershape",
       "Tear Drop",
       "Word",
+      "Zigzag",
     ];
 
     // Add shape options to the dropdown
@@ -58,10 +61,10 @@ class ShapeUI {
       values[2], // a
       values[3], // b
       values[4], // m
-      values[5], // n
-      values[6], // n1
-      values[7], // n2
-      values[8], // n3
+      values[5], // n1
+      values[6], // n2
+      values[7], // n3
+      values[8], // n
       values[9] // rotateShape
     );
 
@@ -69,11 +72,6 @@ class ShapeUI {
     this.message = null; // Clear out any prior message;
     // Use a switch statement to call the corresponding method
     switch (shapeName) {
-      case "Archimedes Spiral":
-        this.shape.archimedesSpiral();
-        this.addMessage = true;
-        this.message = "The archimedes spiral is a f(n).";
-        break;
       case "Arc":
         this.shape.arc();
         this.addMessage = true;
@@ -84,9 +82,9 @@ class ShapeUI {
         this.addMessage = true;
         this.message = "The astroid is a f(a).";
         break;
-      case "Atom":
-        this.shape.atom();
-        break;
+      // case "Atom":
+      //   this.shape.atom();
+      //   break;
       case "Bicorn":
         this.shape.bicorn();
         break;
@@ -112,12 +110,12 @@ class ShapeUI {
         this.addMessage = true;
         this.message = "The cornu spiral is f(a), a ~ [0.5, 2]";
         break;
-
-      case "Maltese Cross":
-        this.shape.malteseCross();
+      case "Craniod":
+        this.shape.craniod();
         this.addMessage = true;
-        this.message = "The cross curve is a f(a, b).";
+        this.message = "The craniod curve is a f(a, b, m).";
         break;
+
       case "Deltoid":
         this.shape.deltoid();
         break;
@@ -145,6 +143,14 @@ class ShapeUI {
       case "Line":
         this.shape.showLine();
         break;
+      case "Lissajous":
+        this.shape.lissajous();
+        break;
+      case "Maltese Cross":
+        this.shape.malteseCross();
+        this.addMessage = true;
+        this.message = "The cross curve is a f(a, b).";
+        break;
       case "Quadrifolium":
         this.shape.quadrifolium();
         break;
@@ -169,10 +175,18 @@ class ShapeUI {
         this.addMessage = true;
         this.message = "The supershape curve is a f(a, b, m, n1, n2, n3).";
         break;
+      case "Spiral":
+        this.shape.spiral();
+        this.addMessage = true;
+        this.message = "The spiral is a f(a, n), n ~ [-1, 1]";
+        break;
       case "Tear Drop":
         this.shape.tearDrop();
         break;
       case "Word":
+        break;
+      case "Zigzag":
+        this.shape.zigzag();
         break;
       default:
         break;

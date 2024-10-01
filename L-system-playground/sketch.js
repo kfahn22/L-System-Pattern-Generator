@@ -75,7 +75,7 @@ function updateValues() {
     values.push(s);
   }
   sliderGroup.updateLabels();
-  console.log(values);
+  //console.log(values);
   return values;
 }
 

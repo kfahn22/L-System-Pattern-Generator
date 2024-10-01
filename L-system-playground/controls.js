@@ -37,10 +37,10 @@ class AddControls {
       3.8, // a
       1, // b
       8, // m
-      1, // n
       1, // n1
       0.8, // n2
       1, // n3
+      1, // n
       0 // shape angle
     );
     this.sliders = this.sliderGroup.sliders;

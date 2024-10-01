@@ -60,7 +60,7 @@ class Turtle {
     for (let i = 0; i < this.sentence.length; i++) {
       let current = this.sentence.charAt(i);
       this.adjustFill(colorMode);
-      let openShapes = ["Arc", "Archimedes Spiral", "Cornu Spiral"];
+      let openShapes = ["Arc", "Cornu Spiral", "Lissajous", "Spiral", "Zigzag"];
       if (current === "F") {
         // Draw the shape/word on the canvas
         if (this.shapeName == "Word") {
