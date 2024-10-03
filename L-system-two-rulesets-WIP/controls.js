@@ -1,5 +1,5 @@
 class AddControls {
-  constructor(pos, posSliders, rulesetData) {
+  constructor(pos, sliderValues, rulesetData, ruleChoice, shapeChoice) {
     this.backgroundDropdown = new PaletteDropdown(
       pos,
       145,
@@ -23,29 +23,48 @@ class AddControls {
     this.filldropdown = this.fillDropdown.dropdown;
     // Create an instance of the SliderGroup class
     this.sliderGroup = new SliderGroup(
-      posSliders,
-      "group 1",
-      0.03, // wadj
-      0.5, // hadj
-      3, // level
-      1, // strokeWeight
-      220, // stroke alpha
-      150, // fill alpha
-      0, // fractal angle
-      0.024 * width, // length
-      0.4, // shapeScale
-      3.8, // a
-      1, // b
-      8, // m
-      1, // n1
-      0.8, // n2
-      1, // n3
-      1, // n
-      0 // shape angle
-    );
+      sliderValues[0], // pos
+      sliderValues[1], // wadj
+      sliderValues[2], // hadj
+      sliderValues[3], // level
+      sliderValues[4], // strokeWeight
+      sliderValues[5], // stroke alpha
+      sliderValues[6], // fill alpha
+      sliderValues[7], // fractal angle
+      sliderValues[8] * width, // length
+      sliderValues[9], // shapeScale
+      sliderValues[10], // a
+      sliderValues[11], // b
+      sliderValues[12], // m
+      sliderValues[13], // n1
+      sliderValues[14], // n2
+      sliderValues[15], // n3
+      sliderValues[16], // n
+      sliderValues[17]
+    ); // shape angle
+    //   posSliders,
+    //   // "group 1",
+    //   0.03, // wadj
+    //   0.5, // hadj
+    //   3, // level
+    //   1, // strokeWeight
+    //   220, // stroke alpha
+    //   150, // fill alpha
+    //   0, // fractal angle
+    //   0.024 * width, // length
+    //   0.4, // shapeScale
+    //   3.8, // a
+    //   1, // b
+    //   8, // m
+    //   1, // n1
+    //   0.8, // n2
+    //   1, // n3
+    //   1, // n
+    //   0 // shape angle
+    // );
     this.sliders = this.sliderGroup.sliders;
     this.sliderValues = this.sliderGroup.getValues();
-    this.shape_ui = new ShapeUI(pos, 90, "Supershape", "Shape");
+    this.shape_ui = new ShapeUI(pos, 90, shapeChoice, "Shape");
     this.shapeMessage = this.shape_ui.message;
     this.addMessage = this.shape_ui.addMessage;
     this.shapeDropdown = this.shape_ui.dropdown;
@@ -53,18 +72,18 @@ class AddControls {
       pos,
       35,
       rulesetData,
-      "ADH231a",
+      ruleChoice,
       "L-system Ruleset"
     );
     this.rulesetDropdown = this.ruleset.dropdown;
-    this.resetButton = createButton("Reset");
-    this.resetButton.position(pos, 300);
+    // this.resetButton = createButton("Reset");
+    // this.resetButton.position(pos, 300);
     // Checkbox to determine whether shapes have stroke
     this.addStroke = createCheckbox("Add stroke", true);
     this.addStroke.position(pos, 335);
     this.addStroke.style("color", "white");
     // Checkbox to determine whether shapes are filled
-    this.fillShape = createCheckbox("Fill shapes", true);
+    this.fillShape = createCheckbox("Fill shapes", false);
     this.fillShape.position(pos, 370);
     this.fillShape.style("color", "white");
     // Whether to add P5 Grain library

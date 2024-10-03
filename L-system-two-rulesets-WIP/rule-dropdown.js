@@ -71,7 +71,6 @@ class RuleDropdown {
 
   // Called when a ruleset is selected from the dropdown
   selectRule(choice) {
-    //console.log(choice);
     this.currentFractal = choice; //this.dropdown.value();
     this.pickRule();
   }
@@ -232,14 +231,15 @@ class RuleDropdown {
         this.currentFractal = this.lsystem.triangle;
         break;
     }
+    return this.currentFractal;
   }
 
-  setRule() {
-    this.axiom = this.currentFractal.axiom;
-    this.rules = this.currentFractal.rules;
-    this.angle = radians(this.currentFractal.angle);
-    this.lf = this.currentFractal.length_factor;
-    this.maxLevel = this.currentFractal.max_Level;
+  setRule(currentFractal) {
+    this.axiom = currentFractal.axiom;
+    this.rules = currentFractal.rules;
+    this.angle = radians(currentFractal.angle);
+    this.lf = currentFractal.length_factor;
+    this.maxLevel = currentFractal.max_Level;
     this.sentence = this.axiom;
     return [this.rules, this.angle, this.lf, this.maxLevel, this.sentence];
   }

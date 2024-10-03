@@ -1,7 +1,7 @@
 class SliderGroup {
   constructor(
     pos,
-    idName,
+    // idName,
     wadj,
     hadj,
     level,
@@ -83,11 +83,13 @@ class SliderGroup {
     ];
 
     // Create sliders and labels
-    this.createSliders(pos, idName);
+    //console.log(pos)
+    this.createSliders(pos);
+     //this.createSliders(pos, idName);
   }
 
   // Create sliders and labels
-  createSliders(pos, idName) {
+  createSliders(pos) {
     for (let i = 0; i < this.sliderProperties.length; i++) {
       // Create slider
       let slider = createSlider(
@@ -97,7 +99,7 @@ class SliderGroup {
         this.sliderProperties[i].step
       );
       slider.addClass("slider");
-      slider.id("mySliders");
+      //slider.id("mySliders");
       slider.position(pos + 10, 30 + i * 55);
       slider.input(() => this.reset());
 

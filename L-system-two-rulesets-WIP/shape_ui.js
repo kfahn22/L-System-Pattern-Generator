@@ -51,7 +51,6 @@ class ShapeUI {
     this.dropdown.selected(this.choice);
   }
 
-  // sliders - wadj,hadj,level,length,strokeweight, shapeAlpha,sc,rot,rotateShape,a,b,m,n,n1,n2, n3
   // Create a shape based on the selected option
   selectShape(shapeName, values) {
     let r = values[0] * values[1]; // gridlength * shapeScale

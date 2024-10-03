@@ -32,10 +32,13 @@ function preload() {
 }
 
 function setup() {
-  canvas = createCanvas(800, 800);
-  canvas.position(250, 200);
+  canvas = createCanvas(1000, 1000);
+  canvas.position(175, 75);
+  canvas.id("mycanvas");
   p5grain.setup();
-
+  //  for (let s of sliders) {
+  //    s.id("sliders");
+  //  }
   controls = addLsystem();
 }
 
@@ -80,7 +83,7 @@ function updateValues() {
 }
 
 function addLsystem() {
-  controls = new AddControls(750, rulesetData);
+  controls = new AddControls(10, 1250, rulesetData);
   addControls();
 
   let values = updateValues();
@@ -101,7 +104,7 @@ function addControls() {
 }
 
 function setSystemVariables(values) {
-  console.log(values);
+  //console.log(values);
   // The palette choices are aliases for urls
   // We need to create the palette using the url - refer to the palette-dropdown.js file
   // Use the url to set the palette
@@ -159,8 +162,8 @@ function addMessages(newMessage, warning, addWarning) {
   } else addMessage = false;
 
   shapeMessage = createP(message);
-  shapeMessage.position(250, 110);
-  shapeMessage.addClass("p");
+  shapeMessage.position(175, 0);
+  // shapeMessage.addClass("p");
 
   if (addMessage) {
     shapeMessage.show();
@@ -168,8 +171,8 @@ function addMessages(newMessage, warning, addWarning) {
     shapeMessage.hide();
   }
   ruleWarning = createP(warning);
-  ruleWarning.position(250, 130);
-  ruleWarning.addClass("p");
+  ruleWarning.position(175, 30);
+  // ruleWarning.addClass("p");
 
   if (!addWarning) {
     ruleWarning.hide();
