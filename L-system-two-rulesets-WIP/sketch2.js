@@ -212,17 +212,10 @@ function setSystemVariables(lsystems) {
   // colorMode (addStroke, fillShape)
   for (let i = 0; i < 2; i++) {
     let dropdowns = lsystems[i][1];
-    //console.log(lsystemValues[i][0][0])
     let ruleset = lsystemValues[i][2];
-    //console.log(ruleset)
-    //let ruleChoice = lsystemValues[i][0][0];
-    //console.log(ruleset)
-    // let ruleChoice = ruleset.currentFractal;
     let ruleChoice = dropdowns[0].value();
     ruleset.selectRule(ruleChoice);
     let lsystemData = ruleset.currentFractal
-    //  let lsystemData = ruleset.setRule();
-    //console.log(lsystemData)
     let clrMode = lsystemValues[i][5];
     let currentStrokePalette = lsystemValues[i][3];
     let currentFillPalette = lsystemValues[i][4];
@@ -244,7 +237,6 @@ function setSystemVariables(lsystems) {
       // If both stroke and fill are checked, render the L-system twice, resetting the sentence between renders. If both are rendered at same time stroke shows through the fill (because looks best with alpha < 255) and the pattern is not as nice
       turtle.addLsystemStrokeFill(
         lsystemData,
-        clrMode,
         currentStrokePalette,
         currentFillPalette,
         values

@@ -83,7 +83,7 @@ class AddControls {
     this.addStroke.position(pos, 335);
     this.addStroke.style("color", "white");
     // Checkbox to determine whether shapes are filled
-    this.fillShape = createCheckbox("Fill shapes", false);
+    this.fillShape = createCheckbox("Fill shapes", true);
     this.fillShape.position(pos, 370);
     this.fillShape.style("color", "white");
     // Whether to add P5 Grain library
@@ -141,17 +141,6 @@ class AddControls {
   returnButtons() {
     return this.resetButton;
   }
-
-  // updateCheckboxes() {
-  //   this.addStroke.checked(false);
-  //   this.addStroke.checked(this.values[5]);
-
-  //   this.fillShape.checked(false);
-  //   this.fillShape.checked(this.values[6]);
-
-  //   this.addP5Grain.checked(false);
-  //   this.addP5Grain.checked(this.values[7]);
-  // }
 
   returnCheckboxes() {
     return [this.addStroke, this.fillShape, this.addP5Grain];

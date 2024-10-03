@@ -30,16 +30,16 @@ class Turtle {
   }
 
   setRule(pattern) {
-  this.axiom = pattern.axiom;
-  this.rules = pattern.rules;
-  this.angle = radians(pattern.angle);
-  this.lf = pattern.length_factor;
-  this.maxLevel = pattern.max_Level;
-  this.sentence = this.axiom;
-}
+    this.axiom = pattern.axiom;
+    this.rules = pattern.rules;
+    this.angle = radians(pattern.angle);
+    this.lf = pattern.length_factor;
+    this.maxLevel = pattern.max_Level;
+    this.sentence = this.axiom;
+  }
 
   generate() {
-   // console.log(this.sentence)
+    // console.log(this.sentence)
     let nextSentence = "";
     for (let i = 0; i < this.sentence.length; i++) {
       let current = this.sentence.charAt(i);
@@ -66,8 +66,8 @@ class Turtle {
     strokeAlpha,
     fillAlpha
   ) {
-  //  console.log(currentStrokePalette)
-  //  console.log(currentFillPalette)
+    //  console.log(currentStrokePalette)
+    //  console.log(currentFillPalette)
     let length = this.values[15];
     for (let i = 0; i < this.sentence.length; i++) {
       let current = this.sentence.charAt(i);
@@ -149,12 +149,8 @@ class Turtle {
     let strokeAlpha = values[4];
     let fillAlpha = values[5];
     let fractalAngle = values[6];
-   this.setRule(lsystemData);
-  //  this.rules = lsystemValues[0];
-  //  this.angle = lsystemValues[1];
-  //  this.lf = lsystemValues[2];
-  //  this.maxLevel = lsystemValues[3];
-  //  this.sentence = lsystemValues[4];
+    this.setRule(lsystemData);
+
     push();
     translate(width * wadj, height * hadj);
     rotate(fractalAngle);
@@ -183,7 +179,7 @@ class Turtle {
     }
     pop();
     // We need to reset sentence else the level is doubled
-   //this.sentence = this.lsystemData[4];
+    this.setRule(lsystemData);
     push();
     translate(width * wadj, height * hadj);
     rotate(fractalAngle);
@@ -213,7 +209,6 @@ class Turtle {
     pop();
   }
 
-
   addLsystem(
     lsystemData,
     colorMode,
@@ -221,15 +216,7 @@ class Turtle {
     currentFillPalette,
     values
   ) {
-    //console.log(currentStrokePalette);
-    //console.log(lsystemValues)
     this.setRule(lsystemData);
-    // this.rules = lsystemValues[0];
-    // this.angle = lsystemValues[1];
-    // this.lf = lsystemValues[2];
-    // this.maxLevel = lsystemValues[3];
-    // this.sentence = lsystemValues[4];
-
     let wadj = values[0];
     let hadj = values[1];
     let level = values[2];
