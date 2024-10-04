@@ -11,12 +11,12 @@ class Turtle {
       this.values = this.lsystemValues[0];
       // Shape Data
       this.shape_ui = this.lsystemValues[1];
-      this.shapeName = null;
-      this.shapeValues = null;
+      this.shapeName;
+      this.shapeValues;
       // this.shapeName = this.values[1];
       // this.shapeValues = this.values.slice(-10);
       // this.shape_ui.selectShape(this.shapeName, this.shapeValues);
-      this.shape;// = this.shape_ui.shape; // Shape object
+      this.shape; // = this.shape_ui.shape; // Shape object
       // Ruleset data
       this.ruleset = this.lsystemValues[2];
       this.lsystemData; // = this.ruleset.setRule();
@@ -70,9 +70,13 @@ class Turtle {
     fillAlpha,
     index
   ) {
-    //  console.log(currentStrokePalette)
-    //  console.log(currentFillPalette)
+    // console.log(currentStrokePalette);
+    // console.log(currentFillPalette);
+    //console.log(this.shape)
     let length = this.values[15];
+    //console.log(this.sentence)
+    //console.log(length)
+    console.log(sw, strokeAlpha, fillAlpha)
     for (let i = 0; i < this.sentence.length; i++) {
       let current = this.sentence.charAt(i);
       this.adjustFill(
@@ -93,6 +97,7 @@ class Turtle {
         } else if (openShapes.includes(shapeChoices[index])) {
           this.shape.openShow();
         } else {
+          //console.log(colorMode)
           this.shape.show();
         }
         translate(length, 0);
@@ -158,8 +163,10 @@ class Turtle {
     this.setRule(lsystemData);
     this.shapeValues = this.values.slice(-10);
     push();
+    console.log(shapeChoices[index], this.shapeValues)
     this.shape_ui.selectShape(shapeChoices[index], this.shapeValues);
     this.shape = this.shape_ui.shape;
+    //console.log(this.shape);
     translate(width * wadj, height * hadj);
     rotate(fractalAngle);
     // I have imposed some limits on the level to keep the sketch from freezing
@@ -243,8 +250,8 @@ class Turtle {
     let fillAlpha = values[5];
     let fractalAngle = values[6];
     this.shapeValues = this.values.slice(-10);
-     this.shape_ui.selectShape(shapeChoices[index], this.shapeValues);
-      this.shape = this.shape_ui.shape;
+    this.shape_ui.selectShape(shapeChoices[index], this.shapeValues);
+    this.shape = this.shape_ui.shape;
     push();
     translate(width * wadj, height * hadj);
     rotate(fractalAngle);

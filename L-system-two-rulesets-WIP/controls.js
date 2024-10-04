@@ -149,8 +149,8 @@ class AddControls {
   // Get values from dropdowns, checkboxes, and sliders
   getValues() {
     this.values = [];
-    this.values[0] = this.rulesetdropdown.selected();
-    this.values[1] = this.shapedropdown.selected();
+    this.values[0] = this.rulesetDropdown.selected();
+    this.values[1] = this.shapeDropdown.selected();
     this.values[2] = this.backgrounddropdown.selected();
     this.values[3] = this.strokedropdown.selected();
     this.values[4] = this.filldropdown.selected();

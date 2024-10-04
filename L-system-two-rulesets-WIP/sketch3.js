@@ -219,7 +219,7 @@ function setSystemVariables(lsystems) {
     let ruleset = lsystemValues[i][2];
     let ruleChoice = dropdowns[0].value();
     shapeChoices.push(lsystems[i][1][1].value());
-   
+    console.log(shapeChoices)
 
     ruleset.selectRule(ruleChoice);
     let lsystemData = ruleset.currentFractal;
@@ -257,7 +257,8 @@ function setSystemVariables(lsystems) {
         shapeChoices,
         currentStrokePalette,
         currentFillPalette,
-        values
+        values,
+        i
       );
     }
     let shape_ui = lsystemValues[i][1];
