@@ -6,25 +6,20 @@ class Turtle {
       this.axiom;
       this.sentence;
       this.rules = {};
-
-      //console.log(this.lsystemValues);
       this.values = this.lsystemValues[0];
       // Shape Data
       this.shape_ui = this.lsystemValues[1];
-      this.shapeName = null;
-      this.shapeValues = null;
-      // this.shapeName = this.values[1];
-      // this.shapeValues = this.values.slice(-10);
-      // this.shape_ui.selectShape(this.shapeName, this.shapeValues);
-      this.shape;// = this.shape_ui.shape; // Shape object
+      this.shapeName;
+      this.shapeValues;
+      this.shape; //Shape object
       // Ruleset data
       this.ruleset = this.lsystemValues[2];
-      this.lsystemData; // = this.ruleset.setRule();
-      this.rules; // = this.lsystemData[0];
-      this.angle; // = this.lsystemData[1];
-      this.lf; // = this.lsystemData[2];
-      this.maxLevel; // = this.lsystemData[3];
-      this.sentence; // = this.lsystemData[4];
+      this.lsystemData;
+      this.rules;
+      this.angle;
+      this.lf;
+      this.maxLevel;
+      this.sentence;
     }
     this.addWarning = false;
     this.warning = null;
@@ -41,7 +36,6 @@ class Turtle {
   }
 
   generate() {
-    // console.log(this.sentence)
     let nextSentence = "";
     for (let i = 0; i < this.sentence.length; i++) {
       let current = this.sentence.charAt(i);
@@ -70,8 +64,6 @@ class Turtle {
     fillAlpha,
     index
   ) {
-    //  console.log(currentStrokePalette)
-    //  console.log(currentFillPalette)
     let length = this.values[15];
     for (let i = 0; i < this.sentence.length; i++) {
       let current = this.sentence.charAt(i);
@@ -144,11 +136,11 @@ class Turtle {
     shapeChoices,
     currentStrokePalette,
     currentFillPalette,
-    values,
+    sliderValues,
     index
   ) {
-    //console.log(currentStrokePalette)
-    let wadj = values[0];
+    let values = sliderValues[index];
+    let wadj =values[0];
     let hadj = values[1];
     let level = values[2];
     let sw = values[3];
@@ -156,7 +148,7 @@ class Turtle {
     let fillAlpha = values[5];
     let fractalAngle = values[6];
     this.setRule(lsystemData);
-    this.shapeValues = this.values.slice(-10);
+    this.shapeValues = values.slice(-10);
     push();
     this.shape_ui.selectShape(shapeChoices[index], this.shapeValues);
     this.shape = this.shape_ui.shape;
@@ -231,20 +223,22 @@ class Turtle {
     colorMode,
     currentStrokePalette,
     currentFillPalette,
-    values,
+    sliderValues,
     index
   ) {
     this.setRule(lsystemData);
-    let wadj = values[0];
-    let hadj = values[1];
-    let level = values[2];
-    let sw = values[3];
-    let strokeAlpha = values[4];
-    let fillAlpha = values[5];
-    let fractalAngle = values[6];
-    this.shapeValues = this.values.slice(-10);
-     this.shape_ui.selectShape(shapeChoices[index], this.shapeValues);
-      this.shape = this.shape_ui.shape;
+     let values = sliderValues[index];
+     let wadj = values[0];
+     let hadj = values[1];
+     let level = values[2];
+     let sw = values[3];
+     let strokeAlpha = values[4];
+     let fillAlpha = values[5];
+     let fractalAngle = values[6];
+    this.shapeValues = values.slice(-10);
+    //console.log(this.shapeValues)
+    this.shape_ui.selectShape(shapeChoices[index], this.shapeValues);
+    this.shape = this.shape_ui.shape;
     push();
     translate(width * wadj, height * hadj);
     rotate(fractalAngle);
@@ -277,7 +271,7 @@ class Turtle {
       }
       pop();
     }
-    if (shapeChoice == "Word") {
+    if (shapeChoices[index] == "Word") {
       this.addText(currentFillPalette);
     }
   }

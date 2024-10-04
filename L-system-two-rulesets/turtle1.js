@@ -12,6 +12,7 @@ class Turtle {
       this.shapeName;
       this.shapeValues;
       this.shape; //Shape object
+      this.shape_messages = [];
       // Ruleset data
       this.ruleset = this.lsystemValues[2];
       this.lsystemData;
@@ -136,10 +137,11 @@ class Turtle {
     shapeChoices,
     currentStrokePalette,
     currentFillPalette,
-    values,
+    sliderValues,
     index
   ) {
-    let wadj = values[0];
+    let values = sliderValues[index];
+    let wadj =values[0];
     let hadj = values[1];
     let level = values[2];
     let sw = values[3];
@@ -147,10 +149,11 @@ class Turtle {
     let fillAlpha = values[5];
     let fractalAngle = values[6];
     this.setRule(lsystemData);
-    this.shapeValues = this.values.slice(-10);
+    this.shapeValues = values.slice(-10);
     push();
     this.shape_ui.selectShape(shapeChoices[index], this.shapeValues);
     this.shape = this.shape_ui.shape;
+    this.shape_messages.push(this.shape_ui.message);
     translate(width * wadj, height * hadj);
     rotate(fractalAngle);
     // I have imposed some limits on the level to keep the sketch from freezing
@@ -222,20 +225,23 @@ class Turtle {
     colorMode,
     currentStrokePalette,
     currentFillPalette,
-    values,
+    sliderValues,
     index
   ) {
     this.setRule(lsystemData);
-    let wadj = values[0];
-    let hadj = values[1];
-    let level = values[2];
-    let sw = values[3];
-    let strokeAlpha = values[4];
-    let fillAlpha = values[5];
-    let fractalAngle = values[6];
-    this.shapeValues = this.values.slice(-10);
+     let values = sliderValues[index];
+     let wadj = values[0];
+     let hadj = values[1];
+     let level = values[2];
+     let sw = values[3];
+     let strokeAlpha = values[4];
+     let fillAlpha = values[5];
+     let fractalAngle = values[6];
+    this.shapeValues = values.slice(-10);
+    
     this.shape_ui.selectShape(shapeChoices[index], this.shapeValues);
     this.shape = this.shape_ui.shape;
+    this.shape_messages.push(this.shape_ui.message);
     push();
     translate(width * wadj, height * hadj);
     rotate(fractalAngle);
@@ -268,7 +274,7 @@ class Turtle {
       }
       pop();
     }
-    if (shapeChoice == "Word") {
+    if (shapeChoices[index] == "Word") {
       this.addText(currentFillPalette);
     }
   }
