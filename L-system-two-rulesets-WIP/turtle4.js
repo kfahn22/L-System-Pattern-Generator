@@ -236,7 +236,7 @@ class Turtle {
     let fillAlpha = values[5];
     let fractalAngle = values[6];
     this.shapeValues = values.slice(-10);
-    console.log(shapeValues)
+    console.log(this.shapeValues)
     this.shape_ui.selectShape(shapeChoices[index], this.shapeValues);
     this.shape = this.shape_ui.shape;
     push();
@@ -271,7 +271,7 @@ class Turtle {
       }
       pop();
     }
-    if (shapeChoice == "Word") {
+    if (shapeChoices[index] == "Word") {
       this.addText(currentFillPalette);
     }
   }
