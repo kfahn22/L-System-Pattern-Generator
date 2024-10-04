@@ -39,7 +39,7 @@ let sliderValues0 = [
 ];
 
 let lsystem1;
-let ruleChoice1 = "none";
+let ruleChoice1 = "ADH231a";
 let shapeChoice1 = "Supershape";
 let sliderValues1 = [
   1300,
@@ -55,7 +55,7 @@ let sliderValues1 = [
   0.4, // shapeScale
   3.8, // a
   1, // b
-  8, // m
+  8, // m // change back to 8!!
   1, // n1
   0.8, // n2
   1, // n3
@@ -166,14 +166,17 @@ function addLsystem(pos, sliderValues, ruleChoice, shapeChoice) {
 }
 
 function setSystemVariables(lsystems) {
+  //console.log(lsystems)
   // Add array to hold the data of both Lsystem arrays
   let lsystemValues = [];
-
+  let sliderValues = [];
   for (let i = 0; i < 2; i++) {
     // Array to hold the data of each Lsystem
     let lsystemData = [];
     let controls = lsystems[i][0];
+    //sliderGroups.push(lsystems[i][3]);// add both sliderGroups to array
     let values = updateValues(lsystems[i]);
+    
 
     // Set color palettes
     let [currentBackgroundPalette, currentStrokePalette, currentFillPalette] =
@@ -213,7 +216,7 @@ function setSystemVariables(lsystems) {
   let turtle = new Turtle(lsystemValues, images);
 
   let shapeChoices = [];
-  let sliderValues = [];
+  
 
   // colorMode (addStroke, fillShape)
   for (let i = 0; i < 2; i++) {
@@ -228,8 +231,11 @@ function setSystemVariables(lsystems) {
     let lsystemData = ruleset.currentFractal;
 
     // Shape
-    let values = lsystemValues[i][0].slice(8, 15); // retrieve data
-
+    // let values = sliderGroups[i].getValues();
+   //let values = lsystemValues[i][0].slice(8, 15); // retrieve data
+   sliderValues.push(lsystemValues[i][0].slice(-17));
+   //console.log(lsystemValues[i][0])
+   //console.log(lsystemValues[i][0].slice(-17));
     // this.shapeValues = this.values.slice(-10);
     // shapeui.selectShape(shapeChoice, shapeValues);
 
@@ -250,7 +256,7 @@ function setSystemVariables(lsystems) {
         clrMode,
         currentStrokePalette,
         currentFillPalette,
-        values,
+        sliderValues,
         i
       );
     } else if (clrMode == 2) {
@@ -260,7 +266,7 @@ function setSystemVariables(lsystems) {
         shapeChoices,
         currentStrokePalette,
         currentFillPalette,
-        values,
+        sliderValues,
         i
       );
     }

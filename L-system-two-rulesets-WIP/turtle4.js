@@ -136,9 +136,10 @@ class Turtle {
     shapeChoices,
     currentStrokePalette,
     currentFillPalette,
-    values,
+    sliderValues,
     index
   ) {
+    let values = sliderValues[index]
     let wadj = values[0];
     let hadj = values[1];
     let level = values[2];
@@ -147,7 +148,7 @@ class Turtle {
     let fillAlpha = values[5];
     let fractalAngle = values[6];
     this.setRule(lsystemData);
-    this.shapeValues = this.values.slice(-10);
+    this.shapeValues = values.slice(-10);
     push();
     this.shape_ui.selectShape(shapeChoices[index], this.shapeValues);
     this.shape = this.shape_ui.shape;
@@ -222,9 +223,10 @@ class Turtle {
     colorMode,
     currentStrokePalette,
     currentFillPalette,
-    values,
+    sliderValues,
     index
   ) {
+    let values = sliderValues[index]
     this.setRule(lsystemData);
     let wadj = values[0];
     let hadj = values[1];
@@ -233,7 +235,8 @@ class Turtle {
     let strokeAlpha = values[4];
     let fillAlpha = values[5];
     let fractalAngle = values[6];
-    this.shapeValues = this.values.slice(-10);
+    this.shapeValues = values.slice(-10);
+    console.log(shapeValues)
     this.shape_ui.selectShape(shapeChoices[index], this.shapeValues);
     this.shape = this.shape_ui.shape;
     push();
