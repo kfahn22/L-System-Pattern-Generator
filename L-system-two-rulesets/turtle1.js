@@ -23,7 +23,7 @@ class Turtle {
       this.sentence;
     }
     this.addWarning = false;
-    this.warning = null;
+    this.ruleWarnings = [];
     this.images = images;
   }
 
@@ -141,7 +141,7 @@ class Turtle {
     index
   ) {
     let values = sliderValues[index];
-    let wadj =values[0];
+    let wadj = values[0];
     let hadj = values[1];
     let level = values[2];
     let sw = values[3];
@@ -150,6 +150,7 @@ class Turtle {
     let fractalAngle = values[6];
     this.setRule(lsystemData);
     this.shapeValues = values.slice(-10);
+    this.ruleWarnings[index] = null; // reset warnings
     push();
     this.shape_ui.selectShape(shapeChoices[index], this.shapeValues);
     this.shape = this.shape_ui.shape;
@@ -166,7 +167,7 @@ class Turtle {
         sw,
         strokeAlpha,
         fillAlpha,
-        index // index of lsystem
+        index, // index of lsystem
       );
     } else {
       for (let i = 0; i < level; i++) {
@@ -242,6 +243,7 @@ class Turtle {
     this.shape_ui.selectShape(shapeChoices[index], this.shapeValues);
     this.shape = this.shape_ui.shape;
     this.shape_messages.push(this.shape_ui.message);
+    this.ruleWarnings[index] = null; // reset warnings 
     push();
     translate(width * wadj, height * hadj);
     rotate(fractalAngle);
@@ -289,10 +291,13 @@ class Turtle {
     fillAlpha,
     index
   ) {
-    this.warning =
+    
+   // this.ruleWarnings = []; // reset warnings
+    let warning =
       "The level cannot be greater " +
       `${this.maxLevel}` +
       " with this rule-set.";
+      this.ruleWarnings[index] = warning;
     this.addWarning = true;
     for (let i = 0; i < this.maxLevel; i++) {
       this.generate();

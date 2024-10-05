@@ -125,7 +125,7 @@ function handleInput(lsystem) {
 function reset() {
   clear();
   shapeMessage.hide();
-  ruleWarning.hide();
+  ruleWarning = "";
   setSystemVariables(lsystems);
 }
 
@@ -238,28 +238,39 @@ function setSystemVariables(lsystems) {
         i
       );
     }
-    let shape_ui = lsystemValues[i][1];
+    //let shape_ui = lsystemValues[i][1];
 
-    shapeMessage = addShapeMessage(turtle.shape_messages);
+    shapeMessage = updateMessage(turtle.shape_messages);
+    ruleWarning = updateMessage(turtle.ruleWarnings);
+    console.log(turtle.ruleWarnings)
+    console.log(ruleWarning, turtle.addWarning)
     // Add messages for shape parameters and rule level
     addMessages(
-      //shape_ui.message, // shape_ui
-      //messages[i],
       shapeMessage,
-      turtle.warning, // turtle
+      ruleWarning,
       turtle.addWarning
     );
   
   }
+
+  // addMessages(
+  //   //shape_ui.message, // shape_ui
+  //   //messages[i],
+  //   shapeMessage,
+  //   ruleWarning,
+  //   //turtle.warnings, // turtle
+  //   turtle.addWarning
+  // );
 }
 
 // This function adds a message if the choosen shape is a function of the parameters (a, b, m, n, n1, n2, n3)
 // A warning is also added if the choosen level exceeds some limits I imposed to keep the sketch from slowing down significantly or freezing
-function addMessages(newMessage, warning, addWarning) {
+function addMessages(shapeMessages, warnings, addWarning) {
   let addMessage = true;
   let message = null;
-  if (newMessage != null) {
-    message = newMessage;
+  let ruleWarning = null;
+  if (shapeMessages != null) {
+    message = shapeMessages;
   } else addMessage = false;
 
   shapeMessage = createP(message);
@@ -271,17 +282,22 @@ function addMessages(newMessage, warning, addWarning) {
   } else {
     shapeMessage.hide();
   }
-  ruleWarning = createP(warning);
+
+  if (addWarning != false) {
+    ruleWarning = warnings;
+  } //else addWarning = false;
+
+  ruleWarning = createP(warnings);
   ruleWarning.position(340, 30);
   ruleWarning.addClass("p");
 
-  if (!addWarning) {
+  if (ruleWarning = null) {
     ruleWarning.hide();
   }
 }
 
 // Adds a message if the choosen shape is a function of one of the shape parameters
-function addShapeMessage(messages) {
+function updateMessage(messages) {
   //let addMessage = true;
   let message = null;
   if (
@@ -305,7 +321,7 @@ function addShapeMessage(messages) {
 
 // Function to save the canvas as an image when 's' key is pressed
 function keyPressed() {
-  if (key === "s" || key === "S") {
+  if (key === "k" || key === "K") {
     save("img.jpg");
   }
 }

@@ -12,6 +12,7 @@ class Turtle {
       this.shapeName;
       this.shapeValues;
       this.shape; //Shape object
+      this.shape_messages = [];
       // Ruleset data
       this.ruleset = this.lsystemValues[2];
       this.lsystemData;
@@ -152,6 +153,7 @@ class Turtle {
     push();
     this.shape_ui.selectShape(shapeChoices[index], this.shapeValues);
     this.shape = this.shape_ui.shape;
+    this.shape_messages.push(this.shape_ui.message);
     translate(width * wadj, height * hadj);
     rotate(fractalAngle);
     // I have imposed some limits on the level to keep the sketch from freezing
@@ -236,9 +238,10 @@ class Turtle {
      let fillAlpha = values[5];
      let fractalAngle = values[6];
     this.shapeValues = values.slice(-10);
-    //console.log(this.shapeValues)
+    
     this.shape_ui.selectShape(shapeChoices[index], this.shapeValues);
     this.shape = this.shape_ui.shape;
+    this.shape_messages.push(this.shape_ui.message);
     push();
     translate(width * wadj, height * hadj);
     rotate(fractalAngle);

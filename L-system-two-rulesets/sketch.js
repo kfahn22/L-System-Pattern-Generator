@@ -5,11 +5,6 @@
 let rulesetData;
 
 // Control variables
-//let controls;
-// let sliderGroup;
-// let sliders = []; // Array to store slider references
-// let dropdowns = []; // Array to store dropdowns
-//let shape_ui;
 let images = [];
 
 // Array to store dropdowns, sliderGroup, sliders, checkBoxes
@@ -18,15 +13,14 @@ let ruleChoice0 = "ADH231a";
 let shapeChoice0 = "Rose";
 let sliderValues0 = [
   175,
-  // "group 1",
-  0.03, // wadj
+  0.05, // wadj
   0.5, // hadj
   3, // level
   1, // strokeWeight
   220, // stroke alpha
   150, // fill alpha
   0, // fractal angle
-  0.024, // length
+  0.023, // length
   0.4, // shapeScale
   3.8, // a
   1, // b
@@ -43,15 +37,14 @@ let ruleChoice1 = "ADH231a";
 let shapeChoice1 = "Supershape";
 let sliderValues1 = [
   1300,
-  // "group 1",
-  0.03, // wadj
+  0.05, // wadj
   0.5, // hadj
   3, // level
   1, // strokeWeight
   220, // stroke alpha
   150, // fill alpha
   0, // fractal angle
-  0.024, // length
+  0.023, // length
   0.4, // shapeScale
   3.8, // a
   1, // b
@@ -66,13 +59,7 @@ let lsystems = [];
 
 // Message variables
 let ruleWarning; // Warning if level gets too high
-let shapeMessage; // Shape message re parameters to choosen shape
-
-// Buttons/checkboxes
-//let resetButton;
-// addStroke , fillShape , addP5Grain (default false),
-// https://github.com/meezwhite/p5.grain
-//let checkBoxes;
+let shapeMessage; // Shape message RE parameters of choosen shape
 
 // Preload the L-system rulesets and example data
 function preload() {
@@ -118,11 +105,10 @@ function updateValues(lsystem) {
 }
 
 function handleInput(lsystem) {
-  //console.log(lsystem)
-  let controls = lsystem[0];
+  //let controls = lsystem[0];
   let dropdowns = lsystem[1];
   let checkBoxes = lsystem[2];
-  let sliderGroup = lsystem[3];
+   //let sliderGroup = lsystem[3];
   let sliders = lsystem[4];
 
   for (let d of dropdowns) {
@@ -140,9 +126,6 @@ function reset() {
   clear();
   shapeMessage.hide();
   ruleWarning.hide();
-  // for (let l of lsystems) {
-  //   updateValues(l);
-  // }
   setSystemVariables(lsystems);
 }
 
@@ -174,10 +157,8 @@ function setSystemVariables(lsystems) {
     // Array to hold the data of each Lsystem
     let lsystemData = [];
     let controls = lsystems[i][0];
-    //sliderGroups.push(lsystems[i][3]);// add both sliderGroups to array
     let values = updateValues(lsystems[i]);
     
-
     // Set color palettes
     let [currentBackgroundPalette, currentStrokePalette, currentFillPalette] =
       controls.setPalettes(
@@ -208,11 +189,9 @@ function setSystemVariables(lsystems) {
     lsystemData[3] = currentStrokePalette;
     lsystemData[4] = currentFillPalette;
     lsystemData[5] = clrMode;
-    //console.log(lsystemData.slice(0,5))
     lsystemValues[i] = lsystemData;
-    //}
   }
-  //console.log(lsystemValues);
+ 
   let turtle = new Turtle(lsystemValues, images);
 
   let shapeChoices = [];
@@ -221,33 +200,22 @@ function setSystemVariables(lsystems) {
   // colorMode (addStroke, fillShape)
   for (let i = 0; i < 2; i++) {
     let dropdowns = lsystems[i][1];
-    //let shapeui = lsystemValues[i][1];
     let ruleset = lsystemValues[i][2];
     let ruleChoice = dropdowns[0].value();
     shapeChoices.push(lsystems[i][1][1].value());
-    // console.log(shapeChoices)
+
 
     ruleset.selectRule(ruleChoice);
     let lsystemData = ruleset.currentFractal;
 
-    // Shape
-    // let values = sliderGroups[i].getValues();
-   //let values = lsystemValues[i][0].slice(8, 15); // retrieve data
+    // Get Shape data
    sliderValues.push(lsystemValues[i][0].slice(-17));
-   //console.log(lsystemValues[i][0])
-   //console.log(lsystemValues[i][0].slice(-17));
-    // this.shapeValues = this.values.slice(-10);
-    // shapeui.selectShape(shapeChoice, shapeValues);
-
-    // let shape = shape_ui.shape; // Shape object
 
     let clrMode = lsystemValues[i][5];
     let currentStrokePalette = lsystemValues[i][3];
     let currentFillPalette = lsystemValues[i][4];
-    // Retrieve the values we need to send to the turtle function
 
-    // console.log(lsystemData)
-    //let fractalAngle = values[14];
+
     if (clrMode == 0 || clrMode == 1) {
       // Pass value of colorMode to turtle to indicate whether stroke or fill should be used to render Lsystem
       turtle.addLsystem(
@@ -271,12 +239,17 @@ function setSystemVariables(lsystems) {
       );
     }
     let shape_ui = lsystemValues[i][1];
+
+    shapeMessage = addShapeMessage(turtle.shape_messages);
     // Add messages for shape parameters and rule level
     addMessages(
-      shape_ui.message, // shape_ui
+      //shape_ui.message, // shape_ui
+      //messages[i],
+      shapeMessage,
       turtle.warning, // turtle
       turtle.addWarning
     );
+  
   }
 }
 
@@ -306,3 +279,34 @@ function addMessages(newMessage, warning, addWarning) {
     ruleWarning.hide();
   }
 }
+
+// Adds a message if the choosen shape is a function of one of the shape parameters
+function addShapeMessage(messages) {
+  //let addMessage = true;
+  let message = null;
+  if (
+    (messages[0] == messages[1] && messages[0] != null) ||
+    (messages[0] != null && messages[1] === null)
+  ) {
+    message = messages[0];
+  } else if (
+    messages[0] != null &&
+    messages[1] != null &&
+    messages[0] != messages[1]
+  ) {
+    message = messages[0] + " " + messages[1];
+  } else if (messages[0] == null && messages[1] != null) {
+    message = messages[1];
+    // } else {
+    //   addMessage = false;
+  }
+  return message;
+}
+
+// Function to save the canvas as an image when 's' key is pressed
+function keyPressed() {
+  if (key === "s" || key === "S") {
+    save("img.jpg");
+  }
+}
+
