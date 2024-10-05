@@ -2,6 +2,18 @@
 
 The shape code can be found in the shapes.js file. The pickShape function adds a new Shape and then a switch statement is used to select the specific shape choosen by the user.
 
+If you would like to learn more about rendering polar coordinates and rendering polaring shapes, I highly recommend reading Daniel Shiffman's [The Nature of Code](https://natureofcode.com/) book or watching some  of Daniel Shiffman's tutorial videos.
+
+[![Polar Coordinates - The Nature of Code](https://img.youtube.com/vi/O5wjXoFrau4k/0.jpg)](https://www.youtube.com/watch?v=O5wjXoFrau4k)
+
+[![Coding Challenge #23: 2D Supershapes](https://img.youtube.com/vi/ksRoh-10lak/0.jpg)](https://www.youtube.com/watch?v=ksRoh-10lak)
+
+[![Coding Challenge #134: Heart Curve](https://img.youtube.com/vi/oUBAi9xQ2X4/0.jpg)](https://www.youtube.com/watch?v=oUBAi9xQ2X4)
+
+## Code
+
+Here is the code to instantiate the Shape class: 
+
 ```JavaScript
 selectedShape = new Shape(
     0,
