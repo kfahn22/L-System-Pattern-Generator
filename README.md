@@ -16,9 +16,7 @@ Since many of the shapes are a function of parameters that can be altered, I add
 
 <p align="center"><img src="assets/Ruleset-shape-examples/hillbert-cassini.jpg" alt="Hillbert rule-set with cassini oval" width="500px"></p>
 
-I have discovered that both the Hilbert and Peano curve rule-sets can be used to generate some nice backgrounds. Here are two examples.
-
-Hilbert curve rule-set with gear curve (purple background) and ADH23a ruleset with bicorn shape:
+I have discovered that both the Hilbert and Peano curve rule-sets can be used to generate some nice backgrounds. Here is the Hilbert curve rule-set rendered with the gear curve (purple background) and the ADH23a ruleset with bicorn shape:
 
 <p align="center"><img src="assets/Ruleset-shape-examples/hillbert-ADH23a.jpg" alt="Hilbert ruleset with ADH23a design" width="500px"></p>
 
