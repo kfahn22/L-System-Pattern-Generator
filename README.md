@@ -26,6 +26,10 @@ Peano curve rule-set with superellipse and rounded cross:
 
 <p align="center"><img src="assets/Ruleset-shape-examples/peano-rounded-cross.jpg" alt="Peano rule-set with rounded cross" width="500px"></p>
 
+Why stop with just one ruleset or shape? Here I have rendered the ADH23a ruleset twice with the rose curve and the supershape.  
+
+<p align="center"><img src="assets/Ruleset-shape-examples/ADH23ax2-rose_supershape.jpg" alt="ADH23a rule-set with rose curve and supershape" width="500px"></p>
+
 ## Fractal Trees
 
 Of course, one of the original applications for L-systems is creating realistic looking trees. I think adding a shape to the rule-set can improve the look of the trees. For example, here is a tree rendered with the zig-zag curve.
