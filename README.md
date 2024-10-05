@@ -22,10 +22,6 @@ Hilbert curve rule-set with gear curve (purple background) and ADH23a ruleset wi
 
 <p align="center"><img src="assets/Ruleset-shape-examples/hillbert-ADH23a.jpg" alt="Hilbert ruleset with ADH23a design" width="500px"></p>
 
-Peano curve rule-set with superellipse and rounded cross:
-
-<p align="center"><img src="assets/Ruleset-shape-examples/peano-rounded-cross.jpg" alt="Peano rule-set with rounded cross" width="500px"></p>
-
 Why stop with just one ruleset or shape? Here I have rendered the ADH23a ruleset twice with the rose curve and the supershape.  
 
 <p align="center"><img src="assets/Ruleset-shape-examples/ADH23ax2-rose_supershape.jpg" alt="ADH23a rule-set with rose curve and supershape" width="500px"></p>
