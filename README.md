@@ -93,8 +93,8 @@ You can find example sketches [here](https://editor.p5js.org/kfahn/collections/B
 
 ## References
 
-- [GraphicalLSystems](https://demonstrations.wolfram.com/GraphicalLSystems/)
-- [L-system formulas by Paul Bourke](https://paulbourke.net/fractals/lsys/)
+- [Graphical LSystems](https://demonstrations.wolfram.com/GraphicalLSystems/)
+- [L-system formulas by Paul Bourke](https://paulbourke.net/fractals/lsys/)  
  -[l-systems](https://fedimser.github.io/l-systems.html)
 - [L-system](https://en.wikipedia.org/wiki/L-system)
 - [LSystemCreator](https://anuraghazra.dev/LSystemCreator/)
