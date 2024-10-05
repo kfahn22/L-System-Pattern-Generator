@@ -42,26 +42,6 @@ class AddControls {
       sliderValues[16], // n
       sliderValues[17]
     ); // shape angle
-    //   posSliders,
-    //   // "group 1",
-    //   0.03, // wadj
-    //   0.5, // hadj
-    //   3, // level
-    //   1, // strokeWeight
-    //   220, // stroke alpha
-    //   150, // fill alpha
-    //   0, // fractal angle
-    //   0.024 * width, // length
-    //   0.4, // shapeScale
-    //   3.8, // a
-    //   1, // b
-    //   8, // m
-    //   1, // n1
-    //   0.8, // n2
-    //   1, // n3
-    //   1, // n
-    //   0 // shape angle
-    // );
     this.sliders = this.sliderGroup.sliders;
     this.sliderValues = this.sliderGroup.getValues();
     this.shape_ui = new ShapeUI(pos, 90, shapeChoice, "Shape");
@@ -91,7 +71,9 @@ class AddControls {
     this.addP5Grain = createCheckbox("Add p5.Grain", false);
     this.addP5Grain.position(pos, 405);
     this.addP5Grain.style("color", "white");
-    //this.colorMode = null;
+  this.removeRuleset = createCheckbox("Remove ruleset", false);
+  this.removeRuleset.position(1150, 450);
+  this.removeRuleset.style("color", "white");
 
     // Ensure checkboxes reflect initial values
     //this.updateCheckboxes();
@@ -143,7 +125,7 @@ class AddControls {
   }
 
   returnCheckboxes() {
-    return [this.addStroke, this.fillShape, this.addP5Grain];
+    return [this.addStroke, this.fillShape, this.addP5Grain, this.removeRuleset];
   }
 
   // Get values from dropdowns, checkboxes, and sliders

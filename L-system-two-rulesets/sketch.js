@@ -60,6 +60,7 @@ let lsystems = [];
 // Message variables
 let ruleWarning = [null, null]; // Warning if level gets too high
 let shapeMessage; // Shape message RE parameters of choosen shape
+let removeRuleset;
 
 // Preload the L-system rulesets and example data
 function preload() {
@@ -75,6 +76,7 @@ function setup() {
   canvas.position(340, 75);
   canvas.id("mycanvas");
   p5grain.setup();
+  
   lsystems.push(addLsystem(10, sliderValues0, ruleChoice0, shapeChoice0));
   lsystems.push(addLsystem(1150, sliderValues1, ruleChoice1, shapeChoice1));
   setSystemVariables(lsystems);
@@ -105,10 +107,8 @@ function updateValues(lsystem) {
 }
 
 function handleInput(lsystem) {
-  //let controls = lsystem[0];
   let dropdowns = lsystem[1];
   let checkBoxes = lsystem[2];
-  //let sliderGroup = lsystem[3];
   let sliders = lsystem[4];
 
   for (let d of dropdowns) {
@@ -149,11 +149,17 @@ function addLsystem(pos, sliderValues, ruleChoice, shapeChoice) {
 }
 
 function setSystemVariables(lsystems) {
-  //console.log(lsystems)
   // Add array to hold the data of both Lsystem arrays
   let lsystemValues = [];
   let sliderValues = [];
-  for (let i = 0; i < 2; i++) {
+  removeRuleset = lsystems[1][2][3];
+  let n; // number of rulesets to render
+ if (removeRuleset.checked()) {
+  n = 1;
+ } else {
+  n = 2;
+ }
+  for (let i = 0; i < n; i++) {
     // Array to hold the data of each Lsystem
     let lsystemData = [];
     let controls = lsystems[i][0];
@@ -198,7 +204,7 @@ function setSystemVariables(lsystems) {
   let ruleChoices = [];
 
   // colorMode (addStroke, fillShape)
-  for (let i = 0; i < 2; i++) {
+  for (let i = 0; i < n; i++) {
     let dropdowns = lsystems[i][1];
     let ruleset = lsystemValues[i][2];
     let ruleChoice = dropdowns[0].value();
@@ -241,10 +247,9 @@ function setSystemVariables(lsystems) {
     }
   }
   // Add messages for shape parameters and rule level
-  shapeMessage = updateMessage(turtle.shape_messages);
-  //console.log(turtle.shape_messages)
-  ruleWarning = updateMessage(turtle.ruleWarnings);
-  console.log(turtle.ruleWarnings);
+  // Number of messages returned on number of rulesets
+  shapeMessage = updateMessage(turtle.shape_messages, n);
+  ruleWarning = updateMessage(turtle.ruleWarnings, n);
   addMessages(shapeMessage, ruleWarning, turtle.addWarning);
 }
 
@@ -255,7 +260,6 @@ function addMessages(shapeMessages, warnings) {
   let addWarning = true;
   let message = null;
   let warning = null;
-  //console.log(warnings);
   if (shapeMessages != null) {
     message = shapeMessages;
   } else addMessage = false;
@@ -286,10 +290,11 @@ function addMessages(shapeMessages, warnings) {
 }
 
 // Adds a message if the choosen shape is a function of one of the shape parameters
-function updateMessage(messages) {
-  //let addMessage = true;
+function updateMessage(messages, n) {
+  
   let message;
-  if (
+  if (n > 1)
+ { if (
     (messages[0] == messages[1] && messages[0] != null) ||
     (messages[0] != null && messages[1] === null)
   ) {
@@ -304,6 +309,8 @@ function updateMessage(messages) {
     message = messages[1];
   } else if (messages[0] == null && messages[0] == null) {
     message = null;
+  }} else {
+    message = messages;
   }
   return message;
 }
