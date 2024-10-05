@@ -268,7 +268,6 @@ class Turtle {
           ruleChoices
         );
       } else {
-        //this.addWarning = false;
         for (let i = 0; i < level; i++) {
           this.generate();
         }
@@ -301,19 +300,12 @@ class Turtle {
     index,
     ruleChoices
   ) {
-    //console.log(ruleChoices);
-    //this.addWarning = true;
     let warning =
-      "The level cannot be greater " +
+      "The level can't be > " +
       `${this.maxLevel}` +
-      " with this rule-set.";
-    // " with " + `${ruleChoices[index]}`;
+    " with the " + `${ruleChoices[index]}` + " rulset.";
     this.ruleWarnings[index] = warning;
-    console.log(this.ruleWarnings)
-    // if (this.ruleWarnings[0] != null || this.ruleWarnings[1] != null) {
-    //   this.addWarning = true;
-    // }
-    // console.log(this.addWarning)
+    //console.log(this.ruleWarnings)
     for (let i = 0; i < this.maxLevel; i++) {
       this.generate();
     }
