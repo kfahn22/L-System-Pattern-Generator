@@ -37,6 +37,7 @@ class RuleDropdown {
       "island_curve",
       "kolam",
       "koch_curve",
+      "koch_curve2",
       "koch_snowflake",
       "krishna_anklet",
       "leaf",
@@ -142,6 +143,9 @@ class RuleDropdown {
         break;
       case "koch_curve":
         this.currentFractal = this.lsystem.koch_curve;
+        break;
+      case "koch_curve2":
+        this.currentFractal = this.lsystem.koch_curve2;
         break;
       case "koch_snowflake":
         this.currentFractal = this.lsystem.koch_snowflake;

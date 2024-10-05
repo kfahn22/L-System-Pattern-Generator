@@ -395,7 +395,8 @@ class Shape {
   }
 
   showImage(images) {
-    let i = floor(random(10));
+    let n = images.length;
+    let i = floor(random(n));
     let img = images[i];
     push();
     rotate(this.angle);

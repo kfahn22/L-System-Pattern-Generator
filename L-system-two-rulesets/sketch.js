@@ -1,5 +1,5 @@
 // https://github.com/kfahn22/L-System-Pattern-Generator
-// https://editor.p5js.org/kfahn/sketches/3fdOtG7WX
+// https://editor.p5js.org/kfahn/sketches/KmKxgvx03
 
 // Lsystem data from rules.json
 let rulesetData;
@@ -76,7 +76,7 @@ function setup() {
   canvas.position(340, 75);
   canvas.id("mycanvas");
   p5grain.setup();
-  
+
   lsystems.push(addLsystem(10, sliderValues0, ruleChoice0, shapeChoice0));
   lsystems.push(addLsystem(1150, sliderValues1, ruleChoice1, shapeChoice1));
   setSystemVariables(lsystems);
@@ -154,11 +154,11 @@ function setSystemVariables(lsystems) {
   let sliderValues = [];
   removeRuleset = lsystems[1][2][3];
   let n; // number of rulesets to render
- if (removeRuleset.checked()) {
-  n = 1;
- } else {
-  n = 2;
- }
+  if (removeRuleset.checked()) {
+    n = 1;
+  } else {
+    n = 2;
+  }
   for (let i = 0; i < n; i++) {
     // Array to hold the data of each Lsystem
     let lsystemData = [];
@@ -284,32 +284,32 @@ function addMessages(shapeMessages, warnings) {
 
   if (addWarning) {
     ruleWarning.show;
-  } else  {
+  } else {
     ruleWarning.hide();
   }
 }
 
 // Adds a message if the choosen shape is a function of one of the shape parameters
 function updateMessage(messages, n) {
-  
   let message;
-  if (n > 1)
- { if (
-    (messages[0] == messages[1] && messages[0] != null) ||
-    (messages[0] != null && messages[1] === null)
-  ) {
-    message = messages[0];
-  } else if (
-    messages[0] != null &&
-    messages[1] != null &&
-    messages[0] != messages[1]
-  ) {
-    message = messages[0] + " " + messages[1];
-  } else if (messages[0] == null && messages[1] != null) {
-    message = messages[1];
-  } else if (messages[0] == null && messages[0] == null) {
-    message = null;
-  }} else {
+  if (n > 1) {
+    if (
+      (messages[0] == messages[1] && messages[0] != null) ||
+      (messages[0] != null && messages[1] === null)
+    ) {
+      message = messages[0];
+    } else if (
+      messages[0] != null &&
+      messages[1] != null &&
+      messages[0] != messages[1]
+    ) {
+      message = messages[0] + " " + messages[1];
+    } else if (messages[0] == null && messages[1] != null) {
+      message = messages[1];
+    } else if (messages[0] == null && messages[0] == null) {
+      message = null;
+    }
+  } else {
     message = messages;
   }
   return message;

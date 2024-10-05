@@ -281,6 +281,16 @@
     "max_Level": 3,
     "author": "Paul Bourke"
   },
+  "koch_curve2": {
+    "axiom": "F+F+F+F",
+    "rules": {
+      "F": "F+F-F-FF+F+F-F"
+    },
+    "angle": 90,
+    "length_factor": 1,
+    "max_Level": 3,
+    "author": "Paul Bourke"
+  },
   "krishna_anklet": {
     "axiom": "-X--X",
     "rules": {
