@@ -48,7 +48,7 @@ let sliderValues1 = [
   0.4, // shapeScale
   3.8, // a
   1, // b
-  8, // m 
+  8, // m
   1, // n1
   0.8, // n2
   1, // n3
@@ -58,7 +58,7 @@ let sliderValues1 = [
 let lsystems = [];
 
 // Message variables
-let ruleWarning; // Warning if level gets too high
+let ruleWarning = [null, null]; // Warning if level gets too high
 let shapeMessage; // Shape message RE parameters of choosen shape
 
 // Preload the L-system rulesets and example data
@@ -108,7 +108,7 @@ function handleInput(lsystem) {
   //let controls = lsystem[0];
   let dropdowns = lsystem[1];
   let checkBoxes = lsystem[2];
-   //let sliderGroup = lsystem[3];
+  //let sliderGroup = lsystem[3];
   let sliders = lsystem[4];
 
   for (let d of dropdowns) {
@@ -125,7 +125,7 @@ function handleInput(lsystem) {
 function reset() {
   clear();
   shapeMessage.hide();
-  ruleWarning = "";
+  ruleWarning.hide();
   setSystemVariables(lsystems);
 }
 
@@ -158,7 +158,7 @@ function setSystemVariables(lsystems) {
     let lsystemData = [];
     let controls = lsystems[i][0];
     let values = updateValues(lsystems[i]);
-    
+
     // Set color palettes
     let [currentBackgroundPalette, currentStrokePalette, currentFillPalette] =
       controls.setPalettes(
@@ -191,11 +191,11 @@ function setSystemVariables(lsystems) {
     lsystemData[5] = clrMode;
     lsystemValues[i] = lsystemData;
   }
- 
+
   let turtle = new Turtle(lsystemValues, images);
 
   let shapeChoices = [];
-  
+  let ruleChoices = [];
 
   // colorMode (addStroke, fillShape)
   for (let i = 0; i < 2; i++) {
@@ -203,18 +203,17 @@ function setSystemVariables(lsystems) {
     let ruleset = lsystemValues[i][2];
     let ruleChoice = dropdowns[0].value();
     shapeChoices.push(lsystems[i][1][1].value());
-
-
+    ruleChoices.push(ruleChoice);
+    //console.log(ruleChoices)
     ruleset.selectRule(ruleChoice);
     let lsystemData = ruleset.currentFractal;
 
     // Get Shape data
-   sliderValues.push(lsystemValues[i][0].slice(-17));
+    sliderValues.push(lsystemValues[i][0].slice(-17));
 
     let clrMode = lsystemValues[i][5];
     let currentStrokePalette = lsystemValues[i][3];
     let currentFillPalette = lsystemValues[i][4];
-
 
     if (clrMode == 0 || clrMode == 1) {
       // Pass value of colorMode to turtle to indicate whether stroke or fill should be used to render Lsystem
@@ -225,7 +224,8 @@ function setSystemVariables(lsystems) {
         currentStrokePalette,
         currentFillPalette,
         sliderValues,
-        i
+        i,
+        ruleChoices
       );
     } else if (clrMode == 2) {
       // If both stroke and fill are checked, render the L-system twice, resetting the sentence between renders. If both are rendered at same time stroke shows through the fill (because looks best with alpha < 255) and the pattern is not as nice
@@ -235,40 +235,27 @@ function setSystemVariables(lsystems) {
         currentStrokePalette,
         currentFillPalette,
         sliderValues,
-        i
+        i,
+        ruleChoices
       );
     }
-    //let shape_ui = lsystemValues[i][1];
-
-    shapeMessage = updateMessage(turtle.shape_messages);
-    ruleWarning = updateMessage(turtle.ruleWarnings);
-    console.log(turtle.ruleWarnings)
-    console.log(ruleWarning, turtle.addWarning)
-    // Add messages for shape parameters and rule level
-    addMessages(
-      shapeMessage,
-      ruleWarning,
-      turtle.addWarning
-    );
-  
   }
-
-  // addMessages(
-  //   //shape_ui.message, // shape_ui
-  //   //messages[i],
-  //   shapeMessage,
-  //   ruleWarning,
-  //   //turtle.warnings, // turtle
-  //   turtle.addWarning
-  // );
+  // Add messages for shape parameters and rule level
+  shapeMessage = updateMessage(turtle.shape_messages);
+  //console.log(turtle.shape_messages)
+  ruleWarning = updateMessage(turtle.ruleWarnings);
+  console.log(turtle.ruleWarnings);
+  addMessages(shapeMessage, ruleWarning, turtle.addWarning);
 }
 
 // This function adds a message if the choosen shape is a function of the parameters (a, b, m, n, n1, n2, n3)
 // A warning is also added if the choosen level exceeds some limits I imposed to keep the sketch from slowing down significantly or freezing
-function addMessages(shapeMessages, warnings, addWarning) {
+function addMessages(shapeMessages, warnings) {
   let addMessage = true;
+  let addWarning = true;
   let message = null;
-  let ruleWarning = null;
+  let warning = null;
+  //console.log(warnings);
   if (shapeMessages != null) {
     message = shapeMessages;
   } else addMessage = false;
@@ -283,15 +270,17 @@ function addMessages(shapeMessages, warnings, addWarning) {
     shapeMessage.hide();
   }
 
-  if (addWarning != false) {
-    ruleWarning = warnings;
-  } //else addWarning = false;
+  if (warnings != null) {
+    warning = warnings;
+  } else addWarning = false;
 
-  ruleWarning = createP(warnings);
+  ruleWarning = createP(warning);
   ruleWarning.position(340, 30);
   ruleWarning.addClass("p");
 
-  if (ruleWarning = null) {
+  if (addWarning) {
+    ruleWarning.show;
+  } else  {
     ruleWarning.hide();
   }
 }
@@ -299,7 +288,7 @@ function addMessages(shapeMessages, warnings, addWarning) {
 // Adds a message if the choosen shape is a function of one of the shape parameters
 function updateMessage(messages) {
   //let addMessage = true;
-  let message = null;
+  let message;
   if (
     (messages[0] == messages[1] && messages[0] != null) ||
     (messages[0] != null && messages[1] === null)
@@ -313,8 +302,8 @@ function updateMessage(messages) {
     message = messages[0] + " " + messages[1];
   } else if (messages[0] == null && messages[1] != null) {
     message = messages[1];
-    // } else {
-    //   addMessage = false;
+  } else if (messages[0] == null && messages[0] == null) {
+    message = null;
   }
   return message;
 }
@@ -325,4 +314,3 @@ function keyPressed() {
     save("img.jpg");
   }
 }
-
