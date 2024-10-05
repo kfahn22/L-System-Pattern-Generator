@@ -22,8 +22,8 @@ class Turtle {
       this.maxLevel;
       this.sentence;
     }
-    this.addWarning = false;
-    this.warning = null;
+    this.addWarning;
+    this.ruleWarnings = [null, null];
     this.images = images;
   }
 
@@ -138,10 +138,11 @@ class Turtle {
     currentStrokePalette,
     currentFillPalette,
     sliderValues,
-    index
+    index,
+    ruleChoices
   ) {
     let values = sliderValues[index];
-    let wadj =values[0];
+    let wadj = values[0];
     let hadj = values[1];
     let level = values[2];
     let sw = values[3];
@@ -158,6 +159,7 @@ class Turtle {
     rotate(fractalAngle);
     // I have imposed some limits on the level to keep the sketch from freezing
     if (level > this.maxLevel) {
+      this.addWarning = true;
       this.levelWarning(
         1,
         shapeChoices,
@@ -166,9 +168,12 @@ class Turtle {
         sw,
         strokeAlpha,
         fillAlpha,
-        index // index of lsystem
+        index, // index of lsystem
+        ruleChoices
       );
     } else {
+      //this.addWarning = false;
+      this.ruleWarnings[index] = null;
       for (let i = 0; i < level; i++) {
         this.generate();
       }
@@ -199,9 +204,11 @@ class Turtle {
         sw,
         strokeAlpha,
         fillAlpha,
-        index
+        index,
+        ruleChoices
       );
     } else {
+      this.ruleWarnings[index] = null;
       for (let i = 0; i < level; i++) {
         this.generate();
       }
@@ -226,22 +233,24 @@ class Turtle {
     currentStrokePalette,
     currentFillPalette,
     sliderValues,
-    index
+    index,
+    ruleChoices
   ) {
     this.setRule(lsystemData);
-     let values = sliderValues[index];
-     let wadj = values[0];
-     let hadj = values[1];
-     let level = values[2];
-     let sw = values[3];
-     let strokeAlpha = values[4];
-     let fillAlpha = values[5];
-     let fractalAngle = values[6];
+    let values = sliderValues[index];
+    let wadj = values[0];
+    let hadj = values[1];
+    let level = values[2];
+    let sw = values[3];
+    let strokeAlpha = values[4];
+    let fillAlpha = values[5];
+    let fractalAngle = values[6];
     this.shapeValues = values.slice(-10);
-    
+
     this.shape_ui.selectShape(shapeChoices[index], this.shapeValues);
     this.shape = this.shape_ui.shape;
     this.shape_messages.push(this.shape_ui.message);
+    //this.ruleWarnings[index] = null; // reset warnings
     push();
     translate(width * wadj, height * hadj);
     rotate(fractalAngle);
@@ -255,7 +264,8 @@ class Turtle {
           sw,
           strokeAlpha,
           fillAlpha,
-          index
+          index,
+          ruleChoices
         );
       } else {
         for (let i = 0; i < level; i++) {
@@ -287,13 +297,15 @@ class Turtle {
     sw,
     strokeAlpha,
     fillAlpha,
-    index
+    index,
+    ruleChoices
   ) {
-    this.warning =
-      "The level cannot be greater " +
+    let warning =
+      "The level can't be > " +
       `${this.maxLevel}` +
-      " with this rule-set.";
-    this.addWarning = true;
+    " with the " + `${ruleChoices[index]}` + " rulset.";
+    this.ruleWarnings[index] = warning;
+    //console.log(this.ruleWarnings)
     for (let i = 0; i < this.maxLevel; i++) {
       this.generate();
     }
