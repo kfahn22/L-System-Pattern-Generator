@@ -4,7 +4,7 @@ The shape code can be found in the shapes.js file. The pickShape function adds a
 
 If you would like to learn more about rendering polar coordinates and rendering polaring shapes, I highly recommend reading Daniel Shiffman's [The Nature of Code](https://natureofcode.com/) book or watching some  of Daniel Shiffman's tutorial videos.
 
-[![Polar Coordinates - The Nature of Code](https://img.youtube.com/vi/O5wjXoFrau4k/0.jpg)](https://www.youtube.com/watch?v=O5wjXoFrau4k)
+[Polar Coordinates - The Nature of Code](https://www.youtube.com/watch?v=O5wjXoFrau4k)
 
 [![Coding Challenge #23: 2D Supershapes](https://img.youtube.com/vi/ksRoh-10lak/0.jpg)](https://www.youtube.com/watch?v=ksRoh-10lak)
 
