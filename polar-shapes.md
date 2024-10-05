@@ -10,10 +10,10 @@ selectedShape = new Shape(
     a,
     b,
     m,
-    n,
     n1,
     n2,
     n3,
+    n,
     shapeAngle
 );
 ```

@@ -8,7 +8,7 @@ From Wikipedia:
 If you want to learn more about using L-systems to generate fractals, I highly recommend Daniel Shiffman's [Fractal Trees L-system Coding Challenge](https://thecodingtrain.com/challenges/16-l-system-fractal-trees). I have used the [L-system formulas by Paul Bourke](https://paulbourke.net/fractals/lsys/) to generate these designs. The rulesets can be found in the ruleset.json file. The code for the shapes is pulled from a couple of different sources: [The Coding Train](https://thecodingtrain.com), [Mathcurve.com](https://mathcurve.com), and [Wolfram Mathworld](https://mathworld.wolfram.com/topics/Curves.html)
 
 
-I have experimented with inserting different shapes--including gears, spirals, ovals, and even the supershape--into different L-system rule-sets. It is hard to predict, in advance, whether a particular rule-set/shape combination is going to produce a nice design, but trial and error have resulted in some pretty cool patterns. The current version of the sketch will render two different rule-sets. Here is a link to my [p5-sketch](https://editor.p5js.org/kfahn/sketches/urn2wJ8qM) if you would like to have fun yourself.
+I have experimented with inserting different shapes--including gears, spirals, ovals, and even the supershape--into different L-system rule-sets. It is hard to predict, in advance, whether a particular rule-set/shape combination is going to produce a nice design, but trial and error have resulted in some pretty cool patterns. The current version of the sketch will render two different rule-sets. Here is a link to the latest version of my [p5-sketch](https://editor.p5js.org/kfahn/sketches/KmKxgvx03).
 
 Daniel Shiffman recently recleased a [Coding Challenge](https://thecodingtrain.com/challenges/185-dragon-curve) on the dragon fractal, and my experiments started with the Dragon rule-set. One of my favorites is this image, which was created using two dragon fractals filled with the gear curve (level 12).
 
@@ -38,10 +38,11 @@ I also want to give a shout-out to [supercolorpalette.com](https://supercolorpal
 
 You can find example sketches [here](https://editor.p5js.org/kfahn/collections/BreDLmlQZ).
 
-
 ## Learn More
 
-[Learn more about the L-systems]()
+- [Learn more about the L-systems](rule-sets.md)
+- [Learn more about polar shapes](polar-shapes.md)
+
 
 ## 🌄 Gallery
 
