@@ -22,21 +22,21 @@ By default, two L-systems are rendered. You can remove the second one by checkin
 <table>
   <tbody>
    <tr>
-     <td align="center"><a href="Rule-set-examples/ADH231a.md"> <img class="img" src="./assets/rule-set-images/ADH231a.jpg" alt="ADH231a Rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>ADH231a Rule-set</b></sub></a></td>
-     <td align="center"><a href="Rule-set-examples/ADH256a.md"> <img class="img" src="./assets/rule-set-images/ADH256a.jpg" alt="ADH256a Rule-set" style=" display: block;
+     <td align="center"><a href="ADH231a.md"> <img class="img" src="./assets/rule-set-images/ADH231a.jpg" alt="ADH231a Rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>ADH231a Rule-set</b></sub></a></td>
+     <td align="center"><a href="ADH256a.md"> <img class="img" src="./assets/rule-set-images/ADH256a.jpg" alt="ADH256a Rule-set" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="300" /><br /><sub><b><br/>ADH256a Rule-set</b></sub></a></td>
-     <td align="center"><a href="Rule-set-examples/board.md"> <img class="img" src="./assets/rule-set-images/board.jpg" alt="Board rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Board rule-set</b></sub></a></td>
-     <td align="center"><a href="Rule-set-examples/box.md"> <img class="img" src="./assets/rule-set-images/box.jpg" alt="Box Rule-set" style=" display: block;
+     <td align="center"><a href="board.md"> <img class="img" src="./assets/rule-set-images/board.jpg" alt="Board rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Board rule-set</b></sub></a></td>
+     <td align="center"><a href="box.md"> <img class="img" src="./assets/rule-set-images/box.jpg" alt="Box Rule-set" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="300" /><br /><sub><b><br/>Box Rule-set</b></sub></a></td>
     </tr>
     <tr>
-     <td align="center"><a href="Rule-set-examples/cross.md"> <img class="img" src="./assets/rule-set-images/cross.jpg" alt="Cross Rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Cross Rule-set</b></sub></a></td>
-     <td align="center"><a href="Rule-set-examples/doily.md"> <img class="img" src="./assets/rule-set-images/doily.jpg" alt="Doily Rule-set" style=" display: block;
+     <td align="center"><a href="cross.md"> <img class="img" src="./assets/rule-set-images/cross.jpg" alt="Cross Rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Cross Rule-set</b></sub></a></td>
+     <td align="center"><a href="doily.md"> <img class="img" src="./assets/rule-set-images/doily.jpg" alt="Doily Rule-set" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="300" /><br /><sub><b><br/>Doily Rule-set</b></sub></a></td>
-     <td align="center"><a href="Rule-set-examples/dragon.md"> <img class="img" src="./assets/rule-set-images/dragon.jpg" alt="Dragon rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Dragon rule-set</b></sub></a></td>
+     <td align="center"><a href="dragon.md"> <img class="img" src="./assets/rule-set-images/dragon.jpg" alt="Dragon rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Dragon rule-set</b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="./assets/rule-set-images/fern.jpg" alt="Fern Rule-set" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="300" /><br /><sub><b><br/>Fern Rule-set</b></sub></a></td>
@@ -46,44 +46,44 @@ By default, two L-systems are rendered. You can remove the second one by checkin
      <td align="center"><a href=""> <img class="img" src="./assets/rule-set-images/fern3.jpg" alt="Fern3 Rule-set" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="300" /><br /><sub><b><br/>Fern3 Rule-set</b></sub></a></td>
-     <td align="center"><a href="Rule-set-examples/hillbert.md"> <img class="img" src="./assets/rule-set-images/hilbert.jpg" alt="Dragon rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Hilbert rule-set</b></sub></a></td>
-     <td align="center"><a href="Rule-set-examples/island.md"> <img class="img" src="./assets/rule-set-images/island.jpg" alt="Island Rule-set" style=" display: block;
+     <td align="center"><a href="hillbert.md"> <img class="img" src="./assets/rule-set-images/hilbert.jpg" alt="Dragon rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Hilbert rule-set</b></sub></a></td>
+     <td align="center"><a href="island.md"> <img class="img" src="./assets/rule-set-images/island.jpg" alt="Island Rule-set" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="300" /><br /><sub><b><br/>Island Rule-set</b></sub></a></td>
     </tr>
     <tr>
-     <td align="center"><a href="Rule-set-examples/koch_curve.md"> <img class="img" src="./assets/rule-set-images/koch_curve.jpg" alt="Koch curve Rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Koch curve Rule-set</b></sub></a></td>
-     <td align="center"><a href="Rule-set-examples/koch_snowflake.md"> <img class="img" src="./assets/rule-set-images/koch_snowflake.jpg" alt="Koch snowflake Rule-set" style=" display: block;
+     <td align="center"><a href="koch_curve.md"> <img class="img" src="./assets/rule-set-images/koch_curve.jpg" alt="Koch curve Rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Koch curve Rule-set</b></sub></a></td>
+     <td align="center"><a href="koch_snowflake.md"> <img class="img" src="./assets/rule-set-images/koch_snowflake.jpg" alt="Koch snowflake Rule-set" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="300" /><br /><sub><b><br/>Koch snowflake Rule-set</b></sub></a></td>
-     <td align="center"><a href="Rule-set-examples/kolam.md"> <img class="img" src="./assets/rule-set-images/kolam.jpg" alt="Kolam rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Kolam  rule-set</b></sub></a></td>
+     <td align="center"><a href="kolam.md"> <img class="img" src="./assets/rule-set-images/kolam.jpg" alt="Kolam rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Kolam  rule-set</b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="./assets/rule-set-images/leaf.jpg" alt="Leaf Rule-set" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="300" /><br /><sub><b><br/>Leaf Rule-set</b></sub></a></td>
     </tr>
     <tr>
-     <td align="center"><a href="Rule-set-examples/levy.md"> <img class="img" src="./assets/rule-set-images/levy.jpg" alt="Levy curve Rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Levy curve Rule-set</b></sub></a></td>
-     <td align="center"><a href="Rule-set-examples/mango-leaf.md"> <img class="img" src="./assets/rule-set-images/mango.jpg" alt="Mango leaf Rule-set" style=" display: block;
+     <td align="center"><a href="levy.md"> <img class="img" src="./assets/rule-set-images/levy.jpg" alt="Levy curve Rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Levy curve Rule-set</b></sub></a></td>
+     <td align="center"><a href="mango-leaf.md"> <img class="img" src="./assets/rule-set-images/mango.jpg" alt="Mango leaf Rule-set" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="300" /><br /><sub><b><br/>Mango leaf Rule-set</b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="./assets/rule-set-images/peano-c.jpg" alt="Peano-c rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Peano-c  rule-set</b></sub></a></td>
-     <td align="center"><a href="Rule-set-examples/peano.md"> <img class="img" src="./assets/rule-set-images/peano.jpg" alt="Peano Rule-set" style=" display: block;
+     <td align="center"><a href="peano.md"> <img class="img" src="./assets/rule-set-images/peano.jpg" alt="Peano Rule-set" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="300" /><br /><sub><b><br/>Peano Rule-set</b></sub></a></td>
     </tr>
     <tr>
-     <td align="center"><a href="Rule-set-examples/pentadentrite.md"> <img class="img" src="./assets/rule-set-images/pentadentrite.jpg" alt="Pentadentrite curve Rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Pentadentrite curve Rule-set</b></sub></a></td>
+     <td align="center"><a href="pentadentrite.md"> <img class="img" src="./assets/rule-set-images/pentadentrite.jpg" alt="Pentadentrite curve Rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Pentadentrite curve Rule-set</b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="./assets/rule-set-images/pentigree.jpg" alt="Pentigree Rule-set" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="300" /><br /><sub><b><br/>Pentigree Rule-set</b></sub></a></td>
-     <td align="center"><a href="Rule-set-examples/pentaplexity.md"> <img class="img" src="./assets/rule-set-images/pentaplexity.jpg" alt="Pentaplexity rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Pentaplexity Rule-set</b></sub></a></td>
-     <td align="center"><a href="Rule-set-examples/quadratic_gosper.md"> <img class="img" src="./assets/rule-set-images/quad_gosper.jpg" alt="Quadratic Gosper Rule-set" style=" display: block;
+     <td align="center"><a href="pentaplexity.md"> <img class="img" src="./assets/rule-set-images/pentaplexity.jpg" alt="Pentaplexity rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Pentaplexity Rule-set</b></sub></a></td>
+     <td align="center"><a href="quadratic_gosper.md"> <img class="img" src="./assets/rule-set-images/quad_gosper.jpg" alt="Quadratic Gosper Rule-set" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="300" /><br /><sub><b><br/>Quadratic Gosper Rule-set</b></sub></a></td>
     </tr>
      <tr>
-     <td align="center"><a href="Rule-set-examples/quadratic_koch_island.md"> <img class="img" src="./assets/rule-set-images/quad_koch_island.jpg" alt="Quadratic koch island Rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Quadratic koch island Rule-set</b></sub></a></td>
-     <td align="center"><a href="Rule-set-examples/quadratic_snowflake.md"> <img class="img" src="./assets/rule-set-images/quad_snowflake2.jpg" alt="Quadratic Snowflake Rule-set Rule-set" style=" display: block;
+     <td align="center"><a href="quadratic_koch_island.md"> <img class="img" src="./assets/rule-set-images/quad_koch_island.jpg" alt="Quadratic koch island Rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Quadratic koch island Rule-set</b></sub></a></td>
+     <td align="center"><a href="quadratic_snowflake.md"> <img class="img" src="./assets/rule-set-images/quad_snowflake2.jpg" alt="Quadratic Snowflake Rule-set Rule-set" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="300" /><br /><sub><b><br/>Quadratic Snowflake Rule-set</b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="./assets/rule-set-images/recursive_circles.jpg" alt="Recursive circles rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Recursive circles Rule-set</b></sub></a></td>
@@ -92,22 +92,22 @@ By default, two L-systems are rendered. You can remove the second one by checkin
     margin-right: auto;" width="300" /><br /><sub><b><br/>Recursive circles 2 Rule-set</b></sub></a></td>
     </tr>
      <tr>
-     <td align="center"><a href="Rule-set-examples/rings.md"> <img class="img" src="./assets/rule-set-images/rings.jpg" alt="Rings Rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Rings Rule-set</b></sub></a></td>
-     <td align="center"><a href="Rule-set-examples/rounded-star.md"> <img class="img" src="./assets/rule-set-images/rounded_star.jpg" alt="Rounded Star Rule-set Rule-set" style=" display: block;
+     <td align="center"><a href="rings.md"> <img class="img" src="./assets/rule-set-images/rings.jpg" alt="Rings Rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Rings Rule-set</b></sub></a></td>
+     <td align="center"><a href="rounded-star.md"> <img class="img" src="./assets/rule-set-images/rounded_star.jpg" alt="Rounded Star Rule-set Rule-set" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="300" /><br /><sub><b><br/>Rounded Star Rule-set</b></sub></a></td>
-     <td align="center"><a href="Rule-set-examples/skierpinski-carpet.md"> <img class="img" src="./assets/rule-set-images/skierpinski_carpet.jpg" alt="Skierpinski carpet rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Skierpinski carpet Rule-set</b></sub></a></td>
-     <td align="center"><a href="Rule-set-examples/skierpinski.md"> <img class="img" src="./assets/rule-set-images/skierpinski.jpg" alt="Skierpinski Rule-set" style=" display: block;
+     <td align="center"><a href="skierpinski-carpet.md"> <img class="img" src="./assets/rule-set-images/skierpinski_carpet.jpg" alt="Skierpinski carpet rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Skierpinski carpet Rule-set</b></sub></a></td>
+     <td align="center"><a href="skierpinski.md"> <img class="img" src="./assets/rule-set-images/skierpinski.jpg" alt="Skierpinski Rule-set" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="300" /><br /><sub><b><br/>Skierpinski  Rule-set</b></sub></a></td>
     </tr>
      <tr>
-     <td align="center"><a href="Rule-set-examples/snake-kolam.md"> <img class="img" src="./assets/rule-set-images/snake_kolam.jpg" alt="Snake kolam Rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Snake kolam Rule-set</b></sub></a></td>
-     <td align="center"><a href="Rule-set-examples/square-skierpinski.md"> <img class="img" src="./assets/rule-set-images/square_skierpinski.jpg" alt="Square skeirpinski Rule-set Rule-set" style=" display: block;
+     <td align="center"><a href="snake-kolam.md"> <img class="img" src="./assets/rule-set-images/snake_kolam.jpg" alt="Snake kolam Rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Snake kolam Rule-set</b></sub></a></td>
+     <td align="center"><a href="square-skierpinski.md"> <img class="img" src="./assets/rule-set-images/square_skierpinski.jpg" alt="Square skeirpinski Rule-set Rule-set" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="300" /><br /><sub><b><br/>Square skeirpinski Rule-set Rule-set</b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="./assets/rule-set-images/sticks.jpg" alt="Sticks rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Sticks  Rule-set</b></sub></a></td>
-     <td align="center"><a href="Rule-set-examples/tiles.md"> <img class="img" src="./assets/rule-set-images/tiles.jpg" alt="Tiles Rule-set" style=" display: block;
+     <td align="center"><a href="tiles.md"> <img class="img" src="./assets/rule-set-images/tiles.jpg" alt="Tiles Rule-set" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="300" /><br /><sub><b><br/>Tiles  Rule-set</b></sub></a></td>
     </tr>
