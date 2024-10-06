@@ -1,6 +1,6 @@
 # Dragon Ruleset
 
-<p align="center"><img src="../assets/rule-set-images/dragon.jpg" alt="dragon" width="300px"></p>
+<p align="center"><img src="./assets/rule-set-images/dragon.jpg" alt="dragon" width="300px"></p>
 
 Ruleset
 
@@ -26,7 +26,7 @@ Ruleset
 <table>
   <tbody>
     <tr>
-     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/double-dragon.jpg" alt="" style="vertical-align:top;" width="500" /><br /><sub><b><br/></b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/dragon1-flower-gear.jpg" alt="" style="vertical-align:top;" width="500" /><br /><sub><b><br/></b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/dragons-archimedes.jpg" alt="" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/></b></sub></a></td>
