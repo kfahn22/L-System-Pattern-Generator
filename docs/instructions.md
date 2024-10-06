@@ -31,7 +31,7 @@ The next lines add the three dropdowns for the first L-system, setting the Hilbe
  `shapeDropdown0 = addShapesDropdown(x, 50, "gear");`  
  `paletteDropdown0 = addPalettes(x, 95, "raspberry");`
 
-<p align="center"><img src="assets/basic_patterns/hilbert-gear-raspberrry.jpg" alt="Hilbert curve with gear curve" width="500px"></p>
+<p align="center"><img src="assets/Ruleset-shape-examples/hilbert-gear-raspberrry.jpg" alt="Hilbert curve with gear curve" width="500px"></p>
 
 ## Palettes
 
