@@ -12,25 +12,25 @@ I have experimented with inserting different shapes--including gears, spirals, o
 
 Daniel Shiffman recently recleased a [Coding Challenge](https://thecodingtrain.com/challenges/185-dragon-curve) on the dragon fractal, and my experiments started with the Dragon rule-set. One of my favorites is this image, which was created using two dragon fractals filled with the gear curve (level 12).
 
-<p align="center"><img src="assets/Ruleset-shape-examples/double-dragon.jpg" alt="Dragon rule-set with gear" width="500px"></p>
+<p align="center"><img src="assets/readme/double-dragon.jpg" alt="Dragon rule-set with gear" width="500px"></p>
 
 Since many of the shapes are a function of parameters that can be altered, I added sliders to experiment with different rule-set/shape curve combinations. Sometimes when you insert a shape into a rule-set, the result is quite different from the typical visualization. One example is inserting the cassini curve into the Hilbert rule-set. I am not sure that many people would look at this image and realize how it was generated.
 
-<p align="center"><img src="assets/Ruleset-shape-examples/hillbert-cassini.jpg" alt="Hillbert rule-set with cassini oval" width="500px"></p>
+<p align="center"><img src="assets/readme/hillbert-cassini.jpg" alt="Hillbert rule-set with cassini oval" width="500px"></p>
 
 I have discovered that both the Hilbert and Peano curve rule-sets can be used to generate some nice backgrounds. Here is the Hilbert curve rule-set rendered with the gear curve (purple background) and the ADH23a ruleset with bicorn shape:
 
-<p align="center"><img src="assets/Ruleset-shape-examples/hillbert-ADH23a.jpg" alt="Hilbert ruleset with ADH23a design" width="500px"></p>
+<p align="center"><img src="assets/readme/hillbert-ADH23a.jpg" alt="Hilbert ruleset with ADH23a design" width="500px"></p>
 
 Why stop with just one ruleset or shape? Here I have rendered the ADH23a ruleset twice with the rose curve and the supershape.  
 
-<p align="center"><img src="assets/Ruleset-shape-examples/ADH23ax2-rose_supershape.jpg" alt="ADH23a rule-set with rose curve and supershape" width="500px"></p>
+<p align="center"><img src="assets/readme/ADH23ax2-rose_supershape.jpg" alt="ADH23a rule-set with rose curve and supershape" width="500px"></p>
 
 ## Fractal Trees
 
 Of course, one of the original applications for L-systems is creating realistic looking trees. I think adding a shape to the rule-set can improve the look of the trees. For example, here is a tree rendered with the zig-zag curve.
 
-<p align="center"><img src="assets/Ruleset-shape-examples/tree-zig-zag.jpg" alt="Tree rule-set with zig-zag curve" width="500px"></p>
+<p align="center"><img src="assets/readme/tree-zig-zag.jpg" alt="Tree rule-set with zig-zag curve" width="500px"></p>
 
 ## Palettes
 
