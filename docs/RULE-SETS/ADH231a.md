@@ -25,14 +25,14 @@ Ruleset
 <table>
   <tbody>
     <tr>
-     <td align="center"><a href=""> <img class="img" src="Ruleset-shape-examples/adh231a-bicornx2.jpg" alt="" style="vertical-align:top;" width="500" /><br /><sub><b><br/></b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="Ruleset-shape-examples/adh231a-heart.jpg" alt="" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="./Ruleset-shape-examples/adh231a-bicornx2.jpg" alt="" style="vertical-align:top;" width="500" /><br /><sub><b><br/></b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="./Ruleset-shape-examples/adh231a-heart.jpg" alt="" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/></b></sub></a></td>
     </tr>
     <tr>
-     <td align="center"><a href=""> <img class="img" src="Ruleset-shape-examples/adh231a-quadrilateral.jpg" alt="" style="vertical-align:top;" width="500" /><br /><sub><b><br/></b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="Ruleset-shape-examples/ADH231a-supershape.jpg" alt="" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="./Ruleset-shape-examples/adh231a-quadrilateral.jpg" alt="" style="vertical-align:top;" width="500" /><br /><sub><b><br/></b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="./Ruleset-shape-examples/ADH231a-supershape.jpg" alt="" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/></b></sub></a></td>
 </tr>
