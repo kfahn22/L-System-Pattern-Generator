@@ -22,8 +22,8 @@ By default, two L-systems are rendered. You can remove the second one by checkin
 <table>
   <tbody>
    <tr>
-     <td align="center"><a href="Rule-set-examples/ADH231a.md"> <img class="img" src=".../assets/rule-set-images/ADH231a.jpg" alt="ADH231a Rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>ADH231a Rule-set</b></sub></a></td>
-     <td align="center"><a href="Rule-set-examples/ADH256a.md"> <img class="img" src=".../assets/rule-set-images/ADH256a.jpg" alt="ADH256a Rule-set" style=" display: block;
+     <td align="center"><a href="Rule-set-examples/ADH231a.md"> <img class="img" src="rule-set-images/ADH231a.jpg" alt="ADH231a Rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>ADH231a Rule-set</b></sub></a></td>
+     <td align="center"><a href="Rule-set-examples/ADH256a.md"> <img class="img" src="rule-set-images/ADH256a.jpg" alt="ADH256a Rule-set" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="300" /><br /><sub><b><br/>ADH256a Rule-set</b></sub></a></td>
      <td align="center"><a href="Rule-set-examples/board.md"> <img class="img" src="assets/rule-set-images/board.jpg" alt="Board rule-set" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Board rule-set</b></sub></a></td>
