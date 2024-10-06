@@ -1,6 +1,6 @@
 # Crystal Ruleset
 
-<p align="center"><img src="../assets/rule-set-images/crystal.jpg" alt="crystal" width="300px"></p>
+<p align="center"><img src="./assets/rule-set-images/crystal.jpg" alt="crystal" width="300px"></p>
 
 Ruleset
 

@@ -1,6 +1,6 @@
 # Cross Ruleset
 
-<p align="center"><img src="../assets/rule-set-images/cross.jpg" alt="cross" width="300px"></p>
+<p align="center"><img src="./assets/rule-set-images/cross.jpg" alt="cross" width="300px"></p>
 
 Ruleset
 

@@ -1,6 +1,6 @@
 # ADH256a Ruleset
 
-<p align="center"><img src="../assets/rule-set-images/ADH256a.jpg" alt="ADH256a" width="300px"></p>
+<p align="center"><img src="./assets/rule-set-images/ADH256a.jpg" alt="ADH256a" width="300px"></p>
 
 Ruleset
 

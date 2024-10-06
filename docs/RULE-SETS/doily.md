@@ -1,6 +1,6 @@
 # Doily Ruleset
 
-<p align="center"><img src="../assets/rule-set-images/doily.jpg" alt="doily" width="300px"></p>
+<p align="center"><img src="./assets/rule-set-images/doily.jpg" alt="doily" width="300px"></p>
 
 Ruleset
 

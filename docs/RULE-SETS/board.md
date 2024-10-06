@@ -1,6 +1,6 @@
 # Baord Ruleset
 
-<p align="center"><img src="../assets/rule-set-images/board.jpg" alt="board" width="300px"></p>
+<p align="center"><img src="./assets/rule-set-images/board.jpg" alt="board" width="300px"></p>
 
 Ruleset
 

@@ -1,6 +1,6 @@
 # Box Ruleset
 
-<p align="center"><img src="../assets/rule-set-images/box.jpg" alt="box ruleset" width="300px"></p>
+<p align="center"><img src="./assets/rule-set-images/box.jpg" alt="box ruleset" width="300px"></p>
 
 Ruleset
 
