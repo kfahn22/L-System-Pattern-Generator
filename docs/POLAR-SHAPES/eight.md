@@ -1,6 +1,6 @@
 # Eight Curve
 
-<p align="center"><img src="../assets/shape_images/eight.jpg" alt="eight" width="300px"></p>
+<p align="center"><img src="shape_images/eight.jpg" alt="eight" width="300px"></p>
 
 Code:
 

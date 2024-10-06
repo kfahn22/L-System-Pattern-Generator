@@ -10,12 +10,12 @@ These images were all created with the supershape, which is the most versatile o
 <table>
   <tbody>
    <tr>
-     <td align="center"><a href=""> <img class="img" src="../assets/shape_images/supershape-m2.jpg" alt="Supershape with m = 2" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Supershape with m = 2</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="../assets/shape_images/supershape-m6.jpg" alt="Supershape with m = 6" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="shape_images/supershape-m2.jpg" alt="Supershape with m = 2" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Supershape with m = 2</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="shape_images/supershape-m6.jpg" alt="Supershape with m = 6" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="300" /><br /><sub><b><br/>Supershape with m = 6</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="../assets/shape_images/supershape-adjust-n1.jpg" alt="Supershape with m = 8, n1 =4" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Supershape with m = 8, n1 =4</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="../assets/shape_images/supershape-adjust-a-b.jpg" alt="Supershape with m = 8, a = 1.25, b = 1.05" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="shape_images/supershape-adjust-n1.jpg" alt="Supershape with m = 8, n1 =4" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Supershape with m = 8, n1 =4</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="shape_images/supershape-adjust-a-b.jpg" alt="Supershape with m = 8, a = 1.25, b = 1.05" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="300" /><br /><sub><b><br/>Supershape with m = 8, a = 1.25, b = 1.05</b></sub></a></td>
     </tr>  

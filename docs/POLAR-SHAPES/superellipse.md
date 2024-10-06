@@ -2,7 +2,7 @@
 
 To learn mroe about the superellipse, I recommend watching Daniel Shiffman's [Coding Challenge](https://thecodingtrain.com/challenges/19-superellipse).
 
-<p align="center"><img src="../assets/shape_images/superellipse.jpg" alt="superellipse" width="500px"></p>
+<p align="center"><img src="shape_images/superellipse.jpg" alt="superellipse" width="500px"></p>
 
 ```JavaScript
 sgn(val) {

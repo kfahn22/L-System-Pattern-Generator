@@ -1,6 +1,6 @@
 # Tear Curve
 
-<p align="center"><img src="../assets/shape_images/deltoid.jpg" alt="deltoid" width="300px"></p>
+<p align="center"><img src="shape_images/deltoid.jpg" alt="deltoid" width="300px"></p>
 
 Code:
 

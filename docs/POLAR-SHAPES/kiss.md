@@ -1,6 +1,6 @@
 # Kiss Curve
 
-<p align="center"><img src="../assets/shape_images/kiss.jpg" alt="kiss curve" width="300px"></p>
+<p align="center"><img src="shape_images/kiss.jpg" alt="kiss curve" width="300px"></p>
 
 Code:
 

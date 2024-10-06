@@ -2,7 +2,7 @@
 
 To learn more about the heart curve, I recommend watching Daniel Shiffman's [Heart Coding Challenge](https://thecodingtrain.com/challenges/134-heart-curve).
 
-<p align="center"><img src="../assets/shape_images/heart.jpg" alt="heart curve" width="300px"></p>
+<p align="center"><img src="shape_images/heart.jpg" alt="heart curve" width="300px"></p>
 
 Code:
 
