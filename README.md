@@ -12,25 +12,25 @@ I have experimented with inserting different shapes--including gears, spirals, o
 
 Daniel Shiffman recently recleased a [Coding Challenge](https://thecodingtrain.com/challenges/185-dragon-curve) on the dragon fractal, and my experiments started with the Dragon rule-set. One of my favorites is this image, which was created using two dragon fractals filled with the gear curve (level 12).
 
-<p align="center"><img src="assets/Ruleset-shape-examples/double-dragon.jpg" alt="Dragon rule-set with gear" width="500px"></p>
+<p align="center"><img src="assets/readme/double-dragon.jpg" alt="Dragon rule-set with gear" width="500px"></p>
 
 Since many of the shapes are a function of parameters that can be altered, I added sliders to experiment with different rule-set/shape curve combinations. Sometimes when you insert a shape into a rule-set, the result is quite different from the typical visualization. One example is inserting the cassini curve into the Hilbert rule-set. I am not sure that many people would look at this image and realize how it was generated.
 
-<p align="center"><img src="assets/Ruleset-shape-examples/hillbert-cassini.jpg" alt="Hillbert rule-set with cassini oval" width="500px"></p>
+<p align="center"><img src="assets/readme/hillbert-cassini.jpg" alt="Hillbert rule-set with cassini oval" width="500px"></p>
 
 I have discovered that both the Hilbert and Peano curve rule-sets can be used to generate some nice backgrounds. Here is the Hilbert curve rule-set rendered with the gear curve (purple background) and the ADH23a ruleset with bicorn shape:
 
-<p align="center"><img src="assets/Ruleset-shape-examples/hillbert-ADH23a.jpg" alt="Hilbert ruleset with ADH23a design" width="500px"></p>
+<p align="center"><img src="assets/readme/hillbert-ADH23a.jpg" alt="Hilbert ruleset with ADH23a design" width="500px"></p>
 
 Why stop with just one ruleset or shape? Here I have rendered the ADH23a ruleset twice with the rose curve and the supershape.  
 
-<p align="center"><img src="assets/Ruleset-shape-examples/ADH23ax2-rose_supershape.jpg" alt="ADH23a rule-set with rose curve and supershape" width="500px"></p>
+<p align="center"><img src="assets/readme/ADH23ax2-rose_supershape.jpg" alt="ADH23a rule-set with rose curve and supershape" width="500px"></p>
 
 ## Fractal Trees
 
 Of course, one of the original applications for L-systems is creating realistic looking trees. I think adding a shape to the rule-set can improve the look of the trees. For example, here is a tree rendered with the zig-zag curve.
 
-<p align="center"><img src="assets/Ruleset-shape-examples/tree-zig-zag.jpg" alt="Tree rule-set with zig-zag curve" width="500px"></p>
+<p align="center"><img src="assets/readme/tree-zig-zag.jpg" alt="Tree rule-set with zig-zag curve" width="500px"></p>
 
 ## Palettes
 
@@ -38,56 +38,8 @@ I also want to give a shout-out to [supercolorpalette.com](https://supercolorpal
 
 ## Learn More
 
-- [Learn more about the L-systems](rule-sets.md)
-- [Learn more about polar shapes](polar-shapes.md)
-
-
-## 🌄 Gallery
-
-<!-- IMAGE-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tbody>
-   <tr>
-     <td align="center"><a href=""> <img class="img" src="assets/Ruleset-shape-examples/dragon1-astroid-filled.jpg" alt="Dragon curve with astroid" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Dragon curve with astroid</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="assets/Ruleset-shape-examples/dragons-archimedes.jpg" alt="Dragon rule-set with archimedes spiral" style=" display: block;
-    margin-left: auto;
-    margin-right: auto;" width="500" /><br /><sub><b><br/>Dragon rule-set with archimedes spiral</b></sub></a></td>
-    </tr>
-    <tr>
-     <td align="center"><a href=""> <img class="img" src="assets/Ruleset-shape-examples/krishna-anklet-gear.jpg" alt="Krishna's Anklet rule-set with gear curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Krishna's Anklet rule-set with gear curve</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="assets/Ruleset-shape-examples/mango-astroid.jpg" alt="Mango leaf filled with astroid shape" style=" display: block;
-    margin-left: auto;
-    margin-right: auto;" width="500" /><br /><sub><b><br/>Mango leaf with astroid shape</b></sub></a></td>
-    </tr>
-    <tr>
-     <td align="center"><a href=""> <img class="img" src="assets/Ruleset-shape-examples/doily-deltoid.jpg" alt="Doily rule-set with deltoid" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Doily rule-set with deltoid </b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="assets/Ruleset-shape-examples/square-skierpinkski-lissajous.jpg" alt="Square skierpinski with lissajous curve" style=" display: block;
-    margin-left: auto;
-    margin-right: auto;" width="500" /><br /><sub><b><br/>Square skierpinski with lissajous curve</b></sub></a></td>
-</tr>
-<tr>
-      <td align="center"><a href=""> <img class="img" src="assets/Ruleset-shape-examples/crystal-rose.jpg" alt="Crystal rule-set with rose curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Crystal rule-set with rose curve</b></sub></a></td>
-      <td align="center"><a href=""> <img class="img" src="assets/Ruleset-shape-examples/box-ceva.jpg" alt="Box rule-set with ceva curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Box rule-set with ceva curve</b></sub></a></td>
-       </tr>
-    <tr>
-       <td align="center"><a href=""> <img class="img" src="assets/Ruleset-shape-examples/snake-kolam-kiss.jpg" alt="Snake kolam rule set with kiss curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Snake kolam rule set with kiss curve</b></sub></a></td>
-       <td align="center"><a href=""> <img class="img" src="assets/Ruleset-shape-examples/krisha-anklet-supershape.jpg" alt="Krisna anklet with the supershape" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Krisna anklet with the supershape</b></sub></a></td>
-  </tr>
-  <tr>
-      <td align="center"><a href=""> <img class="img" src="assets/Ruleset-shape-examples/peano-recursive-circles.jpg" alt="Peano ruleset background with recursive circles" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Peano ruleset background with recursive circles</b></sub></a></td>
-      <td align="center"><a href=""> <img class="img" src="assets/Ruleset-shape-examples/hillbert-circular.jpg" alt="Hilbert ruleset background with circular ruleset" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Hilbert ruleset background with circular ruleset</b></sub></a></td>
-       </tr>
-  
-    
- </tbody>
-</table>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-<!-- IMAGE-LIST:END -->
+- [Learn more about the L-systems](docs/RULE-SETS/rule-sets.md)
+- [Learn more about polar shapes](docs/POLAR-SHAPES/polar-shapes.md)
 
 ## References
 
