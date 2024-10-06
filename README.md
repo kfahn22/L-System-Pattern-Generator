@@ -38,8 +38,8 @@ I also want to give a shout-out to [supercolorpalette.com](https://supercolorpal
 
 ## Learn More
 
-- [Learn more about the L-systems](rule-sets.md)
-- [Learn more about polar shapes](polar-shapes.md)
+- [Learn more about the L-systems](docs/Rule-set-examples)
+- [Learn more about polar shapes](docs/polar-shapes.md)
 
 
 ## 🌄 Gallery
