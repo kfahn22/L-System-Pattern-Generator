@@ -1,6 +1,6 @@
 # Cornu Spiral
 
-<p align="center"><img src="shape_images/cornu.jpg" alt="cornu spiral" width="300px"></p>
+<p align="center"><img src="./assets/shape_images/cornu.jpg" alt="cornu spiral" width="300px"></p>
 
 Code:
 

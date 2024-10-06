@@ -1,6 +1,6 @@
 # Ceva
 
-<p align="center"><img src="shape_images/ceva.jpg" alt="ceva" width="300px"></p>
+<p align="center"><img src="./assets/shape_images/ceva.jpg" alt="ceva" width="300px"></p>
 
 ## 🌄 Gallery
 

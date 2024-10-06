@@ -1,6 +1,6 @@
 # Cassini
 
-<p align="center"><img src="shape_images/cassini.jpg" alt="cassini oval" width="300px"></p>
+<p align="center"><img src="./assets/shape_images/cassini.jpg" alt="cassini oval" width="300px"></p>
 
 ## 🌄 Gallery
 

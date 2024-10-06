@@ -1,6 +1,6 @@
 # Maltese Cross
 
-<p align="center"><img src="shape_images/cross.jpg" alt="maltese cross" width="300px"></p>
+<p align="center"><img src="./assets/shape_images/cross.jpg" alt="maltese cross" width="300px"></p>
 
 Code:
 

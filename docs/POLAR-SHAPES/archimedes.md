@@ -1,6 +1,6 @@
 # Archimedes Spiral
 
-<p align="center"><img src="shape_images/archimedes.jpg" alt="archimedes spiral" width="300px"></p>
+<p align="center"><img src="./assets/shape_images/archimedes.jpg" alt="archimedes spiral" width="300px"></p>
 
 Code:
 
