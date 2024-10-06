@@ -1,6 +1,6 @@
 # Kolam
 
-<p align="center"><img src="../assets/rule-set-images/kolam.jpg" alt="kolam" width="300px"></p>
+<p align="center"><img src="./assets/rule-set-images/kolam.jpg" alt="kolam" width="300px"></p>
 
 Ruleset
 

@@ -1,6 +1,6 @@
 # Skierpinski Ruleset
 
-<p align="center"><img src="../assets/rule-set-images/skierpinski.jpg" alt="skierpinski" width="300px"></p>
+<p align="center"><img src="./assets/rule-set-images/skierpinski.jpg" alt="skierpinski" width="300px"></p>
 
 Ruleset
 

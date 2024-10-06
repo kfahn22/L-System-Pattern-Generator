@@ -1,6 +1,6 @@
 # Koch Curve Ruleset
 
-<p align="center"><img src="../assets/rule-set-images/koch_curve.jpg" alt="Koch curve" width="300px"></p>
+<p align="center"><img src="./assets/rule-set-images/koch_curve.jpg" alt="Koch curve" width="300px"></p>
 
 Ruleset
 

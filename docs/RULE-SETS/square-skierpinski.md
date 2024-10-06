@@ -1,6 +1,6 @@
 # Square Skierpinski Ruleset
 
-<p align="center"><img src="../assets/rule-set-images/square_skierpinski.jpg" alt="square skierpinski" width="300px"></p>
+<p align="center"><img src="./assets/rule-set-images/square_skierpinski.jpg" alt="square skierpinski" width="300px"></p>
 
 Ruleset
 

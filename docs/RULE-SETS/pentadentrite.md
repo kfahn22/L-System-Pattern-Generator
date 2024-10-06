@@ -1,6 +1,6 @@
 # Pentadentrite Ruleset
 
-<p align="center"><img src="../assets/rule-set-images/pentadentrite.jpg" alt="Pentadentrite" width="300px"></p>
+<p align="center"><img src="./assets/rule-set-images/pentadentrite.jpg" alt="Pentadentrite" width="300px"></p>
 
 Ruleset
 

@@ -1,6 +1,6 @@
 # Peano Ruleset
 
-<p align="center"><img src="../assets/rule-set-images/peano.jpg" alt="peano" width="300px"></p>
+<p align="center"><img src="./assets/rule-set-images/peano.jpg" alt="peano" width="300px"></p>
 
 Ruleset
 

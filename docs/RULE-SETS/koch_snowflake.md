@@ -1,6 +1,6 @@
 # Koch Snowflake Ruleset
 
-<p align="center"><img src="../assets/rule-set-images/koch_snowflake.jpg" alt="Koch Snowflake" width="300px"></p>
+<p align="center"><img src="./assets/rule-set-images/koch_snowflake.jpg" alt="Koch Snowflake" width="300px"></p>
 
 Ruleset
 

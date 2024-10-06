@@ -1,6 +1,6 @@
 # Snake Kolam
 
-<p align="center"><img src="../assets/rule-set-images/snake_kolam.jpg" alt="snake-kolam" width="300px"></p>
+<p align="center"><img src="./assets/rule-set-images/snake_kolam.jpg" alt="snake-kolam" width="300px"></p>
 
 Ruleset
 

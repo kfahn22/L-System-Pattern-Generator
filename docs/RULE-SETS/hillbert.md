@@ -1,6 +1,6 @@
 # Hilbert Ruleset
 
-<p align="center"><img src="../assets/rule-set-images/hilbert.jpg" alt="hilbert" width="300px"></p>
+<p align="center"><img src="./assets/rule-set-images/hilbert.jpg" alt="hilbert" width="300px"></p>
 
 Ruleset
 

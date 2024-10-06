@@ -1,6 +1,6 @@
 # Pentaplexity Ruleset
 
-<p align="center"><img src="../assets/rule-set-images/pentaplexity.jpg" alt="pentaplexity" width="300px"></p>
+<p align="center"><img src="./assets/rule-set-images/pentaplexity.jpg" alt="pentaplexity" width="300px"></p>
 
 Ruleset
 

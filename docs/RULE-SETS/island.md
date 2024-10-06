@@ -1,6 +1,6 @@
 # Island Ruleset
 
-<p align="center"><img src="../assets/rule-set-images/island.jpg" alt="island" width="300px"></p>
+<p align="center"><img src="./assets/rule-set-images/island.jpg" alt="island" width="300px"></p>
 
 Ruleset
 

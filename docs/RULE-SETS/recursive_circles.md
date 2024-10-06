@@ -1,6 +1,6 @@
 # Recursive Circles Ruleset
 
-<p align="center"><img src="../assets/rule-set-images/recursive_circles.jpg" alt="Recursive circles" width="300px"></p>
+<p align="center"><img src="./assets/rule-set-images/recursive_circles.jpg" alt="Recursive circles" width="300px"></p>
 
 Ruleset
 

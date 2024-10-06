@@ -1,6 +1,6 @@
 # Mango Leaf Ruleset
 
-<p align="center"><img src="../assets/rule-set-images/mango.jpg" alt="mango-leaf" width="300px"></p>
+<p align="center"><img src="./assets/rule-set-images/mango.jpg" alt="mango-leaf" width="300px"></p>
 
 Ruleset
 

@@ -1,6 +1,6 @@
 # Tiles Ruleset
 
-<p align="center"><img src="../assets/rule-set-images/tiles.jpg" alt="Tiles" width="300px"></p>
+<p align="center"><img src="./assets/rule-set-images/tiles.jpg" alt="Tiles" width="300px"></p>
 
 Ruleset
 

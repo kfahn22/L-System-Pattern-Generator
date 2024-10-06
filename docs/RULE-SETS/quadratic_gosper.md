@@ -1,6 +1,6 @@
 # Quadratic Gosper Ruleset
 
-<p align="center"><img src="../assets/rule-set-images/quad_gosper.jpg" alt="quadratic gosper" width="300px"></p>
+<p align="center"><img src="./assets/rule-set-images/quad_gosper.jpg" alt="quadratic gosper" width="300px"></p>
 
 Ruleset
 

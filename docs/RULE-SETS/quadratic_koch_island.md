@@ -1,6 +1,6 @@
 # Quadratic Koch Island Ruleset
 
-<p align="center"><img src="../assets/rule-set-images/quad_koch_island.jpg" alt="Quadratic Koch Island" width="300px"></p>
+<p align="center"><img src="./assets/rule-set-images/quad_koch_island.jpg" alt="Quadratic Koch Island" width="300px"></p>
 
 Ruleset
 

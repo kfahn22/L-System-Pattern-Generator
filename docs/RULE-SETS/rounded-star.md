@@ -1,6 +1,6 @@
 # Rounded Star Ruleset
 
-<p align="center"><img src="../assets/rule-set-images/rounded_star.jpg" alt="rounded-star" width="300px"></p>
+<p align="center"><img src="./assets/rule-set-images/rounded_star.jpg" alt="rounded-star" width="300px"></p>
 
 Ruleset
 

@@ -1,6 +1,6 @@
 # Skierpinski Carpet Ruleset
 
-<p align="center"><img src="../assets/rule-set-images/skierpinski_carpet.jpg" alt="skierpinski carpet" width="300px"></p>
+<p align="center"><img src="./assets/rule-set-images/skierpinski_carpet.jpg" alt="skierpinski carpet" width="300px"></p>
 
 Ruleset
 

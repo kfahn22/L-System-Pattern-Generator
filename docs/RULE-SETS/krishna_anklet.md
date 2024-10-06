@@ -1,6 +1,6 @@
 # Krishna Anklet Ruleset
 
-<p align="center"><img src="../assets/rule-set-images/krishna-anklet.jpg" alt="krishna-anklet" width="300px"></p>
+<p align="center"><img src="./assets/rule-set-images/krishna-anklet.jpg" alt="krishna-anklet" width="300px"></p>
 
 Ruleset
 

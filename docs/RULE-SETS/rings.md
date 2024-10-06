@@ -1,6 +1,6 @@
 # Rings Ruleset
 
-<p align="center"><img src="../assets/rule-set-images/rings.jpg" alt="rings" width="300px"></p>
+<p align="center"><img src="./assets/rule-set-images/rings.jpg" alt="rings" width="300px"></p>
 
 Ruleset
 
