@@ -11,23 +11,31 @@ let checkBoxes;
 
 // // Shape message re parameters to choosen shape
 let shapeMessage = null; 
+let shapeVariables;
+
+// TODO fix sliders 
 
 function setup() {
   canvas = createCanvas(800, 800);
   canvas.position(250, 75);
 
   // Add the dropdowns, sliders, and checkboxes
-  addControls();
+  
+  shapeVariables = addControls();
 
   let values = updateValues();
   
   setSystemVariables(values);
 
   // Add function to handle changes in sliders
-  handleInput();
+  handleInput(shapeVariables);
 }
 
-function handleInput() {
+function handleInput(shapeVariables) {
+  let dropdowns = shapeVariables[1];
+  let checkBoxes = shapeVariables[2];
+  let sliders = shapeVariables[4];
+
   for (let d of dropdowns) {
     d.changed(reset);
   }
@@ -66,17 +74,25 @@ function updateValues() {
 }
 
 function addControls() {
+  let shapeVariables = [];
   controls = new AddControls(10);
   dropdowns = controls.returnDropdowns();
   checkBoxes = controls.returnCheckboxes();
   sliderGroup = controls.sliderGroup;
   sliders = sliderGroup.sliders;
+shapeVariables[0] = controls;
+shapeVariables[1] = dropdowns;//controls.returnDropdowns();
+shapeVariables[2] = checkBoxes;//controls.returnCheckboxes();
+shapeVariables[3] = sliderGroup;//controls.sliderGroup;
+shapeVariables[4] = sliders;//controls.sliders;
+handleInput(shapeVariables);
 
-  let values = updateValues();
-  setSystemVariables(values);
-  // Add function to handle changes in sliders
-  handleInput();
-  return controls;
+return shapeVariables;
+  // let values = updateValues();
+  // setSystemVariables(values);
+  // // Add function to handle changes in sliders
+  // handleInput();
+  // return controls;
 }
 
 function setSystemVariables(values) {

@@ -34,17 +34,6 @@ class AddControls {
       1, // n3
       1, // n
       0, // shape angle
-      // values[0], // pos
-      // values[1], // strokeWeight
-      // values[2] * width, // r
-      // values[3], // a
-      // values[4], // b
-      // values[5], // m
-      // values[6], // n1
-      // values[7], // n2
-      // values[8], // n3
-      // values[9], // n
-      // values[10] // shape angle
     );
     this.sliders = this.sliderGroup.sliders;
     this.sliderValues = this.sliderGroup.getValues();
