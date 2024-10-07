@@ -1,16 +1,8 @@
 class SliderGroup {
   constructor(
     pos,
-    // idName,
-    wadj,
-    hadj,
-    level,
     sw,
-    strokeAlpha,
-    fillAlpha,
-    fractalAngle,
-    length,
-    shapeScale,
+    radius,
     a,
     b,
     m,
@@ -27,15 +19,6 @@ class SliderGroup {
 
     // Define slider properties
     this.sliderProperties = [
-      { min: -0.05, max: 1.05, value: wadj, step: 0.01, label: "Translate x:" },
-      {
-        min: -0.05,
-        max: 1.05,
-        value: hadj,
-        step: 0.025,
-        label: "Translate y:",
-      },
-      { min: 0, max: 13, value: level, step: 1, label: "Level:" },
       {
         min: 0.1,
         max: 8,
@@ -43,31 +26,9 @@ class SliderGroup {
         step: 0.1,
         label: "StrokeWeight:",
       },
-      {
-        min: 100,
-        max: 255,
-        value: strokeAlpha,
-        step: 5,
-        label: "Stroke Alpha:",
-      },
-      { min: 100, max: 255, value: fillAlpha, step: 5, label: "Fill Alpha:" },
-      {
-        min: -180,
-        max: 180,
-        value: fractalAngle,
-        step: 5,
-        label: "Rotate fractal:",
-      },
-      { min: 5, max: 200, value: length, step: 1, label: "Step length:" },
-      {
-        min: 0.15,
-        max: 1.15,
-        value: shapeScale,
-        step: 0.05,
-        label: "Shape scale:",
-      },
+      { min: 50, max: 400, value: radius, step: 5, label: "Shape radius:" },
       { min: 0, max: 10, value: a, step: 0.01, label: "a:" },
-      { min: 0, max: 20, value: b, step: 0.05, label: "b:" },
+      { min: 0, max: 20, value: b, step: 0.1, label: "b:" },
       { min: 0, max: 20, value: m, step: 1, label: "m:" },
       { min: 0.25, max: 5, value: n1, step: 0.05, label: "n1:" },
       { min: 0.25, max: 2, value: n2, step: 0.05, label: "n2:" },
@@ -83,9 +44,7 @@ class SliderGroup {
     ];
 
     // Create sliders and labels
-    //console.log(pos)
     this.createSliders(pos);
-    //this.createSliders(pos, idName);
   }
 
   // Create sliders and labels
@@ -99,8 +58,9 @@ class SliderGroup {
         this.sliderProperties[i].step
       );
       slider.addClass("slider");
-      //slider.id("mySliders");
-      slider.position(pos + 10, 30 + i * 55);
+      slider.id("mySliders");
+      slider.position(pos + 10, 260 + i * 55);
+      slider.size(200);
       slider.input(() => this.reset());
 
       // Create label
@@ -126,7 +86,6 @@ class SliderGroup {
 
   // Method to reset or handle input changes
   reset() {
-    //this.update = true;
     this.getValues();
     this.updateLabels();
   }

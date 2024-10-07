@@ -10,7 +10,7 @@ let images = [];
 // Array to store dropdowns, sliderGroup, sliders, checkBoxes
 let lsystem0;
 let ruleChoice0 = "ADH231a";
-let shapeChoice0 = "Rose";
+let shapeChoice0 = "Flower";
 let sliderValues0 = [
   175,
   0.05, // wadj

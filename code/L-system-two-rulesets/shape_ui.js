@@ -37,7 +37,7 @@ class ShapeUI {
       "Maltese Cross",
       "Quadrifolium",
       "Quadrilateral",
-      "Rose",
+      "Flower",
       "Spiral",
       "Superellipse",
       "Supershape",
@@ -160,11 +160,11 @@ class ShapeUI {
         this.addMessage = true;
         this.message = "The quadrilaterial curve is a f(m).";
         break;
-      case "Rose":
+      case "Flower":
         // I have added a constraint on the value of b to keep the sketch from freezing
-        this.shape.rose();
+        this.shape.flower();
         this.addMessage = true;
-        this.message = "The rose curve is a f(a, m)";
+        this.message = "The flower curve is a f(a, m)";
         break;
       case "Superellipse":
         this.shape.superellipse();
