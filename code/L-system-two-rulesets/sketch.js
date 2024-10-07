@@ -16,7 +16,7 @@ let sliderValues0 = [
   0.05, // wadj
   0.5, // hadj
   3, // level
-  3, // strokeWeight
+  1, // strokeWeight
   220, // stroke alpha
   150, // fill alpha
   0, // fractal angle

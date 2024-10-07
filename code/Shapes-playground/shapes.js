@@ -32,16 +32,6 @@ class Shape {
     }
   }
 
-  atom() {
-    let a = 0.5;
-    for (let theta = -3 * PI; theta < 3 * PI; theta += 0.05) {
-      let r = theta / (theta - a);
-      let x = this.r * r * cos(theta);
-      let y = this.r * r * sin(theta);
-      this.points.push(createVector(x, y));
-    }
-  }
-
   // https://mathcurve.com/courbes2d.gb/bicorne/bicorne.shtml
   bicorn() {
     for (let theta = 0; theta < TWO_PI; theta += 0.05) {
@@ -406,15 +396,6 @@ class Shape {
     pop();
   }
 
-  showImage(images) {
-    let i = floor(random(10));
-    let img = images[i];
-    push();
-    rotate(this.angle);
-    image(img, 0, 0, this.r, this.r);
-    pop();
-  }
-
   openShow() {
     push();
     rotate(this.angle);
@@ -423,26 +404,6 @@ class Shape {
       vertex(p.x, p.y);
     }
     endShape();
-    pop();
-  }
-
-  showWord() {
-    let options = [
-      "FAMILY",
-      "FRIENDS",
-      "HEALTH",
-      "SAFETY",
-      "LOVED",
-      "SAVED",
-      "EDUCATION",
-      "PEACE",
-      "PURPOSE",
-    ];
-    push();
-    rotate(this.angle);
-    textSize(this.r * 0.5);
-    textAlign(CENTER, CENTER);
-    text(random(options), 0, 0);
     pop();
   }
 }

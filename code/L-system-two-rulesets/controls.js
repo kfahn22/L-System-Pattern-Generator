@@ -71,9 +71,9 @@ class AddControls {
     this.addP5Grain = createCheckbox("Add p5.Grain", false);
     this.addP5Grain.position(pos, 405);
     this.addP5Grain.style("color", "white");
-  this.removeRuleset = createCheckbox("Remove ruleset", false);
-  this.removeRuleset.position(1150, 450);
-  this.removeRuleset.style("color", "white");
+    this.removeRuleset = createCheckbox("Remove ruleset", false);
+    this.removeRuleset.position(1150, 450);
+    this.removeRuleset.style("color", "white");
 
     // Ensure checkboxes reflect initial values
     //this.updateCheckboxes();
@@ -125,7 +125,12 @@ class AddControls {
   }
 
   returnCheckboxes() {
-    return [this.addStroke, this.fillShape, this.addP5Grain, this.removeRuleset];
+    return [
+      this.addStroke,
+      this.fillShape,
+      this.addP5Grain,
+      this.removeRuleset,
+    ];
   }
 
   // Get values from dropdowns, checkboxes, and sliders

@@ -16,7 +16,6 @@ class ShapeUI {
     const shapes = [
       "Arc",
       "Astroid",
-      "Atom",
       "Bicorn",
       "Box",
       "Butterfly",
@@ -29,7 +28,6 @@ class ShapeUI {
       "Eight",
       "Flower",
       "Gear",
-      "Image",
       "Heart",
       "Kiss Curve",
       "Knot",
@@ -42,7 +40,6 @@ class ShapeUI {
       "Superellipse",
       "Supershape",
       "Tear Drop",
-      "Word",
       "Zigzag",
     ];
 
@@ -81,9 +78,6 @@ class ShapeUI {
         this.shape.astroid();
         this.addMessage = true;
         this.message = "The astroid is a f(a).";
-        break;
-      case "Atom":
-        this.shape.atom();
         break;
       case "Bicorn":
         this.shape.bicorn();
@@ -125,8 +119,6 @@ class ShapeUI {
         this.shape.gear();
         this.addMessage = true;
         this.message = "The gear curve is a f(a, b, m).";
-        break;
-      case "Image":
         break;
       case "Heart":
         this.shape.heart();
@@ -183,8 +175,6 @@ class ShapeUI {
         break;
       case "Tear Drop":
         this.shape.tearDrop();
-        break;
-      case "Word":
         break;
       case "Zigzag":
         this.shape.zigzag();

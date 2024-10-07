@@ -85,7 +85,7 @@ class SliderGroup {
     // Create sliders and labels
     //console.log(pos)
     this.createSliders(pos);
-     //this.createSliders(pos, idName);
+    //this.createSliders(pos, idName);
   }
 
   // Create sliders and labels

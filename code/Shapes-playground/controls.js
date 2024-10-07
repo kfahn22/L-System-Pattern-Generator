@@ -1,5 +1,5 @@
 class AddControls {
-  constructor(pos) {
+  constructor(pos, values) {
     this.backgroundDropdown = new PaletteDropdown(
       pos,
       60,
@@ -17,19 +17,15 @@ class AddControls {
     this.fillDropdown = new PaletteDropdown(
       pos,
       140,
-      "purplePalette",
+      "blue",
       "Fill Color"
     );
     this.filldropdown = this.fillDropdown.dropdown;
     // Create an instance of the SliderGroup class
     this.sliderGroup = new SliderGroup(
-      pos,
-      0.5, //wadj
-      0.5, // hadj
+      10,
       4, // strokeWeight
-      220, // stroke alpha
-      150, // fill alpha
-      0.2 * width, // r
+      0.2*width, // r
       1, // a
       1, // b
       8, // m
@@ -37,7 +33,18 @@ class AddControls {
       1, // n2
       1, // n3
       1, // n
-      0 // shape angle
+      0, // shape angle
+      // values[0], // pos
+      // values[1], // strokeWeight
+      // values[2] * width, // r
+      // values[3], // a
+      // values[4], // b
+      // values[5], // m
+      // values[6], // n1
+      // values[7], // n2
+      // values[8], // n3
+      // values[9], // n
+      // values[10] // shape angle
     );
     this.sliders = this.sliderGroup.sliders;
     this.sliderValues = this.sliderGroup.getValues();
@@ -50,20 +57,20 @@ class AddControls {
     this.addStroke.position(pos, 180);
     this.addStroke.style("color", "white");
     // Checkbox to determine whether shapes are filled
-    this.fillShape = createCheckbox("Fill shapes", true);
+    this.fillShape = createCheckbox("Fill shape", true);
     this.fillShape.position(pos, 210);
     this.fillShape.style("color", "white");
     this.values = [];
   }
 
-  setPalettes(background, stroke, fill) {
-    this.backgroundDropdown.setPalette(background);
-    this.strokeDropdown.setPalette(stroke);
-    this.fillDropdown.setPalette(fill);
+  getColors(background, stroke, fill) {
+    this.backgroundDropdown.getColor(background);
+    this.strokeDropdown.getColor(stroke);
+    this.fillDropdown.getColor(fill);
     return [
-      this.backgroundDropdown.palette,
-      this.strokeDropdown.palette,
-      this.fillDropdown.palette,
+      this.backgroundDropdown.color,
+      this.strokeDropdown.color,
+      this.fillDropdown.color,
     ];
   }
 

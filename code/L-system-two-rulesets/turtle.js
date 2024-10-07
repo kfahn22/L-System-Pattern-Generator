@@ -76,6 +76,7 @@ class Turtle {
         strokeAlpha,
         fillAlpha
       );
+      // Catch-all array for arcs, spirals, lissajous, zigzag
       let openShapes = ["Arc", "Cornu Spiral", "Lissajous", "Spiral", "Zigzag"];
       if (current === "F") {
         // Draw the shape/word on the canvas

@@ -1,11 +1,7 @@
 class SliderGroup {
   constructor(
     pos,
-    wadj,
-    hadj,
     sw,
-    strokeAlpha,
-    fillAlpha,
     radius,
     a,
     b,
@@ -23,14 +19,6 @@ class SliderGroup {
 
     // Define slider properties
     this.sliderProperties = [
-      { min: -0.05, max: 1.05, value: wadj, step: 0.01, label: "Translate x:" },
-      {
-        min: -0.05,
-        max: 1.05,
-        value: hadj,
-        step: 0.025,
-        label: "Translate y:",
-      },
       {
         min: 0.1,
         max: 8,
@@ -38,14 +26,6 @@ class SliderGroup {
         step: 0.1,
         label: "StrokeWeight:",
       },
-      {
-        min: 100,
-        max: 255,
-        value: strokeAlpha,
-        step: 5,
-        label: "Stroke Alpha:",
-      },
-      { min: 100, max: 255, value: fillAlpha, step: 5, label: "Fill Alpha:" },
       { min: 50, max: 400, value: radius, step: 5, label: "Shape radius:" },
       { min: 0, max: 10, value: a, step: 0.01, label: "a:" },
       { min: 0, max: 20, value: b, step: 0.1, label: "b:" },
@@ -106,7 +86,6 @@ class SliderGroup {
 
   // Method to reset or handle input changes
   reset() {
-    //this.update = true;
     this.getValues();
     this.updateLabels();
   }
