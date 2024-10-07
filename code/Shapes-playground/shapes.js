@@ -255,6 +255,17 @@ class Shape {
     }
   }
 
+  // https://mathworld.wolfram.com/Ophiuride.html
+
+  ophiuride() {
+    for (let theta = (-PI * 1) / 2; theta < (PI * 1) / 2; theta += 0.05) {
+      let r = (this.b * sin(theta) - this.a * cos(theta)) * tan(theta);
+      let x = this.r * r * cos(theta);
+      let y = this.r * r * sin(theta);
+      this.points.push(createVector(x, y));
+    }
+  }
+
   quadrifolium() {
     let a = 1;
     for (let theta = 0; theta < TWO_PI; theta += 0.05) {
@@ -282,17 +293,17 @@ class Shape {
     }
     return denominator / rec(numerator, denominator);
   }
-
+  // changed rose to flower
   flower() {
     let b = 1;
+   
     let k = this.m / b;
     for (
       let theta = 0;
       theta < TWO_PI * this.reduceDenominator(this.m, b);
-      theta += 0.1
+      theta += 0.02
     ) {
       let r = this.a + cos(k * theta);
-      // let r = this.a * cos(k * theta);
       let x = this.r * r * cos(theta);
       let y = this.r * r * sin(theta);
       this.points.push(createVector(x, y));
@@ -396,8 +407,7 @@ class Shape {
   }
 
   showImage(images) {
-    let n = images.length;
-    let i = floor(random(n));
+    let i = floor(random(10));
     let img = images[i];
     push();
     rotate(this.angle);

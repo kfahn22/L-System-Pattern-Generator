@@ -10,13 +10,13 @@ let images = [];
 // Array to store dropdowns, sliderGroup, sliders, checkBoxes
 let lsystem0;
 let ruleChoice0 = "ADH231a";
-let shapeChoice0 = "Rose";
+let shapeChoice0 = "Flower";
 let sliderValues0 = [
   175,
   0.05, // wadj
   0.5, // hadj
   3, // level
-  1, // strokeWeight
+  3, // strokeWeight
   220, // stroke alpha
   150, // fill alpha
   0, // fractal angle
