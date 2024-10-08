@@ -1,6 +1,6 @@
 # Polar Shapes - WIP
 
-The shape code can be found in the shapes.js file. The [ShapeUI class](../code/L-system-playground/shape_ui.js) adds a new Shape and then uses a switch statement to select the specific shape choosen by the user.
+The shape code can be found in the shapes.js file. The ShapeUI class adds a new Shape and then uses a switch statement to select the specific shape choosen by the user.
 
 If you would like to learn more about polar coordinates and rendering polaring shapes, I highly recommend reading Daniel Shiffman's [The Nature of Code](https://natureofcode.com/) book or watching some  of Daniel Shiffman's tutorial videos.  You can find an app [here](https://kfahn22.github.io/shape_playground/) for experimenting with the shape parameters.
 
