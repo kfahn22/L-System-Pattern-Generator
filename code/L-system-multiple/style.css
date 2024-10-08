@@ -1,0 +1,20 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #3a3939;
+  color: white;
+  font-size: 1.1em;
+}
+
+canvas {
+  display: block;
+  border: white;
+  border-width: 10px;
+}
+
+ #myCanvas {
+    border: 5px solid white;
+    border-radius: 10px; /* Optional for rounded corners */
+  }
+
