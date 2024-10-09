@@ -161,7 +161,7 @@ class Turtle {
         this.setFill(currentFillPalette, fillAlpha);
       }
       if (level > this.maxLevel) {
-        params[4] = this.maxLevel;
+        params[0] = this.maxLevel;
         this.levelWarning(params, ruleChoices);
       } else {
         this.render(params);
