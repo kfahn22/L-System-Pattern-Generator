@@ -265,7 +265,7 @@ class Turtle {
     //   let currentStrokePalette = params[2];
     //    let currentFillPalette = params[3];
     let level = params[4];
-    console.log(level)
+    //console.log(level)
     //    let sw = params[5];
     //    let strokeAlpha = params[6];
     //    let fillAlpha = params[7];
