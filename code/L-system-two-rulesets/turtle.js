@@ -60,7 +60,6 @@ class Turtle {
     let shapeChoices = params[1];
     let currentStrokePalette = params[2];
     let currentFillPalette = params[3];
-   // let level = params[4];
     let sw = params[5];
     let strokeAlpha = params[6];
     let fillAlpha = params[7];
@@ -134,71 +133,6 @@ class Turtle {
     }
   }
 
-  // When both stroke and fill are used, they are rendered separately
-  addLsystemStrokeFill(
-    lsystemData,
-    shapeChoices,
-    currentStrokePalette,
-    currentFillPalette,
-    sliderValues,
-    index,
-    ruleChoices
-  ) {
-    let values = sliderValues[index];
-    let wadj = values[0];
-    let hadj = values[1];
-    let level = values[2];
-    let fractalAngle = values[6];
-    let params = [];
-    params.push(1); // colorMode
-    params.push(shapeChoices);
-    params.push(currentStrokePalette);
-    params.push(currentFillPalette);
-    params.push(values[2]); // level
-    params.push(values[3]); // sw
-    params.push(values[4]); // strokeAlpha
-    params.push(values[5]); // fillAlpha
-    params.push(index);
-    params.push(values[7]); // length
-    this.setRule(lsystemData);
-    this.shapeValues = values.slice(-10);
-    push();
-    this.shape_ui.selectShape(shapeChoices[index], this.shapeValues);
-    this.shape = this.shape_ui.shape;
-    this.shape_messages.push(this.shape_ui.message);
-    translate(width * wadj, height * hadj);
-    rotate(fractalAngle);
-    // I have imposed some limits on the level to keep the sketch from freezing
-    if (level > this.maxLevel) {
-      this.addWarning = true;
-      params[4] = this.maxLevel;
-      this.levelWarning(
-        params,
-        index, // index of lsystem
-        ruleChoices
-      );
-    } else {
-      this.ruleWarnings[index] = null;
-      this.render(params);
-    }
-    pop();
-    // We need to reset sentence else the level is doubled
-    this.setRule(lsystemData);
-    params[0] = 0; // Set colorMode to 0 to add stroke after fill
-    push();
-    translate(width * wadj, height * hadj);
-    rotate(fractalAngle);
-
-    if (level > this.maxLevel) {
-      params[4] = this.maxLevel;
-      this.levelWarning(params, index, ruleChoices);
-    } else {
-      this.ruleWarnings[index] = null;
-      this.render(params);
-    }
-    pop();
-  }
-
   addLsystem(
     lsystemData,
     shapeChoices,
@@ -234,7 +168,8 @@ class Turtle {
     push();
     translate(width * wadj, height * hadj);
     rotate(fractalAngle);
-    if (colorMode != null) {
+    if (colorMode != 2) {
+      // I have imposed some limits on the level to keep the sketch from freezing
       if (level > this.maxLevel) {
         params[4] = this.maxLevel;
         this.levelWarning(params, index, ruleChoices);
@@ -242,7 +177,40 @@ class Turtle {
         this.render(params);
       }
       pop();
+    } else {
+      // With both stroke and fill, add stroke after fill so stroke doesnt show through fill (when alpha < 255)
+      params[0] = 1; // Start with colorMode set to 1 (add fill)
+      if (level > this.maxLevel) {
+        this.addWarning = true;
+        params[4] = this.maxLevel;
+        this.levelWarning(
+          params,
+          index, // index of lsystem
+          ruleChoices
+        );
+      } else {
+        this.ruleWarnings[index] = null;
+        this.render(params);
+      }
+      pop();
+      // We need to reset sentence so level is not doubled
+      this.setRule(lsystemData);
+      params[0] = 0; // Set colorMode to 0 (stroke)
+      push();
+      translate(width * wadj, height * hadj);
+      rotate(fractalAngle);
+      if (level > this.maxLevel) {
+        params[4] = this.maxLevel;
+        this.levelWarning(params, index, ruleChoices);
+      } else {
+        this.ruleWarnings[index] = null;
+        this.render(params);
+      }
+      pop();
     }
+
+    // If the "shape" is not technically a shape but text it is added differently
+
     if (shapeChoices[index] == "Word") {
       this.addText(currentFillPalette);
     }
