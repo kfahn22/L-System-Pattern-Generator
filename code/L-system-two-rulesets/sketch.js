@@ -221,8 +221,8 @@ function setSystemVariables(lsystems) {
     let currentStrokePalette = lsystemValues[i][3];
     let currentFillPalette = lsystemValues[i][4];
 
-    if (clrMode == 0 || clrMode == 1) {
-      // Pass value of colorMode to turtle to indicate whether stroke or fill should be used to render Lsystem
+    // if (clrMode == 0 || clrMode == 1) {
+    //   // Pass value of colorMode to turtle to indicate whether stroke or fill should be used to render Lsystem
       turtle.addLsystem(
         lsystemData,
         shapeChoices,
@@ -233,18 +233,18 @@ function setSystemVariables(lsystems) {
         i,
         ruleChoices
       );
-    } else if (clrMode == 2) {
-      // If both stroke and fill are checked, render the L-system twice, resetting the sentence between renders. If both are rendered at same time stroke shows through the fill (because looks best with alpha < 255) and the pattern is not as nice
-      turtle.addLsystemStrokeFill(
-        lsystemData,
-        shapeChoices,
-        currentStrokePalette,
-        currentFillPalette,
-        sliderValues,
-        i,
-        ruleChoices
-      );
-    }
+    // } else if (clrMode == 2) {
+    //   // If both stroke and fill are checked, render the L-system twice, resetting the sentence between renders. If both are rendered at same time stroke shows through the fill (because looks best with alpha < 255) and the pattern is not as nice
+    //   turtle.addLsystemStrokeFill(
+    //     lsystemData,
+    //     shapeChoices,
+    //     currentStrokePalette,
+    //     currentFillPalette,
+    //     sliderValues,
+    //     i,
+    //     ruleChoices
+    //   );
+    // }
   }
   // Add messages for shape parameters and rule level
   // Number of messages returned on number of rulesets
