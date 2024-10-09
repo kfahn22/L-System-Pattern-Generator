@@ -176,6 +176,15 @@ class Shape {
     }
   }
 
+  flower() {
+    for (let theta = 0; theta < TWO_PI; theta += 0.01) {
+      let r = this.a + cos(this.m * theta);
+      let x = this.r * r * cos(theta);
+      let y = this.r * r * sin(theta);
+      this.points.push(createVector(x, y));
+    }
+  }
+
   // https://mathworld.wolfram.com/GearCurve.html
   // https://help.tc2000.com/m/69445/l/755460-hyperbolic-functions-table
 
@@ -268,33 +277,6 @@ class Shape {
     for (let theta = 0; theta < TWO_PI; theta += TWO_PI / this.m) {
       let x = this.r * cos(theta);
       let y = this.r * sin(theta);
-      this.points.push(createVector(x, y));
-    }
-  }
-
-  // https://thecodingtrain.com/challenges/55-mathematical-rose-patterns
-
-  // https://mathcurve.com/courbes2d.gb/deltoid/deltoid.shtml
-
-  reduceDenominator(numerator, denominator) {
-    function rec(a, b) {
-      return b ? rec(b, a % b) : a;
-    }
-    return denominator / rec(numerator, denominator);
-  }
-
-  flower() {
-    let b = 1;
-    let k = this.m / b;
-    for (
-      let theta = 0;
-      theta < TWO_PI * this.reduceDenominator(this.m, b);
-      theta += 0.1
-    ) {
-      let r = this.a + cos(k * theta);
-      // let r = this.a * cos(k * theta);
-      let x = this.r * r * cos(theta);
-      let y = this.r * r * sin(theta);
       this.points.push(createVector(x, y));
     }
   }
