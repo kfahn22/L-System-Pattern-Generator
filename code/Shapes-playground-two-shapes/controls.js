@@ -1,12 +1,5 @@
 class AddControls {
   constructor(pos, values, shapeChoice, strokeChoice, fillChoice) {
-    // this.backgroundDropdown = new PaletteDropdown(
-    //   pos,
-    //   60,
-    //   "white",
-    //   "Background Color"
-    // );
-    // this.backgrounddropdown = this.backgroundDropdown.dropdown;
     this.strokeDropdown = new PaletteDropdown(
       pos,
       100,
@@ -65,12 +58,12 @@ class AddControls {
     this.values = [];
   }
 
-  getColors(background, stroke, fill) {
-    this.backgroundDropdown.getColor(background);
+  getColors(stroke, fill) {
+    //this.backgroundDropdown.getColor(background);
     this.strokeDropdown.getColor(stroke);
     this.fillDropdown.getColor(fill);
     return [
-      this.backgroundDropdown.color,
+     // this.backgroundDropdown.color,
       this.strokeDropdown.color,
       this.fillDropdown.color,
     ];
@@ -79,8 +72,7 @@ class AddControls {
   // Return instance of dropdowns
   returnDropdowns() {
     return [
-      this.shapeDropdown,
-// this.backgrounddropdown      ,
+      this.shapeDropdown,   
       this.strokedropdown,
       this.filldropdown,
     ];

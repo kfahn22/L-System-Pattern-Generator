@@ -172,23 +172,24 @@ function setShape(shapeSystems) {
     let checkBoxes = shapeSystems[i][2];
     //console.log(controls);
     let values = updateValues(shapeSystems[i]);
-    //console.log(values);
+    console.log(values);
     let colorChoices = [];
     // let strokeChoice = dropdowns[1].value();
 
-    let strokeName = dropdowns[1].value();
-    let fillName = dropdowns[2].value();
+    let strokeName = values[1];
+    let fillName = values[2];
+    let [strokeChoice, fillChoice] = controls.getColors(strokeName, fillName);
     let strokeDropdown = controls.strokeDropdown;
     let fillDropdown = controls.fillDropdown;
-    let strokeChoice = strokeDropdown.setColor(strokeName);
+   // let strokeChoice = strokeDropdown.setColor(strokeName);
     strokeChoice[3] = values[6];
-    let fillChoice = fillDropdown.setColor(fillName);
+    //let fillChoice = fillDropdown.setColor(fillName);
     fillChoice[3] = values[7];
 
     let addStroke = checkBoxes[0];
     let sw = values[5];
-    let strokeAlpha = values[6];
-    let fillAlpha = values[7];
+    // 
+    
     let fillShape = checkBoxes[1];
     // Add stroke, fill choices to array
     colorChoices.push(strokeChoice);
@@ -293,6 +294,7 @@ function addColor(colorChoices, openShapes, shapeName) {
     fill(fillChoice);
     noStroke();
   } else {
+    strokeWeight(sw);
     stroke(strokeChoice);
     fill(fillChoice);
   }
