@@ -64,7 +64,7 @@ class ShapeUI {
       values[6], // n2
       values[7], // n3
       values[8], // n
-      values[9] // rotateShape
+      radians(values[9]) // rotateShape
     );
 
     this.shape.points = []; // Clear any existing points
