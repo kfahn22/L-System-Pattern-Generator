@@ -16,7 +16,6 @@ class ShapeUI {
     const shapes = [
       "Arc",
       "Astroid",
-      // "Atom",
       "Bicorn",
       "Box",
       "Butterfly",
@@ -27,8 +26,8 @@ class ShapeUI {
       "Craniod",
       "Deltoid",
       "Eight",
+      "Flower",
       "Gear",
-      "Image",
       "Heart",
       "Kiss Curve",
       "Knot",
@@ -37,12 +36,10 @@ class ShapeUI {
       "Maltese Cross",
       "Quadrifolium",
       "Quadrilateral",
-      "Flower",
       "Spiral",
       "Superellipse",
       "Supershape",
       "Tear Drop",
-      "Word",
       "Zigzag",
     ];
 
@@ -51,20 +48,21 @@ class ShapeUI {
     this.dropdown.selected(this.choice);
   }
 
+  // sliders - wadj,hadj,level,length,strokeweight, shapeAlpha,sc,rot,rotateShape,a,b,m,n,n1,n2, n3
   // Create a shape based on the selected option
   selectShape(shapeName, values) {
-    let r = values[0] * values[1]; // gridlength * shapeScale
+    let r = values[0]; 
     // Create a new Shape object with necessary parameters
     this.shape = new Shape(
-      r,
-      values[2], // a
-      values[3], // b
-      values[4], // m
-      values[5], // n1
-      values[6], // n2
-      values[7], // n3
-      values[8], // n
-      radians(values[9]) // rotateShape
+      values[0], // radius
+      values[1], // a
+      values[2], // b
+      values[3], // m
+      values[4], // n1
+      values[5], // n2
+      values[6], // n3
+      values[7], // n
+      radians(values[8]) // rotateShape
     );
 
     this.shape.points = []; // Clear any existing points
@@ -81,9 +79,6 @@ class ShapeUI {
         this.addMessage = true;
         this.message = "The astroid is a f(a).";
         break;
-      // case "Atom":
-      //   this.shape.atom();
-      //   break;
       case "Bicorn":
         this.shape.bicorn();
         break;
@@ -114,7 +109,6 @@ class ShapeUI {
         this.addMessage = true;
         this.message = "The craniod curve is a f(a, b, m).";
         break;
-
       case "Deltoid":
         this.shape.deltoid();
         break;
@@ -125,8 +119,6 @@ class ShapeUI {
         this.shape.gear();
         this.addMessage = true;
         this.message = "The gear curve is a f(a, b, m).";
-        break;
-      case "Image":
         break;
       case "Heart":
         this.shape.heart();
@@ -161,7 +153,7 @@ class ShapeUI {
         this.message = "The quadrilaterial curve is a f(m).";
         break;
       case "Flower":
-        // I have added a constraint on the value of b to keep the sketch from freezing
+        // This started out as the rose curve, but I have edit the code and now renders a flower-like shape
         this.shape.flower();
         this.addMessage = true;
         this.message = "The flower curve is a f(a, m)";
@@ -183,8 +175,6 @@ class ShapeUI {
         break;
       case "Tear Drop":
         this.shape.tearDrop();
-        break;
-      case "Word":
         break;
       case "Zigzag":
         this.shape.zigzag();

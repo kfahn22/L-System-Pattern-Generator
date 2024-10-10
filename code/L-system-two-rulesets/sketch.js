@@ -87,7 +87,7 @@ function updateValues(lsystem) {
   let dropdowns = lsystem[1];
   let checkBoxes = lsystem[2];
   let sliderGroup = lsystem[3];
-  let sliders = lsystem[4];
+  //let sliders = lsystem[4];
   let values = [];
   // Add ruleset, shape, palettes dropdown values
   for (let i = 0; i < dropdowns.length; i++) {
