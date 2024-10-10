@@ -64,11 +64,11 @@ function setup() {
   addShape.style("color", "white");
 
   backgroundDropdown = new PaletteDropdown(
-     240,
-     30,
-     "white",
-     "Background Color"
-   );
+    240,
+    30,
+    "white",
+    "Background Color"
+  );
 
   // Add the dropdowns, sliders, and checkboxes
   shapeSystems.push(
@@ -172,23 +172,31 @@ function setShape(shapeSystems) {
     let checkBoxes = shapeSystems[i][2];
     //console.log(controls);
     let values = updateValues(shapeSystems[i]);
-    console.log(values);
+    //console.log(values);
     let colorChoices = [];
-    let strokeChoice = dropdowns[1].value();
-    
+    // let strokeChoice = dropdowns[1].value();
+
+    let strokeName = dropdowns[1].value();
+    let fillName = dropdowns[2].value();
+    let strokeDropdown = controls.strokeDropdown;
+    let fillDropdown = controls.fillDropdown;
+    let strokeChoice = strokeDropdown.setColor(strokeName);
+    strokeChoice[3] = values[6];
+    let fillChoice = fillDropdown.setColor(fillName);
+    fillChoice[3] = values[7];
+
     let addStroke = checkBoxes[0];
     let sw = values[5];
     let strokeAlpha = values[6];
-    let fillChoice = dropdowns[2].value();
     let fillAlpha = values[7];
     let fillShape = checkBoxes[1];
     // Add stroke, fill choices to array
     colorChoices.push(strokeChoice);
-    colorChoices.push(strokeAlpha);
+    //  colorChoices.push(strokeAlpha);
     colorChoices.push(sw);
     colorChoices.push(addStroke);
     colorChoices.push(fillChoice);
-    colorChoices.push(fillAlpha);
+    // colorChoices.push(fillAlpha);
     colorChoices.push(fillShape);
 
     shapeData[0] = controls;
@@ -217,8 +225,6 @@ function setShape(shapeSystems) {
     background(bkdropdown.value());
 
     let shapeValues = values.slice(-9);
-    // let sw = values[5];
-    // strokeWeight(sw);
 
     let shape_ui = controls.shape_ui;
     let shapeName = dropdowns[0].value();
@@ -227,8 +233,6 @@ function setShape(shapeSystems) {
     shape_ui.selectShape(shapeName, shapeValues);
     let shape = shape_ui.shape;
     shapes.push(shape);
-
-    
   }
   // Render the shape
   push();
@@ -272,14 +276,11 @@ function addMessages(message) {
 
 function addColor(colorChoices, openShapes, shapeName) {
   let strokeChoice = colorChoices[0];
-   let strokeAlpha = colorChoices[1];
-   let sw = colorChoices[2];
-  let addStroke = colorChoices[3];
-  let fillChoice = colorChoices[4];
-  let fillAlpha = colorChoices[5];
-  let fillShape = colorChoices[6];
-  strokeChoice[3] = strokeAlpha;
-  fillChoice[3] = fillAlpha;
+  let sw = colorChoices[1];
+  let addStroke = colorChoices[2];
+  let fillChoice = colorChoices[3];
+  let fillShape = colorChoices[4];
+
   if (
     (addStroke.checked() && !fillShape.checked()) ||
     // Don't add fill for the arcs, spirals, lissajous, zigzag
