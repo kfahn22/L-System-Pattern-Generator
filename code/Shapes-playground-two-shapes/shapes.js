@@ -205,7 +205,7 @@ class Shape {
         2 * sin(theta) +
         sin(theta) * (pow(abs(cos(theta)), 0.5) / (sin(theta) + 1.4));
       const x = this.r * r * cos(theta);
-      const y = this.r * r * sin(theta);
+      const y = -this.r * r * sin(theta);
       this.points.push(createVector(x, y));
     }
   }

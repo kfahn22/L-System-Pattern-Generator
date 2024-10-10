@@ -69,7 +69,7 @@ function setup() {
     "white",
     "Background Color"
   );
-
+  
   // Add the dropdowns, sliders, and checkboxes
   shapeSystems.push(
     addShapeSystem(10, sliderValues0, shapeChoice0, strokeChoice0, fillChoice0)
@@ -170,34 +170,24 @@ function setShape(shapeSystems) {
     let controls = shapeSystems[i][0];
     let dropdowns = shapeSystems[i][1];
     let checkBoxes = shapeSystems[i][2];
-    //console.log(controls);
     let values = updateValues(shapeSystems[i]);
-    console.log(values);
-    let colorChoices = [];
-    // let strokeChoice = dropdowns[1].value();
+    //console.log(values);
 
+    // Add all of the color choices to an array
+    let colorChoices = [];
     let strokeName = values[1];
     let fillName = values[2];
-    let [strokeChoice, fillChoice] = controls.getColors(strokeName, fillName);
-    let strokeDropdown = controls.strokeDropdown;
-    let fillDropdown = controls.fillDropdown;
-   // let strokeChoice = strokeDropdown.setColor(strokeName);
-    strokeChoice[3] = values[6];
-    //let fillChoice = fillDropdown.setColor(fillName);
-    fillChoice[3] = values[7];
-
-    let addStroke = checkBoxes[0];
     let sw = values[5];
-    // 
-    
+    let [strokeChoice, fillChoice] = controls.getColors(strokeName, fillName);
+    strokeChoice[3] = values[6];
+    fillChoice[3] = values[7];
+    let addStroke = checkBoxes[0];
     let fillShape = checkBoxes[1];
-    // Add stroke, fill choices to array
+    
     colorChoices.push(strokeChoice);
-    //  colorChoices.push(strokeAlpha);
     colorChoices.push(sw);
     colorChoices.push(addStroke);
     colorChoices.push(fillChoice);
-    // colorChoices.push(fillAlpha);
     colorChoices.push(fillShape);
 
     shapeData[0] = controls;
