@@ -9,6 +9,7 @@ class PaletteDropdown {
       "white",
       "black",
       "gray",
+      "rose",
       "red",
       "orange",
       "yellow",
@@ -17,6 +18,7 @@ class PaletteDropdown {
       "teal",
       "blue",
       "purple",
+      "raspberry"
     ];
     this.color;
 
@@ -47,37 +49,43 @@ class PaletteDropdown {
   setColor(col) {
     switch (this.selected) {
       case "white":
-        col = [255, 255, 255]; //color(255);
+        col = [255, 255, 255]; 
         break;
       case "black":
-        col = [0, 0, 0]; //color(0);
+        col = [0, 0, 0]; 
         break;
       case "gray":
-        col = [59, 59, 59]; //color(59);
+        col = [73, 73, 73]; 
+        break;
+      case "rose":
+        col = [201, 156, 196];
         break;
       case "red":
-        col = [255, 0, 0];
+        col = [250, 0, 0];
         break;
       case "orange":
-        col = [255, 255, 0];
+        col = [255, 169, 31];
         break;
       case "yellow":
-        col = [200, 200, 0];
+        col = [255, 218, 31];
         break;
       case "green":
-        col = [0, 255, 0];
+        col = [17, 136, 35];
         break;
       case "aqua":
-        col = [177, 248, 242];
+        col = [31,248,255];
         break;
       case "teal":
-        col = [52,138,167];
+        col = [52, 138, 167];
         break;
       case "blue":
-        col = [0, 0, 255]; //color(0,0,255);
+        col = [42, 31, 255]; 
         break;
       case "purple":
-        col = [81, 59, 86];
+        col = [139, 31, 255];
+        break;
+      case "raspberry":
+        col = [255, 31, 233];
         break;
     }
     return col;

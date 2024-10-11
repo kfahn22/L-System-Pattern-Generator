@@ -54,15 +54,17 @@ class ShapeUI {
     let r = values[0]; 
     // Create a new Shape object with necessary parameters
     this.shape = new Shape(
-      values[0], // radius
-      values[1], // a
-      values[2], // b
-      values[3], // m
-      values[4], // n1
-      values[5], // n2
-      values[6], // n3
-      values[7], // n
-      values[8] // rotateShape
+      values[0], // x
+      values[1], // y
+      values[2], // radius
+      values[3], // a
+      values[4], // b
+      values[5], // m
+      values[6], // n1
+      values[7], // n2
+      values[8], // n3
+      values[9], // n
+      radians(values[10]) // rotateShape
     );
 
     this.shape.points = []; // Clear any existing points
@@ -76,8 +78,8 @@ class ShapeUI {
         break;
       case "Astroid":
         this.shape.astroid();
-        this.addMessage = true;
-        this.message = "The astroid is a f(a).";
+        // this.addMessage = true;
+        // this.message = "The astroid is a f(a).";
         break;
       case "Bicorn":
         this.shape.bicorn();
@@ -178,6 +180,8 @@ class ShapeUI {
         break;
       case "Zigzag":
         this.shape.zigzag();
+         this.addMessage = true;
+         this.message = "The zigzag curve is a f(a, n).";
         break;
       default:
         break;
