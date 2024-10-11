@@ -27,8 +27,10 @@ let shapeMessage = null;
 
 let sliderValues0 = [
   2, // strokeWeight
-  255,
-  150,
+  255, // stroke alpha
+  150, // fill alpha
+  0.0, // translate shape x
+  0.0, // translate shape y
   0.1, // r
   1, // a
   1, // b
@@ -42,8 +44,10 @@ let sliderValues0 = [
 
 let sliderValues1 = [
   2, // strokeWeight
-  255,
-  150,
+  255, // stroke alpha
+  150, // fill alpha
+  0.0, // translate shape x
+  0.0, // translate shape y
   0.1, // r
   1, // a
   1, // b
@@ -57,7 +61,7 @@ let sliderValues1 = [
 
 function setup() {
   canvas = createCanvas(600, 600);
-  canvas.position(240, 75);
+  canvas.position(240, 90);
 
   addShape = createCheckbox("Add second shape", false);
   addShape.position(400, 10);
@@ -82,7 +86,7 @@ function setup() {
 }
 
 function updateValues(shapeSystem) {
-  let controls = shapeSystem[0];
+  // let controls = shapeSystem[0];
   let dropdowns = shapeSystem[1];
   let checkBoxes = shapeSystem[2];
   let sliderGroup = shapeSystem[3];
@@ -95,6 +99,8 @@ function updateValues(shapeSystem) {
   for (let i = 0; i < 2; i++) {
     values.push(checkBoxes[i].checked());
   }
+
+  // Add slider values
   let sliderValues = sliderGroup.getValues();
   for (let s of sliderValues) {
     values.push(s);
@@ -122,7 +128,6 @@ function handleInput(shapeSystem) {
 
 function reset() {
   clear();
-  //shapeMessage.hide();
   setShape(shapeSystems);
 }
 
@@ -154,7 +159,6 @@ function addShapeSystem(
 
 function setShape(shapeSystems) {
   let shapeSystemValues = [];
-  //let sliderValues = [];
 
   let n; // # of shapes
   if (addShape.checked()) {
@@ -171,7 +175,6 @@ function setShape(shapeSystems) {
     let dropdowns = shapeSystems[i][1];
     let checkBoxes = shapeSystems[i][2];
     let values = updateValues(shapeSystems[i]);
-    //console.log(values);
 
     // Add all of the color choices to an array
     let colorChoices = [];
@@ -183,7 +186,7 @@ function setShape(shapeSystems) {
     fillChoice[3] = values[7];
     let addStroke = checkBoxes[0];
     let fillShape = checkBoxes[1];
-    
+
     colorChoices.push(strokeChoice);
     colorChoices.push(sw);
     colorChoices.push(addStroke);
@@ -195,11 +198,13 @@ function setShape(shapeSystems) {
     shapeData[2] = dropdowns;
     shapeData[3] = colorChoices;
     shapeSystemValues[i] = shapeData;
+
   }
 
   let shapes = [];
   let shapeNames = [];
   let shapeColorValues = [];
+  let shapeMessages = [];
   // Catch-all array for arcs, spirals, lissajous, zigzag
   let openShapes = ["Arc", "Cornu Spiral", "Lissajous", "Spiral", "Zigzag"];
 
@@ -207,7 +212,6 @@ function setShape(shapeSystems) {
     let shapeSystem = shapeSystemValues[i];
     let controls = shapeSystem[0];
     let values = shapeSystem[1];
-    //console.log(values)
     let dropdowns = shapeSystem[2];
 
     shapeColorValues.push(shapeSystem[3]);
@@ -215,8 +219,7 @@ function setShape(shapeSystems) {
     let bkdropdown = backgroundDropdown.dropdown;
     background(bkdropdown.value());
 
-    let shapeValues = values.slice(-9);
-
+    let shapeValues = values.slice(-11);
     let shape_ui = controls.shape_ui;
     let shapeName = dropdowns[0].value();
     shapeNames.push(shapeName);
@@ -224,6 +227,10 @@ function setShape(shapeSystems) {
     shape_ui.selectShape(shapeName, shapeValues);
     let shape = shape_ui.shape;
     shapes.push(shape);
+
+    // Add shape messages
+    let message = shape_ui.message;
+    shapeMessages.push(message);
   }
   // Render the shape
   push();
@@ -248,8 +255,36 @@ function setShape(shapeSystems) {
   }
 
   // let message = shape_ui.message;
-  // addMessages(message);
+  let messages = updateMessage(shapeMessages, n);
+  addMessages(messages);
 }
+
+// Adds a message if the choosen shape is a function of one of the shape parameters
+function updateMessage(messages, n) {
+  let message;
+  if (n > 1) {
+    if (
+      (messages[0] == messages[1] && messages[0] != null) ||
+      (messages[0] != null && messages[1] === null)
+    ) {
+      message = messages[0];
+    } else if (
+      messages[0] != null &&
+      messages[1] != null &&
+      messages[0] != messages[1]
+    ) {
+      message = messages[0] + " " + messages[1];
+    } else if (messages[0] == null && messages[1] != null) {
+      message = messages[1];
+    } else if (messages[0] == null && messages[0] == null) {
+      message = null;
+    }
+  } else {
+    message = messages;
+  }
+  return message;
+}
+
 
 // This function adds a message if the choosen shape is a function of the parameters (a, b, m, n, n1, n2, n3)
 function addMessages(message) {
@@ -260,7 +295,7 @@ function addMessages(message) {
 
   if (message) {
     shapeMessage = createP(message); // Create a new paragraph with the message
-    shapeMessage.position(240, 20); // Set position for the message
+    shapeMessage.position(240, 25); // Set position for the message
     shapeMessage.style("font-size", "25px");
   }
 }

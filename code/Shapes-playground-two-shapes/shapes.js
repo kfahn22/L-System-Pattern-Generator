@@ -1,7 +1,9 @@
 const e = 2.71828;
 
 class Shape {
-  constructor(r, a, b, m, n1, n2, n3, n, angle) {
+  constructor(x, y, r, a, b, m, n1, n2, n3, n, angle) {
+    this.x = x;
+    this.y = y;
     this.r = r;
     this.a = a;
     this.b = b;
@@ -26,8 +28,8 @@ class Shape {
   // https://mathworld.wolfram.com/Astroid.html
   astroid() {
     for (let theta = 0; theta < TWO_PI; theta += 0.05) {
-      let x = this.r * this.a * pow(cos(theta), 3);
-      let y = this.r * this.a * pow(sin(theta), 3);
+      let x = this.r * pow(cos(theta), 3);
+      let y = this.r * pow(sin(theta), 3);
       this.points.push(createVector(x, y));
     }
   }
@@ -165,7 +167,7 @@ class Shape {
       this.points.push(createVector(x, y));
     }
   }
-  
+
   // https://thecodingtrain.com/challenges/55-mathematical-rose-patterns
   // changed to flower
   flower() {
@@ -197,15 +199,18 @@ class Shape {
   }
 
   // heart curve equation from https://mathworld.wolfram.com/HeartCurve.html
+  // https://thecodingtrain.com/challenges/134-heart-curve
 
   heart() {
-    for (let theta = 0; theta < 2 * PI; theta += 0.05) {
-      const r =
-        2 -
-        2 * sin(theta) +
-        sin(theta) * (pow(abs(cos(theta)), 0.5) / (sin(theta) + 1.4));
-      const x = this.r * r * cos(theta);
-      const y = -this.r * r * sin(theta);
+    for (let theta = 0; theta < 2 * PI; theta += 0.1) {
+      const x = 0.1 * this.r * 16 * pow(sin(theta), 3);
+      const y =
+        0.1 *
+        -this.r *
+        (13 * cos(theta) -
+          5 * cos(2 * theta) -
+          2 * cos(3 * theta) -
+          cos(4 * theta));
       this.points.push(createVector(x, y));
     }
   }
@@ -371,6 +376,7 @@ class Shape {
 
   show() {
     push();
+    translate(this.x * width, this.y * height);
     rotate(this.angle);
     beginShape();
     for (let p of this.points) {
@@ -382,6 +388,7 @@ class Shape {
 
   openShow() {
     push();
+    translate(this.x * width, this.y * height);
     rotate(this.angle);
     beginShape();
     for (let p of this.points) {
