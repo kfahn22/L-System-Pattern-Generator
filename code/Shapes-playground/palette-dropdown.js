@@ -20,7 +20,7 @@ class PaletteDropdown {
       "purple",
       "raspberry"
     ];
-    this.color;
+    this.color = null;
 
     // Add options to the dropdown
     this.optionsArray.forEach((option) => this.dropdown.option(option));

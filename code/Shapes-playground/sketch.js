@@ -1,4 +1,5 @@
-// https://github.com/kfahn22/L-System-Pattern-Generator
+// https://editor.p5js.org/kfahn/sketches/BK_t2uB-l
+// Code created as a tool for https://github.com/kfahn22/L-System-Pattern-Generator
 
 // Control variables
 let controls;
@@ -73,7 +74,7 @@ function setup() {
     "white",
     "Background Color"
   );
-  
+
   // Add the dropdowns, sliders, and checkboxes
   shapeSystems.push(
     addShapeSystem(10, sliderValues0, shapeChoice0, strokeChoice0, fillChoice0)
@@ -111,6 +112,7 @@ function updateValues(shapeSystem) {
 }
 
 function handleInput(shapeSystem) {
+  backgroundDropdown.dropdown.changed(reset);
   let dropdowns = shapeSystem[1];
   let checkBoxes = shapeSystem[2];
   let sliders = shapeSystem[4];
@@ -198,7 +200,6 @@ function setShape(shapeSystems) {
     shapeData[2] = dropdowns;
     shapeData[3] = colorChoices;
     shapeSystemValues[i] = shapeData;
-
   }
 
   let shapes = [];
@@ -284,7 +285,6 @@ function updateMessage(messages, n) {
   }
   return message;
 }
-
 
 // This function adds a message if the choosen shape is a function of the parameters (a, b, m, n, n1, n2, n3)
 function addMessages(message) {
