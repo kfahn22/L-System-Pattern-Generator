@@ -187,17 +187,37 @@ class Shape {
 
   // heart curve equation from https://mathworld.wolfram.com/HeartCurve.html
 
+  // heart() {
+  //   for (let theta = 0; theta < 2 * PI; theta += 0.01) {
+  //     const r =
+  //       2 -
+  //       2 * sin(theta) +
+  //       sin(theta) * (pow(abs(cos(theta)), 0.5) / (sin(theta) + 1.4));
+  //     const x = this.r * r * cos(theta);
+  //     const y = this.r * r * sin(theta);
+  //     this.points.push(createVector(x, y));
+  //   }
+  // }
+
   heart() {
-    for (let theta = 0; theta < 2 * PI; theta += 0.05) {
-      const r =
-        2 -
-        2 * sin(theta) +
-        sin(theta) * (pow(abs(cos(theta)), 0.5) / (sin(theta) + 1.4));
-      const x = this.r * r * cos(theta);
-      const y = this.r * r * sin(theta);
+    for (let theta = 0; theta < 2 * PI; theta += 0.1) {
+      const x = this.r * 16 * pow(sin(theta), 3);
+      const y = this.r * (13 * cos(theta) - 5 * cos(2*theta) - 2 * cos(3*theta) - cos(4*theta));
       this.points.push(createVector(x, y));
     }
   }
+
+  // heart() {
+  //   for (let theta = 0; theta < 2 * PI; theta += 0.01) {
+  //     const r =
+  //       2 -
+  //       2 * sin(theta) +
+  //       sin(theta) * (pow(abs(cos(theta)), 0.5) / (sin(theta) + 1.4));
+  //     const x = this.r * r * cos(theta);
+  //     const y = this.r * r * sin(theta);
+  //     this.points.push(createVector(x, y));
+  //   }
+  // }
 
   // https://mathcurve.com/courbes2d.gb/bouche/bouche.shtml
   kissCurve() {
@@ -286,7 +306,7 @@ class Shape {
   // changed rose to flower
   flower() {
     let b = 1;
-   
+
     let k = this.m / b;
     for (
       let theta = 0;
