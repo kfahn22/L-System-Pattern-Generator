@@ -74,7 +74,7 @@ class ShapeUI {
       case "Arc":
         this.shape.arc();
         this.addMessage = true;
-        this.message = "Arc is a f(a), a = 2 yields a circle";
+        this.message = "Arc is a f(a), a = 2 yields a circle. Start: a=1.";
         break;
       case "Astroid":
         this.shape.astroid();
@@ -96,7 +96,8 @@ class ShapeUI {
       case "Cassini Oval":
         this.shape.cassiniOval();
         this.addMessage = true;
-        this.message = "The cassini oval curve is a f(a, b).";
+        this.message =
+          "The cassini oval curve is a f(a, b). Start a = 0.7, b = 1.";
         break;
       case "Ceva":
         this.shape.ceva();
@@ -104,12 +105,13 @@ class ShapeUI {
       case "Cornu Spiral":
         this.shape.cornuSpiral();
         this.addMessage = true;
-        this.message = "The cornu spiral is f(a), a ~ [0.5, 2]";
+        this.message = "The cornu spiral is f(a), a ~ [0.5, 2]. Start a=2.";
         break;
       case "Craniod":
         this.shape.craniod();
         this.addMessage = true;
-        this.message = "The craniod curve is a f(a, b, m).";
+        this.message =
+          "The craniod curve is a f(a, b, m). Start: a=1, b=3, m=0";
         break;
       case "Deltoid":
         this.shape.deltoid();
@@ -120,7 +122,7 @@ class ShapeUI {
       case "Gear":
         this.shape.gear();
         this.addMessage = true;
-        this.message = "The gear curve is a f(a, b, m).";
+        this.message = "The gear curve is a f(a, b, m). Start: a=1, b=m=8";
         break;
       case "Heart":
         this.shape.heart();
@@ -128,7 +130,7 @@ class ShapeUI {
       case "Kiss Curve":
         this.shape.kissCurve();
         this.addMessage = true;
-        this.message = "The kiss curve is a f(a, b).";
+        this.message = "The kiss curve is a f(a, b). Start: a=2, b=1";
         break;
       case "Knot":
         this.shape.knot();
@@ -139,12 +141,13 @@ class ShapeUI {
       case "Lissajous":
         this.shape.lissajous();
         this.addMessage = true;
-        this.message = "The lissajous curve is a f(a, b, m).";
+        this.message =
+          "The lissajous curve is a f(a, b, m). Start: a = 4; b=4, m=8";
         break;
       case "Maltese Cross":
         this.shape.malteseCross();
         this.addMessage = true;
-        this.message = "The cross curve is a f(a, b).";
+        this.message = "The cross curve is a f(a, b). Start: a=3, b=2";
         break;
       case "Quadrifolium":
         this.shape.quadrifolium();
@@ -158,22 +161,24 @@ class ShapeUI {
         // This started out as the rose curve, but I have edit the code and now renders a flower-like shape
         this.shape.flower();
         this.addMessage = true;
-        this.message = "The flower curve is a f(a, m)";
+        this.message = "The flower curve is a f(a, m). Start a=1.5, m=8";
         break;
       case "Superellipse":
         this.shape.superellipse();
         this.addMessage = true;
-        this.message = "The superellipse curve is a f(a, b, m).";
+        this.message =
+          "The superellipse curve is a f(a, b, m). Start: a=b=1, m=6";
         break;
       case "Supershape":
         this.shape.supershape();
         this.addMessage = true;
-        this.message = "The supershape curve is a f(a, b, m, n1, n2, n3).";
+        this.message =
+          "The supershape curve is a f(a, b, m, n1, n2, n3). Start: a=b=n1=n2=n3=1, m=8";
         break;
       case "Spiral":
         this.shape.spiral();
         this.addMessage = true;
-        this.message = "The spiral is a f(a, n), n ~ [-1, 1]";
+        this.message = "The spiral is a f(a, n), n ~ [-1, 1]. Start a=0.1, n=1";
         break;
       case "Tear Drop":
         this.shape.tearDrop();
