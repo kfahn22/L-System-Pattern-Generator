@@ -1,5 +1,6 @@
 // https://editor.p5js.org/kfahn/sketches/BK_t2uB-l
 // Code created as a tool for https://github.com/kfahn22/L-System-Pattern-Generator
+// https://github.com/kfahn22/shape_playground
 
 // Control variables
 let controls;
@@ -217,8 +218,10 @@ function setShape(shapeSystems) {
 
     shapeColorValues.push(shapeSystem[3]);
 
+    // Set background color
     let bkdropdown = backgroundDropdown.dropdown;
-    background(bkdropdown.value());
+    backgroundDropdown.getColor(bkdropdown.value());
+    background(backgroundDropdown.color);
 
     let shapeValues = values.slice(-11);
     let shape_ui = controls.shape_ui;
@@ -301,6 +304,7 @@ function addMessages(message) {
 }
 
 function addColor(colorChoices, openShapes, shapeName) {
+  //console.log(colorChoices)
   let strokeChoice = colorChoices[0];
   let sw = colorChoices[1];
   let addStroke = colorChoices[2];
