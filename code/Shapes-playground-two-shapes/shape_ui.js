@@ -180,6 +180,8 @@ class ShapeUI {
         break;
       case "Zigzag":
         this.shape.zigzag();
+         this.addMessage = true;
+         this.message = "The zigzag curve is a f(a, n).";
         break;
       default:
         break;

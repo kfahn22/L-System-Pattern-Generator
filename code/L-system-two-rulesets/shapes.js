@@ -361,10 +361,10 @@ class Shape {
   // https://mathcurve.com/courbes2d.gb/abdank/abdank.shtml
 
   zigzag() {
-    for (let theta = -PI / 2; theta < (3 / 2) * PI; theta += 0.1) {
-      let r = 1;
-      let x = this.r * r * sin(theta);
-      let y = ((this.r * pow(r, 2)) / 2) * (theta + sin(theta) * cos(theta));
+    for (let theta = -PI / 2; theta < this.a * PI; theta += 0.1) {
+      let x = this.r * sin(theta);
+      let y =
+        ((this.r * pow(this.n, 2)) / 2) * (theta + sin(theta) * cos(theta));
       this.points.push(createVector(x, y));
     }
   }
