@@ -25,7 +25,7 @@ lissajous() {
 <table>
   <tbody>
    <tr>
-     <td align="center"><a href=""> <img class="img" src="..assets/Ruleset-shape-examples/adh231a-lissajous.jpg" alt="ADH231a ruleset with lissajous curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>ADH231a ruleset with lissajous curve</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/adh231a-lissajous.jpg" alt="ADH231a ruleset with lissajous curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>ADH231a ruleset with lissajous curve</b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/koch_snowflake-lissajous.jpg" alt="Koch snowflake with lissajous curve" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Koch snowflake with lissajous curve</b></sub></a></td>
