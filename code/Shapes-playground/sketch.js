@@ -41,6 +41,7 @@ let sliderValues0 = [
   1, // n2
   1, // n3
   1, // n
+  5, // d
   0, // shape angle
 ];
 
@@ -223,7 +224,7 @@ function setShape(shapeSystems) {
     backgroundDropdown.getColor(bkdropdown.value());
     background(backgroundDropdown.color);
 
-    let shapeValues = values.slice(-11);
+    let shapeValues = values.slice(-12);
     let shape_ui = controls.shape_ui;
     let shapeName = dropdowns[0].value();
     shapeNames.push(shapeName);
