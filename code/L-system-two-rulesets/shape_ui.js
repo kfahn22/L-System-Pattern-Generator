@@ -37,6 +37,7 @@ class ShapeUI {
       "Maltese Cross",
       "Quadrifolium",
       "Quadrilateral",
+      "Rose",
       "Flower",
       "Spiral",
       "Superellipse",
@@ -64,6 +65,7 @@ class ShapeUI {
       values[6], // n2
       values[7], // n3
       values[8], // n
+      values[9], // d
       radians(values[9]) // rotateShape
     );
 
@@ -165,6 +167,11 @@ class ShapeUI {
         this.shape.flower();
         this.addMessage = true;
         this.message = "The flower curve is a f(a, m)";
+        break;
+      case "Rose":
+        this.shape.rose();
+        this.addMessage = true;
+        this.message = "The rose curve is a f(d, m). Start: d=5, m=8";
         break;
       case "Superellipse":
         this.shape.superellipse();

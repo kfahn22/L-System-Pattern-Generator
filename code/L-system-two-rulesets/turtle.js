@@ -143,7 +143,7 @@ class Turtle {
     let fillAlpha = values[5];
     let fractalAngle = values[6];
     let length = values[7];
-    this.shapeValues = values.slice(-10);
+    this.shapeValues = values.slice(-11);
     // We will send some values to the render/turtle functions
     let params = [];
     params.push(level);

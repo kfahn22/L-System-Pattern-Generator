@@ -1,7 +1,7 @@
 const e = 2.71828;
 
 class Shape {
-  constructor(r, a, b, m, n1, n2, n3, n, angle) {
+  constructor(r, a, b, m, n1, n2, n3, n, d, angle) {
     this.r = r;
     this.a = a;
     this.b = b;
@@ -10,6 +10,7 @@ class Shape {
     this.n3 = n3;
     this.m = m;
     this.n = n;
+    this.d = d;
     this.angle = angle;
     this.points = [];
   }
@@ -280,6 +281,30 @@ class Shape {
     for (let theta = 0; theta < TWO_PI; theta += TWO_PI / this.m) {
       let x = this.r * cos(theta);
       let y = this.r * sin(theta);
+      this.points.push(createVector(x, y));
+    }
+  }
+
+  // https://thecodingtrain.com/challenges/55-mathematical-rose-patterns
+  // https://editor.p5js.org/codingtrain/sketches/3kanFIcHd
+
+  reduceDenominator(numerator, denominator) {
+    function rec(a, b) {
+      return b ? rec(b, a % b) : a;
+    }
+    return denominator / rec(numerator, denominator);
+  }
+
+  rose() {
+    let k = this.d / this.m;
+    for (
+      let theta = 0;
+      theta < TWO_PI * this.reduceDenominator(this.d, this.m);
+      theta += 0.02
+    ) {
+      let r = this.r * cos(k * theta);
+      let x = r * cos(theta);
+      let y = r * sin(theta);
       this.points.push(createVector(x, y));
     }
   }
