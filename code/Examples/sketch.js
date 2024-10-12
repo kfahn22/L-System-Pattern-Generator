@@ -49,7 +49,7 @@ let exampleOptions = [
   "Kolam with Image",
   "Krishna Anklet with Gear Curve (Background)",
   "Krishna Anklet with Gear Curve",
-  "Mango Leaf with Gear Curve",
+  "Mango Leaf with Flower Curve",
   "Mango Leaf with Rose Curve",
   "Peano with Cassini Oval",
   "Peano with Quadrilateral Curve",
