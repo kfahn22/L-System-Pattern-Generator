@@ -37,16 +37,16 @@ rose() {
 <table>
   <tbody>
    <tr>
-     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/mango-leaf-rose.jpg" alt="ADH231a ruleset with kiss curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>ADH231a ruleset with kiss curve, a = 3.85, n = 2.5</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/adh231a-rose.jpg" alt="Hilbert rulesset with kiss curve" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/mango-leaf-rose.jpg" alt="Mango leaf ruleset with rose curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Mango leaf ruleset with rose curve</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/adh231a-rose.jpg" alt="ADH231a ruleset with rose curve" style=" display: block;
     margin-left: auto;
-    margin-right: auto;" width="500" /><br /><sub><b><br/>Hilbert rulesset with kiss curve</b></sub></a></td>
+    margin-right: auto;" width="500" /><br /><sub><b><br/>ADH231a ruleset with rose curve</b></sub></a></td>
     </tr>
     <tr>
-     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/quad-snowflake-rose.jpg" alt="Rounded cross ruleset with kiss curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Rounded cross ruleset with kiss curve</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/skierpinski-carpet-rose.jpg" alt="Box rule-set with kiss curve" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/quad-snowflake-rose.jpg" alt="Quadratic snowflake ruleset with rose curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Quadratic snowflake ruleset with rose curve</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/skierpinski-carpet-rose.jpg" alt="Skierpinski carpet rule-set with rose curve" style=" display: block;
     margin-left: auto;
-    margin-right: auto;" width="500" /><br /><sub><b><br/>Box  rule-set with kiss curve</b></sub></a></td>
+    margin-right: auto;" width="500" /><br /><sub><b><br/>Skierpinski carpet rule-set with rose curve</b></sub></a></td>
     </tr>
     
   
