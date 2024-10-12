@@ -50,7 +50,7 @@ let exampleOptions = [
   "Krishna Anklet with Gear Curve (Background)",
   "Krishna Anklet with Gear Curve",
   "Mango Leaf with Gear Curve",
-  "Mango Leaf with Rose",
+  "Mango Leaf with Rose Curve",
   "Peano with Cassini Oval",
   "Peano with Quadrilateral Curve",
   "Pentaplexity with Gear Curve",
@@ -136,7 +136,7 @@ function setSystemVariables(exampleValues) {
   } else if (exampleValues[5] === true && exampleValues[6] === true) {
     colorMode = 2;
   }
-
+  
   //Add turtle system
   let turtle = new Turtle(
     exampleValues,

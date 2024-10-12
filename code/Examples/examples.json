@@ -24,6 +24,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": 0
   },
   "ADH231a_with_Archimedes_Spiral": {
@@ -51,6 +52,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": 0
   },
   "ADH231a_with_Supershape_Curve": {
@@ -79,6 +81,7 @@
     "n1": 1,
     "n2": 0.8,
     "n3": 1,
+    "d": 1,
     "shape_angle": 0
   },
   "ADH256a_with_Kiss_Curve": {
@@ -106,6 +109,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": -90
   },
   "ADH256a_with_Superellipse": {
@@ -133,6 +137,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": 0
   },
   "Board_with_Lissajous": {
@@ -160,6 +165,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": 0
   },
   "Box_with_Ceva": {
@@ -187,6 +193,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": -45
   },
 
@@ -215,6 +222,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": 0
   },
   "Crystal_with_Supershape": {
@@ -242,6 +250,7 @@
     "n1": 0.5,
     "n2": 0.4,
     "n3": 1.1,
+    "d": 1,
     "shape_angle": 0
   },
   "Dragon2_with_Gear_Curve": {
@@ -269,6 +278,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": 0
   },
   "Dragon1_with_Astroid_Curve": {
@@ -296,6 +306,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": 0
   },
   "Dragon2_with_Cornu_Spiral": {
@@ -323,6 +334,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": -33
   },
   "Doily_with_Bicorn": {
@@ -350,6 +362,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": 0
   },
   "Doily_with_supershape": {
@@ -377,6 +390,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": 0
   },
   "Hilbert_Curve_with_Eight_Curve": {
@@ -404,6 +418,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": 38
   },
   "Hilbert_Curve_with_Gear_Curve": {
@@ -431,6 +446,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": 0
   },
   "Hilbert_Curve_with_Kiss_Curve": {
@@ -458,6 +474,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": 0
   },
   "Hilbert_Curve_with_Quadrifolium_Curve": {
@@ -485,6 +502,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": 0
   },
   "Koch_snowflake_with_Kiss_curve": {
@@ -512,6 +530,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": 120
   },
   "Koch_snowflake_with_Bicorn_curve": {
@@ -539,6 +558,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": 120
   },
   "Koch_snowflake_with_Quadrilateral": {
@@ -566,6 +586,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": 30
   },
   "Koch_snowflake_with_Supershape": {
@@ -593,6 +614,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": -31
   },
   "Koch_snowflake_with_Word": {
@@ -620,6 +642,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": 0
   },
   "Kolam_with_Butterfly": {
@@ -647,6 +670,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": 45
   },
   "Kolam_with_Image": {
@@ -674,6 +698,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": -60
   },
   "Kolam_with_Ceva_Curve": {
@@ -701,6 +726,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": -45
   },
   "Kolam_with_Gear_Curve": {
@@ -728,6 +754,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": 45
   },
   "Kolam_with_Deltoid": {
@@ -755,6 +782,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": 15
   },
   "Krishna_Anklet_with_Gear_Curve": {
@@ -782,6 +810,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": 0
   },
   "Background_Krishna_Anklet_with_Gear_Curve": {
@@ -809,6 +838,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": 0
   },
   "Mango_Leaf_with_Gear_Curve": {
@@ -836,33 +866,35 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": 0
   },
   "Mango_Leaf_with_Rose_Curve": {
     "ruleset": "mango_leaf",
     "shape": "Rose",
     "background_color": "black",
-    "stroke_palette": "blue_aqua",
-    "fill_palette": "blue_aqua",
-    "fill_shape": false,
+    "stroke_palette": "fushia_multi",
+    "fill_palette": "blue",
+    "fill_shape": true,
     "add_stroke": true,
     "add_grain": false,
     "wadj": 0.5,
     "hadj": 0.2,
-    "level": 4,
-    "strokeWeight": 1,
-    "strokeAlpha": 255,
-    "fillAlpha": 170,
+    "level": 3,
+    "strokeWeight": 1.5,
+    "strokeAlpha": 200,
+    "fillAlpha": 150,
     "fractal_angle": 90,
-    "length": 0.05,
+    "length": 0.075,
     "shapeScale": 0.25,
     "a": 1,
     "b": 0.5,
-    "m": 1,
+    "m": 7,
     "n": 4,
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 5,
     "shape_angle": 0
   },
   "Peano_with_Cassini_Oval": {
@@ -890,6 +922,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": -45
   },
   "Peano_with_Quadrilateral_Curve": {
@@ -917,6 +950,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": 0
   },
   "Pentaplexity_with_Gear_Curve": {
@@ -944,6 +978,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": 0
   },
   "Pentaplexity_with_Supershape_Curve": {
@@ -971,6 +1006,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": 0
   },
   "Quadratic_gosper_with_Kiss_curve": {
@@ -998,6 +1034,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": -45
   },
   "Quadratic_snowflake_with_Quadrifolium_curve": {
@@ -1025,6 +1062,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": 0
   },
   "Rounded_Star_with_Cornu_Spiral": {
@@ -1052,6 +1090,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": 37
   },
   "Skierpinski_with_Gear_curve": {
@@ -1079,6 +1118,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": 12
   },
   "Skierpinski_carpet_with_Supershape": {
@@ -1107,6 +1147,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": 0
   },
   "Snake_kolam_with_Tear_curve": {
@@ -1134,6 +1175,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": 160
   },
   "Square_Skierpinski_with_Cornu_Spiral": {
@@ -1162,6 +1204,7 @@
     "n1": 1,
     "n2": 1,
     "n3": 1,
+    "d": 1,
     "shape_angle": -90
   }
 }

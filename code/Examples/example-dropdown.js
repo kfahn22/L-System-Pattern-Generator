@@ -40,7 +40,7 @@ class ExampleDropdown {
       "Krishna Anklet with Gear Curve (Background)",
       "Krishna Anklet with Gear Curve",
       "Mango Leaf with Gear Curve",
-      "Mango Leaf with Rose",
+      "Mango Leaf with Rose Curve",
       "Peano with Cassini Oval",
       "Peano with Quadrilateral Curve",
       "Pentaplexity with Gear Curve",
@@ -161,7 +161,7 @@ class ExampleDropdown {
       case "Mango Leaf with Gear Curve":
         this.currentExample = this.data.Mango_Leaf_with_Gear_Curve;
         break;
-      case "Mango Leaf with Rose":
+      case "Mango Leaf with Rose Curve":
         this.currentExample = this.data.Mango_Leaf_with_Rose_Curve;
         break;
       case "Peano with Cassini Oval":
@@ -233,7 +233,8 @@ class ExampleDropdown {
     let n1 = this.currentExample.n1; // 21
     let n2 = this.currentExample.n2; // 22
     let n3 = this.currentExample.n3; // 23
-    let shapeAngle = radians(this.currentExample.shape_angle); // 24
+    let d = this.currentExample.d; // 24
+    let shapeAngle = radians(this.currentExample.shape_angle); // 25
 
     return [
       ruleset,
@@ -260,6 +261,7 @@ class ExampleDropdown {
       n1,
       n2,
       n3,
+      d,
       shapeAngle,
     ];
   }

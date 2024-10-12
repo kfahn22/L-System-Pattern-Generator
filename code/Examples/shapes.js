@@ -1,15 +1,16 @@
 const e = 2.71828;
 
 class Shape {
-  constructor(r, a, b, m, n, n1, n2, n3, angle) {
+  constructor(r, a, b, m, n, n1, n2, n3, d, angle) {
     this.r = r;
     this.a = a;
     this.b = b;
-    this.n = n;
+    this.m = m;
     this.n1 = n1;
     this.n2 = n2;
     this.n3 = n3;
-    this.m = m;
+    this.n = n;
+    this.d = d;
     this.angle = angle;
     this.points = [];
   }
@@ -188,6 +189,17 @@ class Shape {
     }
   }
 
+  // https://thecodingtrain.com/challenges/55-mathematical-rose-patterns
+
+  flower() {
+    for (let theta = 0; theta < TWO_PI; theta += 0.01) {
+      let r = this.a + cos(this.m * theta);
+      let x = this.r * r * cos(theta);
+      let y = this.r * r * sin(theta);
+      this.points.push(createVector(x, y));
+    }
+  }
+
   // https://mathworld.wolfram.com/GearCurve.html
   // https://help.tc2000.com/m/69445/l/755460-hyperbolic-functions-table
 
@@ -247,7 +259,7 @@ class Shape {
     this.points.push(createVector(0, 0));
     this.points.push(createVector(2 * this.r, 0));
   }
-
+  
   // https://thecodingtrain.com/challenges/116-lissajous-curve-table
 
   lissajous() {
@@ -286,16 +298,26 @@ class Shape {
     return denominator / rec(numerator, denominator);
   }
 
+  // https://thecodingtrain.com/challenges/55-mathematical-rose-patterns
+  // https://editor.p5js.org/codingtrain/sketches/3kanFIcHd
+
+  reduceDenominator(numerator, denominator) {
+    function rec(a, b) {
+      return b ? rec(b, a % b) : a;
+    }
+    return denominator / rec(numerator, denominator);
+  }
+
   rose() {
-    let k = this.n / this.b;
+    let k = this.d / this.m;
     for (
       let theta = 0;
-      theta < TWO_PI * this.reduceDenominator(this.n, this.b);
-      theta += 0.1
+      theta < TWO_PI * this.reduceDenominator(this.d, this.m);
+      theta += 0.02
     ) {
-      let r = this.a + cos(k * theta);
-      let x = this.r * r * cos(theta);
-      let y = this.r * r * sin(theta);
+      let r = this.r * cos(k * theta);
+      let x = r * cos(theta);
+      let y = r * sin(theta);
       this.points.push(createVector(x, y));
     }
   }
