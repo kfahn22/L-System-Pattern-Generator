@@ -39,7 +39,7 @@ class ExampleDropdown {
       "Kolam with Image",
       "Krishna Anklet with Gear Curve (Background)",
       "Krishna Anklet with Gear Curve",
-      "Mango Leaf with Gear Curve",
+      "Mango Leaf with Flower Curve",
       "Mango Leaf with Rose Curve",
       "Peano with Cassini Oval",
       "Peano with Quadrilateral Curve",
@@ -158,8 +158,8 @@ class ExampleDropdown {
         this.currentExample =
           this.data.Background_Krishna_Anklet_with_Gear_Curve;
         break;
-      case "Mango Leaf with Gear Curve":
-        this.currentExample = this.data.Mango_Leaf_with_Gear_Curve;
+      case "Mango Leaf with Flower Curve":
+        this.currentExample = this.data.Mango_Leaf_with_Flower_Curve;
         break;
       case "Mango Leaf with Rose Curve":
         this.currentExample = this.data.Mango_Leaf_with_Rose_Curve;
