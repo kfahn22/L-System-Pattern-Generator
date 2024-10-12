@@ -28,7 +28,8 @@ let sliderValues0 = [
   1, // n1
   0.8, // n2
   1, // n3
-  1, // n
+  1, // n,
+  5, // d
   0, // shape angle
 ];
 
@@ -53,6 +54,7 @@ let sliderValues1 = [
   0.8, // n2
   1, // n3
   1, // n
+  5, // d
   0, // shape angle
 ];
 let lsystems = [];
@@ -214,8 +216,8 @@ function setSystemVariables(lsystems) {
     let lsystemData = ruleset.currentFractal;
 
     // Get Shape data
-    sliderValues.push(lsystemValues[i][0].slice(-17));
-
+    sliderValues.push(lsystemValues[i][0].slice(-18));
+    console.log(sliderValues)
     let clrMode = lsystemValues[i][5];
     let currentStrokePalette = lsystemValues[i][3];
     let currentFillPalette = lsystemValues[i][4];
@@ -239,7 +241,7 @@ function setSystemVariables(lsystems) {
   addMessages(shapeMessage, ruleWarning, turtle.addWarning);
 }
 
-// This function adds a message if the choosen shape is a function of the parameters (a, b, m, n, n1, n2, n3)
+// This function adds a message if the choosen shape is a function of the parameters (a, b, m, n, n1, n2, n3, d)
 // A warning is also added if the choosen level exceeds some limits I imposed to keep the sketch from slowing down significantly or freezing
 function addMessages(shapeMessages, warnings) {
   let addMessage = true;

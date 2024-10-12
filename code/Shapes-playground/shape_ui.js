@@ -36,6 +36,7 @@ class ShapeUI {
       "Maltese Cross",
       "Quadrifolium",
       "Quadrilateral",
+      "Rose",
       "Spiral",
       "Superellipse",
       "Supershape",
@@ -63,8 +64,9 @@ class ShapeUI {
       values[6], // n1
       values[7], // n2
       values[8], // n3
-      values[9], // n
-      radians(values[10]) // rotateShape
+      values[9], // n,
+      values[10], // d
+      radians(values[11]) // rotateShape
     );
 
     this.shape.points = []; // Clear any existing points
@@ -163,6 +165,12 @@ class ShapeUI {
         this.addMessage = true;
         this.message = "The flower curve is a f(a, m). Start a=1.5, m=8";
         break;
+      case "Rose":
+        this.shape.rose();
+        this.addMessage = true;
+        this.message =
+          "The rose curve is a f(a, m). Start: a=8, m=5";
+        break;
       case "Superellipse":
         this.shape.superellipse();
         this.addMessage = true;
@@ -185,8 +193,8 @@ class ShapeUI {
         break;
       case "Zigzag":
         this.shape.zigzag();
-         this.addMessage = true;
-         this.message = "The zigzag curve is a f(a, n).";
+        this.addMessage = true;
+        this.message = "The zigzag curve is a f(a, n).";
         break;
       default:
         break;
