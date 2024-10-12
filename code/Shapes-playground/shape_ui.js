@@ -52,7 +52,7 @@ class ShapeUI {
   // sliders - wadj,hadj,level,length,strokeweight, shapeAlpha,sc,rot,rotateShape,a,b,m,n,n1,n2, n3
   // Create a shape based on the selected option
   selectShape(shapeName, values) {
-    let r = values[0]; 
+    let r = values[0];
     // Create a new Shape object with necessary parameters
     this.shape = new Shape(
       values[0], // x
@@ -80,8 +80,6 @@ class ShapeUI {
         break;
       case "Astroid":
         this.shape.astroid();
-        // this.addMessage = true;
-        // this.message = "The astroid is a f(a).";
         break;
       case "Bicorn":
         this.shape.bicorn();
@@ -121,6 +119,11 @@ class ShapeUI {
       case "Eight":
         this.shape.eight();
         break;
+      case "Flower":
+        this.shape.flower();
+        this.addMessage = true;
+        this.message = "The flower curve is a f(a, m). Start a=1.5, m=8";
+        break;
       case "Gear":
         this.shape.gear();
         this.addMessage = true;
@@ -159,17 +162,10 @@ class ShapeUI {
         this.addMessage = true;
         this.message = "The quadrilaterial curve is a f(m).";
         break;
-      case "Flower":
-        // This started out as the rose curve, but I have edit the code and now renders a flower-like shape
-        this.shape.flower();
-        this.addMessage = true;
-        this.message = "The flower curve is a f(a, m). Start a=1.5, m=8";
-        break;
       case "Rose":
         this.shape.rose();
         this.addMessage = true;
-        this.message =
-          "The rose curve is a f(a, m). Start: a=8, m=5";
+        this.message = "The rose curve is a f(m, d). Start: m=8, d=5";
         break;
       case "Superellipse":
         this.shape.superellipse();
