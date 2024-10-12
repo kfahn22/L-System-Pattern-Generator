@@ -119,6 +119,11 @@ class ShapeUI {
         this.addMessage = true;
         this.message = "The rose curve is a f(m, d).";
         break;
+      case "Spiral":
+        this.shape.spiral();
+        this.addMessage = true;
+        this.message = "The spiral is a f(a, n), n ~ [-1, 1]";
+        break;
       case "Superellipse":
         this.shape.superellipse();
         this.addMessage = true;

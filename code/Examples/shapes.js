@@ -259,7 +259,7 @@ class Shape {
     this.points.push(createVector(0, 0));
     this.points.push(createVector(2 * this.r, 0));
   }
-  
+
   // https://thecodingtrain.com/challenges/116-lissajous-curve-table
 
   lissajous() {
@@ -318,6 +318,25 @@ class Shape {
       let r = this.r * cos(k * theta);
       let x = r * cos(theta);
       let y = r * sin(theta);
+      this.points.push(createVector(x, y));
+    }
+  }
+
+  // https://mathcurve.com/courbes2d.gb/archimede/archimede.shtml
+  // https://mathcurve.com/courbes2d.gb/spirale/spirale.shtml
+  // this.n = 1 Archimedian Spiral
+  // this.n = -1 Hyperbolic Spiral
+  // this.n = 1/2 Fermat spiral
+  // this.n = -1/2 Lituus spiral
+  // this.n = 2 Galilean spiral
+  spiral() {
+    //let a = 0.1;
+    let dir = -1;
+    for (let theta = 0; theta < 4 * PI; theta += 0.05) {
+      let r = dir * this.a * pow(theta, this.n);
+      //let r = this.a * pow(theta, this.n);
+      let x = this.r * r * cos(theta);
+      let y = this.r * r * sin(theta);
       this.points.push(createVector(x, y));
     }
   }

@@ -48,6 +48,7 @@ class ExampleDropdown {
       "Quadratic gosper with Kiss curve",
       "Quadratic Snowflake with Quadrifolium curve",
       "Rounded Star with Cornu Spiral",
+      "Rounded Star with Spiral",
       "Skierpinski with Gear curve",
       "Skierpinski carpet with Supershape",
       "Snake kolam with Tear curve",
@@ -185,6 +186,9 @@ class ExampleDropdown {
         break;
       case "Rounded Star with Cornu Spiral":
         this.currentExample = this.data.Rounded_Star_with_Cornu_Spiral;
+        break;
+      case "Rounded Star with Spiral":
+        this.currentExample = this.data.Rounded_Star_with_Spiral;
         break;
       case "Skierpinski with Gear curve":
         this.currentExample = this.data.Skierpinski_with_Gear_curve;
