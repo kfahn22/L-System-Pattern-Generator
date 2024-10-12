@@ -23,7 +23,7 @@ flower() {
 <table>
   <tbody>
    <tr>
-     <td align="center"><a href=""> <img class="img" src="..docs/assets/Ruleset-shape-examples/kolam-astroid-flower.jpg" alt="Kolam ruleset with astroid and flower curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Kolam ruleset with astroid and flower curve</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/kolam-astroid-flower.jpg" alt="Kolam ruleset with astroid and flower curve" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Kolam ruleset with astroid and flower curve</b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="../assets/Ruleset-shape-examples/koch-snowflake-flower.jpg" alt="Koch snowflake with flower curve" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Koch snowflake with flower curve</b></sub></a></td>
