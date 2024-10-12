@@ -15,8 +15,9 @@ class ShapeUI {
       values[5], // n
       values[6], // n1
       values[7], // n2
-      values[8], // n3
-      values[9] // rotateShape
+      values[8], // n3,
+      values[9], // d
+      values[10] // rotateShape
     );
 
     this.shape.points = []; // Clear any existing points
@@ -78,6 +79,9 @@ class ShapeUI {
       case "Eight":
         this.shape.eight();
         break;
+      case "Flower":
+        this.shape.flower();
+        break;
       case "Gear":
         this.shape.gear();
         this.addMessage = true;
@@ -113,7 +117,7 @@ class ShapeUI {
       case "Rose":
         this.shape.rose();
         this.addMessage = true;
-        this.message = "The rose curve is a f(a, b, n).";
+        this.message = "The rose curve is a f(m, d).";
         break;
       case "Superellipse":
         this.shape.superellipse();

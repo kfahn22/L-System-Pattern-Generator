@@ -22,7 +22,7 @@ class Turtle {
     // Shape data
     this.shape_ui = shape_ui; // Shape object
     this.shapeName = this.values[1];
-    this.shapeValues = this.values.slice(-10);
+    this.shapeValues = this.values.slice(-11);
     this.shape_ui.selectShape(this.shapeName, this.shapeValues);
     this.shape = this.shape_ui.shape; // Shape object
     // Palettes variables
