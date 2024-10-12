@@ -248,6 +248,16 @@ class Shape {
     this.points.push(createVector(2 * this.r, 0));
   }
 
+  // https://thecodingtrain.com/challenges/116-lissajous-curve-table
+
+  lissajous() {
+    for (let theta = -2 * PI; theta <= 2 * PI; theta += 0.01) {
+      let x = this.r * sin(this.a * theta + this.m) + 1;
+      let y = this.r * sin(this.b * theta);
+      this.points.push(createVector(x, y));
+    }
+  }
+
   quadrifolium() {
     let a = 1;
     for (let theta = 0; theta < TWO_PI; theta += 0.05) {
