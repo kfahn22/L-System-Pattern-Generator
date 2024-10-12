@@ -58,6 +58,7 @@ let exampleOptions = [
   "Quadratic gosper with Kiss curve",
   "Quadratic Snowflake with Quadrifolium curve",
   "Rounded Star with Cornu Spiral",
+  "Rounded Star with Spiral",
   "Skierpinski with Gear curve",
   "Skierpinski carpet with Supershape",
   "Snake kolam with Tear curve",
