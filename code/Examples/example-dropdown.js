@@ -14,6 +14,7 @@ class ExampleDropdown {
       "ADH231a with Supershape Curve",
       "ADH256a with Superellipse",
       "ADH256a with Kiss Curve",
+      "Board with Lissajous",
       "Box with Ceva",
       "Crystal with Maltese Cross",
       "Crystal with Supershape",
@@ -81,13 +82,15 @@ class ExampleDropdown {
       case "ADH256a with Kiss Curve":
         this.currentExample = this.data.ADH256a_with_Kiss_Curve;
         break;
+      case "Board with Lissajous":
+        this.currentExample = this.data.Board_with_Lissajous;
+        break;
       case "Box with Ceva":
         this.currentExample = this.data.Box_with_Ceva;
         break;
       case "Crystal with Maltese Cross":
         this.currentExample = this.data.Crystal_with_Maltese_Cross;
         break;
-
       case "Crystal with Supershape":
         this.currentExample = this.data.Crystal_with_Supershape;
         break;
@@ -221,7 +224,7 @@ class ExampleDropdown {
     let strokeAlpha = this.currentExample.strokeAlpha; // 12
     let fillAlpha = this.currentExample.fillAlpha; // 13
     let fractalAngle = radians(this.currentExample.fractal_angle); //14
-    let length = this.currentExample.length; // 15
+    let length = this.currentExample.length * width; // 15
     let shapeScale = this.currentExample.shapeScale; // 16
     let a = this.currentExample.a; // 17
     let b = this.currentExample.b; // 18

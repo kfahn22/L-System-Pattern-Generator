@@ -3,7 +3,7 @@ class ShapeUI {
     this.shape = null;
   }
 
-  // Create a shape 
+  // Create a shape
   selectShape(shapeName, values) {
     let r = values[0] * values[1]; // gridlength * shapeScale
     // Create a new Shape object with necessary parameters
@@ -98,6 +98,9 @@ class ShapeUI {
         break;
       case "Line":
         this.shape.showLine();
+        break;
+      case "Lissajous":
+        this.shape.lissajous();
         break;
       case "Quadrifolium":
         this.shape.quadrifolium();
