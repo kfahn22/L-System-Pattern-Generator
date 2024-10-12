@@ -288,17 +288,6 @@ class Shape {
   }
 
   // https://thecodingtrain.com/challenges/55-mathematical-rose-patterns
-
-  // https://mathcurve.com/courbes2d.gb/deltoid/deltoid.shtml
-
-  reduceDenominator(numerator, denominator) {
-    function rec(a, b) {
-      return b ? rec(b, a % b) : a;
-    }
-    return denominator / rec(numerator, denominator);
-  }
-
-  // https://thecodingtrain.com/challenges/55-mathematical-rose-patterns
   // https://editor.p5js.org/codingtrain/sketches/3kanFIcHd
 
   reduceDenominator(numerator, denominator) {

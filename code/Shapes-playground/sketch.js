@@ -329,3 +329,10 @@ function addColor(colorChoices, openShapes, shapeName) {
     fill(fillChoice);
   }
 }
+
+// Function to save the canvas as an image when 's' key is pressed
+function keyPressed() {
+  if (key === "k" || key === "K") {
+    save("img.jpg");
+  }
+}
