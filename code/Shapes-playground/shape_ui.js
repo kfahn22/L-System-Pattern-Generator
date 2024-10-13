@@ -181,7 +181,7 @@ class ShapeUI {
       case "Pinwheel":
         this.shape.pinwheel();
         this.addMessage = true;
-        this.message = "The pinwheel curve is a f(m). Start: m=2";
+        this.message = "The pinwheel curve is a f(m, n). Start: m=2, n =1";
         break;
       case "Quadrifolium":
         this.shape.quadrifolium();

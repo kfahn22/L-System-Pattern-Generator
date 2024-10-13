@@ -62,12 +62,16 @@ class ShapeUI {
       case "Ceva":
         this.shape.ceva();
         break;
+      case "Clover":
+        this.shape.clover();
+        this.addMessage = true;
+        this.message = "The clover curve is a f(m)";
+        break;
       case "Cornu Spiral":
         this.shape.cornuSpiral();
         this.addMessage = true;
         this.message = "The cornu spiral is f(a), a ~ [0.5, 2]";
         break;
-
       case "Maltese Cross":
         this.shape.malteseCross();
         this.addMessage = true;
