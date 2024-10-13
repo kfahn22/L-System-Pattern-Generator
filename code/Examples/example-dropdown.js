@@ -23,10 +23,11 @@ class ExampleDropdown {
       "Dragon2 with Gear Curve",
       "Dragon2 with Cornu Spiral",
       "Dragon1 with Astroid Curve",
-      "Hilbert Curve with Eight Curve",
-      "Hilbert Curve with Gear Curve",
-      "Hilbert Curve with Kiss Curve",
-      "Hilbert Curve with Quadrifolium Curve",
+      "Hilbert Ruleset with Clover Curve",
+      "Hilbert Ruleset with Eight Curve",
+      "Hilbert Ruleset with Gear Curve",
+      "Hilbert Ruleset with Kiss Curve",
+      "Hilbert Ruleset with Quadrifolium Curve",
       "Koch snowflake with Bicorn curve",
       "Koch snowflake with Kiss curve",
       "Koch snowflake with Quadrilateral",
@@ -110,16 +111,19 @@ class ExampleDropdown {
       case "Doily with Supershape Curve":
         this.currentExample = this.data.Doily_with_supershape;
         break;
-      case "Hilbert Curve with Eight Curve":
+      case "Hilbert Ruleset with Clover Curve":
+        this.currentExample = this.data.Hilbert_Curve_with_Clover_Curve;
+        break;
+      case "Hilbert Ruleset with Eight Curve":
         this.currentExample = this.data.Hilbert_Curve_with_Eight_Curve;
         break;
-      case "Hilbert Curve with Gear Curve":
+      case "Hilbert Ruleset with Gear Curve":
         this.currentExample = this.data.Hilbert_Curve_with_Gear_Curve;
         break;
-      case "Hilbert Curve with Kiss Curve":
+      case "Hilbert Ruleset with Kiss Curve":
         this.currentExample = this.data.Hilbert_Curve_with_Kiss_Curve;
         break;
-      case "Hilbert Curve with Quadrifolium Curve":
+      case "Hilbert Ruleset with Quadrifolium Curve":
         this.currentExample = this.data.Hilbert_Curve_with_Quadrifolium_Curve;
         break;
       case "Koch snowflake with Bicorn curve":

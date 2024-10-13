@@ -123,6 +123,17 @@ class Shape {
     }
   }
 
+  //https://mathcurve.com/courbes2d/ornementales/ornementales.shtml
+
+  clover() {
+    for (let theta = 0; theta < TWO_PI; theta += 0.05) {
+      let r = 1 + cos(this.m * theta) + pow(sin(this.m * theta), 2);
+      let x = this.r * r * cos(theta);
+      let y = this.r * r * sin(theta);
+      this.points.push(createVector(x, y));
+    }
+  }
+
   // https://mathcurve.com/courbes2d.gb/cornu/cornu.shtml
 
   // https://virtualmathmuseum.org/Curves/clothoid/kappaCurve.html

@@ -318,7 +318,7 @@ class Shape {
       let denom = 1 - 0.75 * pow(sin(this.m * theta), 2);
       let r = pow(sin(4 * theta) / denom, 0.5);
       let x = this.r * r * cos(theta);
-      let y = this.r * r * sin(theta);
+      let y = this.n * this.r * r * sin(theta);
       this.points.push(createVector(x, y));
     }
   }
