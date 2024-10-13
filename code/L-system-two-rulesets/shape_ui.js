@@ -23,6 +23,7 @@ class ShapeUI {
       "Cannibus",
       "Cassini Oval",
       "Ceva",
+      "Clover",
       // "Chrysanthemum",
       "Cornu Spiral",
       "Craniod",
@@ -36,6 +37,7 @@ class ShapeUI {
       "Line",
       "Lissajous",
       "Maltese Cross",
+      "Pinwheel",
       "Quadrifolium",
       "Quadrilateral",
       "Rose",
@@ -44,6 +46,7 @@ class ShapeUI {
       "Superellipse",
       "Supershape",
       "Tear Drop",
+      "Windmill",
       "Word",
       "Zigzag",
     ];
@@ -112,6 +115,11 @@ class ShapeUI {
       // case "Chrysanthemum":
       //   this.shape.chrysanthemum();
       //   break;
+      case "Clover":
+        this.shape.clover();
+        this.addMessage = true;
+        this.message = "The clover curve is a f(m)";
+        break;
       case "Cornu Spiral":
         this.shape.cornuSpiral();
         this.addMessage = true;
@@ -164,6 +172,11 @@ class ShapeUI {
         this.shape.malteseCross();
         this.addMessage = true;
         this.message = "The cross curve is a f(a, b).";
+        break;
+      case "Pinwheel":
+        this.shape.pinwheel();
+        this.addMessage = true;
+        this.message = "The pinwheel curve is a f(m). Start: m=2";
         break;
       case "Quadrifolium":
         this.shape.quadrifolium();

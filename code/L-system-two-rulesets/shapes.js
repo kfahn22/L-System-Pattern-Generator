@@ -113,10 +113,22 @@ class Shape {
       let u = (theta * 21.0 * PI) / N;
       //console.log(u)
       let r =
-        this.a * (5 * (1 + sin((11 * u) / 5)) -
-        4 * pow(sin((17 * u) / 3), 4) * pow(sin(2 * cos(3 * u) - 28 * u), 8));
+        this.a *
+        (5 * (1 + sin((11 * u) / 5)) -
+          4 * pow(sin((17 * u) / 3), 4) * pow(sin(2 * cos(3 * u) - 28 * u), 8));
       let x = this.r * r * cos(u);
       let y = this.r * r * sin(u);
+      this.points.push(createVector(x, y));
+    }
+  }
+
+  //https://mathcurve.com/courbes2d/ornementales/ornementales.shtml
+
+  clover() {
+    for (let theta = 0; theta < TWO_PI; theta += 0.05) {
+      let r = 1 + cos(this.m * theta) + pow(sin(this.m * theta), 2);
+      let x = this.r * r * cos(theta);
+      let y = this.r * r * sin(theta);
       this.points.push(createVector(x, y));
     }
   }
@@ -284,6 +296,17 @@ class Shape {
     }
   }
 
+  // https://mathcurve.com/courbes2d/ornementales/ornementales.shtml
+  pinwheel() {
+    for (let theta = 0; theta < TWO_PI; theta += 0.01) {
+      let denom = 1 - 0.75 * pow(sin(this.m * theta), 2);
+      let r = pow(sin(4 * theta) / denom, 0.5);
+      let x = this.r * r * cos(theta);
+      let y = this.r * r * sin(theta);
+      this.points.push(createVector(x, y));
+    }
+  }
+
   quadrifolium() {
     let a = 1;
     for (let theta = 0; theta < TWO_PI; theta += 0.05) {
@@ -398,7 +421,7 @@ class Shape {
       this.points.push(createVector(x, y));
     }
   }
-
+  
   // https://mathcurve.com/courbes2d.gb/abdank/abdank.shtml
 
   zigzag() {

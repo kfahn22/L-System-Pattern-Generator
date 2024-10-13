@@ -116,8 +116,12 @@ class Turtle {
       } else if (current == "{") {
         beginShape();
       } else if (current == "}") {
+        let fillAlpha = colorParams[4];
+        let fillPalette = colorParams[3];
+        let c = random(fillPalette);
+        c[3] = fillAlpha
         noStroke();
-        fill(random(this.fillPalette));
+        fill(c);
         endShape();
       }
     }
