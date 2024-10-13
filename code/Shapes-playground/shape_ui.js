@@ -19,10 +19,12 @@ class ShapeUI {
       "Bicorn",
       "Box",
       "Butterfly",
+      "Butterfly2",
       "Cannibus",
       "Cassini Oval",
       "Ceva",
       "Chrysanthemum",
+      "Clover",
       "Cornu Spiral",
       "Craniod",
       "Deltoid",
@@ -36,6 +38,7 @@ class ShapeUI {
       "Lissajous",
       "Maltese Cross",
       "Ophiuride",
+      "Pinwheel",
       "Quadrifolium",
       "Quadrilateral",
       "Rose",
@@ -43,6 +46,7 @@ class ShapeUI {
       "Superellipse",
       "Supershape",
       "Tear Drop",
+      "Windmill",
       "Zigzag",
     ];
 
@@ -92,6 +96,9 @@ class ShapeUI {
       case "Butterfly":
         this.shape.butterfly();
         break;
+      case "Butterfly2":
+        this.shape.butterfly2();
+        break;
       case "Cannibus":
         this.shape.cannibus();
         break;
@@ -106,9 +113,13 @@ class ShapeUI {
         break;
       case "Chrysanthemum":
         this.shape.chrysanthemum();
-         this.addMessage = true;
-         this.message =
-           "The chrysanthemum curve is scaled by a, try a = 0.5";
+        this.addMessage = true;
+        this.message = "The chrysanthemum curve is scaled by a, try a = 0.5";
+        break;
+      case "Clover":
+        this.shape.clover();
+        this.addMessage = true;
+        this.message = "The clover curve is a f(m).";
         break;
       case "Cornu Spiral":
         this.shape.cornuSpiral();
@@ -162,10 +173,15 @@ class ShapeUI {
         this.addMessage = true;
         this.message = "The cross curve is a f(a, b). Start: a=3, b=2";
         break;
-        case "Ophiuride":
+      case "Ophiuride":
         this.shape.ophiuride();
-         this.addMessage = true;
-         this.message = "The ophiuride curve is a f(a, b). Start: a=1.6, b=0.6";
+        this.addMessage = true;
+        this.message = "The ophiuride curve is a f(a, b). Start: a=1.6, b=0.6";
+        break;
+      case "Pinwheel":
+        this.shape.pinwheel();
+        this.addMessage = true;
+        this.message = "The pinwheel curve is a f(m). Start: m=2";
         break;
       case "Quadrifolium":
         this.shape.quadrifolium();
@@ -199,6 +215,9 @@ class ShapeUI {
         break;
       case "Tear Drop":
         this.shape.tearDrop();
+        break;
+      case "Windmill":
+        this.shape.windmill();
         break;
       case "Zigzag":
         this.shape.zigzag();
