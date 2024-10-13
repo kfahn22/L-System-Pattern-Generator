@@ -64,6 +64,16 @@ class Shape {
     }
   }
 
+  // https://mathcurve.com/courbes2d/ornementales/ornementales.shtml
+  butterfly2() {
+    for (let theta = 0; theta < 2 * PI; theta += 0.01) {
+      let r = -3 * cos(2 * theta) + sin(7 * theta) - 1;
+      const x = this.r * r * cos(theta);
+      const y = -this.r * r * sin(theta);
+      this.points.push(createVector(x, y));
+    }
+  }
+
   // https://mathworld.wolfram.com/topics/PlaneCurves.html
   cannibus() {
     for (let theta = 0; theta < PI; theta += 0.01) {
@@ -110,6 +120,17 @@ class Shape {
           4 * pow(sin((17 * u) / 3), 4) * pow(sin(2 * cos(3 * u) - 28 * u), 8));
       let x = this.r * r * cos(u);
       let y = this.r * r * sin(u);
+      this.points.push(createVector(x, y));
+    }
+  }
+
+  //https://mathcurve.com/courbes2d/ornementales/ornementales.shtml
+
+  clover() {
+    for (let theta = 0; theta < TWO_PI; theta += 0.05) {
+      let r = 1 + cos(this.m * theta) + pow(sin(this.m * theta), 2);
+      let x = this.r * r * cos(theta);
+      let y = this.r * r * sin(theta);
       this.points.push(createVector(x, y));
     }
   }
@@ -291,6 +312,17 @@ class Shape {
     }
   }
 
+  // https://mathcurve.com/courbes2d/ornementales/ornementales.shtml
+  pinwheel() {
+    for (let theta = 0; theta < TWO_PI; theta += 0.01) {
+      let denom = 1 - 0.75 * pow(sin(this.m * theta), 2);
+      let r = pow(sin(4 * theta) / denom, 0.5);
+      let x = this.r * r * cos(theta);
+      let y = this.r * r * sin(theta);
+      this.points.push(createVector(x, y));
+    }
+  }
+
   // https://mathcurve.com/courbes2d.gb/rosace/rosace.shtml
   // https://thecodingtrain.com/challenges/55-mathematical-rose-patterns
   // https://editor.p5js.org/codingtrain/sketches/3kanFIcHd
@@ -408,6 +440,16 @@ class Shape {
       let y = this.r * sin(theta) * pow(sin(theta / 2), n);
       this.points.push(createVector(x, y));
     }
+  }
+
+  //https://mathcurve.com/courbes2d.gb/moulinavent/moulinavent.shtml
+  windmill() {
+     for (let theta = 0; theta < 2*PI; theta += 0.01) {
+      let r = abs(this.m * tan(2*theta));
+       let x = this.r * r * cos(theta);
+       let y = this.r * r * sin(theta);
+       this.points.push(createVector(x, y));
+     }
   }
 
   // https://mathcurve.com/courbes2d.gb/abdank/abdank.shtml

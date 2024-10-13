@@ -215,6 +215,7 @@ function setShape(shapeSystems) {
     "Lissajous",
     "Ophiuride",
     "Spiral",
+    // "Windmill",
     "Zigzag",
   ];
 
