@@ -23,6 +23,7 @@ class ShapeUI {
       "Cannibus",
       "Cassini Oval",
       "Ceva",
+      // "Chrysanthemum",
       "Cornu Spiral",
       "Craniod",
       "Deltoid",
@@ -106,6 +107,11 @@ class ShapeUI {
       case "Ceva":
         this.shape.ceva();
         break;
+      // This works but is very energy intensive
+      // It would be better to add as images
+      // case "Chrysanthemum":
+      //   this.shape.chrysanthemum();
+      //   break;
       case "Cornu Spiral":
         this.shape.cornuSpiral();
         this.addMessage = true;
@@ -116,12 +122,17 @@ class ShapeUI {
         this.addMessage = true;
         this.message = "The craniod curve is a f(a, b, m).";
         break;
-
       case "Deltoid":
         this.shape.deltoid();
         break;
       case "Eight":
         this.shape.eight();
+        break;
+      case "Flower":
+        // I have added a constraint on the value of b to keep the sketch from freezing
+        this.shape.flower();
+        this.addMessage = true;
+        this.message = "The flower curve is a f(a, m)";
         break;
       case "Gear":
         this.shape.gear();
@@ -161,12 +172,6 @@ class ShapeUI {
         this.shape.quadrilaterial();
         this.addMessage = true;
         this.message = "The quadrilaterial curve is a f(m).";
-        break;
-      case "Flower":
-        // I have added a constraint on the value of b to keep the sketch from freezing
-        this.shape.flower();
-        this.addMessage = true;
-        this.message = "The flower curve is a f(a, m)";
         break;
       case "Rose":
         this.shape.rose();

@@ -35,6 +35,7 @@ class ShapeUI {
       "Line",
       "Lissajous",
       "Maltese Cross",
+      "Ophiuride",
       "Quadrifolium",
       "Quadrilateral",
       "Rose",
@@ -105,6 +106,9 @@ class ShapeUI {
         break;
       case "Chrysanthemum":
         this.shape.chrysanthemum();
+         this.addMessage = true;
+         this.message =
+           "The chrysanthemum curve is scaled by a, try a = 0.5";
         break;
       case "Cornu Spiral":
         this.shape.cornuSpiral();
@@ -157,6 +161,11 @@ class ShapeUI {
         this.shape.malteseCross();
         this.addMessage = true;
         this.message = "The cross curve is a f(a, b). Start: a=3, b=2";
+        break;
+        case "Ophiuride":
+        this.shape.ophiuride();
+         this.addMessage = true;
+         this.message = "The ophiuride curve is a f(a, b). Start: a=1.6, b=0.6";
         break;
       case "Quadrifolium":
         this.shape.quadrifolium();

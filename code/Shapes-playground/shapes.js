@@ -104,9 +104,10 @@ class Shape {
     let N = 30000;
     for (let theta = 0; theta < N; theta += 1) {
       let u = (theta * 21.0 * PI) / N;
+      console.log(u)
       let r =
-        5 * (1 + sin((11 * u) / 5)) -
-        4 * pow(sin((17 * u) / 3), 4) * pow(sin(2 * cos(3 * u) - 28 * u), 8);
+        this.a * (5 * (1 + sin((11 * u) / 5)) -
+        4 * pow(sin((17 * u) / 3), 4) * pow(sin(2 * cos(3 * u) - 28 * u), 8));
       let x = this.r * r * cos(u);
       let y = this.r * r * sin(u);
       this.points.push(createVector(x, y));

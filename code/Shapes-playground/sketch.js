@@ -208,8 +208,15 @@ function setShape(shapeSystems) {
   let shapeNames = [];
   let shapeColorValues = [];
   let shapeMessages = [];
-  // Catch-all array for arcs, spirals, lissajous, zigzag
-  let openShapes = ["Arc", "Cornu Spiral", "Lissajous", "Spiral", "Zigzag"];
+  // Catch-all array for miscellaneous curves that should not be rendered CLOSED
+  let openShapes = [
+    "Arc",
+    "Cornu Spiral",
+    "Lissajous",
+    "Ophiuride",
+    "Spiral",
+    "Zigzag",
+  ];
 
   for (let i = 0; i < n; i++) {
     let shapeSystem = shapeSystemValues[i];
