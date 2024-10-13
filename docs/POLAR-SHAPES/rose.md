@@ -27,7 +27,8 @@ rose() {
 }
 ```
 
-[Mathematical Rose Coding Challenge](https://thecodingtrain.com/challenges/55-mathematical-rose-patterns)
+- [Mathematical Rose Coding Challenge](https://thecodingtrain.com/challenges/55-mathematical-rose-patterns) 
+- [Rose](https://mathcurve.com/courbes2d.gb/rosace/rosace.shtml)
 
 ## 🌄 Gallery
 

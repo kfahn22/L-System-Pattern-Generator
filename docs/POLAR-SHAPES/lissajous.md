@@ -14,8 +14,8 @@ lissajous() {
 }
 ```
 
-[Lissajous Curve Coding Challenge](https://thecodingtrain.com/challenges/116-lissajous-curve-table)
-
+- [Lissajous Curve Coding Challenge](https://thecodingtrain.com/challenges/116-lissajous-curve-table) 
+- [Lissajous Curve or Bowditch Curve](https://mathcurve.com/courbes2d.gb/lissajous/lissajous.shtml)
 
 ## 🌄 Gallery
 
