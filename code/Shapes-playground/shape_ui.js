@@ -22,6 +22,7 @@ class ShapeUI {
       "Cannibus",
       "Cassini Oval",
       "Ceva",
+      "Chrysanthemum",
       "Cornu Spiral",
       "Craniod",
       "Deltoid",
@@ -101,6 +102,9 @@ class ShapeUI {
         break;
       case "Ceva":
         this.shape.ceva();
+        break;
+      case "Chrysanthemum":
+        this.shape.chrysanthemum();
         break;
       case "Cornu Spiral":
         this.shape.cornuSpiral();
