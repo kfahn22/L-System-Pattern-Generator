@@ -213,11 +213,12 @@ function setSystemVariables(lsystems) {
     addp5Grain.push(lsystems[i][2][2]); // add addp5Grain checkBoxes to array
 
     // Set color palettes
-    let [currentBackgroundPalette, currentStrokePalette, currentFillPalette] = controls.setPalettes(
-      values[2], // backgroundPalette
-      values[3], // strokePalette
-      values[4] // fillPalette
-    );
+    let [currentBackgroundPalette, currentStrokePalette, currentFillPalette] =
+      controls.setPalettes(
+        values[2], // backgroundPalette
+        values[3], // strokePalette
+        values[4] // fillPalette
+      );
 
     background(currentBackgroundPalette[0]);
 
