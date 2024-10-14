@@ -102,7 +102,7 @@ class SliderGroup {
       );
       slider.addClass("slider");
       //slider.id("mySliders");
-      slider.position(pos + 10, 30 + i * 55);
+      slider.position(pos + 35, 30 + i * 55);
       slider.input(() => this.reset());
 
       // Create label

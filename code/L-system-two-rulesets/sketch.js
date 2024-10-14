@@ -7,6 +7,9 @@ let rulesetData;
 // Control variables
 let images = [];
 
+//let backgroundDropdown;
+let syncVariables; // checkbox for whether the same translation and length variables are used for both Lsystems
+
 // Array to store dropdowns, sliderGroup, sliders, checkBoxes
 let lsystem0;
 let ruleChoice0 = "ADH231a";
@@ -80,22 +83,45 @@ function preload() {
 
 function setup() {
   canvas = createCanvas(800, 800);
-  canvas.position(340, 75);
+  canvas.position(360, 95);
   canvas.id("mycanvas");
   p5grain.setup();
- console.log(strokeChoice0, fillChoice0) ;
- console.log(strokeChoice1, fillChoice1);
-  lsystems.push(addLsystem(10, sliderValues0,  ruleChoice0, shapeChoice0, strokeChoice0, fillChoice0));
-  lsystems.push(addLsystem(1150, sliderValues1, ruleChoice1, shapeChoice1, strokeChoice1, fillChoice1));
+
+  syncVariables = createCheckbox(
+    "Use the same translation and length variables",
+    true
+  );
+  syncVariables.position(360, 10);
+  syncVariables.style("color", "white");
+
+  lsystems.push(
+    addLsystem(
+      10,
+      sliderValues0,
+      ruleChoice0,
+      shapeChoice0,
+      strokeChoice0,
+      fillChoice0
+    )
+  );
+  lsystems.push(
+    addLsystem(
+      1170,
+      sliderValues1,
+      ruleChoice1,
+      shapeChoice1,
+      strokeChoice1,
+      fillChoice1
+    )
+  );
   setSystemVariables(lsystems);
 }
 
 function updateValues(lsystem) {
-  let controls = lsystem[0];
+  //let controls = lsystem[0];
   let dropdowns = lsystem[1];
   let checkBoxes = lsystem[2];
   let sliderGroup = lsystem[3];
-  //let sliders = lsystem[4];
   let values = [];
   // Add ruleset, shape, palettes dropdown values
   for (let i = 0; i < dropdowns.length; i++) {
@@ -103,7 +129,7 @@ function updateValues(lsystem) {
     values.push(dropdowns[i].value());
   }
   // Add values for addStroke, fillShape, and addP5Grain
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < 4; i++) {
     values.push(checkBoxes[i].checked());
   }
   let sliderValues = sliderGroup.getValues();
@@ -137,7 +163,14 @@ function reset() {
   setSystemVariables(lsystems);
 }
 
-function addLsystem(pos, sliderValues, ruleChoice, shapeChoice, strokeChoice, fillChoice) {
+function addLsystem(
+  pos,
+  sliderValues,
+  ruleChoice,
+  shapeChoice,
+  strokeChoice,
+  fillChoice
+) {
   let lsystem = [];
   let controls = new AddControls(
     pos,
@@ -169,20 +202,22 @@ function setSystemVariables(lsystems) {
   } else {
     n = 2;
   }
+
   for (let i = 0; i < n; i++) {
     // Array to hold the data of each Lsystem
     let lsystemData = [];
+
     let controls = lsystems[i][0];
     let values = updateValues(lsystems[i]);
+
     addp5Grain.push(lsystems[i][2][2]); // add addp5Grain checkBoxes to array
 
     // Set color palettes
-    let [currentBackgroundPalette, currentStrokePalette, currentFillPalette] =
-      controls.setPalettes(
-        values[2], // backgroundPalette
-        values[3], // strokePalette
-        values[4] // fillPalette
-      );
+    let [currentBackgroundPalette, currentStrokePalette, currentFillPalette] = controls.setPalettes(
+      values[2], // backgroundPalette
+      values[3], // strokePalette
+      values[4] // fillPalette
+    );
 
     background(currentBackgroundPalette[0]);
 
@@ -223,6 +258,14 @@ function setSystemVariables(lsystems) {
     ruleChoices.push(ruleChoice);
     ruleset.selectRule(ruleChoice);
     let lsystemData = ruleset.currentFractal;
+
+    // Whether same translation and grid length should be used for all L-systems
+    if (syncVariables.checked() && n == 2) {
+      lsystemValues[1][0][8] = lsystemValues[0][0][8];
+      lsystemValues[1][0][9] = lsystemValues[0][0][9];
+      lsystemValues[1][0][15] = lsystemValues[0][0][15];
+    }
+    //console.log(lsystemValues);
 
     // Get Shape data
     sliderValues.push(lsystemValues[i][0].slice(-18)); // -18
@@ -265,7 +308,7 @@ function addMessages(shapeMessages, warnings) {
   } else addMessage = false;
 
   shapeMessage = createP(message);
-  shapeMessage.position(340, 0);
+  shapeMessage.position(360, 30);
   shapeMessage.addClass("p");
 
   if (addMessage) {
@@ -279,7 +322,7 @@ function addMessages(shapeMessages, warnings) {
   } else addWarning = false;
 
   ruleWarning = createP(warning);
-  ruleWarning.position(340, 30);
+  ruleWarning.position(360, 60);
   ruleWarning.addClass("p");
 
   if (addWarning) {
