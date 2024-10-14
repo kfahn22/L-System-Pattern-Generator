@@ -87,13 +87,6 @@ function setup() {
   canvas.id("mycanvas");
   p5grain.setup();
 
-  // backgroundDropdown = new PaletteDropdown(
-  //   10,
-  //   145,
-  //   "black",
-  //   "Background Color"
-  // );
-
   syncVariables = createCheckbox(
     "Use the same translation and length variables",
     true
@@ -101,8 +94,6 @@ function setup() {
   syncVariables.position(360, 10);
   syncVariables.style("color", "white");
 
-  //  console.log(strokeChoice0, fillChoice0) ;
-  //  console.log(strokeChoice1, fillChoice1);
   lsystems.push(
     addLsystem(
       10,
@@ -127,11 +118,10 @@ function setup() {
 }
 
 function updateValues(lsystem) {
-  let controls = lsystem[0];
+  //let controls = lsystem[0];
   let dropdowns = lsystem[1];
   let checkBoxes = lsystem[2];
   let sliderGroup = lsystem[3];
-  //let sliders = lsystem[4];
   let values = [];
   // Add ruleset, shape, palettes dropdown values
   for (let i = 0; i < dropdowns.length; i++) {
@@ -151,7 +141,6 @@ function updateValues(lsystem) {
 }
 
 function handleInput(lsystem) {
-  //backgroundDropdown.dropdown.changed(reset);
   let dropdowns = lsystem[1];
   let checkBoxes = lsystem[2];
   let sliders = lsystem[4];
@@ -229,14 +218,6 @@ function setSystemVariables(lsystems) {
       values[3], // strokePalette
       values[4] // fillPalette
     );
-
-    // Set background color
-    // let bkdropdown = backgroundDropdown.dropdown;
-    // let backgroundChoice = bkdropdown.selected();
-    // //console.log(backgroundChoice)
-    // let bkPalette = backgroundDropdown.setPalette(backgroundChoice);
-    // //console.log(c)
-    // background(backgroundChoice);
 
     background(currentBackgroundPalette[0]);
 
