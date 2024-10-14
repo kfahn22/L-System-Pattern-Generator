@@ -9,7 +9,7 @@ class AddControls {
     fillChoice
   ) {
     this.backgroundDropdown = new PaletteDropdown(
-      10,
+      pos,
       260,
       "black",
       "Background Color"
