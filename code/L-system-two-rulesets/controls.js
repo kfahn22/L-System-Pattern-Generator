@@ -1,5 +1,5 @@
 class AddControls {
-  constructor(pos, sliderValues, rulesetData, ruleChoice, shapeChoice) {
+  constructor(pos, sliderValues, rulesetData, ruleChoice, shapeChoice, strokeChoice, fillChoice) {
     this.backgroundDropdown = new PaletteDropdown(
       pos,
       145,
@@ -10,14 +10,14 @@ class AddControls {
     this.strokeDropdown = new PaletteDropdown(
       pos,
       200,
-      "orange",
+      strokeChoice,
       "Stroke Color"
     );
     this.strokedropdown = this.strokeDropdown.dropdown;
     this.fillDropdown = new PaletteDropdown(
       pos,
       255,
-      "purplePalette",
+      fillChoice,
       "Fill Color"
     );
     this.filldropdown = this.fillDropdown.dropdown;
