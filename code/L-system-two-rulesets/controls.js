@@ -1,25 +1,28 @@
 class AddControls {
-  constructor(pos, sliderValues, rulesetData, ruleChoice, shapeChoice, strokeChoice, fillChoice) {
+  constructor(
+    pos,
+    sliderValues,
+    rulesetData,
+    ruleChoice,
+    shapeChoice,
+    strokeChoice,
+    fillChoice
+  ) {
     this.backgroundDropdown = new PaletteDropdown(
-      pos,
-      145,
+      10,
+      260,
       "black",
       "Background Color"
     );
     this.backgrounddropdown = this.backgroundDropdown.dropdown;
     this.strokeDropdown = new PaletteDropdown(
       pos,
-      200,
+      145,
       strokeChoice,
       "Stroke Color"
     );
     this.strokedropdown = this.strokeDropdown.dropdown;
-    this.fillDropdown = new PaletteDropdown(
-      pos,
-      255,
-      fillChoice,
-      "Fill Color"
-    );
+    this.fillDropdown = new PaletteDropdown(pos, 200, fillChoice, "Fill Color");
     this.filldropdown = this.fillDropdown.dropdown;
     // Create an instance of the SliderGroup class
     this.sliderGroup = new SliderGroup(
@@ -70,10 +73,10 @@ class AddControls {
     // Whether to add P5 Grain library
     // Will slow down the render so I recommend keeping to false most of the time
     this.addP5Grain = createCheckbox("Add p5.Grain", false);
-    this.addP5Grain.position(pos, 405);
+    this.addP5Grain.position(10, 405);
     this.addP5Grain.style("color", "white");
-    this.removeRuleset = createCheckbox("Remove ruleset", false);
-    this.removeRuleset.position(1150, 450);
+    this.removeRuleset = createCheckbox("Remove second ruleset", false);
+    this.removeRuleset.position(900, 10);
     this.removeRuleset.style("color", "white");
 
     // Ensure checkboxes reflect initial values

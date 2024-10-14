@@ -7,7 +7,7 @@ let rulesetData;
 // Control variables
 let images = [];
 
-//let backgroundDropdown;
+let backgroundDropdown;
 let syncVariables; // checkbox for whether the same translation and length variables are used for both Lsystems
 
 // Array to store dropdowns, sliderGroup, sliders, checkBoxes
@@ -87,42 +87,26 @@ function setup() {
   canvas.id("mycanvas");
   p5grain.setup();
 
-  // backgroundDropdown = new PaletteDropdown(
-  //   10,
-  //   145,
-  //   "black",
-  //   "Background Color"
-  // );
+  backgroundDropdown = new PaletteDropdown(
+    10,
+    145,
+    "black",
+    "Background Color"
+  );
 
-  syncVariables = createCheckbox(
-    "Use the same translation and length variables",
-    true
-  );
-  syncVariables.position(360, 10);
-  syncVariables.style("color", "white");
+   syncVariables = createCheckbox(
+     "Use the same translation and length variables",
+     true
+   );
+   syncVariables.position(360, 10);
+   syncVariables.style("color", "white");
 
-  //  console.log(strokeChoice0, fillChoice0) ;
-  //  console.log(strokeChoice1, fillChoice1);
-  lsystems.push(
-    addLsystem(
-      10,
-      sliderValues0,
-      ruleChoice0,
-      shapeChoice0,
-      strokeChoice0,
-      fillChoice0
-    )
-  );
-  lsystems.push(
-    addLsystem(
-      1170,
-      sliderValues1,
-      ruleChoice1,
-      shapeChoice1,
-      strokeChoice1,
-      fillChoice1
-    )
-  );
+   
+
+//  console.log(strokeChoice0, fillChoice0) ;
+//  console.log(strokeChoice1, fillChoice1);
+  lsystems.push(addLsystem(10, sliderValues0,  ruleChoice0, shapeChoice0, strokeChoice0, fillChoice0));
+  lsystems.push(addLsystem(1170, sliderValues1, ruleChoice1, shapeChoice1, strokeChoice1, fillChoice1));
   setSystemVariables(lsystems);
 }
 
@@ -151,7 +135,7 @@ function updateValues(lsystem) {
 }
 
 function handleInput(lsystem) {
-  //backgroundDropdown.dropdown.changed(reset);
+  backgroundDropdown.dropdown.changed(reset);
   let dropdowns = lsystem[1];
   let checkBoxes = lsystem[2];
   let sliders = lsystem[4];
@@ -174,14 +158,7 @@ function reset() {
   setSystemVariables(lsystems);
 }
 
-function addLsystem(
-  pos,
-  sliderValues,
-  ruleChoice,
-  shapeChoice,
-  strokeChoice,
-  fillChoice
-) {
+function addLsystem(pos, sliderValues, ruleChoice, shapeChoice, strokeChoice, fillChoice) {
   let lsystem = [];
   let controls = new AddControls(
     pos,
@@ -218,27 +195,27 @@ function setSystemVariables(lsystems) {
     // Array to hold the data of each Lsystem
     let lsystemData = [];
 
+   
     let controls = lsystems[i][0];
     let values = updateValues(lsystems[i]);
+   
 
     addp5Grain.push(lsystems[i][2][2]); // add addp5Grain checkBoxes to array
 
     // Set color palettes
-    let [currentBackgroundPalette, currentStrokePalette, currentFillPalette] = controls.setPalettes(
-      values[2], // backgroundPalette
-      values[3], // strokePalette
-      values[4] // fillPalette
-    );
+    let [currentStrokePalette, currentFillPalette] =
+      controls.setPalettes(
+        values[2], // strokePalette
+        values[3] // fillPalette
+      );
 
     // Set background color
-    // let bkdropdown = backgroundDropdown.dropdown;
-    // let backgroundChoice = bkdropdown.selected();
-    // //console.log(backgroundChoice)
-    // let bkPalette = backgroundDropdown.setPalette(backgroundChoice);
-    // //console.log(c)
-    // background(backgroundChoice);
+    let bkdropdown = backgroundDropdown.dropdown;
+   let c = backgroundDropdown.setPalette(bkdropdown.value());
+    background(0);
+    
 
-    background(currentBackgroundPalette[0]);
+    //background(currentBackgroundPalette[0]);
 
     let ruleset = controls.ruleset;
     let shape_ui = controls.shape_ui;
@@ -246,11 +223,11 @@ function setSystemVariables(lsystems) {
     // Check to see whether addStroke and/or fillShape are checked
     // Set value of colorMode to 0,1,2 depended on state of variables
     let clrMode = null;
-    if (values[5] === true && values[6] === false) {
+    if (values[4] === true && values[5] === false) {
       clrMode = 0;
-    } else if (values[5] === false && values[6] === true) {
+    } else if (values[4] === false && values[5] === true) {
       clrMode = 1;
-    } else if (values[5] === true && values[6] === true) {
+    } else if (values[4] === true && values[5] === true) {
       clrMode = 2;
     }
 
@@ -279,10 +256,9 @@ function setSystemVariables(lsystems) {
     let lsystemData = ruleset.currentFractal;
 
     // Whether same translation and grid length should be used for all L-systems
-    if (syncVariables.checked() && n == 2) {
-      lsystemValues[1][0][8] = lsystemValues[0][0][8];
-      lsystemValues[1][0][9] = lsystemValues[0][0][9];
-      lsystemValues[1][0][15] = lsystemValues[0][0][15];
+    if (syncVariables && i != 0) {
+      lsystemValues[i][0][8] = lsystemValues[0][0][8];
+      lsystemValues[i][0][9] = lsystemValues[0][0][9];
     }
     //console.log(lsystemValues);
 
