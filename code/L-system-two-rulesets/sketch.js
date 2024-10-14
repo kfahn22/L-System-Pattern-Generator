@@ -11,6 +11,8 @@ let images = [];
 let lsystem0;
 let ruleChoice0 = "ADH231a";
 let shapeChoice0 = "Flower";
+let strokeChoice0 = "orange";
+let fillChoice0 = "purplePalette";
 let sliderValues0 = [
   175,
   0.05, // wadj
@@ -18,7 +20,7 @@ let sliderValues0 = [
   3, // level
   1, // strokeWeight
   220, // stroke alpha
-  150, // fill alpha
+  240, // fill alpha
   0, // fractal angle
   0.023, // length
   0.4, // shapeScale
@@ -36,6 +38,8 @@ let sliderValues0 = [
 let lsystem1;
 let ruleChoice1 = "ADH231a";
 let shapeChoice1 = "Supershape";
+let strokeChoice1 = "orange";
+let fillChoice1 = "bluePalette";
 let sliderValues1 = [
   1300,
   0.05, // wadj
@@ -47,8 +51,8 @@ let sliderValues1 = [
   0, // fractal angle
   0.023, // length
   0.4, // shapeScale
-  3.8, // a
-  1, // b
+  4.1, // a
+  3.8, // b
   8, // m
   1, // n1
   0.8, // n2
@@ -79,9 +83,10 @@ function setup() {
   canvas.position(340, 75);
   canvas.id("mycanvas");
   p5grain.setup();
-
-  lsystems.push(addLsystem(10, sliderValues0, ruleChoice0, shapeChoice0));
-  lsystems.push(addLsystem(1150, sliderValues1, ruleChoice1, shapeChoice1));
+ console.log(strokeChoice0, fillChoice0) ;
+ console.log(strokeChoice1, fillChoice1);
+  lsystems.push(addLsystem(10, sliderValues0,  ruleChoice0, shapeChoice0, strokeChoice0, fillChoice0));
+  lsystems.push(addLsystem(1150, sliderValues1, ruleChoice1, shapeChoice1, strokeChoice1, fillChoice1));
   setSystemVariables(lsystems);
 }
 
@@ -132,14 +137,16 @@ function reset() {
   setSystemVariables(lsystems);
 }
 
-function addLsystem(pos, sliderValues, ruleChoice, shapeChoice) {
+function addLsystem(pos, sliderValues, ruleChoice, shapeChoice, strokeChoice, fillChoice) {
   let lsystem = [];
   let controls = new AddControls(
     pos,
     sliderValues,
     rulesetData,
     ruleChoice,
-    shapeChoice
+    shapeChoice,
+    strokeChoice,
+    fillChoice
   );
   lsystem[0] = controls;
   lsystem[1] = controls.returnDropdowns();

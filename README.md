@@ -22,9 +22,9 @@ I have discovered that both the Hilbert and Peano curve rule-sets can be used to
 
 <p align="center"><img src="assets/readme/hillbert-ADH23a.jpg" alt="Hilbert ruleset with ADH23a design" width="500px"></p>
 
-Why stop with just one ruleset or shape? Here I have rendered the ADH23a ruleset twice with the rose curve and the supershape.  
+Why stop with just one ruleset or shape? Here I have rendered the ADH231a ruleset twice with the flower and supershape curves.  
 
-<p align="center"><img src="assets/readme/ADH23ax2-rose_supershape.jpg" alt="ADH23a rule-set with rose curve and supershape" width="500px"></p>
+<p align="center"><img src="assets/readme/adh231a-flower-supershape.jpg" alt="ADH231a rule-set with flower supershape curves" width="500px"></p>
 
 ## Fractal Trees
 
