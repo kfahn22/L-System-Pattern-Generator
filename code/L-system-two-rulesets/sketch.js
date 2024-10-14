@@ -7,7 +7,7 @@ let rulesetData;
 // Control variables
 let images = [];
 
-//let backgroundDropdown;
+let backgroundDropdown;
 let syncVariables; // checkbox for whether the same translation and length variables are used for both Lsystems
 
 // Array to store dropdowns, sliderGroup, sliders, checkBoxes
@@ -87,6 +87,13 @@ function setup() {
   canvas.id("mycanvas");
   p5grain.setup();
 
+  backgroundDropdown = new PaletteDropdown(
+    10,
+    260,
+    "black",
+    "Background Color"
+  );
+
   syncVariables = createCheckbox(
     "Use the same translation and length variables",
     true
@@ -118,14 +125,15 @@ function setup() {
 }
 
 function updateValues(lsystem) {
-  //let controls = lsystem[0];
+  backgroundDropdown.setPalette(backgroundDropdown.dropdown.value());
+  let c = backgroundDropdown.palette;
+  background(c[0]);
   let dropdowns = lsystem[1];
   let checkBoxes = lsystem[2];
   let sliderGroup = lsystem[3];
   let values = [];
   // Add ruleset, shape, palettes dropdown values
   for (let i = 0; i < dropdowns.length; i++) {
-    //values.push(dropdowns[i].selected());
     values.push(dropdowns[i].value());
   }
   // Add values for addStroke, fillShape, and addP5Grain
@@ -144,7 +152,7 @@ function handleInput(lsystem) {
   let dropdowns = lsystem[1];
   let checkBoxes = lsystem[2];
   let sliders = lsystem[4];
-
+  backgroundDropdown.dropdown.changed(reset);
   for (let d of dropdowns) {
     d.changed(reset);
   }
@@ -187,7 +195,6 @@ function addLsystem(
   lsystem[3] = controls.sliderGroup;
   lsystem[4] = controls.sliders;
   handleInput(lsystem);
-
   return lsystem;
 }
 
@@ -213,14 +220,10 @@ function setSystemVariables(lsystems) {
     addp5Grain.push(lsystems[i][2][2]); // add addp5Grain checkBoxes to array
 
     // Set color palettes
-    let [currentBackgroundPalette, currentStrokePalette, currentFillPalette] =
-      controls.setPalettes(
-        values[2], // backgroundPalette
-        values[3], // strokePalette
-        values[4] // fillPalette
-      );
-
-    background(currentBackgroundPalette[0]);
+    let [currentStrokePalette, currentFillPalette] = controls.setPalettes(
+      values[2], // strokePalette
+      values[3] // fillPalette
+    );
 
     let ruleset = controls.ruleset;
     let shape_ui = controls.shape_ui;
@@ -228,11 +231,11 @@ function setSystemVariables(lsystems) {
     // Check to see whether addStroke and/or fillShape are checked
     // Set value of colorMode to 0,1,2 depended on state of variables
     let clrMode = null;
-    if (values[5] === true && values[6] === false) {
+    if (values[4] === true && values[5] === false) {
       clrMode = 0;
-    } else if (values[5] === false && values[6] === true) {
+    } else if (values[4] === false && values[5] === true) {
       clrMode = 1;
-    } else if (values[5] === true && values[6] === true) {
+    } else if (values[4] === true && values[5] === true) {
       clrMode = 2;
     }
 
@@ -264,9 +267,9 @@ function setSystemVariables(lsystems) {
     if (syncVariables.checked() && n == 2) {
       lsystemValues[1][0][8] = lsystemValues[0][0][8];
       lsystemValues[1][0][9] = lsystemValues[0][0][9];
-      lsystemValues[1][0][16] = lsystemValues[0][0][16];
+      lsystemValues[1][0][15] = lsystemValues[0][0][15];
     }
-    console.log(lsystemValues);
+    //console.log(lsystemValues);
 
     // Get Shape data
     sliderValues.push(lsystemValues[i][0].slice(-18)); // -18
