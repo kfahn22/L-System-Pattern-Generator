@@ -264,9 +264,9 @@ function setSystemVariables(lsystems) {
     if (syncVariables.checked() && n == 2) {
       lsystemValues[1][0][8] = lsystemValues[0][0][8];
       lsystemValues[1][0][9] = lsystemValues[0][0][9];
-      lsystemValues[1][0][15] = lsystemValues[0][0][15];
+      lsystemValues[1][0][16] = lsystemValues[0][0][16];
     }
-    //console.log(lsystemValues);
+    console.log(lsystemValues);
 
     // Get Shape data
     sliderValues.push(lsystemValues[i][0].slice(-18)); // -18
