@@ -1,10 +1,12 @@
 html,
 body {
-  margin: 0vw;
-  /* padding: 2vw; */
-  background-color: #000;
+  margin: 1vw;
+  background-color: #595959;
 }
 header {
+   background-repeat: repeat-x;
+  background-size: cover;
+  background-image: url("./assets/bk1.jpg");
   /* background-color: #def0ed; */
   background-repeat: repeat-x;
   background-size: cover;
@@ -17,7 +19,7 @@ header {
 header #index {
   height: 20vh;
   margin-bottom: 10vh;
-  background-image: url("../assets/basic_patterns/hilbert-gear-raspberrry.jpg");
+  background-image: url("../assets/basic_patterns/bk.jpg");
 }
 
 /* p {
@@ -27,34 +29,21 @@ header #index {
   font-size: x-large;
 } */
 
-div  {
- margin: auto;
+div {
+  margin: auto;
   width: 50%;
-  /* border: 3px solid rgb(188, 13, 153); */
-  padding: 10px;
+  padding: 2px;
 }
 
 li {
   font-size: xx-large;
 }
 
-header #lsystem {
-  height: 15vh;
-  color: #fff;
-  /* background-color: black; */
-  background-image: url("assets/basic_patterns/krishna-anklet-gear2.jpg");
-  background-repeat: repeat-x;
-  background-size: cover;
-  font-size: 100%;
-  margin-bottom: 5%;
-}
-
 #links {
-    font-size: 25em;
-    margin: 10em;
-    background-color: #f1f1f1
+  font-size: 25em;
+  margin: 10em;
+  /* background-color: #f1f1f1; */
 }
-
 
 /* header img {
   opacity: 0.25;
@@ -73,12 +62,23 @@ h1 {
 h2 {
   font-family: Arial, Helvetica, sans-serif;
   padding: 1%;
-  font-size: 200%;
+  font-size: 150%;
   text-align: center;
   text-transform: uppercase;
   text-shadow: 2px 2px #0d1a44;
   color: #ffffff;
 }
+
+h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 1%;
+  font-size: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 2px 2px #0d1a44;
+  color: #ffffff;
+}
+
 
 #construction {
   font-size: 300%;
@@ -96,13 +96,15 @@ code {
   /* max-width: 500px; */
 }
 
+img {
+  width: 100%;
+}
+
 /* div {
   margin: 1vh;
   padding: 1vw;
   color: #fff;
 } */
-
-
 
 a:link,
 a:visited {
@@ -119,9 +121,6 @@ a:active {
   background-color: #595959;
 }
 
-
-
-
 #demo {
   margin-left: 2%;
   margin-right: 2%;
@@ -134,7 +133,6 @@ a:active {
   height: 88vh;
   justify-content: space-between;
 }
-
 
 /* When the height of the screen is less than 450 pixels, change the font-size of
 the links and position the close button again, so they don't overlap */
