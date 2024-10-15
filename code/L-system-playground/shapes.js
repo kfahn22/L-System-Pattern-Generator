@@ -1,7 +1,7 @@
 const e = 2.71828;
 
 class Shape {
-  constructor(r, a, b, m, n1, n2, n3, n, angle) {
+  constructor(r, a, b, m, n1, n2, n3, n, d, angle) {
     this.r = r;
     this.a = a;
     this.b = b;
@@ -10,6 +10,7 @@ class Shape {
     this.n3 = n3;
     this.m = m;
     this.n = n;
+    this.d = d;
     this.angle = angle;
     this.points = [];
   }
@@ -104,6 +105,34 @@ class Shape {
     }
   }
 
+  // http://paulbourke.net/geometry/chrysanthemum/
+
+  chrysanthemum() {
+    let N = 30000;
+    for (let theta = 0; theta < N; theta += 1) {
+      let u = (theta * 21.0 * PI) / N;
+      //console.log(u)
+      let r =
+        this.a *
+        (5 * (1 + sin((11 * u) / 5)) -
+          4 * pow(sin((17 * u) / 3), 4) * pow(sin(2 * cos(3 * u) - 28 * u), 8));
+      let x = this.r * r * cos(u);
+      let y = this.r * r * sin(u);
+      this.points.push(createVector(x, y));
+    }
+  }
+
+  //https://mathcurve.com/courbes2d/ornementales/ornementales.shtml
+
+  clover() {
+    for (let theta = 0; theta < TWO_PI; theta += 0.05) {
+      let r = 1 + cos(this.m * theta) + pow(sin(this.m * theta), 2);
+      let x = this.r * r * cos(theta);
+      let y = this.r * r * sin(theta);
+      this.points.push(createVector(x, y));
+    }
+  }
+
   // https://mathcurve.com/courbes2d.gb/cornu/cornu.shtml
 
   // https://virtualmathmuseum.org/Curves/clothoid/kappaCurve.html
@@ -176,6 +205,15 @@ class Shape {
     }
   }
 
+  flower() {
+    for (let theta = 0; theta < TWO_PI; theta += 0.01) {
+      let r = this.a + cos(this.m * theta);
+      let x = this.r * r * cos(theta);
+      let y = this.r * r * sin(theta);
+      this.points.push(createVector(x, y));
+    }
+  }
+
   // https://mathworld.wolfram.com/GearCurve.html
   // https://help.tc2000.com/m/69445/l/755460-hyperbolic-functions-table
 
@@ -196,15 +234,18 @@ class Shape {
   }
 
   // heart curve equation from https://mathworld.wolfram.com/HeartCurve.html
+  // https://thecodingtrain.com/challenges/134-heart-curve
 
   heart() {
-    for (let theta = 0; theta < 2 * PI; theta += 0.05) {
-      const r =
-        2 -
-        2 * sin(theta) +
-        sin(theta) * (pow(abs(cos(theta)), 0.5) / (sin(theta) + 1.4));
-      const x = this.r * r * cos(theta);
-      const y = this.r * r * sin(theta);
+    for (let theta = 0; theta < 2 * PI; theta += 0.1) {
+      const x = 0.1 * this.r * 16 * pow(sin(theta), 3);
+      const y =
+        0.1 *
+        -this.r *
+        (13 * cos(theta) -
+          5 * cos(2 * theta) -
+          2 * cos(3 * theta) -
+          cos(4 * theta));
       this.points.push(createVector(x, y));
     }
   }
@@ -255,6 +296,17 @@ class Shape {
     }
   }
 
+  // https://mathcurve.com/courbes2d/ornementales/ornementales.shtml
+  pinwheel() {
+    for (let theta = 0; theta < TWO_PI; theta += 0.01) {
+      let denom = 1 - 0.75 * pow(sin(this.m * theta), 2);
+      let r = pow(sin(4 * theta) / denom, 0.5);
+      let x = this.r * r * cos(theta);
+      let y = this.n * this.r * r * sin(theta);
+      this.points.push(createVector(x, y));
+    }
+  }
+
   quadrifolium() {
     let a = 1;
     for (let theta = 0; theta < TWO_PI; theta += 0.05) {
@@ -273,8 +325,7 @@ class Shape {
   }
 
   // https://thecodingtrain.com/challenges/55-mathematical-rose-patterns
-
-  // https://mathcurve.com/courbes2d.gb/deltoid/deltoid.shtml
+  // https://editor.p5js.org/codingtrain/sketches/3kanFIcHd
 
   reduceDenominator(numerator, denominator) {
     function rec(a, b) {
@@ -284,16 +335,15 @@ class Shape {
   }
 
   rose() {
-    let b = 1;
-    let k = this.m / b;
+    let k = this.d / this.m;
     for (
       let theta = 0;
-      theta < TWO_PI * this.reduceDenominator(this.m, b);
-      theta += 0.1
+      theta < TWO_PI * this.reduceDenominator(this.d, this.m);
+      theta += 0.02
     ) {
-      let r = this.a + cos(k * theta);
-      let x = this.r * r * cos(theta);
-      let y = this.r * r * sin(theta);
+      let r = this.r * cos(k * theta);
+      let x = r * cos(theta);
+      let y = r * sin(theta);
       this.points.push(createVector(x, y));
     }
   }
@@ -371,14 +421,14 @@ class Shape {
       this.points.push(createVector(x, y));
     }
   }
-
+  
   // https://mathcurve.com/courbes2d.gb/abdank/abdank.shtml
 
   zigzag() {
-    for (let theta = -PI / 2; theta < (3 / 2) * PI; theta += 0.1) {
-      let r = 1;
-      let x = this.r * r * sin(theta);
-      let y = ((this.r * pow(r, 2)) / 2) * (theta + sin(theta) * cos(theta));
+    for (let theta = -PI / 2; theta < this.a * PI; theta += 0.1) {
+      let x = this.r * sin(theta);
+      let y =
+        ((this.r * pow(this.n, 2)) / 2) * (theta + sin(theta) * cos(theta));
       this.points.push(createVector(x, y));
     }
   }
@@ -395,7 +445,8 @@ class Shape {
   }
 
   showImage(images) {
-    let i = floor(random(10));
+    let n = images.length;
+    let i = floor(random(n));
     let img = images[i];
     push();
     rotate(this.angle);

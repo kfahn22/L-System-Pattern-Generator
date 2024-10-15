@@ -37,6 +37,7 @@ class RuleDropdown {
       "island_curve",
       "kolam",
       "koch_curve",
+      "koch_curve2",
       "koch_snowflake",
       "krishna_anklet",
       "leaf",
@@ -71,7 +72,6 @@ class RuleDropdown {
 
   // Called when a ruleset is selected from the dropdown
   selectRule(choice) {
-    //console.log(choice);
     this.currentFractal = choice; //this.dropdown.value();
     this.pickRule();
   }
@@ -143,6 +143,9 @@ class RuleDropdown {
         break;
       case "koch_curve":
         this.currentFractal = this.lsystem.koch_curve;
+        break;
+      case "koch_curve2":
+        this.currentFractal = this.lsystem.koch_curve2;
         break;
       case "koch_snowflake":
         this.currentFractal = this.lsystem.koch_snowflake;
@@ -232,14 +235,15 @@ class RuleDropdown {
         this.currentFractal = this.lsystem.triangle;
         break;
     }
+    return this.currentFractal;
   }
 
-  setRule() {
-    this.axiom = this.currentFractal.axiom;
-    this.rules = this.currentFractal.rules;
-    this.angle = radians(this.currentFractal.angle);
-    this.lf = this.currentFractal.length_factor;
-    this.maxLevel = this.currentFractal.max_Level;
+  setRule(currentFractal) {
+    this.axiom = currentFractal.axiom;
+    this.rules = currentFractal.rules;
+    this.angle = radians(currentFractal.angle);
+    this.lf = currentFractal.length_factor;
+    this.maxLevel = currentFractal.max_Level;
     this.sentence = this.axiom;
     return [this.rules, this.angle, this.lf, this.maxLevel, this.sentence];
   }

@@ -1,7 +1,7 @@
 class SliderGroup {
   constructor(
     pos,
-    idName,
+    // idName,
     wadj,
     hadj,
     level,
@@ -18,6 +18,7 @@ class SliderGroup {
     n2,
     n3,
     n,
+    d,
     shapeAngle
   ) {
     // Initialize arrays for sliders and labels
@@ -32,7 +33,7 @@ class SliderGroup {
         min: -0.05,
         max: 1.05,
         value: hadj,
-        step: 0.025,
+        step: 0.05,
         label: "Translate y:",
       },
       { min: 0, max: 13, value: level, step: 1, label: "Level:" },
@@ -66,13 +67,14 @@ class SliderGroup {
         step: 0.05,
         label: "Shape scale:",
       },
-      { min: 0, max: 10, value: a, step: 0.01, label: "a:" },
-      { min: 0, max: 20, value: b, step: 0.05, label: "b:" },
-      { min: 0, max: 20, value: m, step: 1, label: "m:" },
-      { min: 0.25, max: 5, value: n1, step: 0.05, label: "n1:" },
-      { min: 0.25, max: 2, value: n2, step: 0.05, label: "n2:" },
-      { min: 0.25, max: 2, value: n3, step: 0.05, label: "n3:" },
+      { min: 0, max: 10, value: a, step: 0.1, label: "a:" },
+      { min: 0, max: 20, value: b, step: 0.1, label: "b:" },
+      { min: 1, max: 20, value: m, step: 1, label: "m:" },
+      { min: 0.2, max: 5, value: n1, step: 0.1, label: "n1:" },
+      { min: 0.2, max: 2, value: n2, step: 0.1, label: "n2:" },
+      { min: 0.2, max: 2, value: n3, step: 0.1, label: "n3:" },
       { min: -1, max: 1, value: n, step: 0.1, label: "n:" },
+      { min: 1, max: 20, value: d, step: 1, label: "d:" },
       {
         min: -180,
         max: 180,
@@ -83,11 +85,13 @@ class SliderGroup {
     ];
 
     // Create sliders and labels
-    this.createSliders(pos, idName);
+    //console.log(pos)
+    this.createSliders(pos);
+    //this.createSliders(pos, idName);
   }
 
   // Create sliders and labels
-  createSliders(pos, idName) {
+  createSliders(pos) {
     for (let i = 0; i < this.sliderProperties.length; i++) {
       // Create slider
       let slider = createSlider(
@@ -97,8 +101,8 @@ class SliderGroup {
         this.sliderProperties[i].step
       );
       slider.addClass("slider");
-      slider.id("mySliders");
-      slider.position(pos + 10, 30 + i * 55);
+      //slider.id("mySliders");
+      slider.position(pos + 35, 30 + i * 55);
       slider.input(() => this.reset());
 
       // Create label

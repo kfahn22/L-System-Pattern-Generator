@@ -23,11 +23,12 @@ class ShapeUI {
       "Cannibus",
       "Cassini Oval",
       "Ceva",
+      "Clover",
+      // "Chrysanthemum",
       "Cornu Spiral",
       "Craniod",
       "Deltoid",
       "Eight",
-      "Flower",
       "Gear",
       "Image",
       "Heart",
@@ -36,12 +37,16 @@ class ShapeUI {
       "Line",
       "Lissajous",
       "Maltese Cross",
+      "Pinwheel",
       "Quadrifolium",
       "Quadrilateral",
+      "Rose",
+      "Flower",
       "Spiral",
       "Superellipse",
       "Supershape",
       "Tear Drop",
+      "Windmill",
       "Word",
       "Zigzag",
     ];
@@ -51,7 +56,6 @@ class ShapeUI {
     this.dropdown.selected(this.choice);
   }
 
-  // sliders - wadj,hadj,level,length,strokeweight, shapeAlpha,sc,rot,rotateShape,a,b,m,n,n1,n2, n3
   // Create a shape based on the selected option
   selectShape(shapeName, values) {
     let r = values[0] * values[1]; // gridlength * shapeScale
@@ -65,7 +69,8 @@ class ShapeUI {
       values[6], // n2
       values[7], // n3
       values[8], // n
-      values[9] // rotateShape
+      values[9], // d
+      radians(values[10]) // rotateShape
     );
 
     this.shape.points = []; // Clear any existing points
@@ -105,6 +110,16 @@ class ShapeUI {
       case "Ceva":
         this.shape.ceva();
         break;
+      // This works but is very energy intensive
+      // It would be better to add as images
+      // case "Chrysanthemum":
+      //   this.shape.chrysanthemum();
+      //   break;
+      case "Clover":
+        this.shape.clover();
+        this.addMessage = true;
+        this.message = "The clover curve is a f(m)";
+        break;
       case "Cornu Spiral":
         this.shape.cornuSpiral();
         this.addMessage = true;
@@ -115,12 +130,17 @@ class ShapeUI {
         this.addMessage = true;
         this.message = "The craniod curve is a f(a, b, m).";
         break;
-
       case "Deltoid":
         this.shape.deltoid();
         break;
       case "Eight":
         this.shape.eight();
+        break;
+      case "Flower":
+        // I have added a constraint on the value of b to keep the sketch from freezing
+        this.shape.flower();
+        this.addMessage = true;
+        this.message = "The flower curve is a f(a, m)";
         break;
       case "Gear":
         this.shape.gear();
@@ -153,6 +173,11 @@ class ShapeUI {
         this.addMessage = true;
         this.message = "The cross curve is a f(a, b).";
         break;
+      case "Pinwheel":
+        this.shape.pinwheel();
+        this.addMessage = true;
+        this.message = "The pinwheel curve is a f(m, n). Start: m=2, n= 1";
+        break;
       case "Quadrifolium":
         this.shape.quadrifolium();
         break;
@@ -161,12 +186,10 @@ class ShapeUI {
         this.addMessage = true;
         this.message = "The quadrilaterial curve is a f(m).";
         break;
-      case "Flower":
-        // This started as the rose curve, but I have edited the code and now render a flower.
-        // I have added a constraint on the value of b to keep the sketch from freezing
-        this.shape.flower();
+      case "Rose":
+        this.shape.rose();
         this.addMessage = true;
-        this.message = "The flower curve is a f(a, m)";
+        this.message = "The rose curve is a f(d, m). Start: d=5, m=8";
         break;
       case "Superellipse":
         this.shape.superellipse();
@@ -190,7 +213,8 @@ class ShapeUI {
         break;
       case "Zigzag":
         this.shape.zigzag();
-        break;
+        this.addMessage = true;
+        this.message = "The zigzag curve is a f(a, n).";
       default:
         break;
     }
