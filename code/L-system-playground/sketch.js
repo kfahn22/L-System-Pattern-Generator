@@ -36,9 +36,6 @@ function setup() {
   canvas.position(175, 75);
   canvas.id("mycanvas");
   p5grain.setup();
-  //  for (let s of sliders) {
-  //    s.id("sliders");
-  //  }
   controls = addLsystem();
 }
 

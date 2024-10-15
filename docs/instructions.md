@@ -1,37 +1,60 @@
 # Instructions - WIP
 
-There are multiple sliders and three sets of dropdowns for each visualization. (While the majority of the rule-sets render fractals, a few just render multiple copies of the shape in interesting ways.)
 
-This code as the sliders for the first L-system, setting the translation, fractal level to 5, the grid length to 20, strokeweight to 2, alpha to 145, of the scale of the shape to 1/2 of the grid size. The L-system rotation are both set to zero. The remaining numbers are the shape parameters.
+## Options
 
-`[sliders0, sliderLabels0] = addSliders(
-    10,
-    "first",
-    0.0,
-    1.0,
-    5,
-    20,
-    2,
-    145,
-    0.5,
-    0,
-    0,
-    1.5,
-    2.5,
-    6,
-    1,
-    1,
-    1,
-    1
-  );`
+1. Choose one or two rulesets (default).  Press "Remove second ruleset" checkbox to remove the second ruleset.  Dropdowns and sliders remain but ruleset will be gone.
 
-The next lines add the three dropdowns for the first L-system, setting the Hilbert curve as the fractal, the gear curve as the shape, and the color palette to raspberry.
+2. Choose the rulseset from the ruleset dropdown.
 
-`ruleDropdown0 = addRuleDropdown(x, 5, "hilbert");`  
- `shapeDropdown0 = addShapesDropdown(x, 50, "gear");`  
- `paletteDropdown0 = addPalettes(x, 95, "raspberry");`
+See ruleset-dropdown.js and ruleset.json files.
 
-<p align="center"><img src="assets/Ruleset-shape-examples/hilbert-gear-raspberrry.jpg" alt="Hilbert curve with gear curve" width="500px"></p>
+ Because I was have an issue with the sketch slowing down or freezing, I have imposed limits (maxLevel field in the ruleset.json file) on the level for most of the rulesets. A message will pop up if you try to increase the level beyond the maxLevel I have imposed.  You can find the code in the addLsystem() function in the turtle.js file.
+
+```JAVASCRIPT
+if (level > this.maxLevel) {
+        this.addWarning = true;
+        params[0] = this.maxLevel;
+        this.levelWarning(params, colorParams, ruleChoices);
+      } else {
+        this.ruleWarnings[index] = null;
+        this.render(params, colorParams);
+      }
+```
+
+You might also want to be careful about increasing the level for certain curves, most significantly the "rose" curve.  
+
+3. Choose a shape/curve from the shapes dropdown.
+
+```JAVASCRIPT
+constructor(r, a, b, m, n1, n2, n3, n, d, angle) {
+    this.r = r;
+    this.a = a;
+    this.b = b;
+    this.n1 = n1;
+    this.n2 = n2;
+    this.n3 = n3;
+    this.m = m;
+    this.n = n;
+    this.d = d;
+    this.angle = angle;
+    this.points = [];
+}
+```
+
+
+See shape_ui.js and shape.js
+
+4. Adjust shape parameters. If the shape is a function of the slider parameters, a message will pop up.
+
+
+
+TODO:  add pic of sliders
+
+4. Choose color palettes, strokeWeight, and alpha
+
+See palette-dropdown.js file
+
 
 ## Palettes
 
