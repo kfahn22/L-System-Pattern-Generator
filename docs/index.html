@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>L-system Pattern Generator Instructions</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+	<header id="index">
+		<h1>L-system Digital Pattern Creator Instructions</h1>
+		<nav id="myNavBar">
+			<div class="overlay" id="myNav">
+				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+				<div class="overlay-content">
+					<a href="https://kfahn22.github.io/l-system-playground/" id="design">Design Your Own Pattern</a>
+					<a href="" id="">GitHub Repo</a>
+					<a href="https://kfahn22.github.io/l-system-examples/" id="examples">See Examples</a>
+                    <a href="POLAR-SHAPES/polar-shapes.md" id="polar-shapes">Learn More about Polar Shapes</a>
+                    <a href="https://kfahn22.github.io/shape_playground/" id="polar-shapes">Experiment with Polar Shapes</a>
+				</div>
+			</div>
+
+			<div class="topNav">
+			<a href="https://kfahn22.github.io/l-system-playground/" id="design">Design Your Own Pattern</a>
+					<a href="" id="links">GitHub Repo</a>
+					<a href="https://kfahn22.github.io/l-system-examples/" id="links">See Examples</a>
+                    <a href="./RULE-SETS/rule-sets.md" id="links">Learn More about L-system Rules</a>
+                    <a href="./POLAR-SHAPES/polar-shapes.md" id="links">Learn More about Polar Shapes</a>
+                    <a href="https://kfahn22.github.io/shape_playground/" id="polar-shapes">Experiment with Polar Shapes</a>
+			</div>
+		</nav>
+	</header>
+	<div class="container">
+		<div class="row">
+			<div id="bella">
+				<img align="center" src="assets/bella.png" alt="Bella" width="300" height="300"
+					style="border:5px solid black">
+			</div>
+            <p>
+					Hi, I'm Bella and I am the official mascot of this website. My human Kathy has created a digital pattern generator using L-system rules and a lot of different shapes - including ones you probably have never heard of! You can create your own digital artwork (and maybe learn something about L-systems and shapes in the process.)  You can find the source code here
+					<a href="https://github.com/kfahn22/L-System-Pattern-Generator/tree/main/Streamlined_Lsystem">here.</a>
+			</p>
+			
+		</div>
+	</div>
+</body>
+
+<script>
+	// Get the modal
+	var modal = document.getElementById("myModal");
+
+	// Get the image and insert it inside the modal - use its "alt" text as a caption
+	var img = document.getElementById("myImg");
+	var modalImg = document.getElementById("img01");
+	var captionText = document.getElementById("caption");
+	img.onclick = function () {
+		modal.style.display = "block";
+		modalImg.src = this.src;
+		captionText.innerHTML = this.alt;
+	}
+
+	// Get the <span> element that closes the modal
+	var span = document.getElementsByClassName("close")[0];
+
+	// When the user clicks on <span> (x), close the modal
+	span.onclick = function () {
+		modal.style.display = "none";
+	}
+</script>
+</body>
+
+</html>
