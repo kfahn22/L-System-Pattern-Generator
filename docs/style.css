@@ -20,26 +20,18 @@ header #index {
   background-image: url("../assets/basic_patterns/hilbert-gear-raspberrry.jpg");
 }
 
-p {
+/* p {
   margin-left: auto;
   margin-right: auto;
   padding: 1vw;
   font-size: x-large;
-}
+} */
 
-div #intro {
-  width: 45vw;
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
-div #bella {
-  background-color: #fff;
-  width: 30vw;
-  margin-top: auto;
-  margin-bottom: auto;
-  margin-left: auto;
-  margin-right: auto;
+div  {
+ margin: auto;
+  width: 50%;
+  /* border: 3px solid rgb(188, 13, 153); */
+  padding: 10px;
 }
 
 li {
@@ -70,25 +62,22 @@ header #lsystem {
 
 h1 {
   font-family: Arial, Helvetica, sans-serif;
-  padding: 1%;
-  font-size: 300%;
+  padding: 2%;
+  font-size: 250%;
   text-align: center;
   text-transform: uppercase;
   text-shadow: 2px 2px #0d1a44;
   color: #ffffff;
 }
 
-#circleImg,
-#tribalImg,
-#trainImg,
-#crossStitchImg,
-#barbellImg,
-#tubeImg,
-#loopsImg,
-#mazeImg,
-#smallTracksImg {
-  max-width: 300px;
-  margin: 1vw;
+h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 1%;
+  font-size: 200%;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 2px 2px #0d1a44;
+  color: #ffffff;
 }
 
 #construction {
@@ -99,6 +88,7 @@ h1 {
 canvas {
   display: block;
 }
+
 code {
   padding: 1vw;
   background-color: black;
@@ -106,22 +96,13 @@ code {
   /* max-width: 500px; */
 }
 
-div {
+/* div {
   margin: 1vh;
   padding: 1vw;
   color: #fff;
-}
+} */
 
-.tile {
-  max-width: 120px;
-}
 
-iframe {
-  margin-top: 2vh;
-  width: 80vw;
-  margin-left: 10vw;
-  margin-right: 10vw;
-}
 
 a:link,
 a:visited {
@@ -138,79 +119,9 @@ a:active {
   background-color: #595959;
 }
 
-/* Style the Image Used to Trigger the Modal */
-#myImg {
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.3s;
-}
 
-/*Hide nav bar for mobile devices*/
-nav .topNav {
-  visibility: hidden !important;
-}
 
-/* Position the content inside the overlay */
-.overlay-content {
-  position: relative;
-  top: 25%; /* 25% from the top */
-  width: 100%; /* 100% width */
-  text-align: center; /* Centered text/links */
-  margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
-}
 
-/* The Overlay (background) */
-.overlay {
-  /* Height & width depends on how you want to reveal the overlay (see JS below) */
-  height: 100%;
-  width: 0;
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  color: #ffffff;
-  background-color: #0a1a32;
-
-  overflow-x: hidden; /* Disable horizontal scroll */
-  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
-}
-
-/* The navigation links inside the overlay */
-.overlay a {
-  padding: 8px;
-  text-decoration: none;
-  font-size: 40px;
-  color: #ffffff;
-  display: block; /* Display block instead of inline */
-  transition: 0.3s; /* Transition effects on hover (color) */
-}
-
-/* When you mouse over the navigation links, change their color */
-.overlay a:hover,
-.overlay a:focus {
-  color: #5eb5fb;
-  background-color: #ffffff;
-}
-
-/* Position the close button (top right corner) */
-.overlay .closebtn {
-  position: absolute;
-  top: 20px;
-  right: 45px;
-  font-size: 60px;
-}
-
-/* .active{
-    color: #black;
-    background-color: #ffffff;
-    opacity: 80%;
-}
- */
-
-/* a:hover #genLink {
-    background-color: tranparent !important;
-    color: #ffffff;
-} */
 #demo {
   margin-left: 2%;
   margin-right: 2%;
@@ -224,20 +135,7 @@ nav .topNav {
   justify-content: space-between;
 }
 
-.card {
-  margin-top: 1%;
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-bottom: 5%;
-}
-.card-body {
-  background-color: #ffffff;
-}
-.card-img-top {
-  margin-left: auto !important;
-  margin-right: auto !important;
-  max-width: 200px;
-}
+
 /* When the height of the screen is less than 450 pixels, change the font-size of
 the links and position the close button again, so they don't overlap */
 @media screen and (max-height: 450px) {
