@@ -17,7 +17,7 @@ header {
 header #index {
   height: 20vh;
   margin-bottom: 10vh;
-  background-image: url("assets/basic_patterns/hilbert-gear-raspberrry.jpg");
+  background-image: url("../assets/basic_patterns/hilbert-gear-raspberrry.jpg");
 }
 
 p {
@@ -54,6 +54,12 @@ header #lsystem {
   background-size: cover;
   font-size: 100%;
   margin-bottom: 5%;
+}
+
+#links {
+    font-size: 25em;
+    margin: 10em;
+    background-color: #f1f1f1
 }
 
 
