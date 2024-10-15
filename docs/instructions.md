@@ -1,13 +1,20 @@
 # Instructions - WIP
 
-
 ## Options
 
 1. Choose one or two rulesets (default).  Press "Remove second ruleset" checkbox to remove the second ruleset.  Dropdowns and sliders remain but ruleset will be gone.
 
-2. Choose the rulseset from the ruleset dropdown.
+<p align="center"><img src="./assets/seond_ruleset.jpg" alt="second-ruleset-checkbox" width="500px"></p>
 
-See ruleset-dropdown.js and ruleset.json files.
+2. When there are two fractals, you have the option of keeping global variables such as x and y translation and grid length the same (default) or different.
+
+<p align="center"><img src="./assets/variables.jpg" alt="second-ruleset-checkbox" width="500px"></p>
+
+3. Choose the rulseset from the ruleset dropdown.
+
+<p align="center"><img src="./assets/ruleset-dropdown.jpg" alt="ruleset-dropdown" width="500px"></p>
+
+See ruleset-dropdown.js and ruleset.json files for more info.
 
  Because I was have an issue with the sketch slowing down or freezing, I have imposed limits (maxLevel field in the ruleset.json file) on the level for most of the rulesets. A message will pop up if you try to increase the level beyond the maxLevel I have imposed.  You can find the code in the addLsystem() function in the turtle.js file.
 
@@ -24,7 +31,9 @@ if (level > this.maxLevel) {
 
 You might also want to be careful about increasing the level for certain curves, most significantly the "rose" curve.  
 
-3. Choose a shape/curve from the shapes dropdown.
+4. Choose a shape/curve from the shapes dropdown.
+
+<p align="center"><img src="./assets/shape-dropdown.jpg" alt="shape-dropdown" width="500px"></p>
 
 ```JAVASCRIPT
 constructor(r, a, b, m, n1, n2, n3, n, d, angle) {
@@ -42,14 +51,24 @@ constructor(r, a, b, m, n1, n2, n3, n, d, angle) {
 }
 ```
 
+Each curve has a function in the Shapes class. For example, here is the code for the Astroid curve
 
-See shape_ui.js and shape.js
+```JAVASCRIPT
+ astroid() {
+    for (let theta = 0; theta < TWO_PI; theta += 0.05) {
+      let x = this.r * pow(cos(theta), 3);
+      let y = this.r * pow(sin(theta), 3);
+      this.points.push(createVector(x, y));
+    }
+  }
+  ```
 
-4. Adjust shape parameters. If the shape is a function of the slider parameters, a message will pop up.
+See shape_ui.js and shape.js for more information.
 
+4. Adjust shape parameters. If the shape is a function of the shape parameters a, b, m, n1, n2, n3, n, or d, a message will pop up.
 
+<p align="center"><img src="./assets/sliders.jpg" alt="sliders" width="500px"></p>
 
-TODO:  add pic of sliders
 
 4. Choose color palettes, strokeWeight, and alpha
 
