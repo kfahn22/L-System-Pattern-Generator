@@ -64,14 +64,14 @@ let sliderValues1 = [
 
 function setup() {
   canvas = createCanvas(600, 600);
-  canvas.position(240, 90);
+  canvas.position(300, 130);
 
   addShape = createCheckbox("Add second shape", false);
-  addShape.position(400, 10);
+  addShape.position(600, 10);
   addShape.style("color", "white");
 
   backgroundDropdown = new PaletteDropdown(
-    240,
+    300,
     30,
     "white",
     "Background Color"
@@ -82,7 +82,7 @@ function setup() {
     addShapeSystem(10, sliderValues0, shapeChoice0, strokeChoice0, fillChoice0)
   );
   shapeSystems.push(
-    addShapeSystem(870, sliderValues1, shapeChoice1, strokeChoice1, fillChoice1)
+    addShapeSystem(950, sliderValues1, shapeChoice1, strokeChoice1, fillChoice1)
   );
 
   setShape(shapeSystems);
@@ -307,8 +307,8 @@ function addMessages(message) {
 
   if (message) {
     shapeMessage = createP(message); // Create a new paragraph with the message
-    shapeMessage.position(240, 25); // Set position for the message
-    shapeMessage.style("font-size", "25px");
+    shapeMessage.position(300, 50); // Set position for the message
+    shapeMessage.style("font-size", "30px");
   }
 }
 

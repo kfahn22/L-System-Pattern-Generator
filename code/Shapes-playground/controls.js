@@ -9,7 +9,7 @@ class AddControls {
     this.strokedropdown = this.strokeDropdown.dropdown;
     this.fillDropdown = new PaletteDropdown(
       pos,
-      140,
+      170,
       fillChoice,
       "Fill Color"
     );
@@ -41,11 +41,11 @@ class AddControls {
     this.shapeDropdown = this.shape_ui.dropdown;
     // Checkbox to determine whether shapes have stroke
     this.addStroke = createCheckbox("Add stroke", true);
-    this.addStroke.position(pos, 180);
+    this.addStroke.position(pos, 210);
     this.addStroke.style("color", "white");
     // Checkbox to determine whether shapes are filled
     this.fillShape = createCheckbox("Fill shape", false);
-    this.fillShape.position(pos, 210);
+    this.fillShape.position(pos, 240);
     this.fillShape.style("color", "white");
    
     this.values = [];

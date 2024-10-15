@@ -82,14 +82,13 @@ class SliderGroup {
       );
       slider.addClass("slider");
       slider.id("mySliders");
-      slider.position(this.pos, 260 + i * 55);
-      slider.size(200);
+      slider.position(this.pos, 300 + i * 55);
+      slider.size(250);
       slider.input(() => this.reset());
 
       // Create label
       let label = createP(this.sliderProperties[i].label);
       label.position(slider.x, slider.y - 35);
-
       label.style("color", "white");
 
       // Store slider and label
