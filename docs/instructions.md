@@ -6,7 +6,7 @@
 
 <p align="center"><img src="./assets/seond_ruleset.jpg" alt="second-ruleset-checkbox" width="500px"></p>
 
-2. When there are two fractals, you have the option of keeping global variables such as x and y translation and grid length the same (default) or different.
+2. When there are two fractals, you have the option of keeping three variables (x and y translation and grid length) the same (default) for the two L-systems or they can be independent.
 
 <p align="center"><img src="./assets/variables.jpg" alt="second-ruleset-checkbox" width="500px"></p>
 
