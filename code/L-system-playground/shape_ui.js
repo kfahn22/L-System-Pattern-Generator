@@ -58,10 +58,9 @@ class ShapeUI {
 
   // Create a shape based on the selected option
   selectShape(shapeName, values) {
-    let r = values[0] * values[1]; // gridlength * shapeScale
     // Create a new Shape object with necessary parameters
     this.shape = new Shape(
-      r,
+      values[0] * values[1], //r (gridlength * shapeScale),
       values[2], // a
       values[3], // b
       values[4], // m

@@ -56,7 +56,7 @@ class SliderGroup {
         min: -180,
         max: 180,
         value: fractalAngle,
-        step: 5,
+        step: 45,
         label: "Rotate fractal:",
       },
       { min: 5, max: 200, value: length, step: 1, label: "Step length:" },
