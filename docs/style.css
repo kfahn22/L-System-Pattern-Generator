@@ -2,6 +2,8 @@ html,
 body {
   margin: 1vw;
   background-color: #656464;
+  color: #fff;
+  /* font-size: 25em; */
 }
 header {
   background-repeat: repeat-x;
@@ -22,6 +24,10 @@ header #index {
   background-image: url("../assets/basic_patterns/bk.jpg");
 }
 
+p {
+  font-size: 150%;
+}
+
 /* p {
   margin-left: auto;
   margin-right: auto;
@@ -31,7 +37,7 @@ header #index {
 
 div {
   margin: auto;
-  width: 50%;
+  width: 80%;
   padding: 1px;
 }
 
@@ -52,21 +58,22 @@ li {
 h1 {
   font-family: Arial, Helvetica, sans-serif;
   padding: 2%;
-  font-size: 250%;
+  font-size: 275%;
   text-align: center;
   text-transform: uppercase;
   text-shadow: 2px 2px #0d1a44;
-  color: #FFA91F;
+  color: #ffa91f;
 }
 
 h2 {
   font-family: Arial, Helvetica, sans-serif;
-  padding: 1%;
-  font-size: 150%;
-  text-align: center;
-  text-transform: uppercase;
-  text-shadow: 2px 2px #0d1a44;
-  color: #FFA91F;
+  padding-bottom: 1%;
+  padding-top: 1%;
+  font-size: 200%;
+  text-align: left;
+  /* text-transform: uppercase; */
+  /* text-shadow: 2px 2px #0d1a44; */
+  color: #fff;
 }
 
 h3 {
@@ -76,17 +83,18 @@ h3 {
   text-align: center;
   text-transform: uppercase;
   text-shadow: 2px 2px #0d1a44;
-  color: #FFA91F;
+  color: #ffa91f;
 }
 
 canvas {
   display: block;
 }
 
-code {
+#code {
   padding: 1vw;
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
+  width: 80%
   /* max-width: 500px; */
 }
 
@@ -102,8 +110,7 @@ img {
 
 a:link,
 a:visited {
-  color: black;
-  background-color: #fff;
+  color: #ffa91f;
   padding: 5px 10px;
   text-align: center;
   text-decoration: none;
