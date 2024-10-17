@@ -98,6 +98,13 @@ canvas {
   /* max-width: 500px; */
 }
 
+#index-links {
+  padding: 1%;
+  background-color: #ffa91f;
+  color: black;
+  font-size: 170%;
+}
+
 img {
   width: 100%;
 }
