@@ -9,6 +9,7 @@ let images = [];
 
 let backgroundDropdown;
 let syncVariables; // checkbox for whether the same translation and length variables are used for both Lsystems
+
 let sliderPos = 0;
 let dropdownPos = 180;
 
@@ -271,7 +272,6 @@ function setSystemVariables(lsystems) {
       lsystemValues[1][0][9] = lsystemValues[0][0][9];
       lsystemValues[1][0][15] = lsystemValues[0][0][15];
     }
-    //console.log(lsystemValues);
 
     // Get Shape data
     sliderValues.push(lsystemValues[i][0].slice(-18)); // -18
