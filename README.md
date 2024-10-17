@@ -53,4 +53,4 @@ I also want to give a shout-out to [supercolorpalette.com](https://supercolorpal
 - [LSystemPlot](https://resources.wolframcloud.com/FunctionRepository/resources/LSystemPlot/)
 - [Principles of L-Systems](https://www.houdinikitchen.net/wp-content/uploads/2019/12/L-systems.pdf)
 - [more-l-system-fractal-fun](http://a-d-c.ca/more-l-system-fractal-fun/#page-content)
- 
+- [](https://imgur.com/a/lsystems1-0Rx7uln)
