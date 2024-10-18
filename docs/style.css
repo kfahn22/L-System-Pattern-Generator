@@ -47,8 +47,14 @@ a {
 
 div {
   margin: auto;
+  width: 100%;
+  padding: 1%;
+}
+
+#img {
   width: 80%;
-  padding: 1px;
+  margin: auto;
+  padding: 1%;
 }
 
 li {
