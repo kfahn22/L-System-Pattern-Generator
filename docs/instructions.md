@@ -6,9 +6,10 @@
 
 <p align="center"><img src="./assets/seond_ruleset.jpg" alt="second-ruleset-checkbox" width="500px"></p>
 
-2. When there are two fractals, you have the option of keeping three variables (x and y translation and grid length) the same (default) for the two L-systems or they can be independent.
+2. When there are two L-systems, you have the option of keeping three variables (x and y translation and grid length) the same (default) for the two L-systems or they can be independent.
 
 <p align="center"><img src="./assets/variables.jpg" alt="second-ruleset-checkbox" width="500px"></p>
+
 
 3. Choose the rulseset from the ruleset dropdown.
 
