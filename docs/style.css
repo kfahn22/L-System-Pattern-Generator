@@ -33,9 +33,9 @@ li {
 }
 
 a {
-  display: block;
+  /* display: block; */
   padding: 8px;
-  background-color: #dddddd;
+  color: #ffa91f;
 }
 
 /* p {
@@ -104,12 +104,12 @@ canvas {
   padding: 1vw;
   background-color: white;
   color: black;
-  width: 80%
+  width: 60%
   /* max-width: 500px; */
 }
 
 img {
-  width: 100%;
+  width: 60%;
 }
 
 /* Basic reset */

@@ -18,39 +18,44 @@
 		<h1>Instructions</h1>
 	</header>
 		<div>
-			<p>
-				<h2>1. Choose the Number of L-systems to Render</h2>
-				<p>You can choose one or two rulesets (default).  Press "Remove second ruleset" checkbox to remove the second ruleset.  Dropdowns and sliders remain but the second ruleset will be removed. I would advise doing this initially to experiment with just one to see what happens. </p>
+			<h2>1. Choose the Number of L-systems to Render</h2>
+			<p>You can choose one or two rulesets (default).  Press "Remove second ruleset" checkbox to remove the second ruleset.  Dropdowns and sliders remain but the second ruleset will be removed. I would advise doing this initially to experiment with just one to see what happens.
+            
 			<p align="center"><img src="./assets/second.jpg" alt="second-ruleset-checkbox" width="500px"></p>
+        </div>
+        <div>
             <p> With two L-systems, the pattern created will depend on the order in which they are rendered. For example, if you switch the order you will not see the "supershape" l-system. If you decease the alpha on the "flower" ruleset and change the parameters slightly it will become visable again. I adjusted the color palettes to make the supershape L-system more visable.You will notice that there was a BIG change in the pattern despite the relatively small change in parameters. </p>
             <p align="center"><img src="./assets/switch-order.jpg" alt="second-ruleset-checkbox" width="500px"></p>
-           </p>
-			<p>
-				<h2>2. Choose a Ruleset</h2>
-                <p>There are a large number of rulesets to choose from, including the Koch, Hilbert, the dragon rulesets, and--my personal favorite--one called ADH231a. The ruleset data is contained in the <a href="https://github.com/kfahn22/L-System-Pattern-Generator/blob/main/code/L-system-playground/rules.json">ruleset.json</a>file.</p>
-                <p align="center"><img src="./assets/ruleset-dropdown.jpg" alt="ruleset-dropdown" width="500px"></p>
-                <p>Here is an example of what the data looks like for the dragon curve. </p>
-               <div id="code">
-               "dragon": {
-                        "axiom": "FX",<br>  
-                        "rules": {<br>  
-                        "X": "X+YF+",<br>  
-                        "Y": "-FX-Y",<br> 
-                        "length_factor": 1
-                        },<br>   
-                        "angle": 90,<br> 
-                        "length_factor": 1,<br> 
-                        "max_Level": 12,<br> 
-                        "author": "Paul Bourke"<br> 
-                },
-               </div>
-               <br>
-               <p>The turtle system is like a game you may have played as a child called "Simon Says." The axiom (in this case "FX") is the starting point, and the rules tell the computer exactly what to.  Here is a list of the symbols and what they tell the computer to do.</p>
+        </div>
+   
+    <br>
+    <div>
+		<h2>2. Choose a Ruleset</h2>
+        <p>There are a large number of rulesets to choose from, including the Koch, Hilbert, the dragon rulesets, and--my personal favorite--one called ADH231a. The ruleset data is contained in the <a href="https://github.com/kfahn22/L-System-Pattern-Generator/blob/main/code/L-system-playground/rules.json">ruleset.json</a>file.</p>
+        <br>
+        <p align="center"><img src="./assets/ruleset-dropdown.jpg" alt="ruleset-dropdown" width="500px"></p>
+        <br>
+        <p>Here is an example of what the data looks like for the ADH231a ruleset. </p>
+        <div id="code">
+            "ADH231a": {<br>
+                "axiom": "F++++F",<br>
+                "rules": {<br>
+                "F": "F+F+F++++F+F+F"<br>
+                },<br>
+                "angle": 45,<br>
+                "length_factor": 1,<br>
+                "max_Level": 3,<br>
+                "author": "Anthony Hammer"<br>
+            },<br>
+        </div>
+        
+        <br>
+        <p>The turtle system is like a game you may have played as a child called "Simon Says." The axiom (in this case "FX") is the starting point, and the rules tell the computer exactly what to.  Here is a list of the symbols and what they tell the computer to do.</p>
         <br>
         <div id = "code">
                 "F" -> Render the shape and translate one step in the x direction.<br>
                 "f" -> Translate one step in the x direction<br>
-                "+" -> Rotate clockwise by the angle<br>
+                "+" -> Rotate clockwise by the angle (45)<br>
                 "-" -> Rotate counterclockwise by the angle<br>
                 "[" -> push<br>
                 "]" -> pop<br>
@@ -58,26 +63,54 @@
                 "<" -> Increase length by the length factor<br>
         </div>
         <br>     
-        <p>You can find more detailed information about the individual rulesets <a href="https://github.com/kfahn22/L-System-Pattern-Generator/blob/main/docs/RULE-SETS/rule-sets.md">here.</a></p></p>    
-		<div>
-
-        </div>			
-			<h2>3. Decide Whether to Keep the L-system Global Variables the Same</h2>
-             <p>When there are two L-systems, three variables (x and y translation and grid length) be be kept the same (default) for the two L-systems, but you also have the  option of making them independent. I have found that you can create some nice patterns with different shapes added to the same ruleset, and therefore it is best to keep those 3 variables synchronized, as shown in the image.</p>
-            <p align="center"><img src="./assets/variables.jpg" alt="variables" width="500px"></p>
-		</div>
-		<div>
-            <h2>4. Decide What Shape or Polar Curve to Use</h2>
-            <p>There are a large number of polar curves or shapes to choose from, including the gear, supershape, and heart curves and various spirals. You can learn more about the polar curves <a href="https://github.com/kfahn22/L-System-Pattern-Generator/blob/main/docs/POLAR-SHAPES/polar-shapes.md">here.</a>  The code for the shapes can be found in the <a href="https://github.com/kfahn22/L-System-Pattern-Generator/blob/main/code/L-system-playground/shapes.js">shapes.js</a>file.</p>
-            <br>
-            <p align="center"><img src="./assets/shape-dropdown.jpg" alt="shape-dropdown" width="500px"></p>
-        </div>
-        <div>
-            <h2>5. Choose the Background, Stroke, and Fill Color, Alpha and StrokeWeight</h2>
-            <p>Because the shapes are layering over top of each other, I have found it generally best to keep the alpha on the lower side (150 is good).</p>
-           </div>
+        <p>You can find more detailed information about the individual rulesets <a href="https://github.com/kfahn22/L-System-Pattern-Generator/blob/main/docs/RULE-SETS/rule-sets.md">here.</a></p></p> 
         
-			
+        <p>If we change to the Skierpinksi rule-set, you will see that the pattern looks completely different. It is also not in the right place! What is happening? This is where we need to introduce the concept of translations.</p>
+        <p align="center"><img src="./assets/switch-ruleset-1.jpg" alt="change-ruleset" width="500px"></p>
+	</div>
+    <br>
+    <div>
+        <h2>Translation and Scale in p5.js</h2>
+        <p>As explained in the <a href="https://p5js.org/reference/p5/translate/">documentation,</a> by default the origin of the 
+        coordinate system in p5.js is the top-left corner of the canvas. While some of the the rule-sets start in the top-left corner, the majority do not. (You can see the starting points for the rulesets <a href="https://github.com/kfahn22/L-System-Pattern-Generator/blob/main/docs/RULE-SETS/rule-sets.md">here</a>, where the start is marked by a red circle.) For example, the ruleset we have been looking at--ADH231a--starts in the middle of the left boundary of the canvas. Therefore, if the ruleset is changed, the origin of the canvas needs to be adjusted using the "Translate x" and "Translate y" sliders. Behind the scenes, the code is using translate() function (turtle.js, line 168). The translation is a percentage of the canvas width and height so that the code doesn't break for different canvas sizes.</p>
+        <br>
+        <div id="code">
+            <p>translate(width * wadj, height * hadj);</p>
+        </div>
+        <br>
+        <p>We can see the starting point (red circle) for the Skierpinksi ruleset in the following image.</p>
+        <p align="center"><img src="./RULE-SETS/assets/rule-set-images/skierpinski.jpg" width="300px"></p>
+        <p>Looking at the image, it looks like the ruleset begins roughly half-way across the width of the canvas and almost at the bottom. If we change the "Translate x" slider to 0.49 and the "Translate y" slider to 0.9, the L-system is now properly centered.</p>
+        <p align="center"><img src="./assets/switch-ruleset2.jpg" width="500px"></p>
+        <br>
+        <p>If you are unfamiliar with translations and would like to learn more, I recommmend watching Daniel Shiffman's tutorial on the subject.</p> 
+        </div>
+            <p align="center">
+                     <iframe  width="60%" height="600px"
+                    src="https://www.youtube.com/embed/o9sgjuh-CBM">
+                    </iframe>
+            </p> 
+		</div>
+    </div>
+    <div>			
+		<h2>3. Decide Whether to Keep the L-system Global Variables the Same</h2>
+        <br>
+        <p>When there are two L-systems, three variables (x and y translation and grid length) can be kept the same (default) for the two L-systems, but you also have the  option of making them independent. I have found that you can create some nice patterns with different shapes added to the same ruleset, and therefore it is best to keep those 3 variables synchronized, as shown in the image.</p>
+        <p align="center"><img src="./assets/variables.jpg" alt="variables" width="500px"></p>
+        <br>
+        <p>In the following image, "Translate x" is not synchronized. </p>
+        <p align="center"><img src="./assets/different-x-translation.jpg" alt="different-x-translatation" width="500px"></p>
+	<div>
+        <h2>4. Decide What Shape or Polar Curve to Use</h2>
+        <p>There are a large number of polar curves or shapes to choose from, including the gear, supershape, and heart curves and various spirals. You can learn more about the polar curves <a href="https://github.com/kfahn22/L-System-Pattern-Generator/blob/main/docs/POLAR-SHAPES/polar-shapes.md">here.</a>  The code for the shapes can be found in the <a href="https://github.com/kfahn22/L-System-Pattern-Generator/blob/main/code/L-system-playground/shapes.js">shapes.js</a>file.</p>
+        <br>
+        <p align="center"><img src="./assets/shape-dropdown.jpg" alt="shape-dropdown" width="500px"></p>
+    </div>
+    <br>
+    <div>
+        <h2>5. Choose the Background, Stroke, and Fill Color, Alpha and StrokeWeight</h2>
+        <p>Because the shapes are layering over top of each other, I have found it generally best to keep the alpha on the lower side (150 is good).</p>
+    		
 	</div>
 </body>
 
