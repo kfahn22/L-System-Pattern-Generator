@@ -58,6 +58,9 @@ class ShapeUI {
 
   // Create a shape based on the selected option
   selectShape(shapeName, values) {
+    if (shapeName == "Line") {
+      values[1] = 0.5;
+    }
     // Create a new Shape object with necessary parameters
     this.shape = new Shape(
       values[0] * values[1], //r (gridlength * shapeScale),
