@@ -101,6 +101,7 @@ class SliderGroup {
         this.sliderProperties[i].step
       );
       slider.addClass("slider");
+      slider.parent(sliderDiv);
       //slider.id("mySliders");
       slider.position(pos + 35, 30 + i * 55);
       slider.input(() => this.reset());
