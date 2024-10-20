@@ -15,11 +15,6 @@ let dropdownPos = 180;
 
 // Array to store dropdowns, sliderGroup, sliders, checkBoxes
 let lsystem0;
-let ruleChoice0 = "ADH231a";
-let shapeChoice0 = "Flower";
-let strokeChoice0 = "orange";
-let fillChoice0 = "purplePalette";
-
 let sliderValues0 = [
   sliderPos,
   0.05, // wadj
@@ -43,16 +38,13 @@ let sliderValues0 = [
 ];
 
 let lsystem1;
-let ruleChoice1 = "ADH231a";
-let ruleChoices = [ruleChoice0, ruleChoice1];
-let shapeChoice1 = "Supershape";
-let shapeChoices = [shapeChoice0, shapeChoice1];
-let strokeChoice1 = "orange";
-let strokeChoices = [strokeChoice0, strokeChoice1];
-let fillChoice1 = "bluePalette";
-let fillChoices = [fillChoice0, fillChoice1];
+let ruleChoices = ["ADH231a", "ADH231a"];
+let shapeChoices = ["Flower", "Supershape"];
+let strokeChoices = ["orange", "orange"];
+let fillChoices = ["purplePalette", "bluePalette"];
+
 let sliderValues1 = [
-  sliderPos + 1270,
+  sliderPos + 1400,
   0.05, // wadj
   0.5, // hadj
   3, // level
@@ -111,10 +103,7 @@ function setup() {
   syncVariables.position(360, 10);
   syncVariables.style("color", "white");
 
- // console.log(`sliderValues${0}`)
   for (let i = 0; i < 2; i++) {
-    
-    //sliderPos = sliderPos + i * 1040
     lsystems.push(
       addLsystem(
         i,
@@ -127,26 +116,6 @@ function setup() {
       )
     );
   }
-  // lsystems.push(
-  //   addLsystem(
-  //     dropdownPos,
-  //     sliderValues0,
-  //     ruleChoice0,
-  //     shapeChoice0,
-  //     strokeChoice0,
-  //     fillChoice0
-  //   )
-  // );
-  // lsystems.push(
-  //   addLsystem(
-  //     1170,
-  //     sliderValues1,
-  //     ruleChoice1,
-  //     shapeChoice1,
-  //     strokeChoice1,
-  //     fillChoice1
-  //   )
-  // );
   setSystemVariables(lsystems);
 }
 
@@ -208,7 +177,7 @@ function addLsystem(
 ) {
   let lsystem = [];
   let controls = new AddControls(
-    id, 
+    id,
     pos,
     sliderValues,
     rulesetData,
