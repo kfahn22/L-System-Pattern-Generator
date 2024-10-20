@@ -24,8 +24,7 @@ class SliderGroup {
     // Initialize arrays for sliders and labels
     this.sliders = [];
     this.labels = [];
-    //this.update = false;
-
+    
     // Define slider properties
     this.sliderProperties = [
       { min: -0.05, max: 1.05, value: wadj, step: 0.01, label: "Translate x:" },
@@ -92,7 +91,27 @@ class SliderGroup {
 
   // Create sliders and labels
   createSliders(pos) {
+    // Create a flex container div
+    let container = createDiv().addClass("flex-container");
+    container.position(pos, 30);
+
+    // Apply flexbox styles to the container
+    container.style("display", "flex");
+    container.style("flex-direction", "column"); // vertical layout
+    container.style("gap", "10px"); // spacing between elements
     for (let i = 0; i < this.sliderProperties.length; i++) {
+      // Create a wrapper div for each slider and label pair
+      let wrapper = createDiv().addClass("slider-wrapper");
+      wrapper.style("display", "flex");
+      wrapper.style("flex-direction", "column"); // stack label above slider
+      wrapper.style("align-items", "flex-start"); // align left for consistency
+      wrapper.style("gap", "5px"); // spacing between label and slider
+
+      // Create label
+      let label = createP(this.sliderProperties[i].label);
+      label.style("color", "white");
+      label.style("margin-right", "10px"); // spacing between label and slider
+
       // Create slider
       let slider = createSlider(
         this.sliderProperties[i].min,
@@ -101,16 +120,15 @@ class SliderGroup {
         this.sliderProperties[i].step
       );
       slider.addClass("slider");
-      slider.parent(sliderDiv);
-      //slider.id("mySliders");
-      slider.position(pos + 35, 30 + i * 55);
+
       slider.input(() => this.reset());
 
-      // Create label
-      let label = createP(this.sliderProperties[i].label);
-      label.position(slider.x, slider.y - 35);
+      // Append label and slider to the wrapper
+      wrapper.child(label);
+      wrapper.child(slider);
 
-      label.style("color", "white");
+      // Append the wrapper to the main container
+      container.child(wrapper);
 
       // Store slider and label
       this.sliders.push(slider);
