@@ -1,7 +1,7 @@
 class SliderGroup {
   constructor(
     pos,
-    idName,
+    idNumber,
     wadj,
     hadj,
     level,
@@ -24,6 +24,7 @@ class SliderGroup {
     // Initialize arrays for sliders and labels
     this.sliders = [];
     this.labels = [];
+    this.idName = `Lsystem${idNumber}`;
     
     // Define slider properties
     this.sliderProperties = [
@@ -106,12 +107,12 @@ class SliderGroup {
       wrapper.style("display", "flex");
       wrapper.style("flex-direction", "column"); // stack label above slider
       wrapper.style("align-items", "flex-start"); // align left for consistency
-      wrapper.style("gap", "2px"); // spacing between label and slider
+      wrapper.style("padding", "10px"); // spacing between label and slider
+      wrapper.id(this.idName)
 
       // Create label
       let label = createP(this.sliderProperties[i].label);
-      label.style("color", "white");
-      label.style("margin-right", "10px"); // spacing between label and slider
+      label.style("color", "black");
 
       // Create slider
       let slider = createSlider(

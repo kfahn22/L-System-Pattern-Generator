@@ -20,17 +20,19 @@ canvas {
 
   .slider {
   width: 90%;
-  height: 10px;
- 
+  height: 20px;
+  opacity: 0.7;
+  border-radius: 10%;
   outline: none;
   opacity: 0.7;
+  background-color: rgb(133, 136, 139);
   transition: opacity .2s;
 }
 
 .flex-container {
   display: flex;
   /* margin: 20px; */
-  background-color: rgb(22, 133, 244);
+  /* background-color: rgb(22, 133, 244); */
   width: 200px;
   justify-content: left;
   flex-direction: column;
