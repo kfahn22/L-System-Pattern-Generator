@@ -21,6 +21,7 @@ let strokeChoice0 = "orange";
 let fillChoice0 = "purplePalette";
 let sliderValues0 = [
   sliderPos,
+  "Lsystem0",
   0.05, // wadj
   0.5, // hadj
   3, // level
@@ -48,6 +49,7 @@ let strokeChoice1 = "orange";
 let fillChoice1 = "bluePalette";
 let sliderValues1 = [
   1300,
+  "Lsystem1",
   0.05, // wadj
   0.5, // hadj
   3, // level

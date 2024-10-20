@@ -20,24 +20,25 @@ class AddControls {
     // Create an instance of the SliderGroup class
     this.sliderGroup = new SliderGroup(
       sliderValues[0], // pos
-      sliderValues[1], // wadj
-      sliderValues[2], // hadj
-      sliderValues[3], // level
-      sliderValues[4], // strokeWeight
-      sliderValues[5], // stroke alpha
-      sliderValues[6], // fill alpha
-      sliderValues[7], // fractal angle
-      sliderValues[8] * width, // length
-      sliderValues[9], // shapeScale
-      sliderValues[10], // a
-      sliderValues[11], // b
-      sliderValues[12], // m
-      sliderValues[13], // n1
-      sliderValues[14], // n2
-      sliderValues[15], // n3
-      sliderValues[16], // n,
-      sliderValues[17], // d
-      sliderValues[18]
+      sliderValues[1], // id
+      sliderValues[2], // wadj
+      sliderValues[3], // hadj
+      sliderValues[4], // level
+      sliderValues[5], // strokeWeight
+      sliderValues[6], // stroke alpha
+      sliderValues[7], // fill alpha
+      sliderValues[8], // fractal angle
+      sliderValues[9] * width, // length
+      sliderValues[10], // shapeScale
+      sliderValues[11], // a
+      sliderValues[12], // b
+      sliderValues[13], // m
+      sliderValues[14], // n1
+      sliderValues[15], // n2
+      sliderValues[16], // n3
+      sliderValues[17], // n,
+      sliderValues[18], // d
+      sliderValues[19]
     ); // shape angle
     this.sliders = this.sliderGroup.sliders;
     this.sliderValues = this.sliderGroup.getValues();

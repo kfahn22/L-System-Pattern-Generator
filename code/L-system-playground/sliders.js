@@ -1,7 +1,7 @@
 class SliderGroup {
   constructor(
     pos,
-    // idName,
+    idName,
     wadj,
     hadj,
     level,
@@ -93,19 +93,20 @@ class SliderGroup {
   createSliders(pos) {
     // Create a flex container div
     let container = createDiv().addClass("flex-container");
-    container.position(pos, 30);
+    container.position(pos, 10);
+    // container.id(idName);
 
     // Apply flexbox styles to the container
     container.style("display", "flex");
     container.style("flex-direction", "column"); // vertical layout
-    container.style("gap", "10px"); // spacing between elements
+    container.style("gap", "5px"); // spacing between elements
     for (let i = 0; i < this.sliderProperties.length; i++) {
       // Create a wrapper div for each slider and label pair
       let wrapper = createDiv().addClass("slider-wrapper");
       wrapper.style("display", "flex");
       wrapper.style("flex-direction", "column"); // stack label above slider
       wrapper.style("align-items", "flex-start"); // align left for consistency
-      wrapper.style("gap", "5px"); // spacing between label and slider
+      wrapper.style("gap", "2px"); // spacing between label and slider
 
       // Create label
       let label = createP(this.sliderProperties[i].label);
