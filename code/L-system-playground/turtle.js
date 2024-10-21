@@ -58,7 +58,7 @@ class Turtle {
   }
 
   turtle(data, colorParams) {
-    let shapeChoices =data["shapeChoices"];
+    let shapeChoices = data["shapeChoices"];
     let index = data["index"];
     let colorMode = data["colorMode"];
     for (let i = 0; i < this.sentence.length; i++) {
@@ -140,14 +140,13 @@ class Turtle {
     ruleChoices
   ) {
     this.setRule(lsystemData);
-   // console.log(sliderValues)
-  let systemValues = sliderValues[index]["systemValues"];
- 
-  let shapeValues = sliderValues[index]["shapeValues"];
-  let colorValues = sliderValues[index]["colorValues"];
+    // console.log(sliderValues)
+    let systemValues = sliderValues[index]["systemValues"];
+
+    let shapeValues = sliderValues[index]["shapeValues"];
+    let colorValues = sliderValues[index]["colorValues"];
     let wadj = systemValues["wadj"];
     let hadj = systemValues["hadj"];
-   console.log(wadj, hadj)
     let level = systemValues["level"];
     let fractalAngle = systemValues["fractalAngle"];
     this.length = systemValues["length"];
@@ -205,7 +204,12 @@ class Turtle {
       if (level > this.maxLevel) {
         this.addWarning = true;
         systemValues["level"] = this.maxLevel;
-        this.levelWarning(systemValues["level"], turtleData, colorParams, ruleChoices);
+        this.levelWarning(
+          systemValues["level"],
+          turtleData,
+          colorParams,
+          ruleChoices
+        );
       } else {
         this.ruleWarnings[index] = null;
         this.render(systemValues["level"], turtleData, colorParams);

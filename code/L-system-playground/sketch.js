@@ -81,7 +81,7 @@ let fillChoices = ["purplePalette", "bluePalette"];
 let ruleWarning = [null, null]; // Warning if level gets too high
 let shapeMessage; // Shape message RE parameters of choosen shape
 let removeRuleset;
-let addp5Grain = []; // checkbox re whether to add p5grain, default false
+//let addp5Grain = []; // checkbox re whether to add p5grain, default false
 
 // Preload the L-system rulesets and example data
 function preload() {
@@ -242,6 +242,7 @@ function setSystemVariables(lsystems) {
   // Add array to hold the data of both Lsystem arrays
   let lsystemValues = [];
   let sliderValues = [];
+  let addGrain = [];
 
   removeRuleset = lsystems[1][2][3];
   let n; // number of rulesets to render
@@ -258,7 +259,8 @@ function setSystemVariables(lsystems) {
     let controls = lsystems[i][0];
     let values = updateValues(lsystems[i]);
 
-    addp5Grain.push(values["checkBoxes"]["addp5Grain"]); // add addp5Grain checkBoxes to array
+    //console.log(values["checkBoxes"]["addp5Grain"])
+    addGrain.push(values["checkBoxes"]["addp5Grain"]); // add addp5Grain checkBoxes to array
 
     // Set color palettes
     let [currentStrokePalette, currentFillPalette] = controls.setPalettes(
@@ -354,8 +356,7 @@ function setSystemVariables(lsystems) {
       ruleChoices
     );
 
-    //console.log(addp5Grain[i])
-    if (addp5Grain[i]) {
+    if (addGrain[i]) {
       applyChromaticGrain(42);
     }
   }
