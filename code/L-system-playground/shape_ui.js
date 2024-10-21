@@ -16,7 +16,6 @@ class ShapeUI {
     const shapes = [
       "Arc",
       "Astroid",
-      // "Atom",
       "Bicorn",
       "Box",
       "Butterfly",
@@ -24,7 +23,6 @@ class ShapeUI {
       "Cassini Oval",
       "Ceva",
       "Clover",
-      // "Chrysanthemum",
       "Cornu Spiral",
       "Craniod",
       "Deltoid",
@@ -58,7 +56,6 @@ class ShapeUI {
 
   // Create a shape based on the selected option
   selectShape(shapeName, shapeValues) {
-    // console.log(shapeValues)
     if (shapeName == "Line") {
       shapeValues["shapeScale"] = 0.5;
     }
@@ -74,16 +71,6 @@ class ShapeUI {
       shapeValues["n"],
       shapeValues["d"],
       radians(shapeValues["shapeAngle"])
-      // values[0] * values[1], //r (gridlength * shapeScale),
-      // values[2], // a
-      // values[3], // b
-      // values[4], // m
-      // values[5], // n1
-      // values[6], // n2
-      // values[7], // n3
-      // values[8], // n
-      // values[9], // d
-      // radians(values[10]) // rotateShape
     );
 
     this.shape.points = []; // Clear any existing points

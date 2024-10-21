@@ -140,7 +140,6 @@ function updateValues(lsystem) {
   let checkBoxes = lsystem[2];
   let sliderGroup = lsystem[3];
   let sliderValues = sliderGroup.getValues();
-  //console.log(sliderValues)
   let lsystemValues = {
     dropdowns: {
       rule: dropdowns[0].value(),
@@ -243,10 +242,8 @@ function setSystemVariables(lsystems) {
   // Add array to hold the data of both Lsystem arrays
   let lsystemValues = [];
   let sliderValues = [];
-  // console.log(lsystems[1][2][3])
 
   removeRuleset = lsystems[1][2][3];
-  // console.log(removeRuleset.checked())
   let n; // number of rulesets to render
   if (removeRuleset.checked()) {
     n = 1;
@@ -345,9 +342,7 @@ function setSystemVariables(lsystems) {
     let currentStrokePalette = lsystemValues[i]["palettes"]["strokePalette"];
     let currentFillPalette = lsystemValues[i]["palettes"]["fillPalette"];
 
-    
     // Pass value of colorMode to turtle to indicate whether stroke or fill should be used to render Lsystem
-    //console.log(currentFillPalette)
     turtle.addLsystem(
       lsystemData,
       shapeChoices,
