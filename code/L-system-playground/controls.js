@@ -66,12 +66,13 @@ class AddControls {
 
   // Return instance of dropdowns
   returnDropdowns() {
-    return [
-      this.rulesetDropdown,
-      this.shapeDropdown,
-      this.strokedropdown,
-      this.filldropdown,
-    ];
+    let dropdowns = {
+      rulesetDropdown: this.rulesetDropdown,
+      shapeDropdown: this.shapeDropdown,
+      strokeDropdown: this.strokedropdown,
+      fillDropdown: this.filldropdown
+    };
+  return dropdowns;
   }
 
   returnButtons() {
@@ -79,11 +80,19 @@ class AddControls {
   }
 
   returnCheckboxes() {
-    return [
-      this.addStroke,
-      this.fillShape,
-      this.addP5Grain,
-      this.removeRuleset,
-    ];
+    let checkBoxes = {
+      addStroke: this.addStroke,
+      fillShape: this.fillShape,
+      addp5Grain: this.addP5Grain,
+      removeRuleset: this.removeRuleset
+
+    }
+    return checkBoxes;
+    // return [
+    //   this.addStroke,
+    //   this.fillShape,
+    //   this.addP5Grain,
+    //   this.removeRuleset,
+    // ];
   }
 }

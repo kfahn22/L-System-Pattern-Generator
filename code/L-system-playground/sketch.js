@@ -112,9 +112,9 @@ function setup() {
   syncVariables.position(canvasPos, 10);
   syncVariables.style("color", "white");
 
-  addp5Grain = createCheckbox("Add p5.Grain", false);
-  addp5Grain.position(250, 405);
-  addp5Grain.style("color", "white");
+  // addGrain = createCheckbox("Add p5.Grain", false);
+  // addGrain.position(250, 405);
+  // addGrain.style("color", "white");
 
   for (let i = 0; i < 2; i++) {
     sliderArrays[i]["systemValues"]["length"] =
@@ -135,26 +135,27 @@ function setup() {
   setSystemVariables(lsystems);
 }
 
+
 function updateValues(lsystem) {
   backgroundDropdown.setPalette(backgroundDropdown.dropdown.value());
   let c = backgroundDropdown.palette;
   background(c[0]);
-  let dropdowns = lsystem[1];
-  let checkBoxes = lsystem[2];
-  let sliderGroup = lsystem[3];
+  let dropdowns = lsystem["dropdowns"];
+  let checkBoxes = lsystem["checkBoxes"];
+  let sliderGroup = lsystem["sliderGroup"];
   let sliderValues = sliderGroup.getValues();
   let lsystemValues = {
     dropdowns: {
-      rule: dropdowns[0].value(),
-      shape: dropdowns[1].value(),
-      stroke: dropdowns[2].value(),
-      fill: dropdowns[3].value(),
+      rule: dropdowns["rulesetDropdown"].value(),
+      shape: dropdowns["shapeDropdown"].value(),
+      stroke: dropdowns["strokeDropdown"].value(),
+      fill: dropdowns["fillDropdown"].value(),
     },
     checkBoxes: {
-      addStroke: checkBoxes[0].checked(),
-      fillShape: checkBoxes[1].checked(),
-      addp5Grain: checkBoxes[2].checked(),
-      removeRuleset: checkBoxes[3].checked(),
+      addStroke: checkBoxes["addStroke"].checked(),
+      fillShape: checkBoxes["fillShape"].checked(),
+      addp5Grain: checkBoxes["addp5Grain"].checked(),
+      removeRuleset: checkBoxes["removeRuleset"].checked(),
     },
     sliderValues: {
       colorValues: {
@@ -190,19 +191,22 @@ function updateValues(lsystem) {
 }
 
 function handleInput(lsystem) {
-  let dropdowns = lsystem[1];
-  let checkBoxes = lsystem[2];
-  let sliders = lsystem[4];
+  // Handle a change in the dropdowns
   backgroundDropdown.dropdown.changed(reset);
-  for (let d of dropdowns) {
-    d.changed(reset);
-  }
-  for (let s of sliders) {
+  lsystem["dropdowns"]["rulesetDropdown"].changed(reset);
+  lsystem["dropdowns"]["shapeDropdown"].changed(reset);
+  lsystem["dropdowns"]["strokeDropdown"].changed(reset);
+  lsystem["dropdowns"]["fillDropdown"].changed(reset);
+
+  // Handle a change in the sliders
+  for (let s of lsystem["sliders"]) {
     s.input(reset);
   }
-  for (let c of checkBoxes) {
-    c.changed(reset);
-  }
+  // Handle a change in the checkBoxes
+  lsystem["checkBoxes"]["addStroke"].changed(reset);
+  lsystem["checkBoxes"]["fillShape"].changed(reset);
+  lsystem["checkBoxes"]["addp5Grain"].changed(reset);
+  lsystem["checkBoxes"]["removeRuleset"].changed(reset);
 }
 
 function reset() {
@@ -221,7 +225,6 @@ function addLsystem(
   strokeChoice,
   fillChoice
 ) {
-  let lsystem = [];
   let controls = new AddControls(
     index,
     pos,
@@ -232,11 +235,13 @@ function addLsystem(
     strokeChoice,
     fillChoice
   );
-  lsystem[0] = controls;
-  lsystem[1] = controls.returnDropdowns();
-  lsystem[2] = controls.returnCheckboxes();
-  lsystem[3] = controls.sliderGroup;
-  lsystem[4] = controls.sliders;
+  let lsystem = {
+    controls: controls,
+    dropdowns: controls.returnDropdowns(),
+    checkBoxes: controls.returnCheckboxes(),
+    sliderGroup: controls.sliderGroup,
+    sliders: controls.sliders,
+  };
   handleInput(lsystem);
   return lsystem;
 }
@@ -244,11 +249,10 @@ function addLsystem(
 function setSystemVariables(lsystems) {
   // Add array to hold the data of both Lsystem arrays
   let lsystemValues = [];
-  //let sliderValues = [];
-  let addGrain;
-
-  addGrain = lsystems[1][2][2]; // add addp5Grain checkBoxes to array
-  removeRuleset = lsystems[1][2][3];
+  console.log(lsystems);
+  let addGrain = lsystems[1]["checkBoxes"]["addp5Grain"];
+  // addGrain = lsystems[1]["checkBoxes"][2]; // add addp5Grain checkBoxes to array
+  removeRuleset = lsystems[1]["checkBoxes"]["removeRuleset"];
   let n; // number of rulesets to render
   if (removeRuleset.checked()) {
     n = 1;
@@ -258,8 +262,8 @@ function setSystemVariables(lsystems) {
 
   for (let i = 0; i < n; i++) {
     // Array to hold the data of each Lsystem
-   
-    let controls = lsystems[i][0];
+
+    let controls = lsystems[i]["controls"];
     let values = updateValues(lsystems[i]);
 
     // Set color palettes
