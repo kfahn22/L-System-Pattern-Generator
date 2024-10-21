@@ -254,7 +254,7 @@ function setSystemVariables(lsystems) {
 
   for (let i = 0; i < n; i++) {
     // Array to hold the data of each Lsystem
-    let lsystemData = [];
+    //let lsystemData = [];
 
     let controls = lsystems[i][0];
     let values = updateValues(lsystems[i]);
@@ -288,18 +288,16 @@ function setSystemVariables(lsystems) {
       clrMode = 2;
     }
 
-    lsystemData = {
-      LsystemValues: values,
-      Shape_UI: controls.shape_ui,
-      ruleset: controls.ruleset,
-      palettes: {
-        strokePalette: currentStrokePalette,
-        fillPalette: currentFillPalette,
-      },
-      ColorMode: clrMode,
-    };
-
-    lsystemValues[i] = lsystemData;
+     lsystemValues[i] = {
+       LsystemValues: values,
+       Shape_UI: controls.shape_ui,
+       ruleset: controls.ruleset,
+       palettes: {
+         strokePalette: currentStrokePalette,
+         fillPalette: currentFillPalette,
+       },
+       ColorMode: clrMode,
+     };
   }
 
   let turtle = new Turtle(lsystemValues, images);
@@ -346,13 +344,10 @@ function setSystemVariables(lsystems) {
     // Pass value of colorMode to turtle to indicate whether stroke or fill should be used to render Lsystem
     turtle.addLsystem(
       lsystemData,
+      ruleChoices,
       shapeChoices,
-      clrMode,
-      currentStrokePalette,
-      currentFillPalette,
-      sliderValues,
+      lsystemValues[i],
       i,
-      ruleChoices
     );
 
     if (addGrain[i]) {

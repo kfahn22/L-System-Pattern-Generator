@@ -118,8 +118,8 @@ class Turtle {
       } else if (current == "{") {
         beginShape();
       } else if (current == "}") {
-        let fillAlpha = colorParams[4];
-        let fillPalette = colorParams[3];
+        let fillAlpha = colorData["fillAlpha"];
+        let fillPalette = colorData["fillPalette"];
         let c = random(fillPalette);
         c[3] = fillAlpha;
         noStroke();
@@ -129,20 +129,13 @@ class Turtle {
     }
   }
 
-  addLsystem(
-    lsystemData,
-    shapeChoices,
-    colorMode,
-    currentStrokePalette,
-    currentFillPalette,
-    sliderValues,
-    index,
-    ruleChoices
-  ) {
+  addLsystem(lsystemData, ruleChoices, shapeChoices, lsystemValues, index) {
     this.setRule(lsystemData);
-    let systemValues = sliderValues[index]["systemValues"];
-    let shapeValues = sliderValues[index]["shapeValues"];
-    let colorValues = sliderValues[index]["colorValues"];
+    let colorMode = lsystemValues["ColorMode"];
+    let sliderValues = lsystemValues["LsystemValues"]["sliderValues"];
+    let systemValues = sliderValues["systemValues"];
+    let shapeValues = sliderValues["shapeValues"];
+    let colorValues = sliderValues["colorValues"];
     let wadj = systemValues["wadj"];
     let hadj = systemValues["hadj"];
     let level = systemValues["level"];
@@ -169,21 +162,15 @@ class Turtle {
       shapeChoices: shapeChoices,
       index: index,
       length: systemValues["length"],
-      colorMode: colorMode,
+      colorMode: lsystemValues["ColorMode"],
     };
     let colorData = {
-      strokePalette: currentStrokePalette,
+      strokePalette: lsystemValues["palettes"]["strokePalette"],
       strokeWeight: colorValues["strokeWeight"],
       strokeAlpha: colorValues["strokeAlpha"],
-      fillPalette: currentFillPalette,
-      fillAlpha: colorValues["fillAlpha"]
-    }
-    // let colorParams = [];
-    // colorParams.push(currentStrokePalette);
-    // colorParams.push(colorValues["strokeWeight"]); // sw
-    // colorParams.push(colorValues["strokeAlpha"]); // strokeAlpha
-    // colorParams.push(currentFillPalette);
-    // colorParams.push(colorValues["fillAlpha"]); // fillAlpha
+      fillPalette: lsystemValues["palettes"]["fillPalette"],
+      fillAlpha: colorValues["fillAlpha"],
+    };
     this.shape_ui.selectShape(shapeChoices[index], this.shapeValues);
     this.shape = this.shape_ui.shape;
     this.shape_messages.push(this.shape_ui.message);
@@ -205,7 +192,6 @@ class Turtle {
       pop();
     } else {
       // With both stroke and fill, add stroke after fill so stroke doesn't show through fill (when alpha < 255)
-      //this.setFill(currentFillPalette, fillAlpha);
       turtleData["colorMode"] = 1; // Set colorMode to fill shape
       if (level > this.maxLevel) {
         this.addWarning = true;
@@ -280,11 +266,6 @@ class Turtle {
   }
 
   adjustFill(colorMode, colorData) {
-    // let strokePalette = colorData["strokePalette"];
-    // let sw = colorData["strokeWeight"];
-    // let strokeAlpha = colorData["strokeAlpha"];
-    // let fillPalette = colorData["fillPalette"];
-    // let fillAlpha = colorData["fillAlpha"];
     if (colorMode == 0) {
       this.setStroke(
         colorData["strokePalette"],
