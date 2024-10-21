@@ -93,7 +93,7 @@ class Turtle {
           push();
           this.length = this.length * this.lf;
           // We need to update length and recall selectShape
-          this.shapeValues[0] = this.length;
+          this.shapeValues["length"] = this.length;
           this.shape_ui.selectShape(shapeChoices[index], this.shapeValues);
           this.shape = this.shape_ui.shape;
           pop();
@@ -102,7 +102,7 @@ class Turtle {
         if (shapeChoices[index] != "Image" && shapeChoices[index] != "Text") {
           push();
           this.length = this.length / this.lf;
-          this.shapeValues[0] = this.length;
+          this.shapeValues["length"] = this.length;
           this.shape_ui.selectShape(shapeChoices[index], this.shapeValues);
           this.shape = this.shape_ui.shape;
           pop();
@@ -111,6 +111,7 @@ class Turtle {
         this.angle -= radians(0.1);
       } else if (current == ")") {
         this.angle += radians(0.1);
+        // Used in torn square ruleset
       } else if (current == "*") {
         rotate(-PI / 2);
       } else if (current == "@") {
