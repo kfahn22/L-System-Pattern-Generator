@@ -1,5 +1,6 @@
 class AddControls {
   constructor(
+    index,
     pos,
     sliderValues,
     rulesetData,
@@ -19,26 +20,8 @@ class AddControls {
     this.filldropdown = this.fillDropdown.dropdown;
     // Create an instance of the SliderGroup class
     this.sliderGroup = new SliderGroup(
-      sliderValues[0], // pos
-      sliderValues[1], // wadj
-      sliderValues[2], // hadj
-      sliderValues[3], // level
-      sliderValues[4], // strokeWeight
-      sliderValues[5], // stroke alpha
-      sliderValues[6], // fill alpha
-      sliderValues[7], // fractal angle
-      sliderValues[8] * width, // length
-      sliderValues[9], // shapeScale
-      sliderValues[10], // a
-      sliderValues[11], // b
-      sliderValues[12], // m
-      sliderValues[13], // n1
-      sliderValues[14], // n2
-      sliderValues[15], // n3
-      sliderValues[16], // n,
-      sliderValues[17], // d
-      sliderValues[18]
-    ); // shape angle
+      sliderValues // values to initialize sliders
+    );
     this.sliders = this.sliderGroup.sliders;
     this.sliderValues = this.sliderGroup.getValues();
     this.shape_ui = new ShapeUI(pos, 90, shapeChoice, "Shape");
@@ -64,7 +47,7 @@ class AddControls {
     // Whether to add P5 Grain library
     // Will slow down the render so I recommend keeping to false most of the time
     this.addP5Grain = createCheckbox("Add p5.Grain", false);
-    this.addP5Grain.position(180, 405);
+    this.addP5Grain.position(250, 405);
     this.addP5Grain.style("color", "white");
     this.removeRuleset = createCheckbox("Remove second ruleset", false);
     this.removeRuleset.position(900, 10);
