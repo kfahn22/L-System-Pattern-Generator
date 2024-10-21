@@ -11,14 +11,15 @@ let backgroundDropdown;
 let syncVariables; // checkbox for whether the same translation and length variables are used for both Lsystems
 
 let sliderPos = 0;
-let dropdownPos = 180;
+let dropdownPos = sliderPos + 280;
+let canvasPos = dropdownPos + 250;
 
 // Array to store dropdowns, sliderGroup, sliders, checkBoxes
 let lsystem0;
-let ruleChoice0 = "ADH231a";
-let shapeChoice0 = "Flower";
-let strokeChoice0 = "orange";
-let fillChoice0 = "purplePalette";
+// let ruleChoice0 = "ADH231a";
+// let shapeChoice0 = "Flower";
+// let strokeChoice0 = "orange";
+// let fillChoice0 = "purplePalette";
 let sliderValues0 = [
   sliderPos,
   0.05, // wadj
@@ -42,12 +43,12 @@ let sliderValues0 = [
 ];
 
 let lsystem1;
-let ruleChoice1 = "ADH231a";
-let shapeChoice1 = "Supershape";
-let strokeChoice1 = "orange";
-let fillChoice1 = "bluePalette";
+// let ruleChoice1 = "ADH231a";
+// let shapeChoice1 = "Supershape";
+// let strokeChoice1 = "orange";
+// let fillChoice1 = "bluePalette";
 let sliderValues1 = [
-  1300,
+ sliderPos + 1600,
   0.05, // wadj
   0.5, // hadj
   3, // level
@@ -68,6 +69,11 @@ let sliderValues1 = [
   0, // shape angle
 ];
 let lsystems = [];
+let sliderArrays = [sliderValues0, sliderValues1];
+let ruleChoices = ["ADH231a", "ADH231a"];
+let shapeChoices = ["Flower", "Supershape"];
+let strokeChoices = ["orange", "orange"];
+let fillChoices = ["purplePalette", "bluePalette"];
 
 // Message variables
 let ruleWarning = [null, null]; // Warning if level gets too high
@@ -86,7 +92,7 @@ function preload() {
 
 function setup() {
   canvas = createCanvas(800, 800);
-  canvas.position(360, 95);
+  canvas.position(canvasPos, 95);
   canvas.id("mycanvas");
   p5grain.setup();
 
@@ -101,29 +107,42 @@ function setup() {
     "Use the same translation and length variables",
     true
   );
-  syncVariables.position(360, 10);
+  syncVariables.position(canvasPos, 10);
   syncVariables.style("color", "white");
 
-  lsystems.push(
-    addLsystem(
-      dropdownPos,
-      sliderValues0,
-      ruleChoice0,
-      shapeChoice0,
-      strokeChoice0,
-      fillChoice0
-    )
-  );
-  lsystems.push(
-    addLsystem(
-      1170,
-      sliderValues1,
-      ruleChoice1,
-      shapeChoice1,
-      strokeChoice1,
-      fillChoice1
-    )
-  );
+  for (let i = 0; i < 2; i++) {
+    lsystems.push(
+      addLsystem(
+        i,
+        dropdownPos + i * 1000,
+        sliderArrays[i],
+        ruleChoices[i],
+        shapeChoices[i],
+        strokeChoices[i],
+        fillChoices[i]
+      )
+    );
+  }
+  // lsystems.push(
+  //   addLsystem(
+  //     dropdownPos,
+  //     sliderValues0,
+  //     ruleChoice0,
+  //     shapeChoice0,
+  //     strokeChoice0,
+  //     fillChoice0
+  //   )
+  // );
+  // lsystems.push(
+  //   addLsystem(
+  //     1170,
+  //     sliderValues1,
+  //     ruleChoice1,
+  //     shapeChoice1,
+  //     strokeChoice1,
+  //     fillChoice1
+  //   )
+  // );
   setSystemVariables(lsystems);
 }
 
@@ -175,6 +194,7 @@ function reset() {
 }
 
 function addLsystem(
+  index,
   pos,
   sliderValues,
   ruleChoice,
@@ -184,6 +204,7 @@ function addLsystem(
 ) {
   let lsystem = [];
   let controls = new AddControls(
+    index,
     pos,
     sliderValues,
     rulesetData,
@@ -314,7 +335,7 @@ function addMessages(shapeMessages, warnings) {
   } else addMessage = false;
 
   shapeMessage = createP(message);
-  shapeMessage.position(360, 30);
+  shapeMessage.position(canvasPos, 30);
   shapeMessage.addClass("p");
 
   if (addMessage) {
@@ -328,7 +349,7 @@ function addMessages(shapeMessages, warnings) {
   } else addWarning = false;
 
   ruleWarning = createP(warning);
-  ruleWarning.position(360, 60);
+  ruleWarning.position(canvasPos, 60);
   ruleWarning.addClass("p");
 
   if (addWarning) {
