@@ -57,12 +57,12 @@ class Turtle {
     this.sentence = nextSentence;
   }
 
-  turtle(data, colorParams) {
+  turtle(data, colorData) {
     let shapeChoices = data["shapeChoices"];
     let index = data["index"];
     let colorMode = data["colorMode"];
     for (let i = 0; i < this.sentence.length; i++) {
-      this.adjustFill(colorMode, colorParams);
+      this.adjustFill(colorMode, colorData);
       let current = this.sentence.charAt(i);
       // Catch-all array for arcs, spirals, lissajous, zigzag
       let openShapes = ["Arc", "Cornu Spiral", "Lissajous", "Spiral", "Zigzag"];
@@ -140,9 +140,7 @@ class Turtle {
     ruleChoices
   ) {
     this.setRule(lsystemData);
-    // console.log(sliderValues)
     let systemValues = sliderValues[index]["systemValues"];
-
     let shapeValues = sliderValues[index]["shapeValues"];
     let colorValues = sliderValues[index]["colorValues"];
     let wadj = systemValues["wadj"];
@@ -150,7 +148,8 @@ class Turtle {
     let level = systemValues["level"];
     let fractalAngle = systemValues["fractalAngle"];
     this.length = systemValues["length"];
-    //console.log(this.length)
+
+    // Add data for Shape class to this.shapeValues
     this.shapeValues = {
       length: systemValues["length"],
       shapeScale: shapeValues["shapeScale"],
@@ -172,12 +171,19 @@ class Turtle {
       length: systemValues["length"],
       colorMode: colorMode,
     };
-    let colorParams = [];
-    colorParams.push(currentStrokePalette);
-    colorParams.push(colorValues["strokeWeight"]); // sw
-    colorParams.push(colorValues["strokeAlpha"]); // strokeAlpha
-    colorParams.push(currentFillPalette);
-    colorParams.push(colorValues["fillAlpha"]); // fillAlpha
+    let colorData = {
+      strokePalette: currentStrokePalette,
+      strokeWeight: colorValues["strokeWeight"],
+      strokeAlpha: colorValues["strokeAlpha"],
+      fillPalette: currentFillPalette,
+      fillAlpha: colorValues["fillAlpha"]
+    }
+    // let colorParams = [];
+    // colorParams.push(currentStrokePalette);
+    // colorParams.push(colorValues["strokeWeight"]); // sw
+    // colorParams.push(colorValues["strokeAlpha"]); // strokeAlpha
+    // colorParams.push(currentFillPalette);
+    // colorParams.push(colorValues["fillAlpha"]); // fillAlpha
     this.shape_ui.selectShape(shapeChoices[index], this.shapeValues);
     this.shape = this.shape_ui.shape;
     this.shape_messages.push(this.shape_ui.message);
@@ -190,11 +196,11 @@ class Turtle {
         this.levelWarning(
           systemValues["level"],
           turtleData,
-          colorParams,
+          colorData,
           ruleChoices
         );
       } else {
-        this.render(systemValues["level"], turtleData, colorParams);
+        this.render(systemValues["level"], turtleData, colorData);
       }
       pop();
     } else {
@@ -207,12 +213,12 @@ class Turtle {
         this.levelWarning(
           systemValues["level"],
           turtleData,
-          colorParams,
+          colorData,
           ruleChoices
         );
       } else {
         this.ruleWarnings[index] = null;
-        this.render(systemValues["level"], turtleData, colorParams);
+        this.render(systemValues["level"], turtleData, colorData);
       }
       pop();
       // We need to reset sentence so level is not doubled
@@ -221,13 +227,12 @@ class Turtle {
       push();
       translate(width * wadj, height * hadj);
       rotate(radians(fractalAngle));
-      //this.setStroke(currentStrokePalette, sw, strokeAlpha);
       if (level > this.maxLevel) {
         level = this.maxLevel;
-        this.levelWarning(level, turtleData, colorParams, ruleChoices);
+        this.levelWarning(level, turtleData, colorData, ruleChoices);
       } else {
         this.ruleWarnings[index] = null;
-        this.render(level, turtleData, colorParams);
+        this.render(level, turtleData, colorData);
       }
       pop();
     }
@@ -239,7 +244,7 @@ class Turtle {
   }
 
   // Add warnings if level gets too high for certain rulesets so sketch doesn't freeze
-  levelWarning(level, turtleData, colorParams, ruleChoices) {
+  levelWarning(level, turtleData, colorData, ruleChoices) {
     let index = turtleData["index"];
     let warning =
       "The level can't be > " +
@@ -248,14 +253,14 @@ class Turtle {
       `${ruleChoices[index]}` +
       " rulset.";
     this.ruleWarnings[index] = warning;
-    this.render(level, turtleData, colorParams);
+    this.render(level, turtleData, colorData);
   }
 
-  render(level, turtleData, colorParams) {
+  render(level, turtleData, colorData) {
     for (let i = 0; i < level; i++) {
       this.generate();
     }
-    this.turtle(turtleData, colorParams);
+    this.turtle(turtleData, colorData);
   }
 
   setFill(fillPalette, fillAlpha) {
@@ -274,18 +279,20 @@ class Turtle {
     stroke(sp);
   }
 
-  adjustFill(colorMode, colorParams) {
-    let strokePalette = colorParams[0];
-    let sw = colorParams[1];
-    let strokeAlpha = colorParams[2];
-    let fillPalette = colorParams[3];
-    let fillAlpha = colorParams[4];
+  adjustFill(colorMode, colorData) {
+    // let strokePalette = colorData["strokePalette"];
+    // let sw = colorData["strokeWeight"];
+    // let strokeAlpha = colorData["strokeAlpha"];
+    // let fillPalette = colorData["fillPalette"];
+    // let fillAlpha = colorData["fillAlpha"];
     if (colorMode == 0) {
-      this.setStroke(strokePalette, sw, strokeAlpha);
+      this.setStroke(
+        colorData["strokePalette"],
+        colorData["strokeWeight"],
+        colorData["strokeAlpha"]
+      );
     } else if (colorMode == 1) {
-      this.setFill(fillPalette, fillAlpha);
-      // } else if (colorMode == 2) {
-      //   this.setFill(fillPalette, fillAlpha);
+      this.setFill(colorData["fillPalette"], colorData["fillAlpha"]);
     }
   }
 
