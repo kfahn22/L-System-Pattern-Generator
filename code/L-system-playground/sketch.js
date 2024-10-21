@@ -10,64 +10,62 @@ let images = [];
 let backgroundDropdown;
 let syncVariables; // checkbox for whether the same translation and length variables are used for both Lsystems
 
-let sliderPos = 0;
-let dropdownPos = sliderPos + 280;
+//let sliderPos = 0;
+let dropdownPos =  290;
 let canvasPos = dropdownPos + 250;
 
-// Array to store dropdowns, sliderGroup, sliders, checkBoxes
-let lsystem0;
-// let ruleChoice0 = "ADH231a";
-// let shapeChoice0 = "Flower";
-// let strokeChoice0 = "orange";
-// let fillChoice0 = "purplePalette";
-let sliderValues0 = [
-  sliderPos,
-  0.05, // wadj
-  0.5, // hadj
-  3, // level
-  1, // strokeWeight
-  220, // stroke alpha
-  240, // fill alpha
-  0, // fractal angle
-  0.023, // length
-  0.4, // shapeScale
-  3.8, // a
-  1, // b
-  8, // m
-  1, // n1
-  0.8, // n2
-  1, // n3
-  1, // n,
-  5, // d
-  0, // shape angle
-];
+let sliderValues0 = {
+  sliderPos: 10,
+  colorValues: {
+    strokeWeight: 1,
+    strokeAlpha: 220,
+    fillalpha: 240,
+  },
+  systemValues: {
+    wadj: 0.05,
+    hadj: 0.5,
+    level: 3,
+    length: 0.23,
+  },
+  shapeValues: {
+    shapeScale: 0.4,
+    a: 3.8,
+    b: 1,
+    m: 8,
+    n1: 1,
+    n2: 1,
+    n3: 1,
+    d: 5,
+    shapeAngle: 0,
+  },
+};
+let sliderValues1 = {
+  sliderPos: 1600,
+  colorValues: {
+    strokeWeight: 1,
+    strokeAlpha: 220,
+    fillalpha: 150,
+  },
+  systemValues: {
+    wadj: 0.05,
+    hadj: 0.5,
+    level: 3,
+    length: 0.23,
+  },
+  shapeValues: {
+    shapeScale: 0.4,
+    a: 4.1,
+    b: 3.8,
+    m: 8,
+    n1: 1,
+    n2: 0.8,
+    n3: 1,
+    d: 5,
+    shapeAngle: 0,
+  },
+};
 
-let lsystem1;
-// let ruleChoice1 = "ADH231a";
-// let shapeChoice1 = "Supershape";
-// let strokeChoice1 = "orange";
-// let fillChoice1 = "bluePalette";
-let sliderValues1 = [
- sliderPos + 1600,
-  0.05, // wadj
-  0.5, // hadj
-  3, // level
-  1, // strokeWeight
-  220, // stroke alpha
-  150, // fill alpha
-  0, // fractal angle
-  0.023, // length
-  0.4, // shapeScale
-  4.1, // a
-  3.8, // b
-  8, // m
-  1, // n1
-  0.8, // n2
-  1, // n3
-  1, // n
-  5, // d
-  0, // shape angle
-];
+// arrays to store dropdowns, sliderGroup, sliders, checkBoxes
 let lsystems = [];
 let sliderArrays = [sliderValues0, sliderValues1];
 let ruleChoices = ["ADH231a", "ADH231a"];
@@ -96,6 +94,7 @@ function setup() {
   canvas.id("mycanvas");
   p5grain.setup();
 
+  console.log(sliderValues0["systemValues"]["length"]);
   backgroundDropdown = new PaletteDropdown(
     dropdownPos,
     260,
@@ -123,26 +122,7 @@ function setup() {
       )
     );
   }
-  // lsystems.push(
-  //   addLsystem(
-  //     dropdownPos,
-  //     sliderValues0,
-  //     ruleChoice0,
-  //     shapeChoice0,
-  //     strokeChoice0,
-  //     fillChoice0
-  //   )
-  // );
-  // lsystems.push(
-  //   addLsystem(
-  //     1170,
-  //     sliderValues1,
-  //     ruleChoice1,
-  //     shapeChoice1,
-  //     strokeChoice1,
-  //     fillChoice1
-  //   )
-  // );
+
   setSystemVariables(lsystems);
 }
 
@@ -240,7 +220,7 @@ function setSystemVariables(lsystems) {
 
     let controls = lsystems[i][0];
     let values = updateValues(lsystems[i]);
-
+    
     addp5Grain.push(lsystems[i][2][2]); // add addp5Grain checkBoxes to array
 
     // Set color palettes

@@ -20,25 +20,26 @@ class AddControls {
     this.filldropdown = this.fillDropdown.dropdown;
     // Create an instance of the SliderGroup class
     this.sliderGroup = new SliderGroup(
-      sliderValues[0], // pos
-      sliderValues[1], // wadj
-      sliderValues[2], // hadj
-      sliderValues[3], // level
-      sliderValues[4], // strokeWeight
-      sliderValues[5], // stroke alpha
-      sliderValues[6], // fill alpha
-      sliderValues[7], // fractal angle
-      sliderValues[8] * width, // length
-      sliderValues[9], // shapeScale
-      sliderValues[10], // a
-      sliderValues[11], // b
-      sliderValues[12], // m
-      sliderValues[13], // n1
-      sliderValues[14], // n2
-      sliderValues[15], // n3
-      sliderValues[16], // n,
-      sliderValues[17], // d
-      sliderValues[18]
+      sliderValues
+      // sliderValues["sliderPos"], // pos
+      // sliderValues["colorValues"]["strokeWeight"], // strokeWeight
+      // sliderValues["colorValues"]["strokeAlpha"], // stroke alpha
+      // sliderValues["colorValues"]["fillAlpha"], // fill alpha
+      // sliderValues["systemValues"]["wadj"], // wadj
+      // sliderValues["systemValues"]["hadj"], // hadj
+      // sliderValues["systemValues"]["level"], // level
+      // sliderValues["systemValues"]["fractalAngle"], // fractal angle
+      // sliderValues["systemValues"]["length"] * width, // length
+      // sliderValues["shapeValues"]["shapeScale"], // shapeScale
+      // sliderValues["shapeValues"]["a"], // a
+      // sliderValues["shapeValues"]["b"], // b
+      // sliderValues["shapeValues"]["m"], // m
+      // sliderValues["shapeValues"]["n1"], // n1
+      // sliderValues["shapeValues"]["n2"], // n2
+      // sliderValues["shapeValues"]["n3"], // n3
+      // sliderValues["shapeValues"]["n"], // n,
+      // sliderValues["shapeValues"]["d"], // d
+      // sliderValues["shapeValues"]["shapeAngle"]
     ); // shape angle
     this.sliders = this.sliderGroup.sliders;
     this.sliderValues = this.sliderGroup.getValues();
