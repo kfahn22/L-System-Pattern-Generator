@@ -10,7 +10,6 @@ let images = [];
 let backgroundDropdown;
 let syncVariables; // checkbox for whether the same translation and length variables are used for both Lsystems
 
-//let sliderPos = 0;
 let dropdownPos = 250;
 let canvasPos = dropdownPos + 200;
 
@@ -81,7 +80,7 @@ let fillChoices = ["purplePalette", "bluePalette"];
 let ruleWarning = [null, null]; // Warning if level gets too high
 let shapeMessage; // Shape message RE parameters of choosen shape
 let removeRuleset;
-//let addp5Grain = []; // checkbox re whether to add p5grain, default false
+let addGrain; // checkbox re whether to add p5grain, default false
 
 // Preload the L-system rulesets and example data
 function preload() {
@@ -112,6 +111,10 @@ function setup() {
   );
   syncVariables.position(canvasPos, 10);
   syncVariables.style("color", "white");
+
+  addp5Grain = createCheckbox("Add p5.Grain", false);
+  addp5Grain.position(250, 405);
+  addp5Grain.style("color", "white");
 
   for (let i = 0; i < 2; i++) {
     sliderArrays[i]["systemValues"]["length"] =
@@ -241,9 +244,10 @@ function addLsystem(
 function setSystemVariables(lsystems) {
   // Add array to hold the data of both Lsystem arrays
   let lsystemValues = [];
-  let sliderValues = [];
-  let addGrain = [];
+  //let sliderValues = [];
+  let addGrain;
 
+  addGrain = lsystems[1][2][2]; // add addp5Grain checkBoxes to array
   removeRuleset = lsystems[1][2][3];
   let n; // number of rulesets to render
   if (removeRuleset.checked()) {
@@ -254,12 +258,9 @@ function setSystemVariables(lsystems) {
 
   for (let i = 0; i < n; i++) {
     // Array to hold the data of each Lsystem
-    //let lsystemData = [];
-
+   
     let controls = lsystems[i][0];
     let values = updateValues(lsystems[i]);
-
-    addGrain.push(values["checkBoxes"]["addp5Grain"]); // add addp5Grain checkBoxes to array
 
     // Set color palettes
     let [currentStrokePalette, currentFillPalette] = controls.setPalettes(
@@ -288,16 +289,16 @@ function setSystemVariables(lsystems) {
       clrMode = 2;
     }
 
-     lsystemValues[i] = {
-       LsystemValues: values,
-       Shape_UI: controls.shape_ui,
-       ruleset: controls.ruleset,
-       palettes: {
-         strokePalette: currentStrokePalette,
-         fillPalette: currentFillPalette,
-       },
-       ColorMode: clrMode,
-     };
+    lsystemValues[i] = {
+      LsystemValues: values,
+      Shape_UI: controls.shape_ui,
+      ruleset: controls.ruleset,
+      palettes: {
+        strokePalette: currentStrokePalette,
+        fillPalette: currentFillPalette,
+      },
+      ColorMode: clrMode,
+    };
   }
 
   let turtle = new Turtle(lsystemValues, images);
@@ -336,10 +337,10 @@ function setSystemVariables(lsystems) {
         ];
     }
 
-    sliderValues.push(lsystemValues[i]["LsystemValues"]["sliderValues"]);
-    let clrMode = lsystemValues[i]["ColorMode"];
-    let currentStrokePalette = lsystemValues[i]["palettes"]["strokePalette"];
-    let currentFillPalette = lsystemValues[i]["palettes"]["fillPalette"];
+    // sliderValues.push(lsystemValues[i]["LsystemValues"]["sliderValues"]);
+    // let clrMode = lsystemValues[i]["ColorMode"];
+    // let currentStrokePalette = lsystemValues[i]["palettes"]["strokePalette"];
+    // let currentFillPalette = lsystemValues[i]["palettes"]["fillPalette"];
 
     // Pass value of colorMode to turtle to indicate whether stroke or fill should be used to render Lsystem
     turtle.addLsystem(
@@ -347,10 +348,11 @@ function setSystemVariables(lsystems) {
       ruleChoices,
       shapeChoices,
       lsystemValues[i],
-      i,
+      i
     );
 
-    if (addGrain[i]) {
+    //console.log(addGrain);
+    if (addGrain.checked()) {
       applyChromaticGrain(42);
     }
   }
