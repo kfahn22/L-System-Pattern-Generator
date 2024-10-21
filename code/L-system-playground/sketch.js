@@ -145,7 +145,7 @@ function updateValues(lsystem) {
   let sliderGroup = lsystem["sliderGroup"];
   let sliderValues = sliderGroup.getValues();
   let lsystemValues = {
-    dropdowns: {
+    dropdownValues: {
       rule: dropdowns["rulesetDropdown"].value(),
       shape: dropdowns["shapeDropdown"].value(),
       stroke: dropdowns["strokeDropdown"].value(),
@@ -249,9 +249,8 @@ function addLsystem(
 function setSystemVariables(lsystems) {
   // Add array to hold the data of both Lsystem arrays
   let lsystemValues = [];
-  console.log(lsystems);
+  //console.log(lsystems);
   let addGrain = lsystems[1]["checkBoxes"]["addp5Grain"];
-  // addGrain = lsystems[1]["checkBoxes"][2]; // add addp5Grain checkBoxes to array
   removeRuleset = lsystems[1]["checkBoxes"]["removeRuleset"];
   let n; // number of rulesets to render
   if (removeRuleset.checked()) {
@@ -268,8 +267,8 @@ function setSystemVariables(lsystems) {
 
     // Set color palettes
     let [currentStrokePalette, currentFillPalette] = controls.setPalettes(
-      values["dropdowns"]["stroke"], // strokePalette
-      values["dropdowns"]["fill"] // fillPalette
+      values["dropdownValues"]["stroke"], // strokePalette
+      values["dropdownValues"]["fill"] // fillPalette
     );
 
     // Check to see whether addStroke and/or fillShape are checked
@@ -307,14 +306,14 @@ function setSystemVariables(lsystems) {
 
   let turtle = new Turtle(lsystemValues, images);
 
+  // Add arrays to hold shape and rule choices
   let shapeChoices = [];
   let ruleChoices = [];
 
-  // colorMode (addStroke, fillShape)
   for (let i = 0; i < n; i++) {
     let ruleset = lsystemValues[i]["ruleset"];
-    let ruleChoice = lsystemValues[i]["LsystemValues"]["dropdowns"]["rule"];
-    shapeChoices.push(lsystemValues[i]["LsystemValues"]["dropdowns"]["shape"]);
+    let ruleChoice = lsystemValues[i]["LsystemValues"]["dropdownValues"]["rule"];
+    shapeChoices.push(lsystemValues[i]["LsystemValues"]["dropdownValues"]["shape"]);
     ruleChoices.push(ruleChoice);
     ruleset.selectRule(ruleChoice);
     let lsystemData = ruleset.currentFractal;
@@ -341,11 +340,6 @@ function setSystemVariables(lsystems) {
         ];
     }
 
-    // sliderValues.push(lsystemValues[i]["LsystemValues"]["sliderValues"]);
-    // let clrMode = lsystemValues[i]["ColorMode"];
-    // let currentStrokePalette = lsystemValues[i]["palettes"]["strokePalette"];
-    // let currentFillPalette = lsystemValues[i]["palettes"]["fillPalette"];
-
     // Pass value of colorMode to turtle to indicate whether stroke or fill should be used to render Lsystem
     turtle.addLsystem(
       lsystemData,
@@ -355,7 +349,6 @@ function setSystemVariables(lsystems) {
       i
     );
 
-    //console.log(addGrain);
     if (addGrain.checked()) {
       applyChromaticGrain(42);
     }
