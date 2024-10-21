@@ -57,22 +57,33 @@ class ShapeUI {
   }
 
   // Create a shape based on the selected option
-  selectShape(shapeName, values) {
+  selectShape(shapeName, shapeValues) {
+    // console.log(shapeValues)
     if (shapeName == "Line") {
-      values[1] = 0.5;
+      shapeValues["shapeScale"] = 0.5;
     }
     // Create a new Shape object with necessary parameters
     this.shape = new Shape(
-      values[0] * values[1], //r (gridlength * shapeScale),
-      values[2], // a
-      values[3], // b
-      values[4], // m
-      values[5], // n1
-      values[6], // n2
-      values[7], // n3
-      values[8], // n
-      values[9], // d
-      radians(values[10]) // rotateShape
+      shapeValues["length"] * shapeValues["shapeScale"],
+      shapeValues["a"],
+      shapeValues["b"],
+      shapeValues["m"],
+      shapeValues["n1"],
+      shapeValues["n2"],
+      shapeValues["n3"],
+      shapeValues["n"],
+      shapeValues["d"],
+      radians(shapeValues["shapeAngle"])
+      // values[0] * values[1], //r (gridlength * shapeScale),
+      // values[2], // a
+      // values[3], // b
+      // values[4], // m
+      // values[5], // n1
+      // values[6], // n2
+      // values[7], // n3
+      // values[8], // n
+      // values[9], // d
+      // radians(values[10]) // rotateShape
     );
 
     this.shape.points = []; // Clear any existing points

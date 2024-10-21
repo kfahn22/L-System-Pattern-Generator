@@ -139,7 +139,7 @@ class SliderGroup {
     ];
 
     // Create sliders and labels
-    console.log(this.sliderProperties)
+    //console.log(this.sliderProperties)
     this.createSliders(sliderData["sliderPos"]);
     //this.createSliders(pos, idName);
   }

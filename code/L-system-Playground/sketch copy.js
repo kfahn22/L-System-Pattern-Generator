@@ -11,8 +11,8 @@ let backgroundDropdown;
 let syncVariables; // checkbox for whether the same translation and length variables are used for both Lsystems
 
 //let sliderPos = 0;
-let dropdownPos = 250;
-let canvasPos = dropdownPos + 200;
+let dropdownPos =  290;
+let canvasPos = dropdownPos + 250;
 
 let sliderValues0 = {
   sliderPos: 10,
@@ -25,7 +25,7 @@ let sliderValues0 = {
     wadj: 0.05,
     hadj: 0.5,
     level: 3,
-    length: 0.023,
+    length: 0.23,
     fractalAngle: 0,
   },
   shapeValues: {
@@ -42,7 +42,7 @@ let sliderValues0 = {
   },
 };
 let sliderValues1 = {
-  sliderPos: 1500,
+  sliderPos: 1600,
   colorValues: {
     strokeWeight: 1,
     strokeAlpha: 220,
@@ -52,8 +52,8 @@ let sliderValues1 = {
     wadj: 0.05,
     hadj: 0.5,
     level: 3,
+    length: 0.23,
     fractalAngle: 0,
-    length: 0.023,
   },
   shapeValues: {
     shapeScale: 0.4,
@@ -114,12 +114,10 @@ function setup() {
   syncVariables.style("color", "white");
 
   for (let i = 0; i < 2; i++) {
-    sliderArrays[i]["systemValues"]["length"] =
-      sliderArrays[i]["systemValues"]["length"] * width;
     lsystems.push(
       addLsystem(
         i,
-        dropdownPos + i * 1050,
+        dropdownPos + i * 1000,
         sliderArrays[i],
         ruleChoices[i],
         shapeChoices[i],
@@ -139,52 +137,23 @@ function updateValues(lsystem) {
   let dropdowns = lsystem[1];
   let checkBoxes = lsystem[2];
   let sliderGroup = lsystem[3];
+  let values = [];
+  // Add ruleset, shape, palettes dropdown values
+  for (let i = 0; i < dropdowns.length; i++) {
+    values.push(dropdowns[i].value());
+  }
+  // Add values for addStroke, fillShape, and addP5Grain
+  for (let i = 0; i < 4; i++) {
+    values.push(checkBoxes[i].checked());
+  }
   let sliderValues = sliderGroup.getValues();
-  //console.log(sliderValues)
-  let lsystemValues = {
-    dropdowns: {
-      rule: dropdowns[0].value(),
-      shape: dropdowns[1].value(),
-      stroke: dropdowns[2].value(),
-      fill: dropdowns[3].value(),
-    },
-    checkBoxes: {
-      addStroke: checkBoxes[0].checked(),
-      fillShape: checkBoxes[1].checked(),
-      addp5Grain: checkBoxes[2].checked(),
-      removeRuleset: checkBoxes[3].checked(),
-    },
-    sliderValues: {
-      colorValues: {
-        strokeWeight: sliderValues[0],
-        strokeAlpha: sliderValues[1],
-        fillAlpha: sliderValues[2],
-      },
-      systemValues: {
-        wadj: sliderValues[3],
-        hadj: sliderValues[4],
-        level: sliderValues[5],
-        fractalAngle: sliderValues[6],
-        length: sliderValues[7],
-      },
-      shapeValues: {
-        length: sliderValues[7],
-        shapeScale: sliderValues[8],
-        a: sliderValues[9],
-        b: sliderValues[10],
-        m: sliderValues[11],
-        n1: sliderValues[12],
-        n2: sliderValues[13],
-        n3: sliderValues[14],
-        n: sliderValues[15],
-        d: sliderValues[16],
-        shapeAngle: sliderValues[17],
-      },
-    },
-  };
-
+  //console.log(sliderValues);
+  for (let s of sliderValues) {
+    values.push(s);
+  }
+ 
   sliderGroup.updateLabels();
-  return lsystemValues;
+  return values;
 }
 
 function handleInput(lsystem) {
@@ -243,10 +212,7 @@ function setSystemVariables(lsystems) {
   // Add array to hold the data of both Lsystem arrays
   let lsystemValues = [];
   let sliderValues = [];
-  // console.log(lsystems[1][2][3])
-
   removeRuleset = lsystems[1][2][3];
-  // console.log(removeRuleset.checked())
   let n; // number of rulesets to render
   if (removeRuleset.checked()) {
     n = 1;
@@ -260,47 +226,35 @@ function setSystemVariables(lsystems) {
 
     let controls = lsystems[i][0];
     let values = updateValues(lsystems[i]);
-
-    addp5Grain.push(values["checkBoxes"]["addp5Grain"]); // add addp5Grain checkBoxes to array
+    console.log(values)
+    addp5Grain.push(lsystems[i][2][2]); // add addp5Grain checkBoxes to array
 
     // Set color palettes
     let [currentStrokePalette, currentFillPalette] = controls.setPalettes(
-      values["dropdowns"]["stroke"], // strokePalette
-      values["dropdowns"]["fill"] // fillPalette
+      values[2], // strokePalette
+      values[3] // fillPalette
     );
+
+    let ruleset = controls.ruleset;
+    let shape_ui = controls.shape_ui;
 
     // Check to see whether addStroke and/or fillShape are checked
     // Set value of colorMode to 0,1,2 depended on state of variables
     let clrMode = null;
-
-    if (
-      values["checkBoxes"]["addStroke"] === true &&
-      values["checkBoxes"]["fillShape"] === false
-    ) {
+    if (values[4] === true && values[5] === false) {
       clrMode = 0;
-    } else if (
-      values["checkBoxes"]["addStroke"] === false &&
-      values["checkBoxes"]["fillShape"] === true
-    ) {
+    } else if (values[4] === false && values[5] === true) {
       clrMode = 1;
-    } else if (
-      values["checkBoxes"]["addStroke"] === true &&
-      values["checkBoxes"]["fillShape"] === true
-    ) {
+    } else if (values[4] === true && values[5] === true) {
       clrMode = 2;
     }
 
-    lsystemData = {
-      LsystemValues: values,
-      Shape_UI: controls.shape_ui,
-      ruleset: controls.ruleset,
-      palettes: {
-        strokePalette: currentStrokePalette,
-        fillPalette: currentFillPalette,
-      },
-      ColorMode: clrMode,
-    };
-
+    lsystemData[0] = values;
+    lsystemData[1] = shape_ui;
+    lsystemData[2] = ruleset;
+    lsystemData[3] = currentStrokePalette;
+    lsystemData[4] = currentFillPalette;
+    lsystemData[5] = clrMode;
     lsystemValues[i] = lsystemData;
   }
 
@@ -311,43 +265,29 @@ function setSystemVariables(lsystems) {
 
   // colorMode (addStroke, fillShape)
   for (let i = 0; i < n; i++) {
-    let ruleset = lsystemValues[i]["ruleset"];
-    let ruleChoice = lsystemValues[i]["LsystemValues"]["dropdowns"]["rule"];
-    shapeChoices.push(lsystemValues[i]["LsystemValues"]["dropdowns"]["shape"]);
+    let dropdowns = lsystems[i][1];
+    let ruleset = lsystemValues[i][2];
+    let ruleChoice = dropdowns[0].value();
+    shapeChoices.push(lsystems[i][1][1].value());
     ruleChoices.push(ruleChoice);
     ruleset.selectRule(ruleChoice);
     let lsystemData = ruleset.currentFractal;
 
     // Whether same translation and grid length should be used for all L-systems
     if (syncVariables.checked() && n == 2) {
-      lsystemValues[1]["LsystemValues"]["sliderValues"]["systemValues"][
-        "wadj"
-      ] =
-        lsystemValues[0]["LsystemValues"]["sliderValues"]["systemValues"][
-          "wadj"
-        ];
-      lsystemValues[1]["LsystemValues"]["sliderValues"]["systemValues"][
-        "hadj"
-      ] =
-        lsystemValues[0]["LsystemValues"]["sliderValues"]["systemValues"][
-          "hadj"
-        ];
-      lsystemValues[1]["LsystemValues"]["sliderValues"]["systemValues"][
-        "length"
-      ] =
-        lsystemValues[0]["LsystemValues"]["sliderValues"]["systemValues"][
-          "length"
-        ];
+      lsystemValues[1][0][8] = lsystemValues[0][0][8];
+      lsystemValues[1][0][9] = lsystemValues[0][0][9];
+      lsystemValues[1][0][15] = lsystemValues[0][0][15];
     }
 
-    sliderValues.push(lsystemValues[i]["LsystemValues"]["sliderValues"]);
-    let clrMode = lsystemValues[i]["ColorMode"];
-    let currentStrokePalette = lsystemValues[i]["palettes"]["strokePalette"];
-    let currentFillPalette = lsystemValues[i]["palettes"]["fillPalette"];
+    console.log(lsystemValues[i][0].slice(-18));
+    // Get Shape data
+    sliderValues.push(lsystemValues[i][0].slice(-18)); // -18
+    let clrMode = lsystemValues[i][5];
+    let currentStrokePalette = lsystemValues[i][3];
+    let currentFillPalette = lsystemValues[i][4];
 
-    
     // Pass value of colorMode to turtle to indicate whether stroke or fill should be used to render Lsystem
-    //console.log(currentFillPalette)
     turtle.addLsystem(
       lsystemData,
       shapeChoices,
@@ -359,8 +299,7 @@ function setSystemVariables(lsystems) {
       ruleChoices
     );
 
-    //console.log(addp5Grain[i])
-    if (addp5Grain[i]) {
+    if (addp5Grain[i].checked() == true) {
       applyChromaticGrain(42);
     }
   }

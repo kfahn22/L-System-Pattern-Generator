@@ -20,27 +20,8 @@ class AddControls {
     this.filldropdown = this.fillDropdown.dropdown;
     // Create an instance of the SliderGroup class
     this.sliderGroup = new SliderGroup(
-      sliderValues
-      // sliderValues["sliderPos"], // pos
-      // sliderValues["colorValues"]["strokeWeight"], // strokeWeight
-      // sliderValues["colorValues"]["strokeAlpha"], // stroke alpha
-      // sliderValues["colorValues"]["fillAlpha"], // fill alpha
-      // sliderValues["systemValues"]["wadj"], // wadj
-      // sliderValues["systemValues"]["hadj"], // hadj
-      // sliderValues["systemValues"]["level"], // level
-      // sliderValues["systemValues"]["fractalAngle"], // fractal angle
-      // sliderValues["systemValues"]["length"] * width, // length
-      // sliderValues["shapeValues"]["shapeScale"], // shapeScale
-      // sliderValues["shapeValues"]["a"], // a
-      // sliderValues["shapeValues"]["b"], // b
-      // sliderValues["shapeValues"]["m"], // m
-      // sliderValues["shapeValues"]["n1"], // n1
-      // sliderValues["shapeValues"]["n2"], // n2
-      // sliderValues["shapeValues"]["n3"], // n3
-      // sliderValues["shapeValues"]["n"], // n,
-      // sliderValues["shapeValues"]["d"], // d
-      // sliderValues["shapeValues"]["shapeAngle"]
-    ); // shape angle
+      sliderValues // values to initialize sliders
+    );
     this.sliders = this.sliderGroup.sliders;
     this.sliderValues = this.sliderGroup.getValues();
     this.shape_ui = new ShapeUI(pos, 90, shapeChoice, "Shape");
