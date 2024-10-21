@@ -259,7 +259,6 @@ function setSystemVariables(lsystems) {
     let controls = lsystems[i][0];
     let values = updateValues(lsystems[i]);
 
-    //console.log(values["checkBoxes"]["addp5Grain"])
     addGrain.push(values["checkBoxes"]["addp5Grain"]); // add addp5Grain checkBoxes to array
 
     // Set color palettes
