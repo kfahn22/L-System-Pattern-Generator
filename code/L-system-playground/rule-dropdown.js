@@ -1,21 +1,23 @@
 class RuleDropdown {
-  constructor(posx, posy, lsystem, defaultChoice, label) {
+  constructor(lsystem, defaultChoice, label) {
     // Create the dropdown element
-    this.posx = posx;
-    this.posy = posy;
     this.lsystem = lsystem;
     this.currentFractal = defaultChoice;
-    this.dropdown = createSelect();
-    this.dropdown.position(this.posx, this.posy);
+    this.wrapper = createDiv().addClass("wrapper");
+    this.dropdown = createSelect().class("dropdown");
+     this.dropdown.addClass("dropdown");
+    // this.dropdown.position(this.posx, this.posy);
     this.axiom = "";
     this.rules = "";
     this.angle = 0;
     this.maxLevel = 2;
     this.lf = 1;
     this.sentence = this.axiom;
-    this.dropdown.addClass("dropdown");
+   
     this.label = createP(label);
-    this.label.position(posx, posy - 40);
+    this.wrapper.child(this.label);
+    this.wrapper.child(this.dropdown);
+    // this.label.position(posx, posy - 40);
     this.optionsArray = [
       "none",
       "ADH231a",

@@ -8,10 +8,12 @@ let rulesetData;
 let images = [];
 
 let backgroundDropdown;
+
 let syncVariables; // checkbox for whether the same translation and length variables are used for both Lsystems
 
 let sliderPos = 0;
-let dropdownPos = 180;
+let dropdownPos = sliderPos + 280;
+let canvasPos = dropdownPos + 250;
 
 // Array to store dropdowns, sliderGroup, sliders, checkBoxes
 let lsystem0;
@@ -44,7 +46,7 @@ let strokeChoices = ["orange", "orange"];
 let fillChoices = ["purplePalette", "bluePalette"];
 
 let sliderValues1 = [
-  sliderPos + 1400,
+  sliderPos + 1600,
   0.05, // wadj
   0.5, // hadj
   3, // level
@@ -85,22 +87,23 @@ function preload() {
 
 function setup() {
   canvas = createCanvas(800, 800);
-  canvas.position(360, 95);
+  canvas.position(canvasPos, 95);
   canvas.id("mycanvas");
   p5grain.setup();
 
-  backgroundDropdown = new PaletteDropdown(
+  backgroundDropdown = new BackgroundDropdown(
     dropdownPos,
-    260,
+    800,
     "black",
     "Background Color"
   );
+  //console.log(backgroundDropdown.dropdown)
 
   syncVariables = createCheckbox(
     "Use the same translation and length variables",
     true
   );
-  syncVariables.position(360, 10);
+  syncVariables.position(canvasPos, 10);
   syncVariables.style("color", "white");
 
   for (let i = 0; i < 2; i++) {
@@ -116,13 +119,18 @@ function setup() {
       )
     );
   }
+  // backgroundDropdown = lsystem[1][4];
+  // console.log(backgroundDropdown)
   setSystemVariables(lsystems);
 }
 
 function updateValues(lsystem) {
-  backgroundDropdown.setPalette(backgroundDropdown.dropdown.value());
-  let c = backgroundDropdown.palette;
-  background(c[0]);
+  // Set background color
+  let bkdropdown = backgroundDropdown.dropdown;
+  backgroundDropdown.getColor(bkdropdown.value());
+  console.log(bkdropdown.value());
+  let col = backgroundDropdown.color;
+  background(col[0], col[1], col[2]);
   let dropdowns = lsystem[1];
   let checkBoxes = lsystem[2];
   let sliderGroup = lsystem[3];
@@ -217,10 +225,13 @@ function setSystemVariables(lsystems) {
     addp5Grain.push(lsystems[i][2][2]); // add addp5Grain checkBoxes to array
 
     // Set color palettes
-    let [currentStrokePalette, currentFillPalette] = controls.setPalettes(
-      values[2], // strokePalette
-      values[3] // fillPalette
-    );
+    let [currentbkgroundPalette, currentStrokePalette, currentFillPalette] =
+      controls.setPalettes(
+        values[2], // strokePalette
+        values[3] // fillPalette
+      );
+
+    background(currentbkgroundPalette);
 
     let ruleset = controls.ruleset;
     let shape_ui = controls.shape_ui;
@@ -308,7 +319,7 @@ function addMessages(shapeMessages, warnings) {
   } else addMessage = false;
 
   shapeMessage = createP(message);
-  shapeMessage.position(360, 30);
+  shapeMessage.position(canvasPos, 30);
   shapeMessage.addClass("p");
 
   if (addMessage) {
@@ -322,7 +333,7 @@ function addMessages(shapeMessages, warnings) {
   } else addWarning = false;
 
   ruleWarning = createP(warning);
-  ruleWarning.position(360, 60);
+  ruleWarning.position(canvasPos, 60);
   ruleWarning.addClass("p");
 
   if (addWarning) {

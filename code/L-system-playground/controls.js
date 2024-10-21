@@ -9,17 +9,11 @@ class AddControls {
     strokeChoice,
     fillChoice
   ) {
-    this.strokeDropdown = new PaletteDropdown(
-      pos,
-      145,
-      strokeChoice,
-      "Stroke Color"
-    );
+    this.strokeDropdown = new PaletteDropdown(strokeChoice, "Stroke Color");
     this.strokedropdown = this.strokeDropdown.dropdown;
-    this.fillDropdown = new PaletteDropdown(pos, 200, fillChoice, "Fill Color");
+    this.fillDropdown = new PaletteDropdown(fillChoice, "Fill Color");
     this.filldropdown = this.fillDropdown.dropdown;
     // Create an instance of the SliderGroup class
-    console.log(sliderValues[1])
     this.sliderGroup = new SliderGroup(
       sliderValues[0], // pos
       id,
@@ -46,63 +40,93 @@ class AddControls {
     //console.log(this.sliderGroup)
     this.sliders = this.sliderGroup.sliders;
     this.sliderValues = this.sliderGroup.getValues();
-    this.shape_ui = new ShapeUI(pos, 90, shapeChoice, "Shape");
+    this.shape_ui = new ShapeUI(shapeChoice, "Shape");
     this.shapeMessage = this.shape_ui.message;
     this.addMessage = this.shape_ui.addMessage;
     this.shapeDropdown = this.shape_ui.dropdown;
     this.ruleset = new RuleDropdown(
-      pos,
-      35,
       rulesetData,
       ruleChoice,
       "L-system Ruleset"
     );
     this.rulesetDropdown = this.ruleset.dropdown;
     // Checkbox to determine whether shapes have stroke
-    this.addStroke = createCheckbox("Add stroke", true);
-    this.addStroke.position(pos, 335);
-    this.addStroke.style("color", "white");
+    this.addStroke = createCheckbox("Add stroke", true).addClass("custom-checkbox");
+    // In your HTML or p5.js sketch, you can add the following CSS:
+    let style = document.createElement("style");
+    style.innerHTML = `
+  .custom-checkbox input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+  }
+`;
+    document.head.appendChild(style);
+    // this.addStroke.type("")
+    // this.addStroke.position(pos, 335);
+    // this.addStroke.style("color", "white");
     // Checkbox to determine whether shapes are filled
-    this.fillShape = createCheckbox("Fill shapes", true);
-    this.fillShape.position(pos, 370);
-    this.fillShape.style("color", "white");
+    this.fillShape = createCheckbox("Fill shapes", true).addClass("custom-checkbox");
+    // this.fillShape.position(pos, 370);
+    // this.fillShape.style("color", "white");
     // Whether to add P5 Grain library
     // Will slow down the render so I recommend keeping to false most of the time
-    this.addP5Grain = createCheckbox("Add p5.Grain", false);
-    this.addP5Grain.position(180, 405);
-    this.addP5Grain.style("color", "white");
-    this.removeRuleset = createCheckbox("Remove second ruleset", false);
+    this.addP5Grain = createCheckbox("Add p5.Grain", false).addClass(
+      "custom-checkbox"
+    );
+    //this.addP5Grain.position(pos, 405);
+    // this.addP5Grain.style("color", "white");
+    this.removeRuleset = createCheckbox(
+      "Remove second ruleset",
+      false
+    ).addClass("custom-checkbox");
     this.removeRuleset.position(900, 10);
     this.removeRuleset.style("color", "white");
-
-    // Ensure checkboxes reflect initial values
-    //this.updateCheckboxes();
+    this.id = id;
+    this.idName = `Lsystem${id}`;
     this.values = [];
+    this.addtoDiv(pos);
   }
 
   setPalettes(stroke, fill) {
+    // this.backgroundDropdown.setPalette(bkground);
     this.strokeDropdown.setPalette(stroke);
     this.fillDropdown.setPalette(fill);
     return [this.strokeDropdown.palette, this.fillDropdown.palette];
   }
 
+  addtoDiv(pos) {
+    let container = createDiv().addClass("controls");
+    container.position(pos, 10);
+    container.child(this.ruleset.wrapper);
+    container.child(this.shape_ui.wrapper);
+    container.child(this.strokeDropdown.wrapper);
+    container.child(this.fillDropdown.wrapper);
+    // We only want to add one background Dropdown
+    // if (this.id == 0) {
+    //   container.child(this.backgroundDropdown.wrapper);
+    // }
+    container.child(this.addStroke);
+    container.child(this.fillShape);
+    container.child(this.addP5Grain);
+  }
+
   // This isn't working -- not sure why
   // Add same code directly in sketch.js and works
-  setColorMode() {
-    let colorMode = null;
-    // Stroke, no fill
-    if (this.values[5] === true && this.values[6] === false) {
-      colorMode = 0;
-      // Fill, no Stroke
-    } else if (this.values[5] === false && this.values[6] === true) {
-      colorMode = 1;
-      //  Both stroke and fill
-    } else if (this.values[5] === true && this.values[5] === true) {
-      colorMode = 2;
-    }
-    //console.log(this.values[5], this.values[6], colorMode)
-    return colorMode;
-  }
+  // setColorMode() {
+  //   let colorMode = null;
+  //   // Stroke, no fill
+  //   if (this.values[5] === true && this.values[6] === false) {
+  //     colorMode = 0;
+  //     // Fill, no Stroke
+  //   } else if (this.values[5] === false && this.values[6] === true) {
+  //     colorMode = 1;
+  //     //  Both stroke and fill
+  //   } else if (this.values[5] === true && this.values[5] === true) {
+  //     colorMode = 2;
+  //   }
+  //console.log(this.values[5], this.values[6], colorMode)
+  //   return colorMode;
+  // }
 
   // Return instance of dropdowns
   returnDropdowns() {
@@ -111,6 +135,7 @@ class AddControls {
       this.shapeDropdown,
       this.strokedropdown,
       this.filldropdown,
+      // this.backgrounddropdown
     ];
   }
 

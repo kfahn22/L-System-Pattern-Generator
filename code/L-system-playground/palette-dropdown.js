@@ -1,9 +1,11 @@
 class PaletteDropdown {
-  constructor(posx, posy, defaultChoice, label) {
+  constructor(defaultChoice, label) {
+    // Create a div for the dropdown and label
+    this.wrapper = createDiv().addClass("wrapper");
     // Create the dropdown element
-    this.dropdown = createSelect();
-    this.dropdown.position(posx, posy);
-    this.dropdown.addClass("dropdown");
+    this.dropdown = createSelect().class("dropdown");
+    // this.dropdown.position(posx, posy);
+    // this.dropdown.addClass("dropdown");
     this.selected = defaultChoice;
     this.optionsArray = [
       "white",
@@ -47,16 +49,18 @@ class PaletteDropdown {
 
     // Add options to the dropdown
     this.optionsArray.forEach((option) => this.dropdown.option(option));
+
+    
     // Create label
     this.label = createP(label);
-    this.label.position(posx, posy - 40);
-
-    this.label.style("color", "white");
+    this.wrapper.child(this.label);
+    this.wrapper.child(this.dropdown);
 
     // Set the default selected option
     if (defaultChoice) {
       this.dropdown.selected(defaultChoice);
     }
+    
   }
 
   // Handle the dropdown selection change
