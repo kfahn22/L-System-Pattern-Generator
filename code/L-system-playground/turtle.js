@@ -148,7 +148,7 @@ class Turtle {
       length: systemValues.length,
       shapeScale: shapeValues.shapeScale,
       a: shapeValues.a,
-      b: shapeValuesb,
+      b: shapeValues.b,
       m: shapeValues.m,
       n1: shapeValues.n1,
       n2: shapeValues.n2,
