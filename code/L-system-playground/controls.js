@@ -53,9 +53,7 @@ class AddControls {
     this.removeRuleset.position(900, 10);
     this.removeRuleset.style("color", "white");
 
-    // Ensure checkboxes reflect initial values
-    //this.updateCheckboxes();
-    this.values = [];
+    //this.values = [];
   }
 
   setPalettes(stroke, fill) {
@@ -88,11 +86,5 @@ class AddControls {
 
     }
     return checkBoxes;
-    // return [
-    //   this.addStroke,
-    //   this.fillShape,
-    //   this.addP5Grain,
-    //   this.removeRuleset,
-    // ];
   }
 }
