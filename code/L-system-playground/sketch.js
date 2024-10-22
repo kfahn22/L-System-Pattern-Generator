@@ -135,7 +135,6 @@ function setup() {
   setSystemVariables(lsystems);
 }
 
-
 function updateValues(lsystem) {
   backgroundDropdown.setPalette(backgroundDropdown.dropdown.value());
   let c = backgroundDropdown.palette;
@@ -210,9 +209,14 @@ function handleInput(lsystem) {
 }
 
 function reset() {
-  clear();
-  shapeMessage.hide();
-  ruleWarning.hide();
+  // clear();
+  // If there's an old message, remove it
+  if (shapeMessage) {
+    shapeMessage.remove();
+  }
+  if (ruleWarning != [null, null]) {
+    ruleWarning.remove();
+  }
   setSystemVariables(lsystems);
 }
 
@@ -249,9 +253,10 @@ function addLsystem(
 function setSystemVariables(lsystems) {
   // Add array to hold the data of both Lsystem arrays
   let lsystemValues = [];
-  //console.log(lsystems);
+  
   let addGrain = lsystems[1]["checkBoxes"]["addp5Grain"];
   removeRuleset = lsystems[1]["checkBoxes"]["removeRuleset"];
+
   let n; // number of rulesets to render
   if (removeRuleset.checked()) {
     n = 1;
@@ -312,8 +317,11 @@ function setSystemVariables(lsystems) {
 
   for (let i = 0; i < n; i++) {
     let ruleset = lsystemValues[i]["ruleset"];
-    let ruleChoice = lsystemValues[i]["LsystemValues"]["dropdownValues"]["rule"];
-    shapeChoices.push(lsystemValues[i]["LsystemValues"]["dropdownValues"]["shape"]);
+    let ruleChoice =
+      lsystemValues[i]["LsystemValues"]["dropdownValues"]["rule"];
+    shapeChoices.push(
+      lsystemValues[i]["LsystemValues"]["dropdownValues"]["shape"]
+    );
     ruleChoices.push(ruleChoice);
     ruleset.selectRule(ruleChoice);
     let lsystemData = ruleset.currentFractal;
