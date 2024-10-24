@@ -70,7 +70,7 @@ class SliderGroup {
         label: "Shape radius:",
       },
       {
-        min: 0,
+        min: -1,
         max: 10,
         value: values.shapeVariables.a,
         step: 0.1,

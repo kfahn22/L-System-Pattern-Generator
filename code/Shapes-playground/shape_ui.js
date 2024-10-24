@@ -55,10 +55,8 @@ class ShapeUI {
     this.dropdown.selected(this.choice);
   }
 
-  // sliders - wadj,hadj,level,length,strokeweight, shapeAlpha,sc,rot,rotateShape,a,b,m,n,n1,n2, n3
   // Create a shape based on the selected option
   selectShape(shapeName, values) {
-    //let r = values[0];
     // Create a new Shape object with necessary parameters
     this.shape = new Shape(
       values.wadj,
@@ -73,18 +71,6 @@ class ShapeUI {
       values.n,
       values.d,
       radians(values.shapeAngle)
-      // values[0], // x
-      // values[1], // y
-      // values[2], // radius
-      // values[3], // a
-      // values[4], // b
-      // values[5], // m
-      // values[6], // n1
-      // values[7], // n2
-      // values[8], // n3
-      // values[9], // n,
-      // values[10], // d
-      //radians(values[11]) // rotateShape
     );
 
     this.shape.points = []; // Clear any existing points
@@ -178,7 +164,7 @@ class ShapeUI {
         this.shape.lissajous();
         this.addMessage = true;
         this.message =
-          "The lissajous curve is a f(a, b, m). Start: a = 4; b=4, m=8";
+          "The lissajous curve is a f(a, b, m). Start: a = 4; b=3.6, m=8";
         break;
       case "Maltese Cross":
         this.shape.malteseCross();
@@ -218,7 +204,7 @@ class ShapeUI {
         this.shape.supershape();
         this.addMessage = true;
         this.message =
-          "The supershape curve is a f(a, b, m, n1, n2, n3). Start: a=b=n1=n2=n3=1, m=8";
+          "Supershape curve ~ f(a,b,m,n1,n2,n3). Start: a=b=n1=n2=n3=1, m=8";
         break;
       case "Spiral":
         this.shape.spiral();
@@ -229,6 +215,8 @@ class ShapeUI {
         this.shape.tearDrop();
         break;
       case "Windmill":
+        this.addMessage = true;
+        this.message = "The windmill curve is a f(a, m).";
         this.shape.windmill();
         break;
       case "Zigzag":
