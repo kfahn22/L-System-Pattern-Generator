@@ -14,7 +14,7 @@ let dropdownPos = 250;
 let canvasPos = dropdownPos + 200;
 
 let sliderValues0 = {
-  sliderPos: 10,
+  sliderPos: 0,
   colorValues: {
     strokeWeight: 1,
     strokeAlpha: 220,
@@ -41,7 +41,7 @@ let sliderValues0 = {
   },
 };
 let sliderValues1 = {
-  sliderPos: 1500,
+  sliderPos: 1450,
   colorValues: {
     strokeWeight: 1,
     strokeAlpha: 220,
