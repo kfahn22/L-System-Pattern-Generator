@@ -68,6 +68,7 @@ class Shape {
   butterfly2() {
     for (let theta = 0; theta < 2 * PI; theta += 0.01) {
       let r = -3 * cos(2 * theta) + sin(7 * theta) - 1;
+      //let r = -this.a * cos(this.m * theta) + sin(this.d * theta) - 1;
       const x = this.r * r * cos(theta);
       const y = -this.r * r * sin(theta);
       this.points.push(createVector(x, y));
@@ -445,7 +446,7 @@ class Shape {
   //https://mathcurve.com/courbes2d.gb/moulinavent/moulinavent.shtml
   windmill() {
      for (let theta = 0; theta < 2*PI; theta += 0.01) {
-      let r = abs(this.m * tan(2*theta));
+      let r = abs(this.m * tan(2*theta)) + this.a;
        let x = this.r * r * cos(theta);
        let y = this.r * r * sin(theta);
        this.points.push(createVector(x, y));
