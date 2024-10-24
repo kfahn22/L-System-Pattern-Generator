@@ -68,6 +68,7 @@ class Shape {
   butterfly2() {
     for (let theta = 0; theta < 2 * PI; theta += 0.01) {
       let r = -3 * cos(2 * theta) + sin(7 * theta) - 1;
+      //let r = -this.a * cos(this.m * theta) + sin(this.d * theta) - 1;
       const x = this.r * r * cos(theta);
       const y = -this.r * r * sin(theta);
       this.points.push(createVector(x, y));
