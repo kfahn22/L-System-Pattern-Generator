@@ -117,7 +117,7 @@ class SliderGroup {
         min: -180,
         max: 180,
         value: values.shapeVariables.shapeAngle,
-        step: 45,
+        step: 15,
         label: "Rotate shape:",
       },
     ];

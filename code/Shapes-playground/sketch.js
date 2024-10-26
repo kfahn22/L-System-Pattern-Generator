@@ -286,7 +286,7 @@ function setShape(shapeSystems) {
   } else {
     shapes[0].show();
   }
-  pop();
+ pop();
   if (addShape.checked()) {
     push();
     addColor(shapeColorValues[1], openShapes, shapeNames[1]);
