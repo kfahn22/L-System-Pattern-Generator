@@ -15,52 +15,60 @@ let backgroundDropdown;
 
 let shapeSystems = [];
 let shapeSystem0;
-let shapeChoice0 = "Flower";
-let shapeChoice1 = "Gear";
-
-// Can I lerp colors instead?
-let strokeChoice0 = "blue";
-let strokeChoice1 = "purple";
-let fillChoice0 = "aqua";
-let fillChoice1 = "blue";
+let shapeChoices = ["Flower", "Gear"];
+let strokeChoices = ["blue", "purple"];
+let fillChoices = ["aqua", "blue"];
 
 // // Shape message re parameters to choosen shape
 let shapeMessage = null;
 
-let sliderValues0 = [
-  2, // strokeWeight
-  255, // stroke alpha
-  150, // fill alpha
-  0.0, // translate shape x
-  0.0, // translate shape y
-  0.1, // r
-  1, // a
-  1, // b
-  8, // m
-  1, // n1
-  1, // n2
-  1, // n3
-  1, // n
-  5, // d
-  0, // shape angle
-];
+let sliderValues0 = {
+  pos: 10,
+  colorVariables: {
+    strokeWeight: 2,
+    strokeAlpha: 255,
+    fillAlpha: 150,
+  },
+  shapeVariables: {
+    wadj: 0,
+    hadj: 0,
+    r: 0.1,
+    a: 1,
+    b: 1,
+    m: 8,
+    n1: 1,
+    n2: 1,
+    n3: 1,
+    n: 1,
+    d: 5,
+    shapeAngle: 0,
+  },
+};
 
-let sliderValues1 = [
-  2, // strokeWeight
-  255, // stroke alpha
-  150, // fill alpha
-  0.0, // translate shape x
-  0.0, // translate shape y
-  0.1, // r
-  1, // a
-  1, // b
-  6, // m
-  1, // n1
-  1, // n2
-  1, // n3
-  1, // n
-  0, // shape angle
-];
+let sliderValues1 = {
+  pos: 950,
+  colorVariables: {
+    strokeWeight: 2,
+    strokeAlpha: 255,
+    fillAlpha: 150,
+  },
+  shapeVariables: {
+    wadj: 0,
+    hadj: 0,
+    r: 0.1,
+    a: 1,
+    b: 1,
+    m: 8,
+    n1: 1,
+    n2: 1,
+    n3: 1,
+    n: 1,
+    d: 5,
+    shapeAngle: 0,
+  },
+};
+
+let sliderValues = [sliderValues0, sliderValues1];
 
 function setup() {
   canvas = createCanvas(600, 600);
@@ -77,55 +85,75 @@ function setup() {
     "Background Color"
   );
 
-  // Add the dropdowns, sliders, and checkboxes
-  shapeSystems.push(
-    addShapeSystem(10, sliderValues0, shapeChoice0, strokeChoice0, fillChoice0)
-  );
-  shapeSystems.push(
-    addShapeSystem(950, sliderValues1, shapeChoice1, strokeChoice1, fillChoice1)
-  );
+  for (let i = 0; i < 2; i++) {
+    sliderValues[i].shapeVariables.r = sliderValues[i].shapeVariables.r * width;
+    shapeSystems.push(
+      addShapeSystem(
+        sliderValues[i],
+        shapeChoices[i],
+        strokeChoices[i],
+        fillChoices[i]
+      )
+    );
+  }
 
   setShape(shapeSystems);
 }
 
 function updateValues(shapeSystem) {
-  // let controls = shapeSystem[0];
-  let dropdowns = shapeSystem[1];
-  let checkBoxes = shapeSystem[2];
-  let sliderGroup = shapeSystem[3];
-  let values = [];
-  // Add ruleset, shape, palettes dropdown values
-  for (let i = 0; i < dropdowns.length; i++) {
-    values.push(dropdowns[i].selected());
-  }
-  // Add values for addStroke, fillShape, addShape
-  for (let i = 0; i < 2; i++) {
-    values.push(checkBoxes[i].checked());
-  }
-
-  // Add slider values
+  let dropdowns = shapeSystem.dropdowns;
+  let checkBoxes = shapeSystem.checkBoxes;
+  let sliderGroup = shapeSystem.sliderGroup;
   let sliderValues = sliderGroup.getValues();
-  for (let s of sliderValues) {
-    values.push(s);
-  }
-  sliderGroup.updateLabels();
 
+  let values = {
+    dropdownValues: {
+      shape: dropdowns.shapeDropdown.value(),
+      stroke: dropdowns.strokeDropdown.value(),
+      fill: dropdowns.fillDropdown.value(),
+    },
+    checkBoxes: {
+      addStroke: checkBoxes.addStroke.checked(),
+      fillShape: checkBoxes.fillShape.checked(),
+    },
+    sliderValues: {
+      colorValues: {
+        strokeWeight: sliderValues[0],
+        strokeAlpha: sliderValues[1],
+        fillAlpha: sliderValues[2],
+      },
+      shapeValues: {
+        wadj: sliderValues[3],
+        hadj: sliderValues[4],
+        r: sliderValues[5],
+        a: sliderValues[6],
+        b: sliderValues[7],
+        m: sliderValues[8],
+        n1: sliderValues[9],
+        n2: sliderValues[10],
+        n3: sliderValues[11],
+        n: sliderValues[12],
+        d: sliderValues[13],
+        shapeAngle: sliderValues[14],
+      },
+    },
+  };
+ sliderGroup.updateLabels();
   return values;
 }
 
 function handleInput(shapeSystem) {
   backgroundDropdown.dropdown.changed(reset);
-  let dropdowns = shapeSystem[1];
-  let checkBoxes = shapeSystem[2];
-  let sliders = shapeSystem[4];
-  for (let d of dropdowns) {
-    d.changed(reset);
-  }
+  let dropdowns = shapeSystem.dropdowns;
+  let checkBoxes = shapeSystem.checkBoxes;
+  let sliders = shapeSystem.controls.sliders;
+  dropdowns.shapeDropdown.changed(reset);
+  dropdowns.strokeDropdown.changed(reset);
+  dropdowns.fillDropdown.changed(reset);
+  checkBoxes.addStroke.changed(reset);
+  checkBoxes.fillShape.changed(reset);
   for (let s of sliders) {
     s.input(reset);
-  }
-  for (let c of checkBoxes) {
-    c.changed(reset);
   }
   addShape.changed(reset);
 }
@@ -142,7 +170,6 @@ function addShapeSystem(
   strokeChoice,
   fillChoice
 ) {
-  let shapeSystem = [];
   let controls = new AddControls(
     pos,
     sliderValues,
@@ -150,11 +177,14 @@ function addShapeSystem(
     strokeChoice,
     fillChoice
   );
-  shapeSystem[0] = controls;
-  shapeSystem[1] = controls.returnDropdowns();
-  shapeSystem[2] = controls.returnCheckboxes();
-  shapeSystem[3] = controls.sliderGroup;
-  shapeSystem[4] = controls.sliders;
+
+  let shapeSystem = {
+    controls: controls,
+    dropdowns: controls.returnDropdowns(),
+    checkBoxes: controls.returnCheckboxes(),
+    sliderGroup: controls.sliderGroup,
+    sliders: controls.sliders,
+  };
 
   // Add function to handle changes in sliders
   handleInput(shapeSystem);
@@ -175,32 +205,36 @@ function setShape(shapeSystems) {
   for (let i = 0; i < n; i++) {
     // Array to hold the data for each shape
     let shapeData = [];
-    let controls = shapeSystems[i][0];
-    let dropdowns = shapeSystems[i][1];
-    let checkBoxes = shapeSystems[i][2];
+    let controls = shapeSystems[i].controls;
+    let dropdowns = shapeSystems[i].dropdowns;
+    let checkBoxes = shapeSystems[i].checkBoxes;
     let values = updateValues(shapeSystems[i]);
+    //console.log(values);
+    let strokeName = values.dropdownValues.stroke;
+    let fillName = values.dropdownValues.fill;
+    let sw = values.sliderValues.colorValues.strokeWeight;
+    let strokeAlpha = values.sliderValues.colorValues.strokeAlpha;
+    let fillAlpha = values.sliderValues.colorValues.fillAlpha;
 
-    // Add all of the color choices to an array
-    let colorChoices = [];
-    let strokeName = values[1];
-    let fillName = values[2];
-    let sw = values[5];
     let [strokeChoice, fillChoice] = controls.getColors(strokeName, fillName);
-    strokeChoice[3] = values[6];
-    fillChoice[3] = values[7];
-    let addStroke = checkBoxes[0];
-    let fillShape = checkBoxes[1];
 
-    colorChoices.push(strokeChoice);
-    colorChoices.push(sw);
-    colorChoices.push(addStroke);
-    colorChoices.push(fillChoice);
-    colorChoices.push(fillShape);
+    colorChoices = {
+      stroke: strokeChoice,
+      addStroke: checkBoxes.addStroke,
+      strokeAlpha: strokeAlpha,
+      strokeWeight: sw,
+      fill: fillChoice,
+      fillAlpha: fillAlpha,
+      fillShape: checkBoxes.fillShape,
+    };
 
-    shapeData[0] = controls;
-    shapeData[1] = values;
-    shapeData[2] = dropdowns;
-    shapeData[3] = colorChoices;
+    shapeData = {
+      controls: controls,
+      shapeValues: values.sliderValues.shapeValues,
+      dropdowns: dropdowns,
+      shapeColor: colorChoices,
+    };
+    // Push the data for each shape to an array
     shapeSystemValues[i] = shapeData;
   }
 
@@ -215,29 +249,27 @@ function setShape(shapeSystems) {
     "Lissajous",
     "Ophiuride",
     "Spiral",
-    // "Windmill",
     "Zigzag",
   ];
 
   for (let i = 0; i < n; i++) {
     let shapeSystem = shapeSystemValues[i];
-    let controls = shapeSystem[0];
-    let values = shapeSystem[1];
-    let dropdowns = shapeSystem[2];
+    let controls = shapeSystem.controls;
+    //let shapeValues = shapeSystem.shapeValues;
+    let dropdowns = shapeSystem.dropdowns;
 
-    shapeColorValues.push(shapeSystem[3]);
+    shapeColorValues.push(shapeSystem.shapeColor);
 
     // Set background color
     let bkdropdown = backgroundDropdown.dropdown;
     backgroundDropdown.getColor(bkdropdown.value());
     background(backgroundDropdown.color);
 
-    let shapeValues = values.slice(-12);
     let shape_ui = controls.shape_ui;
-    let shapeName = dropdowns[0].value();
+    let shapeName = dropdowns.shapeDropdown.value();
     shapeNames.push(shapeName);
 
-    shape_ui.selectShape(shapeName, shapeValues);
+    shape_ui.selectShape(shapeName, shapeSystem.shapeValues);
     let shape = shape_ui.shape;
     shapes.push(shape);
 
@@ -254,7 +286,7 @@ function setShape(shapeSystems) {
   } else {
     shapes[0].show();
   }
-  pop();
+ pop();
   if (addShape.checked()) {
     push();
     addColor(shapeColorValues[1], openShapes, shapeNames[1]);
@@ -286,7 +318,7 @@ function updateMessage(messages, n) {
       messages[1] != null &&
       messages[0] != messages[1]
     ) {
-      message = messages[0] + " " + messages[1];
+      message = messages[0] + "<br>" + messages[1];
     } else if (messages[0] == null && messages[1] != null) {
       message = messages[1];
     } else if (messages[0] == null && messages[0] == null) {
@@ -308,17 +340,20 @@ function addMessages(message) {
   if (message) {
     shapeMessage = createP(message); // Create a new paragraph with the message
     shapeMessage.position(300, 50); // Set position for the message
-    shapeMessage.style("font-size", "30px");
+    shapeMessage.style("font-size", "22px");
   }
 }
 
 function addColor(colorChoices, openShapes, shapeName) {
-  //console.log(colorChoices)
-  let strokeChoice = colorChoices[0];
-  let sw = colorChoices[1];
-  let addStroke = colorChoices[2];
-  let fillChoice = colorChoices[3];
-  let fillShape = colorChoices[4];
+  let strokeChoice = colorChoices.stroke;
+  let sw = colorChoices.strokeWeight;
+  // Update the stroke alpha value
+  strokeChoice[3] = colorChoices.strokeAlpha;
+  let addStroke = colorChoices.addStroke;
+  let fillChoice = colorChoices.fill;
+  // Update the fill alpha value
+  fillChoice[3] = colorChoices.fillAlpha;
+  let fillShape = colorChoices.fillShape;
 
   if (
     (addStroke.checked() && !fillShape.checked()) ||
@@ -338,7 +373,7 @@ function addColor(colorChoices, openShapes, shapeName) {
   }
 }
 
-// Function to save the canvas as an image when 's' key is pressed
+// Function to save the canvas as an image when 'k' key is pressed
 function keyPressed() {
   if (key === "k" || key === "K") {
     save("img.jpg");
