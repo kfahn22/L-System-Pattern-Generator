@@ -212,6 +212,8 @@ class ShapeUI {
         this.message = "The spiral is a f(a, n), n ~ [-1, 1]. Start a=0.1, n=1";
         break;
       case "Tear Drop":
+        this.addMessage = true;
+        this.message = "The tear is a f(a, m), Start a=1, m=2";
         this.shape.tearDrop();
         break;
       case "Windmill":

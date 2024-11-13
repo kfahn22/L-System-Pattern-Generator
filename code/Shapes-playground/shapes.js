@@ -437,20 +437,20 @@ class Shape {
   tearDrop() {
     let n = 4;
     for (let theta = 0; theta < TWO_PI; theta += 0.1) {
-      let x = this.r * cos(theta);
-      let y = this.r * sin(theta) * pow(sin(theta / 2), n);
+      let x = this.a * this.r * cos(theta);
+      let y = this.r * sin(theta) * pow(sin(theta / 2), this.m);
       this.points.push(createVector(x, y));
     }
   }
 
   //https://mathcurve.com/courbes2d.gb/moulinavent/moulinavent.shtml
   windmill() {
-     for (let theta = 0; theta < 2*PI; theta += 0.01) {
-      let r = abs(this.m * tan(2*theta)) + this.a;
-       let x = this.r * r * cos(theta);
-       let y = this.r * r * sin(theta);
-       this.points.push(createVector(x, y));
-     }
+    for (let theta = 0; theta < 2 * PI; theta += 0.01) {
+      let r = abs(this.m * tan(2 * theta)) + this.a;
+      let x = this.r * r * cos(theta);
+      let y = this.r * r * sin(theta);
+      this.points.push(createVector(x, y));
+    }
   }
 
   // https://mathcurve.com/courbes2d.gb/abdank/abdank.shtml
