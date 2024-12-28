@@ -361,7 +361,7 @@ class Shape {
     }
   }
 
-  quadrilaterial() {
+  polygon() {
     for (let theta = 0; theta < TWO_PI; theta += TWO_PI / this.m) {
       let x = this.r * cos(theta);
       let y = this.r * sin(theta);
