@@ -73,7 +73,7 @@ The supershape curve is a f(a, b, m, n, n1, n2, n3).
     </tr>
     <tr>
      <td align="center"><a href="quadrifolium.md"> <img class="img" src="./assets/shape_images/quadrifolium.jpg" alt="Quadrifolium" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Quadrifolium</b></sub></a></td>
-     <td align="center"><a href="quadrilateral.md"> <img class="img" src="./assets/shape_images/quadrilateral.jpg" alt="Quadrilateral" style=" display: block;
+     <td align="center"><a href="polygon.md"> <img class="img" src="./assets/shape_images/polygon.jpg" alt="Polygon" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="300" /><br /><sub><b><br/>Quadrilateral</b></sub></a></td>
      <td align="center"><a href="superellipse.md"> <img class="img" src="./assets/shape_images/superellipse.jpg" alt="Superellipse" style="vertical-align:top;" width="300" /><br /><sub><b><br/>Superellipse</b></sub></a></td>
